@@ -1,0 +1,35 @@
+.wp-block-cover {
+
+	min-height: 25vh;
+
+	&::after {
+		content: '';
+		display: block;
+	}
+
+	&.is-style-aspect-21::after {
+		padding-bottom: percentage(1/2);
+	}
+
+	&.is-style-aspect-31::after {
+		padding-bottom: percentage(1/3);
+	}
+
+	&.is-style-aspect-41::after {
+		padding-bottom: percentage(1/4);
+	}
+
+	&.is-style-aspect-169::after {
+		padding-bottom: percentage(9/16);
+	}
+
+	&__inner-container {
+		@extend .c-stack;
+		margin: 2rem 0;
+	}
+
+	&:first-child {
+		--stack-margin: var(--unit-large);
+	}
+
+}

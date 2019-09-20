@@ -10,6 +10,10 @@
 		--stack-margin: var(--unit-small);
 	}
 
+	&--large {
+		--stack-margin: var(--unit-large);
+	}
+
 	> * {
 		margin-top: var(--stack-margin);
 		margin-bottom: var(--stack-margin);
