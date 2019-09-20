@@ -25,7 +25,10 @@
 
 	&__inner-container {
 		@extend .c-stack;
-		margin: 2rem 0;
+		@include constrain-wide;
+		width: 100vw;
+		margin-top: var(--stack-margin);
+		margin-bottom: var(--stack-margin);
 	}
 
 	&:first-child {
