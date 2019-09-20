@@ -46,7 +46,7 @@ class Assets
 		/**
 		 * CSS
 		 */
-		$deps = [];
+		$deps = ['wp-block-library'];
 		wp_enqueue_style('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.css', [], '3.4.0');
 		$deps[] = 'fancybox';
 		wp_enqueue_style(sht_theme()->prefix . '-style', $this->theme_url . '/assets/styles/ui' . ($min ? '.min' : '') . '.css', $deps, $theme_version);

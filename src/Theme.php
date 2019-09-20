@@ -79,6 +79,7 @@ class Theme
 				\SayHello\Theme\Package\Sidebars::class,
 				\SayHello\Theme\Package\SVG::class,
 				\SayHello\Theme\Package\ThemeOptions::class,
+				\SayHello\Theme\Package\View::class,
 			]
 		);
 
@@ -151,7 +152,7 @@ class Theme
 	 */
 	public function contentWidth()
 	{
-		$GLOBALS[ 'content_width' ] = apply_filters('sht/content_width', 640);
+		$GLOBALS[ 'content_width' ] = apply_filters('sht/content_width', 720);
 	}
 
 	/**

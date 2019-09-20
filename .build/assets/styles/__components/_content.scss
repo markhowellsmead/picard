@@ -1,8 +1,10 @@
 .c-content {
 	&__content {
 		@extend .c-stack;
-		max-width: var(--constraint-narrow);
-		margin-left: auto;
-		margin-right: auto;
+		@include constrain-narrow;
+	}
+
+	&__header {
+		@include constrain-narrow;
 	}
 }

@@ -48,11 +48,11 @@ class LazyImage
 		$this->ls_sizes      = apply_filters(
 			'lazy_sizes_size',
 			[
-				'window' => 2000,
-				'page'   => 1200,
-				'large'  => 640,
-				'medium' => 320,
-				'small'  => 160,
+				'gutenberg_full' => 2560,
+				'gutenberg_wide' => 1280,
+				'large'  => 720,
+				'medium' => 360,
+				'small'  => 180,
 			]
 		);
 
