@@ -31,32 +31,9 @@ input,
 li,
 p,
 tr {
-	color: c();
-	margin: 0;
-	font-size: 1em;
-
-	em {
-		font-style: italic;
-	}
-
-	b,
-	strong {
-		font-weight: bold;
-	}
-
-	small {
-		font-size: $font-size-xsmall;
-		display: inline-block;
-	}
-
-	&.big,
-	.big {
-		font-size: $font-size-xlarge;
-	}
-
 	sub,
 	sup {
-		font-size: $font-size-xsmall;
+		font-size: var(--font-size-small);
 		line-height: 0;
 		position: relative;
 		vertical-align: baseline;
@@ -78,5 +55,4 @@ h4,
 h5,
 h6 {
 	font-family: var(--font-family-heading);
-	color: c(black, dark);
 }

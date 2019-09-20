@@ -87,10 +87,7 @@ class Theme
 		add_action('after_setup_theme', [ $this, 'contentWidth' ]);
 
 		add_action('wp_head', [ $this, 'noJsScript' ]);
-		add_action('wp_head', [ $this, 'browserOutdatedScript' ]);
 		add_action('wp_head', [ $this, 'humansTxt' ]);
-
-		add_action('wp_footer', [ $this, 'browserRequirements' ], 100);
 
 		$this->cleanHead();
 		$this->setTimezone();
@@ -217,30 +214,6 @@ class Theme
 	 */
 	public function noJsScript()
 	{
-		echo "<script>(function(html){html.className = html.className.replace(/\bbrowser--no-js\b/,'js')})(document.documentElement);</script>\n";
-	}
-
-	/**
-	 * Checks if the browser supports css grid and adds "browser-outdated"-class to the html
-	 */
-	public function browserOutdatedScript()
-	{
-		echo "<script>(function(html){if(typeof document.createElement('div').style.grid !== 'string'){html.className = html.className + ' browser--outdated'}})(document.documentElement);</script>\n";
-	}
-
-	public function browserRequirements()
-	{
-		printf(
-			'<noscript>
-			<div class="c-browser-check c-browser-check--noscript">
-				<p>%1$s</p>
-			</div>
-		</noscript>
-		<div class="c-browser-check c-browser-check--outdated">
-			<p>%2$s;</p>
-		</div>',
-			__('JavaScript seems to be disabled. Some functionalities might not work correctly.', 'sht'),
-			sprintf(_x('You are using an outdated browser. Please update your browser to view this website correctly: %s', 'translators: %s = Link to browsehappy.org', 'sht'), '<a href="https://browsehappy.com/">https://browsehappy.com/</a>')
-		);
+		echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>".chr(10);
 	}
 }
