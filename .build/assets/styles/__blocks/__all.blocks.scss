@@ -21,6 +21,7 @@
 		}
 	}
 	@include for-screen-min(desktop) {
+		width: 100vw;
 		max-width: var(--constraint-wide);
 
 		&.has-parallax {
@@ -45,3 +46,4 @@
 @import 'cover';
 @import 'embed';
 @import 'image';
+@import 'quote';

@@ -1,0 +1,35 @@
+.c-article {
+
+	@extend .c-stack;
+
+	> * {
+		flex: 0 0 100%;
+		width: 100%;
+	}
+
+	&__thumbnail {
+		@include constrain-narrow;
+
+		html.single-format-image & {
+			order: -1;
+			@extend .alignwide;
+		}
+	}
+
+	&__video {
+		@extend .alignfull;
+		margin-left: 0;
+		margin-right: 0;
+
+		&__figure {
+			@include constrain-narrow;
+			margin: 0;
+
+			html.single-format-video & {
+				order: -1;
+				@extend .alignwide;
+			}
+		}
+
+	}
+}

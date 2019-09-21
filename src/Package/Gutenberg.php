@@ -46,8 +46,49 @@ class Gutenberg
 	public function themeSupports()
 	{
 		add_theme_support('align-wide');
-		add_theme_support('editor-color-palette'); // Disable the standard colour palette
-		add_theme_support('disable-custom-colors'); // Disable the custom colour palette
+		add_theme_support('automatic-feed-links');
+		add_theme_support('custom-logo');
+		add_theme_support('html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ]);
+		add_theme_support('menu');
+		add_theme_support('post-thumbnails', [ 'post', 'page', 'photo' ]);
+		add_theme_support('title-tag');
+		add_theme_support('post-formats', [ 'image', 'gallery', 'video' ]);
+		add_theme_support('disable-custom-colors');
+		add_theme_support(
+			'editor-color-palette',
+			[
+				[
+					'name'  => esc_html__('Black', 'sht'),
+					'slug' => 'black',
+					'color' => '#000',
+				],
+				[
+					'name'  => esc_html__('Light gray', 'sht'),
+					'slug' => 'light-gray',
+					'color' => '#777',
+				],
+				[
+					'name'  => esc_html__('Yellow', 'sht'),
+					'slug' => 'yellow',
+					'color' => '#ffc',
+				],
+				[
+					'name'  => esc_html__('Blue', 'sht'),
+					'slug' => 'primary',
+					'color' => '#1A56B0',
+				],
+				[
+					'name'  => esc_html__('WordPress blue', 'sht'),
+					'slug' => 'wordpress-blue',
+					'color' => '#0073aa',
+				],
+				[
+					'name'  => esc_html__('White', 'sht'),
+					'slug' => 'white',
+					'color' => '#fff',
+				]
+			]
+		);
 	}
 
 	/**

@@ -1,11 +1,30 @@
 {
     "key": "group_556b10a8144ad",
-    "title": "Page options",
+    "title": "Layout options",
     "fields": [
         {
+            "key": "field_5cd7fde9a155f",
+            "label": "Hide page header",
+            "name": "hide_title",
+            "type": "true_false",
+            "instructions": "Useful when building pages visually using the Gutenberg editor.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5050e0a0c1ae2",
-            "label": "Show thumbnail",
-            "name": "show_thumbnail",
+            "label": "Hide thumbnail",
+            "name": "hide_thumbnail",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -16,17 +35,17 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
         },
         {
-            "key": "field_5cd7fde9a155f",
-            "label": "Hide page header",
-            "name": "hide_title",
+            "key": "field_5d854e22f9bf6",
+            "label": "Hide video",
+            "name": "hide_video",
             "type": "true_false",
-            "instructions": "This will stop the page header from being output - useful when building pages using the Gutenberg editor.",
+            "instructions": "Hides the automatic video player output on pages for which the video reference is defined.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -48,6 +67,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
         ]
     ],
     "menu_order": 3,
@@ -57,6 +83,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "",
-    "modified": 1569005813
+    "description": "For posts and pages.",
+    "modified": 1569010215
 }

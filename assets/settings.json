@@ -14,10 +14,14 @@
     },
     "gray": {
       "base": "#999",
+      "mid": "#aaa",
       "light": "#f0f0f0"
     },
     "brown": {
       "base": "#930"
+    },
+    "yellow": {
+      "base": "#ffc"
     }
   },
   "theme_breakpoints": {

@@ -1,4 +1,4 @@
-<article class="c_article">
+<article <?php post_class('c-article'); ?>>
 
 	<?php if (!(bool) get_field('hide_title')) : ?>
 		<header class="c-content__header">
@@ -6,11 +6,13 @@
 		</header>
 	<?php endif; ?>
 
+	<?php
+	echo sht_theme()->Package->View->thumbnail('large', 'c-article__thumbnail');
+	echo sht_theme()->Package->View->video('c-article__video');
+	?>
+
 	<div class="c-content__content">
-		<?php
-			echo sht_theme()->Package->View->thumbnail('large');
-			the_content();
-		?>
+		<?php the_content(); ?>
 	</div>
 
 </article>

@@ -44,4 +44,8 @@ wp.domReady(() => {
 		name: 'aspect-169',
 		label: '16:9'
 	});
+	wp.blocks.registerBlockStyle('core/cover', {
+		name: 'full-height',
+		label: 'Full height'
+	});
 });
