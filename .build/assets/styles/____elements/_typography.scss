@@ -35,10 +35,15 @@ button {
 
 blockquote {
 	margin: 0;
+	@extend .c-stack;
 }
 
 button {
 	text-decoration: none;
+}
+
+cite {
+	display: block;
 }
 
 figure,
