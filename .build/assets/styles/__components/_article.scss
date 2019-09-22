@@ -9,6 +9,8 @@
 
 	&__thumbnail {
 		@include constrain-narrow;
+		margin-left: 0;
+		margin-right: 0;
 
 		html.single-format-image & {
 			order: -1;
@@ -17,14 +19,10 @@
 	}
 
 	&__video {
-		@extend .alignfull;
-		margin-left: 0;
-		margin-right: 0;
+		@extend .alignwide;
+		--stack-margin: var(--unit-large);
 
 		&__figure {
-			@include constrain-narrow;
-			margin: 0;
-
 			html.single-format-video & {
 				order: -1;
 				@extend .alignwide;
