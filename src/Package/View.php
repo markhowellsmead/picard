@@ -32,7 +32,7 @@ class View
 			return;
 		}
 
-		$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $size, 'c-postthumbnail__image');
+		$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $size, 'c-postthumbnail__figure', 'c-postthumbnail__image');
 
 		if (is_singular()) {
 			return sprintf(
