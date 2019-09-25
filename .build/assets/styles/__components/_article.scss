@@ -1,16 +1,21 @@
 .c-article {
 
-	@extend .c-stack;
+	max-width: var(--constraint-narrow);
+	margin-left: auto;
+	margin-right: auto;
+	@extend .c-stack--medium;
 
-	> * {
-		flex: 0 0 100%;
-		width: 100%;
+	&__date {
+		display: block;
+		font-size: var(--font-size-small);
+	}
+
+	&__header {
+		@extend .c-stack;
 	}
 
 	&__thumbnail {
-		@include constrain-narrow;
-		margin-left: 0;
-		margin-right: 0;
+		@extend .alignmedium;
 
 		html.single-format-image & {
 			order: -1;
@@ -20,9 +25,10 @@
 
 	&__video {
 		@extend .alignwide;
-		--stack-margin: var(--unit-large);
 
 		&__figure {
+			margin: 0;
+
 			html.single-format-video & {
 				order: -1;
 				@extend .alignwide;

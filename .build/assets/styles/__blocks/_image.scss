@@ -8,9 +8,4 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-
-	&.alignfull,
-	&.alignwide {
-		--stack-margin: var(--unit-xlarge);
-	}
 }

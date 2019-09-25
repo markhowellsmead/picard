@@ -5,11 +5,22 @@
 >> styling for all blocks
 */
 .alignfull,
+.alignmedium,
 .alignwide {
 	position: relative;
 	width: 100vw;
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+.alignmedium {
+	@include for-screen-min(tablet) {
+		max-width: 90vw;
+	}
+	@include for-screen-min(desktop) {
+		width: 100vw;
+		max-width: var(--constraint-medium);
+	}
 }
 
 .alignwide {
