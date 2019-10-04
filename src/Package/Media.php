@@ -12,6 +12,7 @@ class Media
 
 	public function run()
 	{
+		add_filter('jpeg_quality', [$this, 'jpegQuality']);
 		add_action('after_setup_theme', [ $this, 'addImageSizes' ]);
 		add_filter('image_size_names_choose', [$this, 'selectableImageSizes']);
 	}
@@ -20,6 +21,11 @@ class Media
 	{
 		add_image_size('gutenberg_wide', 1280, 9999);
 		add_image_size('gutenberg_full', 2560, 9999);
+	}
+
+	public function jpegQuality()
+	{
+		return 92;
 	}
 
 	public function selectableImageSizes($sizes)
