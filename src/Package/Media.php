@@ -14,7 +14,7 @@ class Media
 	{
 		add_action('after_setup_theme', [ $this, 'addImageSizes' ]);
 		add_filter('image_size_names_choose', [$this, 'selectableImageSizes']);
-		add_filter('body_class', [ $this, 'thumbnailAspect' ]);
+		add_filter('body_class', [ $this, 'thumbnailAspectCSS' ]);
 	}
 
 	public function addImageSizes()
@@ -30,7 +30,7 @@ class Media
 		return $sizes;
 	}
 
-	public function thumbnailAspect($css_classes)
+	public function thumbnailAspectCSS($css_classes)
 	{
 		if (!has_post_thumbnail()) {
 			return $css_classes;
