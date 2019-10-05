@@ -1,10 +1,5 @@
 .c-content {
 	&__content {
 		@extend .c-stack;
-		@include constrain-narrow;
-	}
-
-	&__header {
-		@include constrain-narrow;
 	}
 }

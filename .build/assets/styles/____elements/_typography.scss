@@ -6,13 +6,13 @@
 	--font-size-xsmall: #{$font-size-xsmall};
 	--font-size-large: #{$font-size-large};
 	--font-size-xlarge: #{$font-size-xlarge};
-	--line-height: 1.6;
+	--line-height: 1.5;
+	--line-height-heading: 1.2;
 }
 
 html {
 	font-family: var(--font-family);
-	font-weight: 300;
-	letter-spacing: .02em;
+	font-weight: 400;
 	line-height: var(--line-height);
 }
 
@@ -35,10 +35,22 @@ button {
 
 blockquote {
 	margin: 0;
+	@extend .c-stack;
 }
 
 button {
 	text-decoration: none;
+}
+
+cite {
+	display: block;
+}
+
+code {
+	color: c(brown);
+	background-color: c(gray, light);
+	display: inline-block;
+	padding: .0625em .25em;
 }
 
 figure,
@@ -46,6 +58,10 @@ img {
 	max-width: 100%;
 	height: auto;
 	vertical-align: middle;
+}
+
+img {
+	outline: 1px solid c(gray, light);
 }
 
 figure {
@@ -91,6 +107,8 @@ h4,
 h5,
 h6 {
 	font-family: var(--font-family-heading);
+	line-height: var(--line-height-heading);
+	margin: 0;
 
 	a,
 	a:active,
