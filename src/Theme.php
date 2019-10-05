@@ -75,7 +75,7 @@ class Theme
 				\SayHello\Theme\Package\Lazysizes::class,
 				\SayHello\Theme\Package\LoginScreen::class,
 				\SayHello\Theme\Package\Media::class,
-				\SayHello\Theme\Package\NavWalker::class,
+				\SayHello\Theme\Package\Navigation::class,
 				\SayHello\Theme\Package\Sidebars::class,
 				\SayHello\Theme\Package\SVG::class,
 				\SayHello\Theme\Package\ThemeOptions::class,
@@ -88,10 +88,10 @@ class Theme
 		add_action('after_setup_theme', [ $this, 'contentWidth' ]);
 
 		add_action('wp_head', [ $this, 'noJsScript' ]);
+		add_action('wp_head', [ $this, 'setResolutionCookie' ]);
 		add_action('wp_head', [ $this, 'humansTxt' ]);
 
 		$this->cleanHead();
-		$this->setTimezone();
 	}
 
 	/**
@@ -203,11 +203,11 @@ class Theme
 		echo '<link type="text/plain" rel="author" href="' . trailingslashit(get_template_directory_uri()) . 'humans.txt" />';
 	}
 
-	public function setTimezone()
+	public function setResolutionCookie()
 	{
-		if (get_option('timezone_string') !== '') {
-			date_default_timezone_set(get_option('timezone_string'));
-		}
+		echo '<script>
+			document.cookie="resolution="+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+"; path=/";
+		</script>';
 	}
 
 	/**

@@ -1,8 +1,3 @@
-<?php
-
-use SayHello\Theme\Package\NavWalker;
-
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> <?php body_class('no-js'); ?>>
 	<head>
@@ -13,24 +8,30 @@ use SayHello\Theme\Package\NavWalker;
 	</head>
 <body <?php body_class(); ?>>
 
-<section class="page-section" id="header">
-	<header class="header" role="banner">
+<section class="c-page__section" id="header">
+	<header class="c-page__header" role="banner">
+
+		<h1 class="c-site__title">
+			<a class="c-site__titlelink" href="<?php echo get_home_url();?>"><?php echo get_bloginfo('name');?></a>
+		</h1>
+
+		<?php
+		wp_nav_menu(
+			[
+				'theme_location' => 'primary',
+				'container'      => 'nav',
+				'container_class' => 'c-menu c-menu--primary',
+				'menu_id'        => 'primary-menu',
+				'menu_class'     => 'c-menu c-menu--primary',
+			]
+		);
+		?>
 
 		<button class="c-menutoggler" aria-controls="primary-menu" aria-expanded="false">
 			<span class="c-menutoggler__line"></span>
 			<span class="c-menutoggler__line"></span>
 			<span class="c-menutoggler__line"></span>
 		</button>
-		<?php
-		wp_nav_menu(
-			[
-				'theme_location' => 'primary',
-				'container'      => '',
-				'menu_id'        => 'primary-menu',
-				'menu_class'     => 'header__menu menu menu--primary',
-				'walker'         => new NavWalker(),
-			]
-		);
-		?>
+
 	</header>
 </section>

@@ -78,6 +78,15 @@ figcaption {
 	font-size: var(--font-size-small);
 }
 
+nav {
+	li,
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+}
+
 input,
 li,
 p,
@@ -115,8 +124,8 @@ h6 {
 	a,
 	a:active,
 	a:hover {
+		text-decoration: none;
 		color: currentColor;
-		border: none;
 	}
 }
 
