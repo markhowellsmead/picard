@@ -24,15 +24,14 @@
 }
 
 .alignwide {
-	@include for-screen-min(tablet) {
-		max-width: 90vw;
+	@include for-screen-min(laptop) {
+		max-width: calc(100vw - (var(--unit) * 4));
 
 		&.has-parallax {
 			background-position-x: 45vw;
 		}
 	}
 	@include for-screen-min(desktop) {
-		width: 100vw;
 		max-width: var(--constraint-wide);
 
 		&.has-parallax {
