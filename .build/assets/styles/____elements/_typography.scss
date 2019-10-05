@@ -24,13 +24,15 @@ a,
 button {
 	color: c(primary);
 	@include transition();
-	text-decoration: none;
-	border-bottom: .05em solid currentColor;
 
 	&:active,
 	&:hover {
 		color: c(primary, dark);
 	}
+}
+
+button {
+	text-decoration: none;
 }
 
 blockquote {
