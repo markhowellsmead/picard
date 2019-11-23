@@ -1,0 +1,18 @@
+.c-excerpt {
+
+	@extend .h-stack;
+
+	&__content {
+		@extend .h-stack;
+	}
+
+	&__date {
+		display: block;
+		font-size: var(--font-size-small);
+		color: c(gray);
+	}
+
+	&__header {
+		@extend .h-stack--small;
+	}
+}

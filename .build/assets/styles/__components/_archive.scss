@@ -1,0 +1,28 @@
+.c-archive {
+
+	@extend .h-stack--xlarge;
+
+	&__content {
+		@extend .h-constraint;
+		@extend .h-stack;
+
+		> * + * {
+			&:before {
+				display: block;
+				text-align: center;
+				content: '~';
+				font-size: 3rem;
+				line-height: 1;
+				font-family: serif;
+				margin-bottom: var(--unit-medium);
+				opacity: .2;
+			}
+		}
+	}
+
+	&__header {
+		@extend .h-constraint;
+		@extend .h-stack;
+	}
+
+}

@@ -1,0 +1,18 @@
+.c-pageheader {
+
+	@extend .h-constraint;
+	padding: var(--unit-medium) 0;
+
+	&__inner {
+		@extend .alignwide;
+		@include laptop {
+			@include flex-row;
+			justify-content: space-between;
+			align-items: baseline;
+		}
+	}
+
+	&__title {
+		font-size: 1.3125rem;
+	}
+}

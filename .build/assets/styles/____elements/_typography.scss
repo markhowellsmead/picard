@@ -14,10 +14,12 @@ html {
 	font-family: var(--font-family);
 	font-weight: 400;
 	line-height: var(--line-height);
+	-webkit-font-smoothing: antialiased;
 }
 
 body {
 	font-size: 1rem;
+	color: c(gray, dark);
 }
 
 a,
@@ -37,7 +39,7 @@ button {
 
 blockquote {
 	margin: 0;
-	@extend .c-stack;
+	@extend .h-stack;
 }
 
 button {

@@ -30,7 +30,7 @@
 	}
 
 	&.has-background-dim::before {
-		background: transparent linear-gradient(transparent 50%, c(black, dark) 100%);
+		background: transparent linear-gradient(transparent 50%, c(gray, dark) 100%);
 	}
 
 	&.has-white-background-color::before {
@@ -57,7 +57,7 @@
 	}
 
 	&__inner-container {
-		@extend .c-stack;
+		@extend .h-stack;
 		padding-top: var(--unit);
 		padding-bottom: var(--unit);
 		width: 100vw;

@@ -8,18 +8,18 @@
 	<?php endif; ?>
 
 	<?php
-	echo sht_theme()->Package->View->thumbnail('large', 'c-article__thumbnail');
-	echo sht_theme()->Package->View->video('c-article__video');
+	get_template_part('partials/meta/video', get_post_type());
+	get_template_part('partials/meta/thumbnail', get_post_type());
 	?>
 
-	<div class="c-content__content">
+	<div class="c-article__content">
 		<?php the_content(); ?>
 	</div>
 
 <?php
 if (is_array(wp_get_post_terms(get_the_ID(), 'post_tag')) && count(wp_get_post_terms(get_the_ID(), 'post_tag'))) :
 	?>
-	<div class="c-content__meta">
+	<div class="c-article__meta">
 		<?php
 		get_template_part('partials/tags');
 		?>
