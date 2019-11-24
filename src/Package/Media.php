@@ -20,6 +20,7 @@ class Media
 
 	public function addImageSizes()
 	{
+		add_image_size('list_view', 540*2, 9999);
 		add_image_size('gutenberg_wide', 1280, 9999);
 		add_image_size('gutenberg_full', 2560, 9999);
 	}
