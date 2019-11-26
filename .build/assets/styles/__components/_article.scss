@@ -29,6 +29,19 @@
 
 	&__thumbnail {
 		@extend .h-constraint;
+		&.alignwide {
+			> * {
+				max-width: var(--constraint-wide);
+			}
+		}
+		&.alignfull {
+			> * {
+				max-width: var(--constraint-full);
+			}
+		}
+		img {
+			width: 100%;
+		}
 	}
 
 	&__video {

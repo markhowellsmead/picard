@@ -65,6 +65,22 @@
 		color: inherit !important;
 	}
 
+	&.alignwide {
+		.wp-block-cover__inner-container {
+			max-width: var(--constraint-wide);
+		}
+	}
+
+	&.alignfull {
+		.wp-block-cover__inner-container {
+			max-width: var(--constraint-wide); // not a mistake!
+		}
+	}
+
+	&.is-style-aspect-31 {
+		min-height: 0;
+	}
+
 }
 
 @include context-edit {

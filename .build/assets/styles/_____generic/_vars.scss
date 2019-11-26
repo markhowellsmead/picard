@@ -2,6 +2,7 @@
 	--color-button-primary-background: #{c(primary)};
 	--color-button-primary-hover: #{c(white)};
 	--color-button-primary: #{c(white)};
+	--constraint-xnarrow: #{rem-calc(540px)};
 	--constraint-narrow: #{rem-calc(720px)};
 	--constraint-medium: #{rem-calc(1000px)};
 	--constraint-wide: #{rem-calc(1280px)};
@@ -13,5 +14,5 @@
 	--unit-xlarge: calc(var(--unit) * 4);
 	--unit-xxlarge: calc(var(--unit) * 8);
 	--unit-xxxlarge: calc(var(--unit) * 10);
-	--unit: 1rem;
+	--unit: 1.25rem;
 }

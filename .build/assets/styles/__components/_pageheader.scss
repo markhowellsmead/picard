@@ -2,9 +2,9 @@
 
 	@extend .h-constraint;
 	padding: var(--unit-medium) 0;
+	font-size: var(--font-size-small);
 
 	&__inner {
-		@extend .alignwide;
 		@include laptop {
 			@include flex-row;
 			justify-content: space-between;
@@ -13,6 +13,6 @@
 	}
 
 	&__title {
-		font-size: 1.3125rem;
+		font-size: 1em;
 	}
 }
