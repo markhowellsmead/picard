@@ -2,13 +2,22 @@
 
 	@extend .h-stack;
 
+	&__content {
+		max-width: var(--constraint-xnarrow);
+		margin-left: auto;
+		margin-right: auto;
+		@include desktop {
+			max-width: 100%;
+		}
+	}
+
 	&.format-gallery,
 	&.format-image {
 		@extend .alignwide;
 		@include desktop {
 			@supports(grid-gap: 1rem) {
 				display: grid;
-				grid-template-columns: 2fr 1fr;
+				grid-template-columns: 3fr 1fr;
 				grid-gap: var(--unit-large);
 				align-items: flex-end;
 				.c-excerpt {
@@ -44,17 +53,21 @@
 	}
 
 	&:nth-child(even) {
-		@include desktop {
-			@supports(grid-gap: 1rem) {
-				grid-template-columns: 1fr 2fr;
-				.c-excerpt {
-					&__content {
-						grid-column: 1/2;
-						grid-row: 2/-1;
-					}
-					&__thumbnail {
-						grid-column: 2/-1;
-						grid-row: 1/-1;
+		&.format-gallery,
+		&.format-image {
+			@include desktop {
+				@supports(grid-gap: 1rem) {
+					text-align: right;
+					grid-template-columns: 1fr 3fr;
+					.c-excerpt {
+						&__content {
+							grid-column: 1/2;
+							grid-row: 2/-1;
+						}
+						&__thumbnail {
+							grid-column: 2/-1;
+							grid-row: 1/-1;
+						}
 					}
 				}
 			}
