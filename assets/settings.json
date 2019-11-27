@@ -13,9 +13,10 @@
 		},
 		"gray": {
 			"base": "#999",
-			"dark": "#222",
+			"dark": "#444",
 			"mid": "#aaa",
-			"light": "#f0f0f0"
+			"light": "#f0f0f0",
+			"xlight": "#f6f6f6"
 		},
 		"brown": {
 			"base": "#930"
