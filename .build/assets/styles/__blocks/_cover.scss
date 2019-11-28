@@ -9,36 +9,43 @@
 		display: block;
 	}
 
-	&.is-style-aspect-21::after {
-		padding-bottom: percentage(1/2);
+	&.is-style-aspect-21 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/2);
+		}
 	}
 
-	&.is-style-aspect-31::after {
-		padding-bottom: percentage(1/3);
+	&.is-style-aspect-31 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/3);
+		}
 	}
 
-	&.is-style-aspect-41::after {
-		padding-bottom: percentage(1/4);
+	&.is-style-aspect-41 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/4);
+		}
 	}
 
-	&.is-style-aspect-169::after {
-		padding-bottom: percentage(9/16);
+	&.is-style-aspect-169 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(9/16);
+		}
 	}
 
-	&.is-style-full-height::after {
-		padding-bottom: 100vh;
+	&.is-style-full-height {
+		min-height: 100vh;
+		&::after {
+			padding-bottom: 100vh;
+		}
 	}
 
-	&.has-background-dim::before {
-		background: transparent linear-gradient(transparent 50%, c(gray, dark) 100%);
-	}
-
-	&.has-white-background-color::before {
-		background: transparent linear-gradient(transparent 25%, c(white) 100%);
-	}
-
-	&.has-yellow-background-color::before {
-		background: transparent linear-gradient(transparent 50%, c(yellow) 100%);
+	&.has-background-dim {
+		background-color: c(black);
 	}
 
 	&.has-primary-background-color {
@@ -59,26 +66,10 @@
 	&__inner-container {
 		@extend .h-stack;
 		padding-top: var(--unit);
-		padding-bottom: var(--unit);
+		padding-bottom: var(--unit-medium);
 		width: 100vw;
 		max-width: var(--constraint-narrow);
 		color: inherit !important;
-	}
-
-	&.alignwide {
-		.wp-block-cover__inner-container {
-			max-width: var(--constraint-wide);
-		}
-	}
-
-	&.alignfull {
-		.wp-block-cover__inner-container {
-			max-width: var(--constraint-wide); // not a mistake!
-		}
-	}
-
-	&.is-style-aspect-31 {
-		min-height: 0;
 	}
 
 }
