@@ -1,8 +1,23 @@
+:root {
+	--masthead-height: #{rem-calc(95px)};
+}
+
 .c-pageheader {
 
 	@extend .h-constraint;
 	padding: var(--unit-medium) 0;
 	font-size: var(--font-size-small);
+	min-height: var(--masthead-height);
+
+	@include desktop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		background-color: rgba(255, 255, 255, .9);
+		border-bottom: 1px solid c(gray, light);
+	}
 
 	&__inner {
 		@include laptop {
@@ -14,5 +29,11 @@
 
 	&__title {
 		font-size: 1em;
+	}
+
+	.admin-bar & {
+		@include desktop {
+			margin-top: 32px;
+		}
 	}
 }

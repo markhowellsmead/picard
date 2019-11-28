@@ -1,11 +1,37 @@
 .wp-block-quote {
-	border-left: .25em solid c(gray, mid);
-	background-color: c(gray, light);
-	padding: var(--unit);
+	padding: var(--unit) var(--unit-xlarge);
 	font-style: italic;
+	position: relative;
+	> * {
+		position: relative;
+	}
+	p:first-of-type:before {
+		content: '“';
+		font-size: 6em;
+		line-height: 1;
+		opacity: .2;
+		position: absolute;
+		top: -.25em;
+		left: -.75em;
+		pointer-events: none;
+	}
+	:last-of-type:before {
+		content: '„';
+		font-size: 6em;
+		line-height: 1;
+		opacity: .2;
+		position: absolute;
+		bottom: .5em;
+		right: -.75em;
+		pointer-events: none;
+	}
 
 	cite {
 		font-size: var(--font-size-small);
+		color: c(gray);
 		font-style: normal;
+		a {
+			color: currentColor;
+		}
 	}
 }

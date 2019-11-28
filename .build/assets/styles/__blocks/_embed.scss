@@ -1,5 +1,11 @@
 .wp-block-embed {
 
+	figcaption {
+		max-width: var(--constraint-narrow);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	&.wp-has-aspect-ratio {
 		.wp-block-embed__wrapper {
 			position: relative;

@@ -1,12 +1,18 @@
 <?php
 
 get_header();
-if (have_posts()) {
-	while (have_posts()) {
-		the_post();
-		get_template_part('partials/singular', get_post_type());
+?>
+<main class="c-main">
+	<?php
+	if (have_posts()) {
+		while (have_posts()) {
+			the_post();
+			get_template_part('partials/singular', get_post_type());
+		}
+	} else {
+		get_template_part('partials/singular', 'none');
 	}
-} else {
-	get_template_part('partials/singular', 'none');
-}
+	?>
+</main>
+<?php
 get_footer();
