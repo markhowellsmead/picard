@@ -1,8 +1,10 @@
 .c-article {
 
+	@include clearfix;
 	@extend .h-stack--medium;
 
 	&__content {
+		@include clearfix;
 		@extend .h-constraint;
 		@extend .h-stack--medium;
 
