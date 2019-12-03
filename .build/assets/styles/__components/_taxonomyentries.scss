@@ -1,0 +1,17 @@
+.c-taxonomyentries {
+	line-height: var(--line-height);
+	list-style: none;
+	padding-left: 0;
+	> * + * {
+		margin-left: var(--unit-xsmall);
+	}
+}
+
+.c-taxonomyentry {
+	display: inline;
+	text-transform: lowercase;
+	color: c(gray);
+	a {
+		color: currentColor;
+	}
+}
