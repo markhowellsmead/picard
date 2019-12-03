@@ -1,6 +1,6 @@
 .c-archive {
 
-	@extend .h-stack--xlarge;
+	// @extend .h-stack--xlarge;
 
 	&__content {
 		@extend .h-constraint;
@@ -29,6 +29,8 @@
 	&__header {
 		@extend .h-constraint;
 		@extend .h-stack;
+		padding-top: var(--unit-large);
+		padding-bottom: var(--unit-large);
 	}
 
 }

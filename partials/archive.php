@@ -1,4 +1,4 @@
-<section class="c-archive" >
+<section class="c-archive">
 
 	<header class="c-archive__header">
 		<?php the_archive_title('<h1 class="c-archive__title">', '</h1>'); ?>

@@ -1,4 +1,4 @@
-<article <?php post_class('c-article'); ?>>
+<article <?php post_class('c-article c-article--'.get_post_type()); ?>>
 
 	<?php if (!(bool) get_field('hide_title')) : ?>
 		<header class="c-article__header c-main__header">

@@ -1,7 +1,7 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
+<main class="c-main">
+	<?php get_template_part('partials/archive', get_post_type()); ?>
+</main>
 
-get_template_part('partials/archive', get_post_type());
-
-get_footer();
+<?php get_footer();

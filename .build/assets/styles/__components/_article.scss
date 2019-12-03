@@ -2,6 +2,8 @@
 
 	@include clearfix;
 	@extend .h-stack--medium;
+	padding-top: var(--unit-large);
+	padding-bottom: var(--unit-large);
 
 	&__content {
 		@include clearfix;
