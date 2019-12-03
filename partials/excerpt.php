@@ -7,7 +7,16 @@ use SayHello\Theme\Package\Lazysizes;
 	<?php
 
 	if (has_post_thumbnail()) {
-		$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), 'list_view', 'c-excerpt__thumbnailfigure', 'c-excerpt__thumbnailimage');
+		$imageAspect = sht_theme()->Package->Media->thumbnailAspect();
+		switch ($imageAspect) {
+			case 'tall':
+				$image_size = 'list_view_tall';
+				break;
+			default:
+				$image_size = 'list_view';
+				break;
+		}
+		$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-excerpt__thumbnailfigure', 'c-excerpt__thumbnailimage');
 		if (!empty($image)) {
 			printf(
 				'<div class="c-excerpt__thumbnail c-excerpt__thumbnail--%s"><a href="%s">%s</a></div>',

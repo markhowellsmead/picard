@@ -16,11 +16,13 @@ class Media
 		add_action('after_setup_theme', [ $this, 'addImageSizes' ]);
 		add_filter('image_size_names_choose', [$this, 'selectableImageSizes']);
 		add_filter('body_class', [ $this, 'thumbnailAspectCSS' ]);
+		add_filter('post_class', [$this, 'postClasses']);
 	}
 
 	public function addImageSizes()
 	{
 		add_image_size('list_view', 540*2, 9999);
+		add_image_size('list_view_tall', 9999, 540);
 		add_image_size('gutenberg_wide', 1280, 9999);
 		add_image_size('gutenberg_full', 2560, 9999);
 	}
@@ -56,5 +58,30 @@ class Media
 			}
 		}
 		return $css_classes;
+	}
+
+	public function thumbnailAspect()
+	{
+		$image_src = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'post-thumbnail');
+		if (is_array($image_src)) {
+			$aspect = $image_src[1] / $image_src[2];
+			if ($aspect > 1.75) {
+				return 'wide';
+			} elseif ($aspect == 1) {
+				return 'square';
+			} elseif ($aspect < 1) {
+				return 'tall';
+			}
+			return 'landscape';
+		}
+		return null;
+	}
+
+	public function postClasses($classes)
+	{
+		if (has_post_thumbnail()) {
+			$classes[] = 'c-article__thumbnailaspect--'.$this->thumbnailAspect();
+		}
+		return $classes;
 	}
 }

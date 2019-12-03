@@ -16,7 +16,9 @@
 	}
 
 	&.has-post-thumbnail {
-		@extend .alignwide;
+		&:not(.c-article__thumbnailaspect--tall) {
+			@extend .alignwide;
+		}
 		@include desktop {
 			@supports(grid-gap: 1rem) {
 				display: grid;
