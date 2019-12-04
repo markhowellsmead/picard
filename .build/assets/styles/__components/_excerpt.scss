@@ -17,12 +17,12 @@
 
 	&.has-post-thumbnail {
 		&:not(.c-article__thumbnailaspect--tall) {
-			@extend .alignwide;
+			@extend .alignmedium;
 		}
 		@include desktop {
 			@supports(grid-gap: 1rem) {
 				display: grid;
-				grid-template-columns: 3fr 1fr;
+				grid-template-columns: 3fr 2fr;
 				grid-gap: var(--unit-large);
 				align-items: flex-end;
 				.c-excerpt {
@@ -30,6 +30,7 @@
 						grid-column: 2/-1;
 						grid-row: 2/-1;
 						margin-left: 0;
+						padding-bottom: var(--unit);
 					}
 					&__thumbnail {
 						grid-column: 1/2;
@@ -65,8 +66,7 @@
 		&.has-post-thumbnail {
 			@include desktop {
 				@supports(grid-gap: 1rem) {
-					// text-align: right;
-					grid-template-columns: 1fr 3fr;
+					grid-template-columns: 2fr 3fr;
 					.c-excerpt {
 						&__content {
 							grid-column: 1/2;
@@ -78,9 +78,6 @@
 							grid-column: 2/-1;
 							grid-row: 1/-1;
 						}
-					}
-					&.c-article__thumbnailaspect--wide {
-						grid-template-columns: 2fr 3fr;
 					}
 				}
 			}
