@@ -22,13 +22,19 @@ $unique = uniqid();
 <section class="wp-block-sht-imagegallery <?php echo !empty($data['align']) ? ' align'.$data['align'] : '';?>">
 	<ul class="wp-block-sht-imagegallery__images c-grid500">
 		<?php foreach ($images as $image) {
-			$source_image_size = $image['sizes'][$image_size] ?? null ? $image_size : 'medium';
+			$source_image_size = $image['sizes'][$image_size] ?? null ? $image_size : 'large';
+			$width = $image['sizes'][$source_image_size.'-width'];
+			$height = $image['sizes'][$source_image_size.'-height'];
+			$flex_grow = $width * 100 / $height;
+			$flex_basis = $width * $target_height / $height;
+			$padding_bottom = ($height / $width) * 100;
+			$href = $image['sizes']['block_full'];
 			?>
 		<li
 			class="wp-block-sht-imagegallery__entry c-grid500__item"
-			style="flex-grow:<?php echo ($image['sizes'][$source_image_size.'-width'] * 100) / ($image['sizes'][$source_image_size.'-height']);?>px;flex-basis:<?php echo ($image['sizes'][$source_image_size.'-width'] * $target_height) / $image['sizes'][$source_image_size.'-height'];?>px;">
-				<a class="c-grid500__itemlink" href="<?php echo $image['sizes']['block_full'];?>" data-fancybox="gallery-<?php echo $unique;?>" data-caption="<?php echo $image['caption'] ?? $image['title'];?>">
-					<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $image['sizes'][$source_image_size.'-height'] / $image['sizes'][$source_image_size.'-width'] * 100;?>%"></i>
+			style="flex-grow:<?php echo $flex_grow;?>;flex-basis:<?php echo $flex_basis;?>px;">
+				<a class="c-grid500__itemlink" href="<?php echo $href;?>" data-fancybox="gallery-<?php echo $unique;?>" data-caption="<?php echo $image['caption'] ?? $image['title'];?>">
+					<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom;?>%"></i>
 					<?php echo Lazysizes::getLazyImage($image['ID'], $source_image_size, 'c-grid500__figure', 'c-grid500__image');?>
 				</a>
 			</li>
