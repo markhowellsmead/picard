@@ -3,6 +3,7 @@
 	--font-family: 'pt-serif-pro-1', 'pt-serif-pro-2', serif;
 	--font-family-heading: 'pt-serif-pro-1', 'pt-serif-pro-2', serif;
 	--font-family-narrow: 'pt-sans-pro-narrow-1', 'pt-sans-pro-narrow-2', sans-serif;
+	--font-size-rembase: 100%;
 	--font-size: #{$font-size};
 	--font-size-small: #{$font-size-small};
 	--font-size-xsmall: #{$font-size-xsmall};
@@ -11,6 +12,14 @@
 	--line-height: 1.5;
 	--line-height-large: 1.75;
 	--line-height-heading: 1.2;
+
+	@include desktop {
+		--font-size-rembase: #{percentage(18/16)};
+	}
+}
+
+html {
+	font-size: var(--font-size-rembase);
 }
 
 body {

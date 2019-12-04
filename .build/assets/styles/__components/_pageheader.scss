@@ -15,7 +15,7 @@
 		left: 0;
 		right: 0;
 		z-index: 1;
-		background-color: rgba(255, 255, 255, .9);
+		background: rgba(255, 255, 255, .5) linear-gradient(c(white), rgba(255, 255, 255, .9) 75%);
 		border-bottom: 1px solid c(gray, light);
 	}
 
