@@ -1,4 +1,4 @@
-// import "./teaser/block.jsx";
+// import "./image-gallery/block.jsx";
 
 window.onload = function () {
 	window.shtDisabledBlocks.forEach(block => {
