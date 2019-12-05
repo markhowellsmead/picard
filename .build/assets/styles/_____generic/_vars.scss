@@ -2,6 +2,7 @@
 	--color-button-primary-background: #{c(primary)};
 	--color-button-primary-hover: #{c(white)};
 	--color-button-primary: #{c(white)};
+	--constraint-xxnarrow: #{rem-calc(360px)};
 	--constraint-xnarrow: #{rem-calc(540px)};
 	--constraint-narrow: #{rem-calc(720px)};
 	--constraint-medium: #{rem-calc(1000px)};

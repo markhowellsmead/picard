@@ -15,11 +15,20 @@
 		left: 0;
 		right: 0;
 		z-index: 1;
-		background: rgba(255, 255, 255, .5) linear-gradient(c(white), rgba(255, 255, 255, .9) 75%);
+		background: linear-gradient(var(--page-background-color), transparent 75%);
 		border-bottom: 1px solid c(gray, light);
+		&::before {
+			content: '';
+			@include flood;
+			z-index: 0;
+			background-color: var(--page-background-color);
+			opacity: .9;
+		}
 	}
 
 	&__inner {
+		position: relative;
+		z-index: 2;
 		@include laptop {
 			@include flex-row;
 			justify-content: space-between;
@@ -28,7 +37,7 @@
 	}
 
 	&__title {
-		font-size: 1em;
+		font-size: 1.1em;
 	}
 
 	.admin-bar & {

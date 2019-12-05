@@ -74,6 +74,9 @@
 		width: 100vw;
 		max-width: var(--constraint-narrow);
 		color: inherit !important;
+		.alignfull & {
+			max-width: var(--constraint-wide);
+		}
 	}
 
 }

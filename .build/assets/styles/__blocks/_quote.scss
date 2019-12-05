@@ -2,34 +2,42 @@
 	padding: var(--unit) var(--unit-xlarge);
 	font-style: italic;
 	position: relative;
+	border: none; // override core CSS
+
 	> * {
 		position: relative;
 	}
-	p:first-of-type:before {
+
+	&:before {
 		content: '“';
 		font-size: 6em;
 		line-height: 1;
-		opacity: .2;
 		position: absolute;
-		top: -.25em;
-		left: -.75em;
+		top: 0;
+		left: .125em;
 		pointer-events: none;
+		color: c(gray, mid);
+		opacity: .5;
 	}
-	:last-of-type:before {
+
+	p:last-of-type:before {
 		content: '„';
 		font-size: 6em;
 		line-height: 1;
-		opacity: .2;
 		position: absolute;
-		bottom: .5em;
+		bottom: 0;
 		right: -.75em;
 		pointer-events: none;
+		color: c(gray, mid);
+		opacity: .5;
 	}
 
-	cite {
+	&__citation,
+	cite,
+	em {
 		font-size: var(--font-size-small);
 		color: c(gray);
-		font-style: normal;
+		font-style: italic;
 		a {
 			color: currentColor;
 		}

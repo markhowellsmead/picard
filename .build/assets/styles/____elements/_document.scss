@@ -8,6 +8,8 @@
 			}
 		}
 	}
+
+	--page-background-color: #{c(white)};
 }
 
 html {
@@ -17,7 +19,7 @@ html {
 }
 
 body {
-	background-color: c(white);
+	background-color: var(--page-background-color);
 }
 
 ::selection {

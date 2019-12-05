@@ -2,6 +2,7 @@
 	"theme_colors": {
 		"primary": {
 			"base": "#1A56B0",
+			"basewithopacity": "#1A56B080",
 			"dark": "#134084"
 		},
 		"black": {
@@ -10,10 +11,10 @@
 		},
 		"white": {
 			"base": "#fff",
-			"off": "#F7F7F6"
+			"off": "#fffff9"
 		},
 		"gray": {
-			"base": "#999",
+			"base": "#888",
 			"dark": "#444",
 			"mid": "#aaa",
 			"light": "#f0f0f0",
