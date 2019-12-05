@@ -43,3 +43,15 @@
 		}
 	}
 }
+
+.wp-block-pullquote {
+	font-size: 1.1em;
+	@extend .wp-block-quote;
+	padding-top: var(--unit-large);
+	padding-bottom: var(--unit-large);
+	background-color: c(gray, light) !important;
+	max-width: calc(var(--constraint-medium) + var(--unit-large));
+	p {
+		font-size: 1em;
+	}
+}
