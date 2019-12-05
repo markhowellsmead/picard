@@ -6,6 +6,8 @@ use SayHello\Theme\Package\Lazysizes;
 
 	<?php
 
+	$image = '';
+
 	if (has_post_thumbnail()) {
 		$imageAspect = sht_theme()->Package->Media->thumbnailAspect();
 		switch ($imageAspect) {
@@ -16,16 +18,33 @@ use SayHello\Theme\Package\Lazysizes;
 				$image_size = 'list_view';
 				break;
 		}
-		$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-excerpt__thumbnailfigure', 'c-excerpt__thumbnailimage');
-		if (!empty($image)) {
-			printf(
-				'<div class="c-excerpt__thumbnail c-excerpt__thumbnail--%s"><a href="%s">%s</a></div>',
-				get_post_type(),
+		$image = sprintf(
+			'<a class="c-excerpt__imagelink" href="%s">%s</a>',
+			get_permalink(),
+			Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-excerpt__thumbnailfigure', 'c-excerpt__thumbnailimage')
+		);
+	}
+
+	if (empty($image) && !empty(get_field('video_ref'))) {
+		if (!empty($image = sht_theme()->Package->Media->getVideoThumbnail(get_field('video_ref')))) {
+			$image = sprintf(
+				'<figure class="c-excerpt__thumbnailfigure c-excerpt__thumbnailfigure--video"><a class="c-excerpt__imagelink" href="%s"><img class="c-excerpt__thumbnailimage" alt="%s" src="%s"></a></figure>',
 				get_permalink(),
+				get_the_title(),
 				$image
 			);
 		}
 	}
+
+	if (!empty($image)) {
+		printf(
+			'<div class="c-excerpt__thumbnail c-excerpt__thumbnail--%s">%s</div>',
+			get_post_type(),
+			$image
+		);
+	}
+
+
 	?>
 
 	<div class="c-excerpt__content">
