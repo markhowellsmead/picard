@@ -166,6 +166,10 @@ h6 {
 	}
 }
 
+.is-style-lead {
+	font-size: var(--font-size-xlarge);
+}
+
 @include context-edit {
 	h1,
 	h2,

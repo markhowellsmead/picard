@@ -48,4 +48,9 @@ wp.domReady(() => {
 		name: 'full-height',
 		label: 'Full height'
 	});
+
+	wp.blocks.registerBlockStyle('core/paragraph', {
+		name: 'lead',
+		label: 'Lead text'
+	});
 });
