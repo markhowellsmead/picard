@@ -13,6 +13,7 @@ class Post
 	public function run()
 	{
 		add_action('init', [$this, 'registerCustomTaxonomies']);
+		add_filter('get_the_archive_title', [ $this, 'changeTheTitle' ], 20);
 	}
 
 	public function registerCustomTaxonomies()
@@ -60,5 +61,19 @@ class Post
 			'query_var' => true,
 			'rewrite' => array('slug' => 'albums'),
 		]);
+	}
+
+	public function changeTheTitle($title)
+	{
+
+		if (is_category()) {
+			return '<span class="c-archive__titleprefix">'. _x('Posts from the category', 'Archive list header', 'sht').'</span> ' .single_cat_title('', false);
+		}
+
+		if (is_tag()) {
+			return '<span class="c-archive__titleprefix">'. _x('Posts about', 'Archive list header', 'sht').'</span> ' .single_term_title('', false);
+		}
+
+		return $title;
 	}
 }
