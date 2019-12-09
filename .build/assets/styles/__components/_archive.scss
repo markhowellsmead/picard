@@ -15,7 +15,14 @@
 		@extend .h-constraint;
 		@extend .h-stack;
 		padding-top: var(--unit-large);
-		padding-bottom: var(--unit-large);
+		padding-bottom: var(--unit-xlarge);
+	}
+
+	&__titleprefix {
+		display: block;
+		font-size: var(--font-size-small);
+		color: c(gray);
+		font-weight: 300;
 	}
 
 }

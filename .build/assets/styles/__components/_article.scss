@@ -18,6 +18,7 @@
 	&__date {
 		display: block;
 		font-size: var(--font-size-small);
+		color: c(gray);
 	}
 
 	&__header {
@@ -28,6 +29,7 @@
 	&__meta {
 		@extend .h-constraint;
 		@extend .h-stack--medium;
+		padding: var(--unit-medium) 0;
 	}
 
 	&__metatitle {

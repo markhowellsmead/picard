@@ -11,8 +11,15 @@
 			display: block;
 		}
 
-		.c-menu__item {
-			display: block;
+		.c-menu {
+			&__entry {
+				display: block;
+				&:last-child {
+					a {
+						padding-right: 0;
+					}
+				}
+			}
 		}
 
 		a {
