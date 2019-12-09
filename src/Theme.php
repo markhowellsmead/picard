@@ -82,6 +82,7 @@ class Theme
 				\SayHello\Theme\Package\View::class,
 
 				\SayHello\Theme\Block\ImageGallery::class,
+				\SayHello\Theme\PostType\Post::class,
 			]
 		);
 

@@ -10,6 +10,7 @@ if (is_array(wp_get_post_terms(get_the_ID(), 'post_tag')) && count(wp_get_post_t
 	<div class="c-article__meta">
 		<?php
 		get_template_part('partials/tags');
+		get_template_part('partials/collections');
 		?>
 	</div>
 <?php endif;

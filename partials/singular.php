@@ -16,11 +16,12 @@
 	</div>
 
 <?php
-if (is_array(wp_get_post_terms(get_the_ID(), 'post_tag')) && count(wp_get_post_terms(get_the_ID(), 'post_tag'))) :
+if (!empty(get_the_terms(get_the_ID(), 'post_tag')) || !empty(get_the_terms(get_the_ID(), 'collection'))) :
 	?>
 	<div class="c-article__meta">
 		<?php
 		get_template_part('partials/tags');
+		get_template_part('partials/collections');
 		?>
 	</div>
 <?php endif;
