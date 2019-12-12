@@ -15,7 +15,7 @@
 		},
 		"gray": {
 			"base": "#888",
-			"dark": "#444",
+			"dark": "#2f4f4f",
 			"mid": "#aaa",
 			"light": "#f0f0f0",
 			"xlight": "#f6f6f6"

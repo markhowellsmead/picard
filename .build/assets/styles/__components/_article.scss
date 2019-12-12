@@ -38,6 +38,9 @@
 
 		> * {
 			padding-right: 15%;
+			@include desktop {
+				padding-right: var(--unit-xlarge);
+			}
 		}
 	}
 
