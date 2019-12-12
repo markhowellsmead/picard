@@ -35,6 +35,10 @@
 		@include desktop {
 			padding-bottom: var(--unit-large);
 		}
+
+		> * {
+			padding-right: 15%;
+		}
 	}
 
 	&__meta {

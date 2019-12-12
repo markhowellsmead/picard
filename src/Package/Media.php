@@ -83,6 +83,8 @@ class Media
 	{
 		if (has_post_thumbnail()) {
 			$classes[] = 'c-article__thumbnailaspect--'.$this->thumbnailAspect();
+		} else {
+			$classes[] = 'c-article--nothumbnail';
 		}
 		if (!empty(get_field('video_ref'))) {
 			$classes[] = 'has-video-thumbnail';

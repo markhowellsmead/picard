@@ -4,7 +4,7 @@
 
 	&__content {
 		@extend .h-stack;
-		max-width: var(--constraint-xnarrow);
+		max-width: var(--constraint-narrow);
 		margin-left: auto;
 		margin-right: auto;
 		@include desktop {

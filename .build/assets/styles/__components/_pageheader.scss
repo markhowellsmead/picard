@@ -28,13 +28,13 @@
 
 	&__inner {
 		@include mobile-padding-x;
-		padding-top: var(--unit);
-		padding-bottom: var(--unit);
+		padding-top: var(--unit-large);
+		padding-bottom: var(--unit-large);
 		@include flex-row;
 		justify-content: space-between;
 		position: relative;
 		z-index: 2;
-		@include tablet {
+		@include desktop {
 			align-items: baseline;
 		}
 	}

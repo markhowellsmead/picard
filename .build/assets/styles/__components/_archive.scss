@@ -10,8 +10,8 @@
 
 	&__content {
 		@extend .h-constraint;
-		@extend .h-stack--xlarge;
-		@include desktop {
+		@extend .h-stack--xxlarge;
+		@include tablet {
 			> * + * {
 				margin-top: var(--unit-xxlarge);
 			}
@@ -32,6 +32,12 @@
 		font-size: var(--font-size-small);
 		color: c(gray);
 		font-weight: 300;
+	}
+
+	.c-article {
+		&--nothumbnail:first-child {
+			padding-top: var(--unit-xlarge);
+		}
 	}
 
 }
