@@ -74,6 +74,10 @@ class Post
 			return '<span class="c-archive__titleprefix">'. _x('Posts about', 'Archive list header', 'sht').'</span> ' .single_term_title('', false);
 		}
 
+		if (is_tax('collection')) {
+			return '<span class="c-archive__titleprefix">'. _x('Photos from the collection', 'Archive list header', 'sht').'</span> ' .single_term_title('', false);
+		}
+
 		return $title;
 	}
 }
