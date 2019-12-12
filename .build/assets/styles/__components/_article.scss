@@ -5,6 +5,12 @@
 	padding-top: var(--unit-large);
 	padding-bottom: var(--unit-large);
 
+	@include desktop {
+		font-size: 1.125rem;
+		padding-top: var(--unit-xlarge);
+		padding-bottom: var(--unit-xlarge);
+	}
+
 	&__content {
 		@include clearfix;
 		@extend .h-constraint;
@@ -24,6 +30,9 @@
 	&__header {
 		@extend .h-constraint;
 		@extend .h-stack;
+		@include desktop {
+			padding-bottom: var(--unit-large);
+		}
 	}
 
 	&__meta {

@@ -1,3 +1,14 @@
 .wp-block-column {
 	@extend .h-stack;
 }
+
+.wp-block-columns {
+	&.alignwide {
+		padding-left: var(--unit-medium);
+		padding-right: var(--unit-medium);
+		@include desktop {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}

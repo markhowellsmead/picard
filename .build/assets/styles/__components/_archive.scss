@@ -1,5 +1,12 @@
 .c-archive {
 
+	padding-top: var(--unit-large);
+	padding-bottom: var(--unit-large);
+
+	@include desktop {
+		font-size: 1.125rem;
+	}
+
 	&__content {
 		@extend .h-constraint;
 		@extend .h-stack;
