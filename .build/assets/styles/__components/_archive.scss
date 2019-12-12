@@ -1,16 +1,16 @@
 .c-archive {
 
-	padding-top: var(--unit-large);
-	padding-bottom: var(--unit-large);
+	@include mobile-padding-x;
 
 	@include desktop {
+		padding-top: var(--unit-large);
+		padding-bottom: var(--unit-large);
 		font-size: 1.125rem;
 	}
 
 	&__content {
 		@extend .h-constraint;
-		@extend .h-stack;
-
+		@extend .h-stack--xlarge;
 		@include desktop {
 			> * + * {
 				margin-top: var(--unit-xxlarge);
@@ -21,8 +21,10 @@
 	&__header {
 		@extend .h-constraint;
 		@extend .h-stack;
-		padding-top: var(--unit-large);
-		padding-bottom: var(--unit-xlarge);
+		padding-bottom: var(--unit-large);
+		@include desktop {
+			padding-top: var(--unit-large);
+		}
 	}
 
 	&__titleprefix {

@@ -15,6 +15,7 @@
 		@include clearfix;
 		@extend .h-constraint;
 		@extend .h-stack--medium;
+		@include mobile-padding-x;
 
 		.has-medium-font-size:first-child {
 			color: c(black);
@@ -30,6 +31,7 @@
 	&__header {
 		@extend .h-constraint;
 		@extend .h-stack;
+		@include mobile-padding-x;
 		@include desktop {
 			padding-bottom: var(--unit-large);
 		}
@@ -38,7 +40,9 @@
 	&__meta {
 		@extend .h-constraint;
 		@extend .h-stack--medium;
-		padding: var(--unit-medium) 0;
+		@include mobile-padding-x;
+		padding-top: var(--unit-medium);
+		padding-bottom: var(--unit-medium);
 	}
 
 	&__metatitle {

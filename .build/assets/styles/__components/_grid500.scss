@@ -18,9 +18,18 @@
 
 	&__item {
 		flex-basis: calc(50% - var(--grid500-unit-small));
-		margin: var(--grid500-unit-small);
+		margin: var(--grid500-unit-small) 0;
 		background-color: #f0f0f0;
 		position: relative;
+
+		@include tablet {
+			margin: var(--grid500-unit-small);
+			flex-basis: calc(33.33333333% - var(--grid500-unit));
+		}
+
+		@include desktop {
+			flex-basis: calc(25% - var(--grid500-unit));
+		}
 
 		&::before {
 			content: '';
@@ -29,14 +38,6 @@
 
 		&:hover .c-grid500__caption {
 			opacity: 1;
-		}
-
-		@include tablet {
-			flex-basis: calc(33.33333333% - var(--grid500-unit));
-		}
-
-		@include desktop {
-			flex-basis: calc(25% - var(--grid500-unit));
 		}
 
 	}

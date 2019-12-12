@@ -5,9 +5,7 @@
 .c-pageheader {
 
 	@extend .h-constraint;
-	padding: var(--unit-medium) 0;
 	font-size: var(--font-size-small);
-	min-height: var(--masthead-height);
 
 	@include desktop {
 		font-size: 1rem;
@@ -16,6 +14,7 @@
 		left: 0;
 		right: 0;
 		z-index: 1;
+		min-height: var(--masthead-height);
 		background: linear-gradient(var(--page-background-color), transparent 75%);
 		border-bottom: 1px solid c(gray, light);
 		&::before {
@@ -28,11 +27,14 @@
 	}
 
 	&__inner {
+		@include mobile-padding-x;
+		padding-top: var(--unit);
+		padding-bottom: var(--unit);
+		@include flex-row;
+		justify-content: space-between;
 		position: relative;
 		z-index: 2;
-		@include laptop {
-			@include flex-row;
-			justify-content: space-between;
+		@include tablet {
 			align-items: baseline;
 		}
 	}
