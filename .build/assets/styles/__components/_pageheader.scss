@@ -1,0 +1,60 @@
+:root {
+	--masthead-height: #{rem-calc(95px)};
+	@include desktop {
+		--masthead-height: #{rem-calc(107px)};
+	}
+}
+
+.c-pageheader {
+
+	@extend .h-constraint;
+	font-size: var(--font-size-small);
+
+	@include desktop {
+		font-size: 1rem;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		min-height: var(--masthead-height);
+		background: linear-gradient(var(--page-background-color), transparent 75%);
+		border-bottom: 1px solid c(gray, xlight);
+		&::before {
+			content: '';
+			@include flood;
+			z-index: 0;
+			background-color: var(--page-background-color);
+			opacity: .9;
+		}
+	}
+
+	&__inner {
+		@include mobile-padding-x;
+		padding-top: var(--unit-large);
+		padding-bottom: var(--unit-large);
+		@include flex-row;
+		justify-content: space-between;
+		position: relative;
+		z-index: 2;
+		@include desktop {
+			align-items: baseline;
+		}
+	}
+
+	&__title {
+		font-size: 1.1em;
+	}
+
+	.admin-bar & {
+		@include desktop {
+			margin-top: 32px;
+		}
+	}
+
+	.s-menuopen & {
+		position: relative;
+		z-index: 20;
+		margin-top: var(--admin-bar-height);
+	}
+}

@@ -1,0 +1,43 @@
+.c-archive {
+
+	@include mobile-padding-x;
+
+	@include desktop {
+		padding-top: var(--unit-large);
+		padding-bottom: var(--unit-large);
+		font-size: 1.125rem;
+	}
+
+	&__content {
+		@extend .h-constraint;
+		@extend .h-stack--xxlarge;
+		@include tablet {
+			> * + * {
+				margin-top: var(--unit-xxlarge);
+			}
+		}
+	}
+
+	&__header {
+		@extend .h-constraint;
+		@extend .h-stack;
+		padding-bottom: var(--unit-large);
+		@include desktop {
+			padding-top: var(--unit-large);
+		}
+	}
+
+	&__titleprefix {
+		display: block;
+		font-size: var(--font-size-small);
+		color: c(gray);
+		font-weight: 300;
+	}
+
+	.c-article {
+		&--nothumbnail:first-child {
+			padding-top: var(--unit-xlarge);
+		}
+	}
+
+}

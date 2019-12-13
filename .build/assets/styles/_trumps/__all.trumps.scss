@@ -1,2 +1,6 @@
 @import 'a11y';
 @import 'theme-dev';
+
+body.post-template-single-paper {
+	--page-background-color: #fffffa;
+}

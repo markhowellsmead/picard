@@ -1,4 +1,4 @@
-// import "./teaser/block.jsx";
+// import "./image-gallery/block.jsx";
 
 window.onload = function () {
 	window.shtDisabledBlocks.forEach(block => {
@@ -47,5 +47,10 @@ wp.domReady(() => {
 	wp.blocks.registerBlockStyle('core/cover', {
 		name: 'full-height',
 		label: 'Full height'
+	});
+
+	wp.blocks.registerBlockStyle('core/paragraph', {
+		name: 'lead',
+		label: 'Lead text'
 	});
 });

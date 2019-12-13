@@ -1,11 +1,10 @@
 {
-  "name": "hello-theme",
-  "version": "0.0.0",
-  "description": "This is a boilerplate WordPress theme by [say hello](https://sayhello.ch). It has an object oriented php architecture and comes with some very handy build workflows.",
+  "name": "picard",
+  "description": "A next generation Theme for Permanent Tourist.",
   "main": "gulpfile.babel.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SayHelloGmbH/hello-roots.git"
+    "url": "git+https://github.com/markhowellsmead/picard.git"
   },
   "keywords": [
     "hello",
@@ -13,9 +12,9 @@
     "theme"
   ],
   "bugs": {
-    "url": "https://github.com/SayHelloGmbH/hello-roots/issues"
+    "url": "https://github.com/markhowellsmead/picard/issues"
   },
-  "homepage": "https://github.com/SayHelloGmbH/hello-roots#readme",
+  "homepage": "https://github.com/markhowellsmead/picard#readme",
   "dependencies": {
     "jquery-easing": "0.0.1",
     "verge": "^1.9.1"

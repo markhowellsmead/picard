@@ -1,0 +1,6 @@
+:root.admin-bar {
+	--admin-bar-height: 46px;
+	@include for-screen-min(wordpress_medium) {
+		--admin-bar-height: 32px;
+	}
+}

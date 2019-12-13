@@ -8,11 +8,11 @@
 	</head>
 <body <?php body_class(); ?>>
 
-<section class="c-page__section" id="header">
-	<header class="c-page__header" role="banner">
+<header class="c-pageheader">
+	<div class="c-pageheader__inner">
 
-		<h1 class="c-site__title">
-			<a class="c-site__titlelink" href="<?php echo get_home_url();?>"><?php echo get_bloginfo('name');?></a>
+		<h1 class="c-pageheader__title">
+			<a class="c-pageheader__titlelink" href="<?php echo get_home_url();?>"><?php echo get_bloginfo('name');?></a>
 		</h1>
 
 		<?php
@@ -27,11 +27,12 @@
 		);
 		?>
 
-		<button class="c-menutoggler" aria-controls="primary-menu" aria-expanded="false">
+		<button class="c-menutoggler" aria-controls="mobile-menu" aria-expanded="false">
 			<span class="c-menutoggler__line"></span>
 			<span class="c-menutoggler__line"></span>
 			<span class="c-menutoggler__line"></span>
 		</button>
 
-	</header>
-</section>
+	</div>
+
+</header>

@@ -11,8 +11,19 @@
 			display: block;
 		}
 
-		.c-menu__item {
-			display: block;
+		.c-menu {
+			&__entry {
+				display: block;
+				&:last-child {
+					a {
+						padding-right: 0;
+					}
+				}
+			}
+		}
+
+		a {
+			text-decoration: none;
 		}
 	}
 
@@ -22,14 +33,20 @@
 				@include flex-row;
 			}
 		}
+		&--mobile {
+			display: block;
+		}
 	}
 
 	&__entry {
 		display: inline-block;
+		&--mobile {
+			display: block;
+		}
 	}
 
 	&__entrylink {
 		display: block;
-		padding: .5em 1em;
+		padding: .5em;
 	}
 }

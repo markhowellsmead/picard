@@ -1,0 +1,81 @@
+/*
+ * https://every-layout.dev/layouts/stack/
+ */
+
+.h-stack {
+	> * {
+		margin-top: 0;
+		margin-bottom: 0;
+
+		& + * {
+			margin-top: var(--unit);
+		}
+	}
+
+	&--small {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			& + * {
+				margin-top: var(--unit-small);
+			}
+		}
+	}
+
+	&--xsmall {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			& + * {
+				margin-top: var(--unit-xsmall);
+			}
+		}
+	}
+
+	&--medium {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			& + * {
+				margin-top: var(--unit-medium);
+			}
+		}
+	}
+
+	&--large {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			& + * {
+				margin-top: var(--unit-large);
+			}
+		}
+	}
+
+	&--xlarge {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			& + * {
+				margin-top: var(--unit-xlarge);
+			}
+		}
+	}
+
+	&--xxlarge {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			& + * {
+				margin-top: var(--unit-xxlarge);
+			}
+		}
+	}
+
+}

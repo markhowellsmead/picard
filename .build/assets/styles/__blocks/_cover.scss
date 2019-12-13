@@ -4,41 +4,62 @@
 	min-height: 25vh;
 	align-items: flex-end;
 
+	&:first-child {
+		margin-top: calc(var(--unit-large) * -2);
+	}
+
 	&::after {
 		content: '';
 		display: block;
 	}
 
-	&.is-style-aspect-21::after {
-		padding-bottom: percentage(1/2);
+	&.alignfull {
+		padding-top: 50%;
+		@include tablet {
+			padding-top: 15%;
+		}
+		@include desktop {
+			padding-top: 0;
+		}
 	}
 
-	&.is-style-aspect-31::after {
-		padding-bottom: percentage(1/3);
+	&.is-style-aspect-21 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/2);
+		}
 	}
 
-	&.is-style-aspect-41::after {
-		padding-bottom: percentage(1/4);
+	&.is-style-aspect-31 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/3);
+		}
 	}
 
-	&.is-style-aspect-169::after {
-		padding-bottom: percentage(9/16);
+	&.is-style-aspect-41 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/4);
+		}
 	}
 
-	&.is-style-full-height::after {
-		padding-bottom: 100vh;
+	&.is-style-aspect-169 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(9/16);
+		}
 	}
 
-	&.has-background-dim::before {
-		background: transparent linear-gradient(transparent 50%, c(black, dark) 100%);
+	&.is-style-full-height {
+		min-height: 100vh;
+		&::after {
+			padding-bottom: 100vh;
+		}
 	}
 
-	&.has-white-background-color::before {
-		background: transparent linear-gradient(transparent 25%, c(white) 100%);
-	}
-
-	&.has-yellow-background-color::before {
-		background: transparent linear-gradient(transparent 50%, c(yellow) 100%);
+	&.has-background-dim {
+		background-color: c(black);
 	}
 
 	&.has-primary-background-color {
@@ -57,12 +78,17 @@
 	}
 
 	&__inner-container {
-		@extend .c-stack;
+		@extend .h-stack;
 		padding-top: var(--unit);
-		padding-bottom: var(--unit);
+		padding-bottom: var(--unit-medium);
 		width: 100vw;
 		max-width: var(--constraint-narrow);
 		color: inherit !important;
+		.alignfull & {
+			@include desktop {
+				max-width: var(--constraint-wide);
+			}
+		}
 	}
 
 }

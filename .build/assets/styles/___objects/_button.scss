@@ -1,4 +1,20 @@
 .o-button {
+
+	cursor: pointer;
+	padding: var(--unit-xsmall) var(--unit);
+	border: 1px solid c(gray, mid);
+	border-radius: .25em;
+	background: c(white);
+
+	&--solid {
+		@extend .o-button;
+		background-color: c(gray, mid);
+		color: c(white);
+		&:hover {
+			color: c(white);
+		}
+	}
+
 	&--size-small {
 		font-size: $font-size-small;
 	}
