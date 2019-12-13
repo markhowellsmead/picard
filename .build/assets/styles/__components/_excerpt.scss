@@ -7,7 +7,7 @@
 		max-width: var(--constraint-narrow);
 		margin-left: auto;
 		margin-right: auto;
-		@include desktop {
+		@include laptop {
 			max-width: 100%;
 		}
 	}
@@ -27,7 +27,7 @@
 		&:not(.c-article__thumbnailaspect--tall) {
 			@extend .alignmedium;
 		}
-		@include desktop {
+		@include laptop {
 			@supports(grid-gap: 1rem) {
 				display: grid;
 				grid-template-columns: 3fr 2fr;
@@ -74,7 +74,7 @@
 	&:nth-child(even) {
 		&.has-post-thumbnail,
 		&.has-video-thumbnail {
-			@include desktop {
+			@include laptop {
 				@supports(grid-gap: 1rem) {
 					grid-template-columns: 2fr 3fr;
 					.c-excerpt {

@@ -18,6 +18,9 @@
 		@include tablet {
 			padding-top: 15%;
 		}
+		@include desktop {
+			padding-top: 0;
+		}
 	}
 
 	&.is-style-aspect-21 {

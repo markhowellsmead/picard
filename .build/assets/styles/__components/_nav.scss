@@ -17,6 +17,10 @@
 		justify-content: center;
 		align-items: center;
 
+		@include desktop {
+			display: none;
+		}
+
 		&[aria-hidden="true"] {
 			transform: translateX(100vw) scale(0);
 			opacity: 0;

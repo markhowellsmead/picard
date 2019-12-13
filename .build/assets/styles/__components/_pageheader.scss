@@ -1,5 +1,8 @@
 :root {
 	--masthead-height: #{rem-calc(95px)};
+	@include desktop {
+		--masthead-height: #{rem-calc(107px)};
+	}
 }
 
 .c-pageheader {
@@ -16,7 +19,7 @@
 		z-index: 1;
 		min-height: var(--masthead-height);
 		background: linear-gradient(var(--page-background-color), transparent 75%);
-		border-bottom: 1px solid c(gray, light);
+		border-bottom: 1px solid c(gray, xlight);
 		&::before {
 			content: '';
 			@include flood;

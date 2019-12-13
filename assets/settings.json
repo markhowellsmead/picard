@@ -18,8 +18,9 @@
 			"base": "#888",
 			"dark": "#2f4f4f",
 			"mid": "#aaa",
-			"light": "#f0f0f0",
-			"xlight": "#f6f6f6"
+			"light": "#ccc",
+			"xlight": "#f0f0f0",
+			"xxlight": "#f6f6f6"
 		},
 		"brown": {
 			"base": "#930"

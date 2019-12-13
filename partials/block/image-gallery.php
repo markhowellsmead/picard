@@ -28,7 +28,7 @@ $unique = uniqid();
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;
-			$href = $image['sizes']['block_full'];
+			$href = $image['sizes']['block_full'] ?? $image['sizes']['gutenberg_wide'];
 			?>
 		<li
 			class="wp-block-sht-imagegallery__entry c-grid500__item"
