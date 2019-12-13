@@ -15,7 +15,15 @@
 		@include clearfix;
 		@extend .h-constraint;
 		@extend .h-stack--medium;
-		@include mobile-padding-x;
+
+		> * {
+			@include mobile-padding-x;
+			&.alignfull,
+			&.alignwide {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
 
 		.has-medium-font-size:first-child {
 			color: c(black);

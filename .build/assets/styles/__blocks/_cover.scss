@@ -5,12 +5,19 @@
 	align-items: flex-end;
 
 	&:first-child {
-		margin-top: calc(var(--unit-large)*-1);
+		margin-top: calc(var(--unit-large) * -2);
 	}
 
 	&::after {
 		content: '';
 		display: block;
+	}
+
+	&.alignfull {
+		padding-top: 50%;
+		@include tablet {
+			padding-top: 15%;
+		}
 	}
 
 	&.is-style-aspect-21 {
@@ -75,7 +82,9 @@
 		max-width: var(--constraint-narrow);
 		color: inherit !important;
 		.alignfull & {
-			max-width: var(--constraint-wide);
+			@include desktop {
+				max-width: var(--constraint-wide);
+			}
 		}
 	}
 

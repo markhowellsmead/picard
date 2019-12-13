@@ -3,6 +3,11 @@
 }
 
 .wp-block-columns {
+
+	@include tablet {
+		flex-wrap: nowrap;
+	}
+
 	&.alignwide {
 		padding-left: var(--unit-medium);
 		padding-right: var(--unit-medium);
