@@ -33,10 +33,16 @@
 				@include flex-row;
 			}
 		}
+		&--mobile {
+			display: block;
+		}
 	}
 
 	&__entry {
 		display: inline-block;
+		&--mobile {
+			display: block;
+		}
 	}
 
 	&__entrylink {

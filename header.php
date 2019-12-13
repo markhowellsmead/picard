@@ -27,7 +27,7 @@
 		);
 		?>
 
-		<button class="c-menutoggler" aria-controls="primary-menu" aria-expanded="false">
+		<button class="c-menutoggler" aria-controls="mobile-menu" aria-expanded="false">
 			<span class="c-menutoggler__line"></span>
 			<span class="c-menutoggler__line"></span>
 			<span class="c-menutoggler__line"></span>

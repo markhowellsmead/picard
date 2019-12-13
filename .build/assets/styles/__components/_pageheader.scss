@@ -48,4 +48,10 @@
 			margin-top: 32px;
 		}
 	}
+
+	.s-menuopen & {
+		position: relative;
+		z-index: 20;
+		margin-top: var(--admin-bar-height);
+	}
 }

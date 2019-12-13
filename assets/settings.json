@@ -3,6 +3,7 @@
 		"primary": {
 			"base": "#1A56B0",
 			"basewithopacity": "#1A56B080",
+			"basewithhalfopacity": "#1A56B040",
 			"dark": "#134084"
 		},
 		"black": {
@@ -30,6 +31,7 @@
 	"theme_breakpoints": {
 		"phone": 330,
 		"tablet": 768,
+		"wordpress_medium": 783,
 		"tablet_landscape": 1024,
 		"laptop": 1280,
 		"desktop": 1440
