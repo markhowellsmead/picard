@@ -11,14 +11,6 @@ namespace SayHello\Theme\Package;
 class ThemeOptions
 {
 
-	public $main_slug = '';
-	public $general_slug = '';
-
-	public function __construct()
-	{
-		$this->main_slug    = sht_theme()->prefix . '-settings';
-	}
-
 	public function run()
 	{
 		add_action('acf/init', [ $this, 'page' ], 1);
@@ -32,7 +24,7 @@ class ThemeOptions
 				[
 					'page_title'  => __('Theme-Optionen', 'sha'),
 					'menu_title'  => __('Theme-Optionen', 'sha'),
-					'menu_slug'   => $this->main_slug,
+					'menu_slug'   => 'options',
 					'parent_slug' => 'themes.php',
 					'capability'  => 'edit_theme_options',
 				]
@@ -50,130 +42,51 @@ class ThemeOptions
 		if (function_exists('acf_add_local_field_group')) {
 			$prefix = sht_theme()->prefix;
 
-			acf_add_local_field_group(
-				[
-					'key'      => "{$prefix}-contact-group",
-					'title'    => __('Kontakt', 'sha'),
-					'fields'   => [
+			acf_add_local_field_group(array(
+				'key' => "{$prefix}-blockarea-group",
+				'title' => 'Block areas',
+				'fields' => array(
+					array(
+						'key' => "{$prefix}-blockarea-footer",
+						'label' => 'Footer',
+						'name' => "{$prefix}-blockarea-footer",
+						'type' => 'post_object',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'block_area',
+						),
+						'taxonomy' => '',
+						'allow_null' => 0,
+						'multiple' => 0,
+						'return_format' => 'object',
+						'ui' => 1,
+					),
+				),
+				'location'   => [
+					[
 						[
-							'key'   => "field_{$prefix}-contact-tel",
-							'name'  => "{$prefix}-contact-tel",
-							'label' => __('Telefon', 'sha'),
-							'type'  => 'text',
-						],
-						[
-							'key'   => "field_{$prefix}-contact-fax",
-							'name'  => "{$prefix}-contact-fax",
-							'label' => __('Fax', 'sha'),
-							'type'  => 'text',
-						],
-						[
-							'key'   => "field_{$prefix}-contact-email",
-							'name'  => "{$prefix}-contact-email",
-							'label' => __('E-Mail-Adresse', 'sha'),
-							'type'  => 'email',
-						],
-						[
-							'key'   => "field_{$prefix}-contact-name",
-							'name'  => "{$prefix}-contact-name",
-							'label' => __('Name', 'sha'),
-							'type'  => 'text',
-						],
-						[
-							'key'     => "field_{$prefix}-contact-street",
-							'name'    => "{$prefix}-contact-street",
-							'label'   => __('Strasse', 'sha'),
-							'type'    => 'text',
-							'wrapper' => [
-								'width' => 70,
-							],
-						],
-						[
-							'key'     => "field_{$prefix}-contact-number",
-							'name'    => "{$prefix}-contact-number",
-							'label'   => __('Nummer', 'sha'),
-							'type'    => 'text',
-							'wrapper' => [
-								'width' => 30,
-							],
-						],
-						[
-							'key'     => "field_{$prefix}-contact-zip",
-							'name'    => "{$prefix}-contact-zip",
-							'label'   => __('PLZ', 'sha'),
-							'type'    => 'text',
-							'wrapper' => [
-								'width' => 30,
-							],
-						],
-						[
-							'key'     => "field_{$prefix}-contact-city",
-							'name'    => "{$prefix}-contact-city",
-							'label'   => __('Ort', 'sha'),
-							'type'    => 'text',
-							'wrapper' => [
-								'width' => 70,
-							],
-						],
-						[
-							'key'     => "field_{$prefix}-contact-state",
-							'name'    => "{$prefix}-contact-state",
-							'label'   => __('Kanton', 'sha'),
-							'type'    => 'text',
-							'wrapper' => [
-								'width' => 50,
-							],
-						],
-						[
-							'key'     => "field_{$prefix}-contact-country",
-							'name'    => "{$prefix}-contact-country",
-							'label'   => __('Land', 'sha'),
-							'type'    => 'text',
-							'wrapper' => [
-								'width' => 50,
-							],
+							'param'    => 'options_page',
+							'operator' => '==',
+							'value'    => 'options',
 						],
 					],
-					'location' => [
-						[
-							[
-								'param'    => 'options_page',
-								'operator' => '==',
-								'value'    => $this->main_slug,
-							],
-						],
-					],
-				]
-			);
-
-			/**
-			 * Analytics
-			 */
-
-			acf_add_local_field_group(
-				[
-					'key'        => "{$prefix}-analytics-group",
-					'title'      => __('Analytics Tracking', 'sha'),
-					'fields'     => [
-						[
-							'key'   => "field_{$prefix}-analytics-track-id",
-							'name'  => "{$prefix}-analytics-track-id",
-							'label' => __('Google Analytics / Tag Manager ID', 'sha'),
-							'type'  => 'text',
-						],
-					],
-					'location'   => [
-						[
-							[
-								'param'    => 'options_page',
-								'operator' => '==',
-								'value'    => $this->main_slug,
-							],
-						],
-					],
-					'menu_order' => 50,
-				]
-			);
+				],
+				'menu_order' => 0,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			));
 		}
 	}
 
