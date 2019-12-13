@@ -86,7 +86,7 @@ class Post
 				).'</span> '. get_search_query();
 			} else {
 				return '<span class="c-archive__titleprefix">'. sprintf(
-					_x('Keine Suchergebnisse aus den Fachartikeln für den Suchbegriff', 'Archive list header', 'sht'),
+					_x('No search results for', 'Archive list header', 'sht'),
 					$GLOBALS['wp_query']->found_posts
 				).'</span> ' .get_search_query();
 			}
