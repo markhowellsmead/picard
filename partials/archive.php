@@ -9,6 +9,10 @@
 				apply_filters('the_content', $term_description)
 			);
 		}
+
+		if (is_search()) {
+			get_search_form();
+		}
 		?>
 	</header>
 

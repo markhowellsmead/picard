@@ -78,6 +78,20 @@ class Post
 			return '<span class="c-archive__titleprefix">'. _x('Photos from the collection', 'Archive list header', 'sht').'</span> ' .single_term_title('', false);
 		}
 
+		if (is_search()) {
+			if ($GLOBALS['wp_query']->found_posts > 0) {
+				return '<span class="c-archive__titleprefix">'. sprintf(
+					_nx('%s search result for', '%s search results for', $GLOBALS['wp_query']->found_posts, 'Archive list header', 'sht'),
+					$GLOBALS['wp_query']->found_posts
+				).'</span> '. get_search_query();
+			} else {
+				return '<span class="c-archive__titleprefix">'. sprintf(
+					_x('Keine Suchergebnisse aus den Fachartikeln für den Suchbegriff', 'Archive list header', 'sht'),
+					$GLOBALS['wp_query']->found_posts
+				).'</span> ' .get_search_query();
+			}
+		}
+
 		return $title;
 	}
 }
