@@ -1,11 +1,57 @@
 .wp-block-quote {
-	border-left: .25em solid c(gray, mid);
-	background-color: c(gray, light);
-	padding: var(--unit);
+	padding: var(--unit) var(--unit-xlarge);
 	font-style: italic;
+	position: relative;
+	border: none; // override core CSS
 
-	cite {
+	> * {
+		position: relative;
+	}
+
+	&:before {
+		content: '“';
+		font-size: 6em;
+		line-height: 1;
+		position: absolute;
+		top: 0;
+		left: .125em;
+		pointer-events: none;
+		color: c(gray, mid);
+		opacity: .5;
+	}
+
+	p:last-of-type:before {
+		content: '„';
+		font-size: 6em;
+		line-height: 1;
+		position: absolute;
+		bottom: 0;
+		right: -.75em;
+		pointer-events: none;
+		color: c(gray, mid);
+		opacity: .5;
+	}
+
+	&__citation,
+	cite,
+	em {
 		font-size: var(--font-size-small);
-		font-style: normal;
+		color: c(gray);
+		font-style: italic;
+		a {
+			color: currentColor;
+		}
+	}
+}
+
+.wp-block-pullquote {
+	font-size: 1.1em;
+	@extend .wp-block-quote;
+	padding-top: var(--unit-large);
+	padding-bottom: var(--unit-large);
+	background-color: c(gray, light) !important;
+	max-width: calc(var(--constraint-medium) + var(--unit-large));
+	p {
+		font-size: 1em;
 	}
 }

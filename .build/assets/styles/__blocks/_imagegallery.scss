@@ -1,0 +1,10 @@
+.wp-block-sht-imagegallery {
+	--stack-space-top: 2rem;
+	--stack-space-bottom: 2rem;
+
+	&__images {
+		list-style: none;
+		padding: 0;
+		margin-left: 0;
+	}
+}

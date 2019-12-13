@@ -16,6 +16,7 @@ class Navigation
 	{
 		$this->menus = [
 			'primary' => _x('Primary', 'Menu navigation label', 'sht'),
+			'mobile' => _x('Mobile', 'Menu navigation label', 'sht')
 		];
 	}
 

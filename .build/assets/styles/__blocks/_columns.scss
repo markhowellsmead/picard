@@ -1,3 +1,19 @@
 .wp-block-column {
-	@extend .c-stack;
+	@extend .h-stack;
+}
+
+.wp-block-columns {
+
+	@include tablet {
+		flex-wrap: nowrap;
+	}
+
+	&.alignwide {
+		padding-left: var(--unit-medium);
+		padding-right: var(--unit-medium);
+		@include desktop {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
 }

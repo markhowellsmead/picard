@@ -1,39 +1,108 @@
 .c-article {
 
-	max-width: var(--constraint-narrow);
-	margin-left: auto;
-	margin-right: auto;
-	@extend .c-stack--medium;
+	@include clearfix;
+	@extend .h-stack--medium;
+	padding-top: var(--unit-large);
+	padding-bottom: var(--unit-large);
+
+	@include desktop {
+		font-size: 1.125rem;
+		padding-top: var(--unit-xlarge);
+		padding-bottom: var(--unit-xlarge);
+	}
+
+	&__content {
+		@include clearfix;
+		@extend .h-constraint;
+		@extend .h-stack--medium;
+
+		> * {
+			@include mobile-padding-x;
+			&.alignfull,
+			&.alignwide {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		.has-medium-font-size:first-child {
+			color: c(black);
+		}
+	}
 
 	&__date {
 		display: block;
 		font-size: var(--font-size-small);
+		color: c(gray);
 	}
 
 	&__header {
-		@extend .c-stack;
+		@extend .h-constraint;
+		@extend .h-stack;
+		@include mobile-padding-x;
+		@include desktop {
+			padding-bottom: var(--unit-large);
+		}
+
+		> * {
+			padding-right: 15%;
+			@include desktop {
+				padding-right: var(--unit-xlarge);
+			}
+		}
+	}
+
+	&__meta {
+		@extend .h-constraint;
+		@extend .h-stack--medium;
+		@include mobile-padding-x;
+		padding-top: var(--unit-medium);
+		padding-bottom: var(--unit-medium);
+	}
+
+	&__metatitle {
+		font-size: 1.1em;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	&__taxonomy {
+		@extend .h-stack--xsmall;
+	}
+
+	&__taxonomyentries {
+		line-height: var(--line-height);
+		color: c(gray);
+		a {
+			color: currentColor;
+			text-decoration-color: c(gray, light);
+		}
 	}
 
 	&__thumbnail {
-		@extend .alignmedium;
-
-		html.single-format-image & {
-			order: -1;
-			@extend .alignwide;
+		@extend .h-constraint;
+		&.alignwide {
+			> * {
+				max-width: var(--constraint-wide);
+			}
+		}
+		&.alignfull {
+			> * {
+				max-width: var(--constraint-full);
+			}
 		}
 	}
 
+	&__thumbnailimage {
+		width: 100%;
+	}
+
 	&__video {
-		@extend .alignwide;
-
-		&__figure {
-			margin: 0;
-
-			html.single-format-video & {
-				order: -1;
-				@extend .alignwide;
-			}
+		@extend .h-constraint;
+		padding: var(--unit-xlarge);
+		background: c(gray, dark) radial-gradient(c(gray, dark) 25%, c(black));
+		.wp-block-embed {
+			@extend .alignwide;
 		}
-
 	}
 }

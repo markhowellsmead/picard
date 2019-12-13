@@ -1,0 +1,28 @@
+.wp-block-search {
+
+	@extend .h-stack--small;
+	justify-content: center;
+
+	&__button {
+		@extend .o-button--solid;
+	}
+
+	&__label {
+		display: block;
+		font-weight: 600;
+	}
+
+	&.aligncenter {
+		text-align: center;
+	}
+}
+
+.search-form {
+	display: flex;
+	.search-submit {
+		margin-left: var(--unit);
+	}
+	label {
+		flex: 1 0 .00001px;
+	}
+}
