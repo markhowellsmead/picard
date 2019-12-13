@@ -155,7 +155,7 @@ class Theme
 	 */
 	public function contentWidth()
 	{
-		$GLOBALS[ 'content_width' ] = apply_filters('sht/content_width', 720);
+		$GLOBALS[ 'content_width' ] = apply_filters('sht/content_width', 1280);
 	}
 
 	/**
