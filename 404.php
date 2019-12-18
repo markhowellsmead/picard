@@ -1,7 +1,7 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
+<main class="c-main">
+	<?php get_template_part('partials/singular', '404');?>
+</main>
 
-get_template_part('partials/singular', '404');
-
-get_footer();
+<?php get_footer();
