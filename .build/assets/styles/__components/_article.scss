@@ -97,10 +97,14 @@
 
 	&__video {
 		@extend .h-constraint;
-		padding: var(--unit-xlarge);
+		padding: var(--unit-small);
 		background: c(gray, dark) radial-gradient(c(gray, dark) 25%, c(black));
+		@include desktop {
+			padding: var(--unit-xlarge);
+		}
 		.wp-block-embed {
 			@extend .alignwide;
+			margin-bottom: 0;
 		}
 	}
 }
