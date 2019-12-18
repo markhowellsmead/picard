@@ -55,7 +55,7 @@ input {
 
 		&:focus {
 			outline: none;
-			box-shadow: 0 0 3px c(blue, royal);
+			box-shadow: 0 0 3px c(black, withopacity);
 		}
 
 		&.medium {
@@ -120,14 +120,14 @@ input {
 	&:checked ~ label {
 		font-weight: 600;
 		&::before {
-			background-color: c(blue, royal);
-			border-color: c(blue, royal);
+			background-color: c(primary);
+			border-color: c(primary);
 			background-size: contain;
 		}
 	}
 
 	&.is--error ~label::before {
-		border-color: c(red);
+		border-color: c(danger);
 	}
 }
 
@@ -293,7 +293,7 @@ textarea {
 
 	&_ajax_spinner {
 		border: var(--unit-xsmall) solid c(gray, xlight);
-		border-left: var(--unit-xsmall) solid c(blue, royal);
+		border-left: var(--unit-xsmall) solid c(primary);
 		animation: gf_ajaxspinner 1.1s infinite linear;
 		border-radius: 50%;
 		width: var(--unit-medium);

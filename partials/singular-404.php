@@ -8,6 +8,8 @@
 		<?php
 		echo '<p><b>' . __('404 - page not found.', 'sht') . '</b></p>';
 		echo '<p>' . __('The requested page or file could not be found.', 'sht') . '</p>';
+
+		get_search_form();
 		?>
 	</div>
 
