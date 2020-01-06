@@ -32,7 +32,6 @@ body {
 a,
 button {
 	color: currentColor;
-	@include transition();
 
 	&:active,
 	&:hover {
@@ -42,7 +41,7 @@ button {
 
 a {
 	text-underline-position: under;
-	text-decoration-color: c(primary, basewithopacity);
+	text-decoration-color: c(gray, dark50);
 	&:hover {
 		text-decoration-color: currentColor;
 	}
