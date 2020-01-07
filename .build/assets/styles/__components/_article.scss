@@ -93,6 +93,9 @@
 
 	&__thumbnailimage {
 		width: 100%;
+		border: 1rem solid c(white);
+		box-shadow: 0 0 1rem rgba(0,0,0,.125);
+		outline: none;
 	}
 
 	&__video {
