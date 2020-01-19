@@ -53,7 +53,7 @@
 		}
 
 		img {
-			border: .5rem solid c(white);
+			border: .25rem solid c(white);
 			box-shadow: 0 0 .5rem rgba(0,0,0,.125);
 			outline: none;
 		}
@@ -133,6 +133,7 @@
 			&::before {
 				content: '';
 				@include flood;
+				margin: .25rem;
 				background: url('../img/icons/ic_play_circle_filled_24px_white_75.min.svg') center no-repeat, linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,.5) 100%) center bottom repeat-x;
 				background-size: 3rem;
 			}
