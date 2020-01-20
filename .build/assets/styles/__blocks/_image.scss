@@ -3,11 +3,25 @@
  */
 
 .wp-block-image {
+
+	&.alignfull,
+	&.alignwide {
+		figcaption {
+			padding-left: var(--unit);
+			padding-right: var(--unit);
+			@include tablet {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
+
 	figcaption {
 		max-width: var(--constraint-narrow);
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	img {
 		pointer-events: none;
 		border: .25rem solid c(white);
