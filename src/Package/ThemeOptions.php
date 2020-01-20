@@ -15,6 +15,13 @@ class ThemeOptions
 	{
 		add_action('acf/init', [ $this, 'page' ], 1);
 		add_action('acf/init', [ $this, 'options' ]);
+		add_action('acf/init', [ $this, 'acfInit' ]);
+	}
+
+	public function acfInit()
+	{
+		$prefix = sht_theme()->prefix;
+		acf_update_setting('google_api_key', get_field("{$prefix}-maps-api-key", 'options'));
 	}
 
 	public function page()
@@ -44,11 +51,11 @@ class ThemeOptions
 
 			acf_add_local_field_group(array(
 				'key' => "{$prefix}-blockarea-group",
-				'title' => 'Block areas',
+				'title' => 'Theme Options',
 				'fields' => array(
 					array(
 						'key' => "{$prefix}-blockarea-footer",
-						'label' => 'Footer',
+						'label' => 'Footer Block Area',
 						'name' => "{$prefix}-blockarea-footer",
 						'type' => 'post_object',
 						'instructions' => '',
@@ -67,6 +74,25 @@ class ThemeOptions
 						'multiple' => 0,
 						'return_format' => 'object',
 						'ui' => 1,
+					),
+					array(
+						'key' => "{$prefix}-maps-api-key",
+						'label' => 'Google Maps API Key',
+						'key' => "{$prefix}-maps-api-key",
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
 					),
 				),
 				'location'   => [
