@@ -14,10 +14,16 @@
 		line-height: 1;
 		position: absolute;
 		top: 0;
-		left: .125em;
+		left: 0;
 		pointer-events: none;
 		color: c(gray, mid);
 		opacity: .5;
+		@include tablet {
+			left: -.0625em;
+		}
+		@include desktop {
+			left: -.125em;
+		}
 	}
 
 	p:last-of-type:before {
@@ -26,10 +32,16 @@
 		line-height: 1;
 		position: absolute;
 		bottom: 0;
-		right: -.75em;
+		right: -.5em;
 		pointer-events: none;
 		color: c(gray, mid);
 		opacity: .5;
+		@include tablet {
+			right: -.65em;
+		}
+		@include desktop {
+			right: -.75em;
+		}
 	}
 
 	&__citation,
@@ -49,7 +61,7 @@
 	@extend .wp-block-quote;
 	padding-top: var(--unit-large);
 	padding-bottom: var(--unit-large);
-	background-color: c(gray, light) !important;
+	background-color: c(gray, xlight) !important;
 	max-width: calc(var(--constraint-medium) + var(--unit-large));
 	p {
 		font-size: 1em;
