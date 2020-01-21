@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/markhowellsmead/picard#readme",
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "jquery-easing": "0.0.1",
     "verge": "^1.9.1"
   },
