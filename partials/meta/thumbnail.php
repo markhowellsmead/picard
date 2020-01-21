@@ -6,7 +6,21 @@ if (post_password_required() || is_attachment() || ! has_post_thumbnail() || (bo
 	return;
 }
 
-$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), 'full', 'c-article__thumbnailfigure', 'c-article__thumbnailimage');
+$imageAspect = sht_theme()->Package->Media->thumbnailAspect();
+
+// var_dump(get_intermediate_image_sizes());
+// var_dump($imageAspect);
+
+switch ($imageAspect) {
+	case 'tall':
+		$image_size = 'large';
+		break;
+	default:
+		$image_size = 'full';
+		break;
+}
+
+$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-article__thumbnailfigure', 'c-article__thumbnailimage');
 
 if (is_singular()) {
 	if (!is_page_template('single-gutenberg')) {
@@ -14,7 +28,7 @@ if (is_singular()) {
 			'<div class="c-article__thumbnail c-article__thumbnail--%1$s%2$s%3$s">%4$s</div>',
 			get_post_type(),
 			!empty($class) ? ' '.$class : '',
-			get_post_format() === 'image' ? ' alignwide' : '',
+			get_post_format() === 'image' && $imageAspect !== 'tall' ? ' alignwide' : '',
 			$image
 		);
 	}
