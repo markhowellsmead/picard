@@ -89,6 +89,7 @@ class Theme
 		add_action('after_setup_theme', [ $this, 'addNavigations' ]);
 		add_action('after_setup_theme', [ $this, 'addThemeSupports' ]);
 		add_action('after_setup_theme', [ $this, 'contentWidth' ]);
+		add_action('comment_form_before', [$this, 'enqueueReplyScript']);
 
 		add_action('wp_head', [ $this, 'noJsScript' ]);
 		add_action('wp_head', [ $this, 'setResolutionCookie' ]);
@@ -256,6 +257,13 @@ class Theme
 			if (!empty($template = locate_template($parts))) {
 				require(locate_template($parts));
 			}
+		}
+	}
+
+	public function enqueueReplyScript()
+	{
+		if (is_singular() && get_option('thread_comments')) {
+			wp_enqueue_script('comment-reply');
 		}
 	}
 }
