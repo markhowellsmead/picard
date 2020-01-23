@@ -5,6 +5,7 @@
 	border: 1px solid c(gray, mid);
 	border-radius: .25em;
 	background: c(white);
+	text-decoration: none;
 
 	&--solid {
 		@extend .o-button;

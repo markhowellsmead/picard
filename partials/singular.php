@@ -35,6 +35,8 @@
 		get_template_part('partials/collections');
 		?>
 	</div>
-	<?php } ?>
+	<?php }
+	get_template_part('partials/comments/template');
+	?>
 
 </article>

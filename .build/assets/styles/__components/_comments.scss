@@ -1,0 +1,115 @@
+.c-comments {
+
+	padding-left: var(--unit);
+	padding-right: var(--unit);
+	max-width: var(--constraint-narrow);
+	margin-left: auto;
+	margin-right: auto;
+
+	@include tablet {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.children {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	.comment,
+	.pingback,
+	.trackback {
+		padding-top: var(--unit);
+		padding-bottom: var(--unit);
+		padding-left: var(--unit-large);
+		@extend .h-stack;
+
+		&.depth-1 {
+			padding-left: 0;
+		}
+
+		// Only if inside an existing comment (so as a specific reply)
+		.comment-respond {
+			padding-top: var(--unit);
+			padding-bottom: var(--unit);
+			border-top: 1px solid c(gray);
+		}
+
+		& + .comment,
+		& + .pingback,
+		& + .trackback {
+			border-top: 1px solid c(gray, light);
+		}
+
+	}
+
+	.comment-awaiting-moderation {
+		flex: 0 0 100%;
+		opacity: .65;
+	}
+
+	.comment-body,
+	.comment-content {
+		@extend .h-stack;
+		pre {
+			padding: 0;
+			overflow-x: auto;
+		}
+	}
+
+	.comment-edit-link {
+		@extend .o-button;
+	}
+
+	.commentlist {
+		padding-left: 0;
+		list-style: none;
+	}
+
+	.comment-meta {
+		@extend .h-stack--small;
+		@include tablet {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			> * {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.comment-metadata {
+		font-size: var(--font-size-xsmall);
+		text-align: right;
+		@include tablet {
+			flex: 0 0 40%;
+			margin-left: var(--unit);
+		}
+	}
+
+	.comment-reply-link {
+		@extend .o-button;
+		font-size: var(--font-size-small);
+	}
+
+	.comment-respond {
+		clear: both;
+	}
+
+	.edit-link {
+		margin-left: var(--unit-small);
+	}
+
+	.navigation {
+		@include clearfix;
+	}
+
+	#cancel-comment-reply-link {
+		font-weight: normal;
+		text-decoration: underline;
+		&:active,
+		&:hover {
+			color: c(primary, dark);
+		}
+	}
+}
