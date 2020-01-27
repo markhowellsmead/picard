@@ -1,4 +1,16 @@
 .c-footer {
 	padding: var(--unit-xlarge) 0;
 	background: c(gray, xlight) linear-gradient(c(gray, xxlight), c(gray, xlight));
+
+	> * {
+		padding-left: var(--unit);
+		padding-right: var(--unit);
+		margin-left: auto;
+		margin-right: auto;
+		max-width: var(--constraint-narrow);
+		@include tablet {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
 }
