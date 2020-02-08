@@ -21,6 +21,10 @@ class Destination
 			return '<span class="c-archive__titleprefix">'. _x('Destinations in the region', 'Archive list header', 'sht').'</span> ' .single_term_title('', false);
 		}
 
+		if (is_tax('mhm_destination_tag')) {
+			return '<span class="c-archive__titleprefix">'. _x('Destinations featuring the subject', 'Archive list header', 'sht').'</span> ' .single_term_title('', false);
+		}
+
 		return $title;
 	}
 }
