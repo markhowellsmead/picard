@@ -143,4 +143,39 @@
 			margin-bottom: 0;
 		}
 	}
+
+	&--photo {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		> * {
+			width: 100%;
+		}
+		.c-article {
+			&__header {
+				width: 100%;
+				max-width: var(--constraint-narrow);
+				margin-left: auto;
+				margin-right: auto;
+				> {
+					padding-right: 0;
+				}
+			}
+			&__date,
+			&__title {
+				display: inline-block;
+			}
+			&__title {
+				font-weight: 400;
+				font-size: 1em;
+				padding-right: 1em;
+				font-style: italic;
+				color: inherit;
+			}
+			&__thumbnail {
+				order: -1;
+				margin-top: 0;
+			}
+		}
+	}
 }
