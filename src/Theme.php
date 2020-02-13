@@ -84,6 +84,7 @@ class Theme
 				\SayHello\Theme\Block\ImageGallery::class,
 
 				\SayHello\Theme\PostType\Destination::class,
+				\SayHello\Theme\PostType\Photo::class,
 				\SayHello\Theme\PostType\Post::class,
 
 			]
