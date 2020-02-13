@@ -52,7 +52,7 @@ class Gutenberg
 		add_theme_support('menu');
 		add_theme_support('post-thumbnails', [ 'post', 'page', 'photo' ]);
 		add_theme_support('title-tag');
-		add_theme_support('post-formats', [ 'image', 'gallery', 'video' ]);
+		add_theme_support('post-formats', [ 'gallery', 'video' ]);
 		// add_theme_support('disable-custom-colors');
 		add_theme_support(
 			'editor-color-palette',
