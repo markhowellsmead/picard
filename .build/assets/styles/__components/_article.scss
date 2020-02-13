@@ -157,19 +157,13 @@
 				max-width: var(--constraint-narrow);
 				margin-left: auto;
 				margin-right: auto;
+				margin-top: var(--unit-medium);
 				> {
 					padding-right: 0;
 				}
 			}
-			&__date,
 			&__title {
-				display: inline-block;
-			}
-			&__title {
-				font-weight: 400;
-				font-size: 1em;
-				padding-right: 1em;
-				font-style: italic;
+				font-size: var(--font-size-xxxxlarge);
 				color: inherit;
 			}
 			&__thumbnail {
