@@ -12,33 +12,7 @@ class Post
 
 	public function run()
 	{
-		add_action('init', [$this, 'registerCustomTaxonomies']);
 		add_filter('get_the_archive_title', [ $this, 'changeTheTitle' ], 20);
-	}
-
-	public function registerCustomTaxonomies()
-	{
-		register_taxonomy('collection', ['post'], [
-			'labels' => [
-				'name' => _x('Collections', 'taxonomy general name'),
-				'singular_name' => _x('Collection', 'taxonomy singular name'),
-				'search_items' => __('Search Collections'),
-				'all_items' => __('All Collections'),
-				'parent_item' => __('Parent Collection'),
-				'parent_item_colon' => __('Parent Collection:'),
-				'edit_item' => __('Edit Collection'),
-				'update_item' => __('Update Collection'),
-				'add_new_item' => __('Add New Collection'),
-				'new_item_name' => __('New Collection Name'),
-				'menu_name' => __('Collection'),
-			],
-			'hierarchical' => false,
-			'show_ui' => true,
-			'show_in_rest' => true,
-			'show_admin_column' => true,
-			'query_var' => true,
-			'rewrite' => array('slug' => 'collection'),
-		]);
 	}
 
 	public function changeTheTitle($title)
