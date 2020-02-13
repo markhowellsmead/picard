@@ -39,28 +39,6 @@ class Post
 			'query_var' => true,
 			'rewrite' => array('slug' => 'collection'),
 		]);
-
-		register_taxonomy('album', ['post'], [
-			'labels' => [
-				'name' => _x('Albums', 'taxonomy general name'),
-				'singular_name' => _x('Album', 'taxonomy singular name'),
-				'search_items' => __('Search Albums'),
-				'all_items' => __('All Albums'),
-				'parent_item' => __('Parent Album'),
-				'parent_item_colon' => __('Parent Album:'),
-				'edit_item' => __('Edit Album'),
-				'update_item' => __('Update Album'),
-				'add_new_item' => __('Add New Album'),
-				'new_item_name' => __('New Album Name'),
-				'menu_name' => __('Album'),
-			],
-			'hierarchical' => false,
-			'show_ui' => true,
-			'show_in_rest' => true,
-			'show_admin_column' => true,
-			'query_var' => true,
-			'rewrite' => array('slug' => 'albums'),
-		]);
 	}
 
 	public function changeTheTitle($title)
