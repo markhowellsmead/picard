@@ -79,6 +79,18 @@ class Media
 		return null;
 	}
 
+	public function thumbnailSize($image_size)
+	{
+		$size = [];
+		if (is_array($image_src = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $image_size))) {
+			$size = [
+				'width' => $image_src[1],
+				'height' => $image_src[2]
+			];
+		}
+		return $size;
+	}
+
 	public function postClasses($classes)
 	{
 		if (has_post_thumbnail()) {
