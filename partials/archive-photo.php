@@ -16,7 +16,7 @@
 		?>
 	</header>
 
-	<div class="c-archive__content c-archive__content--<?php echo get_post_type();?> c-grid500">
+	<div class="c-archive__content c-archive__content--<?php echo get_post_type();?> c-grid500 alignwide">
 		<?php
 		$target_height = 225;
 		$image_size = 'large';
