@@ -17,6 +17,7 @@
 	}
 
 	&__item {
+		display: block;
 		flex-basis: calc(50% - var(--grid500-unit-small));
 		margin: var(--grid500-unit-small) 0;
 		background-color: #f0f0f0;
