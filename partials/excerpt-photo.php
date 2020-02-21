@@ -3,6 +3,10 @@ use SayHello\Theme\Package\Lazysizes;
 
 $data['target_height'] = 150;
 
+if (!isset($data['image_size'])) {
+	$data['image_size'] = 'medium';
+}
+
 if (!has_post_thumbnail()) {
 	return;
 }
