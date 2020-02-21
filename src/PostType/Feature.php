@@ -17,6 +17,7 @@ class Feature
 		add_action('manage_post_posts_custom_column', [$this, 'adminColumnContent'], 10, 2);
 		add_filter('manage_edit-photo_columns', [$this, 'adminColumnHeaders']);
 		add_action('manage_photo_posts_custom_column', [$this, 'adminColumnContent'], 10, 2);
+		add_filter('get_the_archive_title', [ $this, 'changeTheTitle' ], 20);
 	}
 
 	/**
@@ -175,5 +176,15 @@ class Feature
 			'description' => '',
 			));
 		endif;
+	}
+
+	public function changeTheTitle($title)
+	{
+
+		if (is_post_type_archive('mhm_feature')) {
+			return _x('Features', 'Archive list header', 'picard');
+		}
+
+		return $title;
 	}
 }
