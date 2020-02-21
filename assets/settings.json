@@ -25,6 +25,9 @@
 			"xlight": "#f0f0f0",
 			"xxlight": "#f9f9f9"
 		},
+		"wordpress": {
+			"base": "#0073aa"
+		},
 		"brown": {
 			"base": "#930"
 		},
