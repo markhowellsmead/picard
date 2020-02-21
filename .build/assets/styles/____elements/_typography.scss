@@ -19,6 +19,30 @@
 	--radius: .3em;
 }
 
+.has-white-color {
+	color: c(white);
+}
+
+.has-black-color {
+	color: c(black);
+}
+
+.has-light-gray-color {
+	color: c(gray, light);
+}
+
+.has-yellow-color {
+	color: c(yellow);
+}
+
+.has-primary-color {
+	color: c(primary);
+}
+
+.has-wordpress-blue-color {
+	color: c(wordpress);
+}
+
 html {
 	font-size: var(--font-size-rembase);
 }
