@@ -7,13 +7,6 @@
 		text-decoration-color: currentColor;
 	}
 
-	&:first-child {
-		margin-top: calc(var(--unit-large) * -1);
-		@include desktop {
-			margin-top: calc(var(--unit-large) * -2);
-		}
-	}
-
 	&::after {
 		content: '';
 		display: block;
@@ -96,7 +89,6 @@
 			}
 		}
 	}
-
 }
 
 @include context-edit {
