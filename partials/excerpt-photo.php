@@ -1,6 +1,8 @@
 <?php
 use SayHello\Theme\Package\Lazysizes;
 
+$data['target_height'] = 150;
+
 if (!has_post_thumbnail()) {
 	return;
 }

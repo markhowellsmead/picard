@@ -46,7 +46,8 @@ img.alignright {
 
 .alignfull,
 .alignmedium,
-.alignwide {
+.alignwide,
+.alignxwide {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -57,6 +58,10 @@ img.alignright {
 
 .alignwide {
 	max-width: var(--constraint-wide);
+}
+
+.alignxwide {
+	max-width: var(--constraint-xwide);
 }
 
 .alignfull {

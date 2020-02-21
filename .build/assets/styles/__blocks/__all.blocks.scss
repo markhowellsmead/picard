@@ -13,10 +13,10 @@
 @include context-edit {
 	.wp-block {
 		max-width: var(--constraint-narrow);
-		&[data-align=wide] {
+		&[data-align="wide"] {
 			max-width: var(--constraint-wide);
 		}
-		&[data-align=full] {
+		&[data-align="full"] {
 			max-width: var(--constraint-full);
 		}
 	}
