@@ -1,5 +1,18 @@
 .wp-block-latest-posts {
 	padding-left: 0;
 
-	@extend .h-stack--small;
+	@extend .h-stack--large;
+
+	&__post-excerpt {
+		font-size: var(--font-size-small);
+	}
+
+	li {
+		@include clearfix;
+		@extend .h-stack--small;
+	}
+
+	a {
+		font-weight: 700;
+	}
 }
