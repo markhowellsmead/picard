@@ -89,6 +89,13 @@ class Gutenberg
 				]
 			]
 		);
+		add_theme_support('editor-gradient-presets', [
+			[
+				'name'     => __('Bottom shadow', 'picard'),
+				'gradient' => 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 75%,rgba(0,0,0,1) 100%)',
+				'slug'     => 'bottom-black-shadow'
+			]
+		]);
 	}
 
 	/**

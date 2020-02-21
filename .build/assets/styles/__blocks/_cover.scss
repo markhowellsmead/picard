@@ -1,8 +1,11 @@
 .wp-block-cover {
 
-	color: c(white);
 	min-height: 25vh;
 	align-items: flex-end;
+
+	a {
+		text-decoration-color: currentColor;
+	}
 
 	&:first-child {
 		margin-top: calc(var(--unit-large) * -1);
@@ -98,6 +101,9 @@
 
 @include context-edit {
 	.wp-block-cover {
+		a {
+			text-decoration-color: currentColor !important;
+		}
 		.block-editor-block-list__block {
 			color: inherit;
 		}
