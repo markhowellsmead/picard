@@ -11,6 +11,7 @@ class Media
 {
 
 	private $wide_aspectratio = 2;
+	private $xwide_aspectratio = 2.25;
 
 	public function run()
 	{
@@ -51,8 +52,10 @@ class Media
 
 		if (is_array($image_src)) {
 			$aspect = $image_src[1] / $image_src[2];
-			if ($aspect >= $this->wide_aspectratio) {
-				$css_classes[] = 'o-body--widethumbnail';
+			if ($aspect >= $this->xwide_aspectratio) {
+				$css_classes[] = 'o-body--xwidethumbnail';
+			} elseif ($aspect >= $this->wide_aspectratio) {
+				$css_classes[] = 'o-body--squarethumbnail';
 			} elseif ($aspect == 1) {
 				$css_classes[] = 'o-body--squarethumbnail';
 			} elseif ($aspect < 1) {
@@ -67,7 +70,9 @@ class Media
 		$image_src = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'post-thumbnail');
 		if (is_array($image_src)) {
 			$aspect = $image_src[1] / $image_src[2];
-			if ($aspect >= $this->wide_aspectratio) {
+			if ($aspect >= $this->xwide_aspectratio) {
+				return 'xwide';
+			} elseif ($aspect >= $this->wide_aspectratio) {
 				return 'wide';
 			} elseif ($aspect == 1) {
 				return 'square';

@@ -17,7 +17,8 @@
 		> * {
 			@include mobile-padding-x;
 			&.alignfull,
-			&.alignwide {
+			&.alignwide,
+			&.alignxwide {
 				padding-left: 0;
 				padding-right: 0;
 			}
@@ -115,6 +116,11 @@
 		&.alignwide {
 			> * {
 				max-width: var(--constraint-wide);
+			}
+		}
+		&.alignxwide {
+			> * {
+				max-width: var(--constraint-xwide);
 			}
 		}
 		&.alignfull {

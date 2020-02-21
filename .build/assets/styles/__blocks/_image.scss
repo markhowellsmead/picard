@@ -5,7 +5,8 @@
 .wp-block-image {
 
 	&.alignfull,
-	&.alignwide {
+	&.alignwide,
+	&.alignxwide {
 		figcaption {
 			padding-left: var(--unit);
 			padding-right: var(--unit);
