@@ -8,12 +8,19 @@ if (post_password_required() || is_attachment() || ! has_post_thumbnail() || (bo
 
 $imageAspect = sht_theme()->Package->Media->thumbnailAspect();
 
+$block_width = 'alignwide';
+
 switch ($imageAspect) {
+	case 'xwide':
+		$image_size = 'full';
+		$block_width = 'alignxwide';
+		break;
 	case 'tall':
 		$image_size = 'gutenberg_wide';
+		$block_width = '';
 		break;
 	default:
-		$image_size = 'full';
+		$image_size = 'large';
 		break;
 }
 
@@ -25,7 +32,7 @@ if (is_singular()) {
 			'<div class="c-article__thumbnail c-article__thumbnail--%1$s%2$s%3$s">%4$s</div>',
 			get_post_type(),
 			!empty($class) ? ' '.$class : '',
-			$imageAspect !== 'tall' ? ' alignwide' : '',
+			' '.$block_width,
 			$image
 		);
 	}
