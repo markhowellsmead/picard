@@ -83,3 +83,14 @@ if (version_compare(get_bloginfo('version'), '4.6', '<') || version_compare(PHP_
 	sht_theme();
 	sht_theme()->run();
 }
+
+
+if (!function_exists('dump')) {
+	function dump($var, $exit = false)
+	{
+		echo '<pre>'.print_r($var, true).'</pre>';
+		if ($exit) {
+			exit;
+		}
+	}
+}

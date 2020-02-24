@@ -1,8 +1,6 @@
 <?php
 use SayHello\Theme\Package\Lazysizes;
 
-$data['target_height'] = 150;
-
 if (!isset($data['image_size'])) {
 	$data['image_size'] = 'medium';
 }
