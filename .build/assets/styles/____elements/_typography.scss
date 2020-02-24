@@ -11,10 +11,36 @@
 	--font-size-large: #{$font-size-large};
 	--font-size-xlarge: #{$font-size-xlarge};
 	--font-size-xxlarge: #{$font-size-xxlarge};
+	--font-size-xxxlarge: #{$font-size-xxxlarge};
+	--font-size-xxxxlarge: #{$font-size-xxxxlarge};
 	--line-height: 1.625;
 	--line-height-large: 1.75;
 	--line-height-heading: 1.2;
 	--radius: .3em;
+}
+
+.has-white-color {
+	color: c(white);
+}
+
+.has-black-color {
+	color: c(black);
+}
+
+.has-light-gray-color {
+	color: c(gray, light);
+}
+
+.has-yellow-color {
+	color: c(yellow);
+}
+
+.has-primary-color {
+	color: c(primary);
+}
+
+.has-wordpress-blue-color {
+	color: c(wordpress);
 }
 
 html {

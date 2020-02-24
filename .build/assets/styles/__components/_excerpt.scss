@@ -22,8 +22,8 @@
 		display: inline-block;
 	}
 
-	&.has-post-thumbnail,
-	&.has-video-thumbnail {
+	&.has-post-thumbnail:not(.c-excerpt--photo),
+	&.has-video-thumbnail:not(.c-excerpt--photo) {
 		&:not(.c-article__thumbnailaspect--tall) {
 			@extend .alignmedium;
 		}
@@ -78,8 +78,8 @@
 	// }
 
 	&:nth-child(even) {
-		&.has-post-thumbnail,
-		&.has-video-thumbnail {
+		&.has-post-thumbnail:not(.c-excerpt--photo),
+		&.has-video-thumbnail:not(.c-excerpt--photo) {
 			@include laptop {
 				@supports(grid-gap: 1rem) {
 					grid-template-columns: 2fr 3fr;
@@ -125,9 +125,9 @@
 		@extend .h-stack--small;
 	}
 
-	&.format-video.has-post-thumbnail,
-	&.format-video.has-video-thumbnail,
-	&__thumbnailfigure--video {
+	&.format-video.has-post-thumbnail:not(.c-excerpt--photo),
+	&.format-video.has-video-thumbnail:not(.c-excerpt--photo),
+	&__thumbnailfigure--video:not(.c-excerpt--photo) {
 		.c-excerpt__imagelink {
 			position: relative;
 			&::before {

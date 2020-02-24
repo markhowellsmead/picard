@@ -7,6 +7,7 @@
 	--constraint-narrow: #{rem-calc(600px)};
 	--constraint-medium: #{rem-calc(1000px)};
 	--constraint-wide: #{rem-calc(1280px)};
+	--constraint-xwide: #{rem-calc(1600px)};
 	--unit-xxsmall: calc(var(--unit) / 8);
 	--unit-xsmall: calc(var(--unit) / 4);
 	--unit-small: calc(var(--unit) / 2);

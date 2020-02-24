@@ -5,7 +5,7 @@
 	align-items: flex-start;
 
 	.o-body--widethumbnail & {
-		@extend .alignwide;
+		@extend .alignxwide;
 	}
 
 	&__figure {

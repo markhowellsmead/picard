@@ -15,6 +15,11 @@
 				margin-top: var(--unit-xxlarge);
 			}
 		}
+		&--photo {
+			> * + * {
+				margin-top: 0;
+			}
+		}
 	}
 
 	&__header {

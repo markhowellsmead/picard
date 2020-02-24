@@ -52,7 +52,7 @@ class Gutenberg
 		add_theme_support('menu');
 		add_theme_support('post-thumbnails', [ 'post', 'page', 'photo' ]);
 		add_theme_support('title-tag');
-		add_theme_support('post-formats', [ 'image', 'gallery', 'video' ]);
+		add_theme_support('post-formats', [ 'gallery', 'video' ]);
 		// add_theme_support('disable-custom-colors');
 		add_theme_support(
 			'editor-color-palette',
@@ -89,6 +89,13 @@ class Gutenberg
 				]
 			]
 		);
+		add_theme_support('editor-gradient-presets', [
+			[
+				'name'     => __('Bottom shadow', 'picard'),
+				'gradient' => 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 75%,rgba(0,0,0,1) 100%)',
+				'slug'     => 'bottom-black-shadow'
+			]
+		]);
 	}
 
 	/**
