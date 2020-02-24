@@ -73,6 +73,10 @@
 		display: block;
 		font-size: var(--font-size-small);
 		color: c(gray);
+
+		+ .c-article__date {
+			margin-top: 0;
+		}
 	}
 
 	&__header {
@@ -180,8 +184,13 @@
 				color: inherit;
 			}
 			&__thumbnail {
-				order: -1;
+				order: -2;
 				margin-top: 0;
+			}
+			&__contentandthumbnail {
+				@include laptop {
+					margin-top: 0;
+				}
 			}
 		}
 	}
