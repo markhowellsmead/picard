@@ -184,8 +184,13 @@
 				color: inherit;
 			}
 			&__thumbnail {
-				order: -1;
+				order: -2;
 				margin-top: 0;
+			}
+			&__contentandthumbnail {
+				@include laptop {
+					margin-top: 0;
+				}
 			}
 		}
 	}
