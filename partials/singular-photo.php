@@ -40,6 +40,7 @@
 		<?php
 		get_template_part('partials/tags');
 		get_template_part('partials/collections');
+		get_template_part('partials/related_destinations');
 		?>
 	</div>
 	<?php }
