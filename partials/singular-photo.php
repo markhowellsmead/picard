@@ -10,7 +10,7 @@
 					printf(
 						'<time class="c-article__date c-article__date--captured" datetime="%1$s">%2$s</time>',
 						date_i18n('c', $thumbnail_meta['image_meta']['created_timestamp']),
-						sprintf(_x('Photographed on %s', 'date', 'picard'), date_i18n('dS F Y', $thumbnail_meta['image_meta']['created_timestamp']))
+						sprintf(_x('Photographed on %s', 'date', 'picard'), date_i18n('jS F Y', $thumbnail_meta['image_meta']['created_timestamp']))
 					);
 				}
 			}
