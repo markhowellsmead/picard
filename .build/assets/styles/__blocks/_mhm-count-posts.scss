@@ -1,0 +1,8 @@
+.wp-block-mhm-count-posts {
+	text-align: center;
+	font-size: var(--font-size-small);
+	&__count {
+		display: block;
+		font-size: var(--font-size-xxxxlarge);
+	}
+}
