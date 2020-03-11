@@ -1,44 +1,30 @@
 const { Component } = wp.element;
-const { select, subscribe } = wp.data;
+const { withSelect, subscribe } = wp.data;
 
-export default class Edit extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			excerpt: ""
-		};
-		this.unsubscribe = () => {};
-	}
-
-	componentDidMount() {
-		this.unsubscribe = subscribe(() => {
-			const excerpt = select("core/editor").getEditedPostAttribute(
-				"excerpt"
-			);
-			if (excerpt !== this.state.excerpt) {
-				this.setState({
-					excerpt
-				});
-			}
-		});
-	}
-
-	componentWillUnmount() {
-		this.unsubscribe();
-	}
-
+class Edit extends Component {
 	render() {
-		const { state } = this;
-		const { className, attributes } = this.props;
+		const { excerpt, className, attributes, setAttributes } = this.props;
+
+		if (excerpt !== attributes.excerpt) {
+			setAttributes({ excerpt });
+		}
+
 		return (
 			<section className={className}>
-				{state.excerpt && <p>{state.excerpt}</p>}
-				{!state.excerpt && (
+				{excerpt && <p>{excerpt}</p>}
+				{!excerpt && (
 					<p>
-						<em>No excerpt</em>
+						<em>This post has no excerpt.</em>
 					</p>
 				)}
 			</section>
 		);
 	}
 }
+
+export default withSelect(function(select) {
+	let currentExcerpt = select("core/editor").getEditedPostAttribute("excerpt");
+	return {
+		excerpt: currentExcerpt,
+	};
+})(Edit);
