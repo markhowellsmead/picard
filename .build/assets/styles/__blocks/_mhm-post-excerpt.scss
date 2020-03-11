@@ -1,0 +1,9 @@
+.wp-block-mhm-post-excerpt {
+	@extend .is-style-lead;
+}
+
+@include context-edit {
+	.wp-block-mhm-post-excerpt {
+		opacity: .5;
+	}
+}
