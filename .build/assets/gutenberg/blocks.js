@@ -1,6 +1,7 @@
 // import "./image-gallery/block.jsx";
 import "./count-photos/block.jsx";
 import "./count-posts/block.jsx";
+import "./post-excerpt/block.jsx";
 import "./years-online/block.jsx";
 
 window.onload = function() {
