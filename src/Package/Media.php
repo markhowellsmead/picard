@@ -47,7 +47,7 @@ class Media
 
 	public function thumbnailAspectCSS($css_classes)
 	{
-		if (!has_post_thumbnail()) {
+		if (!has_post_thumbnail() || (bool) get_field('hide_thumbnail', get_the_ID())) {
 			return $css_classes;
 		}
 
