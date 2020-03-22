@@ -12,6 +12,12 @@
 		display: block;
 	}
 
+	&:not(.alignwide):not(.alignfull) {
+		border: .25rem solid c(white);
+		box-shadow: 0 0 .5rem rgba(0,0,0,.125);
+		outline: none;
+	}
+
 	&.alignfull {
 		padding-top: 50%;
 		@include tablet {
@@ -26,6 +32,13 @@
 		min-height: 0;
 		&::after {
 			padding-bottom: percentage(1/2);
+		}
+	}
+
+	&.is-style-aspect-251 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/2.5);
 		}
 	}
 
