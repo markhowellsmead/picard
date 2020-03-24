@@ -1,7 +1,7 @@
-const { _x } = wp.i18n;
-const { registerBlockType } = wp.blocks;
-const { ServerSideRender } = wp.components;
-const { Component } = wp.element;
+import { _x } from '@wordpress/i18n';
+import { registerBlockType } from '@wordpress/blocks';
+import { ServerSideRender } from '@wordpress/components';
+import { Component } from '@wordpress/element';
 
 registerBlockType("mhm/count-photos", {
 	title: _x("Number of photos", "Block title", "sha"),
