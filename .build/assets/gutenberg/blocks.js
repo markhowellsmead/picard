@@ -1,8 +1,9 @@
 // import "./image-gallery/block.jsx";
-import "./count-photos/block.jsx";
-import "./count-posts/block.jsx";
-import "./post-excerpt/block.jsx";
-import "./years-online/block.jsx";
+import "./count-photos/index.jsx";
+import "./count-posts/index.jsx";
+import "./post-excerpt/index.jsx";
+import "./shb-video-bar/index.jsx";
+import "./years-online/index.jsx";
 
 window.onload = function() {
 	window.shtDisabledBlocks.forEach(block => {
@@ -35,9 +36,12 @@ wp.domReady(() => {
 		name: "full-height",
 		label: "Full height",
 	});
-
 	wp.blocks.registerBlockStyle("core/paragraph", {
 		name: "lead",
 		label: "Lead text",
+	});
+	wp.blocks.registerBlockStyle("shb/video-bar", {
+		name: "fullheight",
+		label: "Full screen height",
 	});
 });

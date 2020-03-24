@@ -39,6 +39,16 @@
 		}
 	}
 
+	&.alignfull,
+	&.alignwide {
+		figcaption {
+			padding-left: var(--unit);
+			@include tablet {
+				padding-left: 0;
+			}
+		}
+	}
+
 	&.is-provider-permanent-tourist {
 		iframe {
 			width: 100%;

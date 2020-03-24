@@ -114,9 +114,17 @@ class Gutenberg
 	public function enqueueBlockAssets()
 	{
 		if ($this->js) {
-			wp_enqueue_script(sht_theme()->prefix . '-gutenberg-script', $this->js, ['wp-blocks', 'wp-element', 'wp-edit-post', 'lodash'], sht_theme()->version);
+			$script_asset_path = get_template_directory().'/assets/gutenberg/blocks.asset.php';
+			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
+			wp_enqueue_script(
+				sht_theme()->prefix . '-gutenberg-script',
+				$this->js,
+				$script_asset['dependencies'],
+				$script_asset['version']
+			);
 			$vars = json_encode(apply_filters('sht_disabled_blocks', []));
 			wp_add_inline_script(sht_theme()->prefix . '-gutenberg-script', "var shtDisabledBlocks = {$vars};", 'before');
+			wp_set_script_translations(sht_theme()->prefix . '-gutenberg-script', 'sht', get_template_directory() . '/languages');
 		}
 	}
 

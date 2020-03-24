@@ -1,5 +1,5 @@
-const { Component } = wp.element;
-const { withSelect, subscribe } = wp.data;
+import { withSelect } from '@wordpress/data';
+import { Component } from '@wordpress/element';
 
 class Edit extends Component {
 	render() {
