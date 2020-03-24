@@ -1,0 +1,28 @@
+.wp-block-shb-video-bar {
+	.wp-block-embed,
+	.wp-block-video {
+		max-width: var(--constraint-narrow);
+		&.alignwide {
+			max-width: var(--constraint-wide);
+		}
+		&.alignfull {
+			max-width: var(--constraint-full);
+		}
+	}
+
+	+.wp-block-shb-video-bar {
+		margin-top: 0;
+	}
+}
+
+@include context-edit {
+	.wp-block-shb-video-bar {
+		[data-align="wide"],
+		[data-align="full"] {
+			.wp-block-embed,
+			.wp-block-video {
+				max-width: 100%;
+			}
+		}
+	}
+}
