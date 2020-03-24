@@ -1,6 +1,7 @@
-const { _x } = wp.i18n;
-const { registerBlockType, getBlockDefaultClassName } = wp.blocks;
-const { Fragment } = wp.element;
+import { _x } from '@wordpress/i18n';
+import { registerBlockType, getBlockDefaultClassName } from '@wordpress/blocks';
+import { ServerSideRender } from '@wordpress/components';
+import { Fragment } from '@wordpress/element';
 
 import edit from "./edit";
 

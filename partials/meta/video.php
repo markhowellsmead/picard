@@ -1,6 +1,6 @@
 <?php
 
-if (post_password_required() || is_attachment() || empty(get_field('video_ref')) || (bool) get_field('hide_video')) {
+if (post_password_required() || is_attachment() || empty(get_field('video_ref')) || (bool) get_field('hide_thumbnail')) {
 	return;
 }
 

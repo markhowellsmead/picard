@@ -26,6 +26,7 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/register": "^7.8.3",
     "@sayhellogmbh/maybe-set-link-target": "^1.0.1",
+    "@wordpress/dependency-extraction-webpack-plugin": "^2.4.0",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.7",
     "css-vars-ponyfill": "^2.1.2",
