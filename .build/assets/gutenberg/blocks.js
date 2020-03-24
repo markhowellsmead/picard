@@ -36,9 +36,12 @@ wp.domReady(() => {
 		name: "full-height",
 		label: "Full height",
 	});
-
 	wp.blocks.registerBlockStyle("core/paragraph", {
 		name: "lead",
 		label: "Lead text",
+	});
+	wp.blocks.registerBlockStyle("shb/video-bar", {
+		name: "fullheight",
+		label: "Full screen height",
 	});
 });

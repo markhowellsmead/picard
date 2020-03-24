@@ -1,4 +1,7 @@
 .wp-block-shb-video-bar {
+
+	padding: var(--unit-large);
+
 	.wp-block-embed,
 	.wp-block-video {
 		max-width: var(--constraint-narrow);
@@ -12,6 +15,38 @@
 
 	+.wp-block-shb-video-bar {
 		margin-top: 0;
+	}
+
+	&.is-style-fullheight {
+		display: flex;
+		align-items: center;
+		min-height: 100vh;
+
+		@include desktop {
+			min-height: calc(100vh - 106px);
+			html.admin-bar & {
+				min-height: calc(100vh - 106px - 32px);
+			}
+		}
+
+		> * {
+			flex: 0 0 100%;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: var(--unit);
+			padding-right: var(--unit);
+			@include tablet {
+				padding-left: 0;
+				padding-right: 0;
+				max-width: 70vw;
+			}
+			@include laptop {
+				max-width: 60vw;
+			}
+			@include desktop {
+				max-width: 60vw;
+			}
+		}
 	}
 }
 
