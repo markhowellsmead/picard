@@ -1,0 +1,7 @@
+.wp-block-gallery {
+	&.columns-2 {
+		.blocks-gallery-item:nth-child(-n+2) {
+			margin-bottom: 0;
+		}
+	}
+}

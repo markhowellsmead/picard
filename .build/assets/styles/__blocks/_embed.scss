@@ -1,11 +1,4 @@
 .wp-block-embed {
-	figcaption {
-		max-width: var(--constraint-narrow);
-		margin-left: auto;
-		margin-right: auto;
-		padding-right: 15%;
-	}
-
 	&__wrapper {
 		> .responsive-embed {
 			@include flood;
@@ -35,16 +28,6 @@
 		&.wp-embed-aspect-4-3 {
 			.wp-block-embed__wrapper {
 				padding-bottom: percentage(3/4);
-			}
-		}
-	}
-
-	&.alignfull,
-	&.alignwide {
-		figcaption {
-			padding-left: var(--unit);
-			@include tablet {
-				padding-left: 0;
 			}
 		}
 	}
