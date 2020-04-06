@@ -5,7 +5,7 @@ import "./post-excerpt/index.jsx";
 import "./shb-video-bar/index.jsx";
 import "./years-online/index.jsx";
 
-window.onload = function() {
+window.onload = function () {
 	window.shtDisabledBlocks.forEach(block => {
 		wp.blocks.unregisterBlockType(block);
 	});
@@ -43,5 +43,25 @@ wp.domReady(() => {
 	wp.blocks.registerBlockStyle("shb/video-bar", {
 		name: "fullheight",
 		label: "Full screen height",
+	});
+
+	wp.blocks.registerBlockStyle("core/group", {
+		name: "padding",
+		label: "Vertical padding",
+	});
+
+	wp.blocks.registerBlockStyle("core/group", {
+		name: "padding--medium",
+		label: "Vertical padding (medium)",
+	});
+
+	wp.blocks.registerBlockStyle("core/group", {
+		name: "padding--large",
+		label: "Vertical padding (large)",
+	});
+
+	wp.blocks.registerBlockStyle("core/group", {
+		name: "padding--xlarge",
+		label: "Vertical padding (xlarge)",
 	});
 });
