@@ -63,14 +63,29 @@ class Gutenberg
 					'color' => '#000',
 				],
 				[
-					'name'  => esc_html__('Light gray', 'sht'),
+					'name'  => esc_html__('Gray', 'sht'),
 					'slug' => 'light-gray',
 					'color' => '#777',
 				],
 				[
-					'name'  => esc_html__('Yellow', 'sht'),
-					'slug' => 'yellow',
-					'color' => '#ffc',
+					'name'  => esc_html__('Mid gray', 'sht'),
+					'slug' => 'mid-gray',
+					'color' => '#aaa',
+				],
+				[
+					'name'  => esc_html__('Light gray', 'sht'),
+					'slug' => 'lighter-gray',
+					'color' => '#ccc',
+				],
+				[
+					'name'  => esc_html__('Extra light gray', 'sht'),
+					'slug' => 'xlight-gray',
+					'color' => '#f0f0f0',
+				],
+				[
+					'name'  => esc_html__('Extra-extra light gray', 'sht'),
+					'slug' => 'xxlight-gray',
+					'color' => '#f9f9f9',
 				],
 				[
 					'name'  => esc_html__('Blue', 'sht'),
