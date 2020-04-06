@@ -44,6 +44,11 @@
 
 	&__title {
 		font-size: 1.1em;
+		font-weight: 700;
+	}
+
+	&__titlelink {
+		text-decoration: none;
 	}
 
 	.admin-bar & {

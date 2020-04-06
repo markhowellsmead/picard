@@ -13,9 +13,9 @@
 	<header class="c-pageheader">
 		<div class="c-pageheader__inner">
 
-			<h1 class="c-pageheader__title">
+			<p class="c-pageheader__title">
 				<a class="c-pageheader__titlelink" href="<?php echo get_home_url();?>"><?php echo get_bloginfo('name');?></a>
-			</h1>
+			</p>
 
 			<?php
 			wp_nav_menu(
