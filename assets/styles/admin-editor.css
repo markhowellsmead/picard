@@ -715,31 +715,31 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   --line-height-heading: 1.2;
   --radius: .3em; }
 
-.editor-styles-wrapper .has-color-black {
+.editor-styles-wrapper .has-black-color {
   color: #000; }
 
-.editor-styles-wrapper .has-color-light-gray {
+.editor-styles-wrapper .has-light-gray-color {
   color: #777; }
 
-.editor-styles-wrapper .has-color-mid-gray {
+.editor-styles-wrapper .has-mid-gray-color {
   color: #aaa; }
 
-.editor-styles-wrapper .has-color-lighter-gray {
+.editor-styles-wrapper .has-lighter-gray-color {
   color: #ccc; }
 
-.editor-styles-wrapper .has-color-xlight-gray {
+.editor-styles-wrapper .has-xlight-gray-color {
   color: #f0f0f0; }
 
-.editor-styles-wrapper .has-color-xxlight-gray {
+.editor-styles-wrapper .has-xxlight-gray-color {
   color: #f9f9f9; }
 
-.editor-styles-wrapper .has-color-primary {
+.editor-styles-wrapper .has-primary-color {
   color: #1A56B0; }
 
-.editor-styles-wrapper .has-color-wordpress-blue {
+.editor-styles-wrapper .has-wordpress-blue-color {
   color: #0073aa; }
 
-.editor-styles-wrapper .has-color-white {
+.editor-styles-wrapper .has-white-color {
   color: #fff; }
 
 .editor-styles-wrapper .has-black-background-color {

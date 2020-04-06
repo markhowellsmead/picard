@@ -725,31 +725,31 @@ img {
   --line-height-heading: 1.2;
   --radius: .3em; }
 
-.has-color-black {
+.has-black-color {
   color: #000; }
 
-.has-color-light-gray {
+.has-light-gray-color {
   color: #777; }
 
-.has-color-mid-gray {
+.has-mid-gray-color {
   color: #aaa; }
 
-.has-color-lighter-gray {
+.has-lighter-gray-color {
   color: #ccc; }
 
-.has-color-xlight-gray {
+.has-xlight-gray-color {
   color: #f0f0f0; }
 
-.has-color-xxlight-gray {
+.has-xxlight-gray-color {
   color: #f9f9f9; }
 
-.has-color-primary {
+.has-primary-color {
   color: #1A56B0; }
 
-.has-color-wordpress-blue {
+.has-wordpress-blue-color {
   color: #0073aa; }
 
-.has-color-white {
+.has-white-color {
   color: #fff; }
 
 .has-black-background-color {
