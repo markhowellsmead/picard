@@ -1,0 +1,24 @@
+.wp-block-button {
+
+	&.is-style-xsmall {
+		font-size: var(--font-size-xsmall);
+	}
+
+	&.is-style-small {
+		font-size: var(--font-size-small);
+	}
+
+	&.is-style-medium {
+		font-size: var(--font-size-medium);
+	}
+
+	&.is-style-large {
+		font-size: var(--font-size-large);
+	}
+
+	&__link {
+		font-size: 1em;
+		padding: .65em 1.3em;
+		border-radius: var(--radius) !important;
+	}
+}

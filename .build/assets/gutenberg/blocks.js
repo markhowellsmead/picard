@@ -76,4 +76,25 @@ wp.domReady(() => {
 		name: "padding--xlarge",
 		label: "Vertical padding (xlarge)",
 	});
+
+	wp.blocks.registerBlockStyle("core/button", {
+		name: "xsmall",
+		label: "x-small",
+	});
+
+	wp.blocks.registerBlockStyle("core/button", {
+		name: "small",
+		label: "Small",
+	});
+
+	wp.blocks.registerBlockStyle("core/button", {
+		name: "medium",
+		label: "Medium",
+	});
+
+	wp.blocks.registerBlockStyle("core/button", {
+		name: "large",
+		label: "Large",
+	});
+
 });
