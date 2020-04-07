@@ -22,3 +22,12 @@
 		border-radius: var(--radius) !important;
 	}
 }
+
+.wp-block-buttons {
+	.wp-block-button {
+		margin-top: 0;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}
