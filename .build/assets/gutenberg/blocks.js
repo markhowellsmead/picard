@@ -17,6 +17,18 @@ wp.domReady(() => {
 		label: "2:1",
 	});
 	wp.blocks.registerBlockStyle("core/cover", {
+		name: "aspect-43",
+		label: "4:3",
+	});
+	wp.blocks.registerBlockStyle("core/cover", {
+		name: "aspect-45",
+		label: "4:5",
+	});
+	wp.blocks.registerBlockStyle("core/cover", {
+		name: "aspect-32",
+		label: "3:2",
+	});
+	wp.blocks.registerBlockStyle("core/cover", {
 		name: "aspect-251",
 		label: "2.5:1",
 	});

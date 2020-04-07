@@ -49,10 +49,31 @@
 		}
 	}
 
+	&.is-style-aspect-32 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(2/3);
+		}
+	}
+
 	&.is-style-aspect-41 {
 		min-height: 0;
 		&::after {
 			padding-bottom: percentage(1/4);
+		}
+	}
+
+	&.is-style-aspect-43 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(3/4);
+		}
+	}
+
+	&.is-style-aspect-45 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(5/4);
 		}
 	}
 
