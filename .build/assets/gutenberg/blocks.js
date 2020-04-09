@@ -1,4 +1,5 @@
 // import "./image-gallery/block.jsx";
+import "./blog-cards/index.jsx";
 import "./count-photos/index.jsx";
 import "./count-posts/index.jsx";
 import "./language-excerpt/index.jsx";
