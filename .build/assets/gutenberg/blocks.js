@@ -1,6 +1,7 @@
 // import "./image-gallery/block.jsx";
 import "./count-photos/index.jsx";
 import "./count-posts/index.jsx";
+import "./language-excerpt/index.jsx";
 import "./post-excerpt/index.jsx";
 import "./shb-video-bar/index.jsx";
 import "./years-online/index.jsx";

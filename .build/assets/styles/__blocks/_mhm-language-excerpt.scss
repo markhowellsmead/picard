@@ -1,0 +1,7 @@
+.wp-block-mhm-language-excerpt {
+	@extend .h-stack;
+	color: c(gray);
+	background-color: c(gray, xlight);
+	font-style: italic;
+	padding: var(--unit-small);
+}
