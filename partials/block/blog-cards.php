@@ -1,5 +1,7 @@
 <?php
 
+use SayHello\Theme\Package\Lazysizes;
+
 if (empty($data['posts'])) {
 	return;
 }
@@ -17,8 +19,25 @@ if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])
 		</header>
 		<div class="wp-block-mhm-blog-cards__entrieswrap">
 			<ul class="wp-block-mhm-blog-cards__entries">
-				<?php foreach ($data['posts'] as $data_post) {?>
+				<?php foreach ($data['posts'] as $data_post) {
+					if (has_post_thumbnail($data_post)) {
+						$thumbnail = '<a class="wp-block-mhm-blog-cards__figurelink" href="'.get_the_permalink($data_post->ID).'">'.Lazysizes::getLazyImage(get_post_thumbnail_id($data_post), 'card', 'wp-block-mhm-blog-cards__figure', 'wp-block-mhm-blog-cards__image').'</a>';
+					} elseif (!empty($video_url = get_field('video_ref', $data_post->ID))) {
+						$thumbnail = sht_theme()->Package->Media->getVideoThumbnail($video_url);
+						if (!empty($thumbnail)) {
+							$thumbnail = sprintf(
+								'<a class="wp-block-mhm-blog-cards__figurelink" href="%s"><figure class="wp-block-mhm-blog-cards__figure"><img alt="%s" class="wp-block-mhm-blog-cards__image" src="%s"></figure></a>',
+								get_the_permalink($data_post->ID),
+								get_the_title($data_post->ID),
+								$thumbnail
+							);
+						}
+					} else {
+						$thumbnail = '<div class="wp-block-mhm-blog-cards__figure wp-block-mhm-blog-cards__figure--empty"></div>';
+					}
+					?>
 					<li class="wp-block-mhm-blog-cards__entry">
+						<?php echo $thumbnail; ?>
 						<h3 class="wp-block-mhm-blog-cards__entrytitle wp-block-mhm-blog-cards__entrytitle">
 							<a href="<?php the_permalink($data_post->ID);?>"><?php echo get_the_title($data_post->ID);?></a>
 						</h3>
