@@ -90,6 +90,7 @@ body {
 a,
 button {
 	color: currentColor;
+	@include transition;
 
 	&:active,
 	&:hover {
@@ -225,6 +226,11 @@ h6 {
 	a:hover {
 		text-decoration: none;
 		color: currentColor;
+	}
+
+	a:active,
+	a:hover {
+		color: c(primary, dark);
 	}
 }
 
