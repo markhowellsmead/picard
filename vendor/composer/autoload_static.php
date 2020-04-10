@@ -29,6 +29,7 @@ class ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7
     );
 
     public static $classMap = array (
+        'SayHello\\Theme\\Block\\BlogCards' => __DIR__ . '/../..' . '/src/Block/BlogCards.php',
         'SayHello\\Theme\\Block\\CountPhotos' => __DIR__ . '/../..' . '/src/Block/CountPhotos.php',
         'SayHello\\Theme\\Block\\CountPosts' => __DIR__ . '/../..' . '/src/Block/CountPosts.php',
         'SayHello\\Theme\\Block\\ImageGallery' => __DIR__ . '/../..' . '/src/Block/ImageGallery.php',

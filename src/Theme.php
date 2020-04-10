@@ -82,6 +82,7 @@ class Theme
 				\SayHello\Theme\Package\ThemeOptions::class,
 				\SayHello\Theme\Package\View::class,
 
+				\SayHello\Theme\Block\BlogCards::class,
 				\SayHello\Theme\Block\CountPosts::class,
 				\SayHello\Theme\Block\CountPhotos::class,
 				\SayHello\Theme\Block\ImageGallery::class,

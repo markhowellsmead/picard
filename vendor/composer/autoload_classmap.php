@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'SayHello\\Theme\\Block\\BlogCards' => $baseDir . '/src/Block/BlogCards.php',
     'SayHello\\Theme\\Block\\CountPhotos' => $baseDir . '/src/Block/CountPhotos.php',
     'SayHello\\Theme\\Block\\CountPosts' => $baseDir . '/src/Block/CountPosts.php',
     'SayHello\\Theme\\Block\\ImageGallery' => $baseDir . '/src/Block/ImageGallery.php',
