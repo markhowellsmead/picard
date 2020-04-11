@@ -2,6 +2,7 @@
 import "./blog-cards/index.jsx";
 import "./count-photos/index.jsx";
 import "./count-posts/index.jsx";
+import "./footnotes/index.jsx";
 import "./language-excerpt/index.jsx";
 import "./post-excerpt/index.jsx";
 import "./shb-video-bar/index.jsx";

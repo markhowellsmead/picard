@@ -1,0 +1,54 @@
+.wp-block-mhm-footnotes {
+	counter-reset: section;
+	padding: var(--unit);
+	background-color: c(gray, xlight);
+	@extend .h-stack--small;
+	font-size: var(--font-size-small);
+
+	@include desktop {
+		margin-top: var(--unit-medium);
+	}
+
+	p::before {
+		counter-increment: section;
+		content: counter(section) ')\00a0\00a0';
+		opacity: .75;
+		height: 2em;
+		margin-top: -2em;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-size: var(--font-size-small);
+	}
+}
+
+.b-footnote {
+	word-wrap: break-word;
+}
+
+@include context-view {
+	.wp-block-mhm-footnotes {
+		padding-top: var(--unit-medium);
+		padding-bottom: var(--unit-medium);
+	}
+
+	.wp-block-mhm-footnote {
+		&__uplink {
+			display: inline-block;
+			margin-left: .5em;
+		}
+	}
+
+	@media screen {
+		.b-footnote {
+			&:target {
+				font-weight: 600;
+			}
+		}
+	}
+}
