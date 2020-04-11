@@ -152,4 +152,9 @@ class Gutenberg
 			],
 		]);
 	}
+
+	public function isContextEdit()
+	{
+		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
+	}
 }
