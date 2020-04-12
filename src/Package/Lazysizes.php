@@ -154,15 +154,34 @@ class Lazysizes
 
 		foreach ($blocks as $block) {
 			$figure_class = $block->getAttribute('class');
-			$image = $xpath->query('img', $block);
-			$image_class = $image[0]->getAttribute('class');
-			preg_match('~([0-9]+)$~', $image_class, $matches);
-			$image_id = $matches[0];
-			$lazy_image = Lazysizes::getLazyImage($image_id, 'full', $figure_class, $image_class);
-			$tpl = new DOMDocument;
-			$tpl->loadHTML($lazy_image);
-			$block->parentNode->insertBefore($domDocument->importNode($tpl->documentElement, true), $block);
-			$block->parentNode->removeChild($block);
+			$images = $xpath->query('.//img', $block);
+			if (!$images || !$images[0]) {
+				continue;
+			}
+			$image = $images[0];
+			$image_class = $image->getAttribute('class');
+			preg_match('~wp-image-([0-9]+)~', $image_class, $matches);
+			if (count($matches) === 2) {
+				$image_id = $matches[1];
+				$lazy_image = Lazysizes::getLazyImage($image_id, 'full', '', $image_class);
+				$wrapper = $domDocument->createElement('div');
+				$wrapper->setAttribute('class', $figure_class);
+
+				$tpl = new DOMDocument;
+				$tpl->loadHTML($lazy_image);
+				$new_figure = $domDocument->importNode($tpl->documentElement->getElementsByTagName('body')->item(0), true);
+
+				$figcaption = $xpath->query('.//figcaption', $block);
+				if ((int) $figcaption->length ?? 0) {
+					$new_cap = $figcaption[0]->cloneNode(true);
+					$new_figure->childNodes[0]->appendChild($new_cap);
+				}
+
+				// NEED TO CHECK FOR A LINK TAG HERE! APPEND NEW FIGURE AS CHILD OF LINK TAG IF AVAILABLE
+				$wrapper->appendChild($new_figure);
+				$block->parentNode->insertBefore($wrapper, $block);
+				$block->parentNode->removeChild($block);
+			}
 		}
 		$body = $domDocument->saveHtml($domDocument->getElementsByTagName('body')->item(0));
 		$content = str_replace(array( '<body>', '</body>' ), '', $body);
