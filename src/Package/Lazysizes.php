@@ -3,6 +3,8 @@
 namespace SayHello\Theme\Package;
 
 use SayHello\Theme\Vendor\LazyImage;
+use DomDocument;
+use DOMXPath;
 
 /**
  * This Class provides advanced media loading possibilities via lazysizes.
@@ -28,6 +30,7 @@ class Lazysizes
 		add_action('wp_enqueue_scripts', [$this, 'addAssets']);
 		add_action('rest_api_init', [$this, 'registerRoute']);
 		add_filter('lazy_sizes_size', [$this, 'customLazySizes'], 10, 0);
+		add_filter('the_content', [$this, 'makeImageBlocksLazy']);
 	}
 
 	public function noscriptCSS()
@@ -131,5 +134,38 @@ class Lazysizes
 			'small' => 160,
 		];
 		return $image_object->getImage($background);
+	}
+
+	public function makeImageBlocksLazy($content)
+	{
+		if (!has_block('core/image') || empty($content)) {
+			return $content;
+		}
+		libxml_use_internal_errors(true);
+		$domDocument = new DOMDocument();
+		$domDocument->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+
+		$xpath = new DOMXpath($domDocument);
+		$blocks = $xpath->query("//figure[contains(concat(' ',normalize-space(@class),' '),' wp-block-image ')]");
+
+		if (!count($blocks)) {
+			return $content;
+		}
+
+		foreach ($blocks as $block) {
+			$figure_class = $block->getAttribute('class');
+			$image = $xpath->query('img', $block);
+			$image_class = $image[0]->getAttribute('class');
+			preg_match('~([0-9]+)$~', $image_class, $matches);
+			$image_id = $matches[0];
+			$lazy_image = Lazysizes::getLazyImage($image_id, 'full', $figure_class, $image_class);
+			$tpl = new DOMDocument;
+			$tpl->loadHTML($lazy_image);
+			$block->parentNode->insertBefore($domDocument->importNode($tpl->documentElement, true), $block);
+			$block->parentNode->removeChild($block);
+		}
+		$body = $domDocument->saveHtml($domDocument->getElementsByTagName('body')->item(0));
+		$content = str_replace(array( '<body>', '</body>' ), '', $body);
+		return $content;
 	}
 }
