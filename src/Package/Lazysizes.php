@@ -4,6 +4,7 @@ namespace SayHello\Theme\Package;
 
 use SayHello\Theme\Vendor\LazyImage;
 use DomDocument;
+use DOMElement;
 use DOMXPath;
 
 /**
@@ -143,6 +144,7 @@ class Lazysizes
 		}
 		libxml_use_internal_errors(true);
 		$domDocument = new DOMDocument();
+		$domDocument->preserveWhiteSpace = false;
 		$domDocument->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
 
 		$xpath = new DOMXpath($domDocument);
@@ -164,21 +166,34 @@ class Lazysizes
 			if (count($matches) === 2) {
 				$image_id = $matches[1];
 				$lazy_image = Lazysizes::getLazyImage($image_id, 'full', '', $image_class);
-				$wrapper = $domDocument->createElement('div');
-				$wrapper->setAttribute('class', $figure_class);
 
 				$tpl = new DOMDocument;
 				$tpl->loadHTML($lazy_image);
-				$new_figure = $domDocument->importNode($tpl->documentElement->getElementsByTagName('body')->item(0), true);
+				$new_figure = $domDocument->importNode($tpl->documentElement->getElementsByTagName('figure')->item(0), true);
+
+				$wrapper = $domDocument->createElement('div');
+				$wrapper->setAttribute('class', $figure_class);
+
+				foreach ($block->childNodes as $child) {
+					if (strtolower($child->tagName) === 'a') {
+						$link = $child->cloneNode(false); // Just the link tag, not its childNodes
+						$images = $xpath->query(".//img[contains(concat(' ',normalize-space(@class),' '),' o-lazyimage__image ')]", $new_figure);
+						foreach ($images as $image) {
+							$link->appendChild($image);
+						}
+						$new_figure->insertBefore($link, $new_figure->firstChild->nextSibling);
+						break;
+					}
+				}
+
+				$wrapper->appendChild($new_figure);
 
 				$figcaption = $xpath->query('.//figcaption', $block);
 				if ((int) $figcaption->length ?? 0) {
 					$new_cap = $figcaption[0]->cloneNode(true);
-					$new_figure->childNodes[0]->appendChild($new_cap);
+					$wrapper->appendChild($new_cap);
 				}
 
-				// NEED TO CHECK FOR A LINK TAG HERE! APPEND NEW FIGURE AS CHILD OF LINK TAG IF AVAILABLE
-				$wrapper->appendChild($new_figure);
 				$block->parentNode->insertBefore($wrapper, $block);
 				$block->parentNode->removeChild($block);
 			}
