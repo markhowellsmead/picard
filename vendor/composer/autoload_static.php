@@ -39,6 +39,7 @@ class ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7
         'SayHello\\Theme\\Package\\Bodyclass' => __DIR__ . '/../..' . '/src/Package/BodyClass.php',
         'SayHello\\Theme\\Package\\CustomPages' => __DIR__ . '/../..' . '/src/Package/CustomPages.php',
         'SayHello\\Theme\\Package\\Error' => __DIR__ . '/../..' . '/src/Package/Error.php',
+        'SayHello\\Theme\\Package\\Footnotes' => __DIR__ . '/../..' . '/src/Package/Footnotes.php',
         'SayHello\\Theme\\Package\\Gutenberg' => __DIR__ . '/../..' . '/src/Package/Gutenberg.php',
         'SayHello\\Theme\\Package\\Helpers' => __DIR__ . '/../..' . '/src/Package/Helpers.php',
         'SayHello\\Theme\\Package\\Language' => __DIR__ . '/../..' . '/src/Package/Language.php',

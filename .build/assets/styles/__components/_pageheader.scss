@@ -7,7 +7,6 @@
 
 .c-pageheader {
 
-	@extend .h-constraint;
 	font-size: var(--font-size-small);
 
 	@include desktop {
@@ -30,15 +29,15 @@
 	}
 
 	&__inner {
-		@include mobile-padding-x;
-		padding-top: var(--unit-large);
-		padding-bottom: var(--unit-large);
+		padding: var(--unit-large) var(--unit-medium);
 		@include flex-row;
+		align-items: center;
 		justify-content: space-between;
 		position: relative;
 		z-index: 2;
-		@include laptop {
-			align-items: center;
+		@include desktop {
+			padding-left: var(--unit-xlarge);
+			padding-right: var(--unit-xlarge);
 		}
 	}
 

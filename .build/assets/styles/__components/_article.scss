@@ -27,6 +27,12 @@
 			@include desktop {
 				margin-top: calc(var(--unit-large) * -2);
 			}
+
+			.admin-bar & {
+				@include desktop {
+					margin-top: calc((var(--unit) * -3));
+				}
+			}
 		}
 
 		> ul {
