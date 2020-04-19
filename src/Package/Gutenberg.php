@@ -54,56 +54,33 @@ class Gutenberg
 		add_theme_support('title-tag');
 		add_theme_support('post-formats', [ 'gallery', 'video' ]);
 		// add_theme_support('disable-custom-colors');
-		add_theme_support(
-			'editor-color-palette',
-			[
-				[
-					'name'  => esc_html__('Black', 'sht'),
-					'slug' => 'black',
-					'color' => '#000',
-				],
-				[
-					'name'  => esc_html__('Gray', 'sht'),
-					'slug' => 'light-gray',
-					'color' => '#777',
-				],
-				[
-					'name'  => esc_html__('Mid gray', 'sht'),
-					'slug' => 'mid-gray',
-					'color' => '#aaa',
-				],
-				[
-					'name'  => esc_html__('Light gray', 'sht'),
-					'slug' => 'lighter-gray',
-					'color' => '#ccc',
-				],
-				[
-					'name'  => esc_html__('Extra light gray', 'sht'),
-					'slug' => 'xlight-gray',
-					'color' => '#f0f0f0',
-				],
-				[
-					'name'  => esc_html__('Extra-extra light gray', 'sht'),
-					'slug' => 'xxlight-gray',
-					'color' => '#f9f9f9',
-				],
-				[
-					'name'  => esc_html__('Blue', 'sht'),
-					'slug' => 'primary',
-					'color' => '#1A56B0',
-				],
-				[
-					'name'  => esc_html__('WordPress blue', 'sht'),
-					'slug' => 'wordpress-blue',
-					'color' => '#0073aa',
-				],
-				[
-					'name'  => esc_html__('White', 'sht'),
-					'slug' => 'white',
-					'color' => '#fff',
-				]
-			]
-		);
+		$path = trailingslashit(get_template_directory()) . 'assets/settings.json';
+		if (!is_file($path)) {
+			return false;
+		}
+
+		$settings = file_get_contents($path);
+
+		if (is_string($settings) && !empty($settings)) {
+			$settings = json_decode($settings, true);
+			if (isset($settings['gutenberg_colors'])) {
+				$colors = [];
+
+				foreach ($settings['gutenberg_colors'] as $color_key => $color) {
+					foreach ($color as $variation_key => $variation) {
+						$colors[] = [
+							'name' => $variation_key === 'base' ? ucfirst($color_key) : implode(' ', [ucfirst($color_key), $variation_key]),
+							'slug' => $variation_key === 'base' ? $color_key : implode(' ', [$color_key, $variation_key]),
+							'color' => $color[$variation_key]
+						];
+					}
+				}
+
+				if (!empty($colors)) {
+					add_theme_support('editor-color-palette', $colors);
+				}
+			}
+		}
 		add_theme_support('editor-gradient-presets', [
 			[
 				'name'     => __('Bottom shadow', 'picard'),
