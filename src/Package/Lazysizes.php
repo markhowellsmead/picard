@@ -155,6 +155,9 @@ class Lazysizes
 		foreach ($blocks as $block) {
 			$figure_class = $block->getAttribute('class');
 			$image = $xpath->query('img', $block);
+			if (!$image[0] || !method_exists($image[0], 'getAttribute')) {
+				continue;
+			}
 			$image_class = $image[0]->getAttribute('class');
 			preg_match('~([0-9]+)$~', $image_class, $matches);
 			$image_id = $matches[0];
