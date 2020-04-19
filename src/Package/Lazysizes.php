@@ -4,6 +4,7 @@ namespace SayHello\Theme\Package;
 
 use SayHello\Theme\Vendor\LazyImage;
 use DomDocument;
+use DOMElement;
 use DOMXPath;
 
 /**
@@ -143,6 +144,7 @@ class Lazysizes
 		}
 		libxml_use_internal_errors(true);
 		$domDocument = new DOMDocument();
+		$domDocument->preserveWhiteSpace = false;
 		$domDocument->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
 
 		$xpath = new DOMXpath($domDocument);
@@ -154,18 +156,47 @@ class Lazysizes
 
 		foreach ($blocks as $block) {
 			$figure_class = $block->getAttribute('class');
-			$image = $xpath->query('img', $block);
-			if (!$image[0] || !method_exists($image[0], 'getAttribute')) {
+			$images = $xpath->query('.//img', $block);
+			if (!$images || !$images[0]) {
 				continue;
 			}
-			$image_class = $image[0]->getAttribute('class');
-			preg_match('~([0-9]+)$~', $image_class, $matches);
-			$image_id = $matches[0];
-			$lazy_image = Lazysizes::getLazyImage($image_id, 'full', $figure_class, $image_class);
-			$tpl = new DOMDocument;
-			$tpl->loadHTML($lazy_image);
-			$block->parentNode->insertBefore($domDocument->importNode($tpl->documentElement, true), $block);
-			$block->parentNode->removeChild($block);
+			$image = $images[0];
+			$image_class = $image->getAttribute('class');
+			preg_match('~wp-image-([0-9]+)~', $image_class, $matches);
+			if (count($matches) === 2) {
+				$image_id = $matches[1];
+				$lazy_image = Lazysizes::getLazyImage($image_id, 'full', '', $image_class);
+
+				$tpl = new DOMDocument;
+				$tpl->loadHTML($lazy_image);
+				$new_figure = $domDocument->importNode($tpl->documentElement->getElementsByTagName('figure')->item(0), true);
+
+				$wrapper = $domDocument->createElement('div');
+				$wrapper->setAttribute('class', $figure_class);
+
+				foreach ($block->childNodes as $child) {
+					if (strtolower($child->tagName) === 'a') {
+						$link = $child->cloneNode(false); // Just the link tag, not its childNodes
+						$images = $xpath->query(".//img[contains(concat(' ',normalize-space(@class),' '),' o-lazyimage__image ')]", $new_figure);
+						foreach ($images as $image) {
+							$link->appendChild($image);
+						}
+						$new_figure->insertBefore($link, $new_figure->firstChild->nextSibling);
+						break;
+					}
+				}
+
+				$wrapper->appendChild($new_figure);
+
+				$figcaption = $xpath->query('.//figcaption', $block);
+				if ((int) $figcaption->length ?? 0) {
+					$new_cap = $figcaption[0]->cloneNode(true);
+					$wrapper->appendChild($new_cap);
+				}
+
+				$block->parentNode->insertBefore($wrapper, $block);
+				$block->parentNode->removeChild($block);
+			}
 		}
 		$body = $domDocument->saveHtml($domDocument->getElementsByTagName('body')->item(0));
 		$content = str_replace(array( '<body>', '</body>' ), '', $body);
