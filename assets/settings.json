@@ -26,8 +26,27 @@
 			"xlight": "#f0f0f0",
 			"xxlight": "#f9f9f9"
 		},
+		"light-gray": {
+			"base": "#777"
+		},
+		"mid-gray": {
+			"base": "#aaa"
+		},
+		"lighter-gray": {
+			"base": "#ccc"
+		},
+		"xlight-gray": {
+			"base": "#f0f0f0"
+		},
+		"xxlight-gray": {
+			"base": "#f9f9f9"
+		},
+		"xlight-gray": {
+			"base": "#f0f0f0"
+		},
 		"wordpress": {
-			"base": "#0073aa"
+			"base": "#0073aa",
+			"blue": "#0073aa"
 		},
 		"brown": {
 			"base": "#930"
@@ -54,6 +73,28 @@
 			"base": "#FF0000",
 			"background": "#FFE9E9",
 			"border": "#A01E32"
+		}
+	},
+	"gutenberg_colors": {
+		"primary": {
+			"base": "#1a56b0"
+		},
+		"wordpress-blue": {
+			"base": "#0073aa"
+		},
+		"black": {
+			"base": "#000"
+		},
+		"gray": {
+			"base": "#777",
+			"dark": "#444",
+			"mid": "#aaa",
+			"lighter": "#ccc",
+			"xlight": "#f0f0f0",
+			"xxlight": "#f9f9f9"
+		},
+		"white": {
+			"base": "#fff"
 		}
 	},
 	"theme_breakpoints": {
