@@ -2,6 +2,7 @@
 	"theme_colors": {
 		"primary": {
 			"base": "#1A56B0",
+			"light": "#437070",
 			"basewithopacity": "#1A56B080",
 			"basewithhalfopacity": "#1A56B040",
 			"dark": "#134084"
