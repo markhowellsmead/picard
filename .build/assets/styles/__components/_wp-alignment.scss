@@ -1,7 +1,7 @@
 /**
  * WordPress alignment classes
  */
-$alignment-spacing: 1rem !default;
+$alignment-spacing: var(--unit) !default;
 
 .alignleft,
 .alignright {
