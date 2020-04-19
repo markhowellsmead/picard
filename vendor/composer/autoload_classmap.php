@@ -16,6 +16,7 @@ return array(
     'SayHello\\Theme\\Package\\Bodyclass' => $baseDir . '/src/Package/BodyClass.php',
     'SayHello\\Theme\\Package\\CustomPages' => $baseDir . '/src/Package/CustomPages.php',
     'SayHello\\Theme\\Package\\Error' => $baseDir . '/src/Package/Error.php',
+    'SayHello\\Theme\\Package\\Footnotes' => $baseDir . '/src/Package/Footnotes.php',
     'SayHello\\Theme\\Package\\Gutenberg' => $baseDir . '/src/Package/Gutenberg.php',
     'SayHello\\Theme\\Package\\Helpers' => $baseDir . '/src/Package/Helpers.php',
     'SayHello\\Theme\\Package\\Language' => $baseDir . '/src/Package/Language.php',
