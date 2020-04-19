@@ -17,7 +17,7 @@ class Footnotes
 	{
 		add_filter('the_content', [$this, 'addFootnoteAnchors']);
 		add_filter('the_content', [$this, 'addFootnoteLinks']);
-		// add_filter('the_excerpt', [$this, 'stripFootnoteLinks']);
+		add_filter('the_excerpt', [$this, 'stripFootnoteLinks']);
 	}
 
 	public function addFootnoteAnchors($content)
