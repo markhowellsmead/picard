@@ -3,4 +3,13 @@
 	&__link {
 		display: block;
 	}
+
+	svg {
+		fill: currentColor;
+	}
+
+	path {
+		@include transition;
+		fill: inherit !important;
+	}
 }
