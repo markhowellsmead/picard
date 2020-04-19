@@ -95,28 +95,12 @@
 		background-color: c(black);
 	}
 
-	&.has-primary-background-color {
-		background-color: c(primary);
-		color: c(black);
-	}
-
-	&.has-yellow-background-color {
-		background-color: c(yellow);
-		color: c(black);
-	}
-
-	&.has-white-background-color {
-		background-color: c(white);
-		color: c(black);
-	}
-
 	&__inner-container {
 		@extend .h-stack;
 		padding-top: var(--unit);
 		padding-bottom: var(--unit-medium);
 		width: 100vw;
 		max-width: var(--constraint-narrow);
-		color: inherit !important;
 		.alignfull & {
 			@include desktop {
 				max-width: var(--constraint-wide);

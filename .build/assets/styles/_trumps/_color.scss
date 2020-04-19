@@ -1,56 +1,104 @@
 
-.has-black-color {
-	color: #000;
-}
-.has-light-gray-color {
-	color: #777;
-}
-.has-mid-gray-color {
-	color: #aaa;
-}
-.has-lighter-gray-color {
-	color: #ccc;
-}
-.has-xlight-gray-color {
-	color: #f0f0f0;
-}
-.has-xxlight-gray-color {
-	color: #f9f9f9;
-}
-.has-primary-color {
-	color: #1A56B0;
-}
-.has-wordpress-blue-color {
-	color: #0073aa;
-}
-.has-white-color {
-	color: #fff;
+@each $color, $colorSet in $theme_colors {
+	@each $variant, $value in $colorSet {
+		@if $variant == 'base' {
+			.has-#{$color}-color {
+				color: #{$value};
+			}
+			a.has-#{$color}-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					color: #{$value};
+				}
+			}
+			.has-#{$color}-background-color {
+				background-color: #{$value};
+			}
+			a.has-#{$color}-background-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					background-color: #{$value};
+				}
+			}
+		} @else {
+			.has-#{$color}-#{$variant}-color {
+				color: #{$value};
+			}
+			a.has-#{$color}-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					color: #{$value};
+				}
+			}
+			.has-#{$color}-#{$variant}-background-color {
+				background-color: #{$value};
+			}
+			a.has-#{$color}-background-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					background-color: #{$value};
+				}
+			}
+		}
+	}
 }
 
-.has-black-background-color {
-	background-color: #000;
-}
-.has-light-gray-background-color {
-	background-color: #777;
-}
-.has-mid-gray-background-color {
-	background-color: #aaa;
-}
-.has-lighter-gray-background-color {
-	background-color: #ccc;
-}
-.has-xlight-gray-background-color {
-	background-color: #f0f0f0;
-}
-.has-xxlight-gray-background-color {
-	background-color: #f9f9f9;
-}
-.has-primary-background-color {
-	background-color: #1A56B0;
-}
-.has-wordpress-blue-background-color {
-	background-color: #0073aa;
-}
-.has-white-background-color {
-	background-color: #fff;
+@each $color, $colorSet in $gutenberg_colors {
+	@each $variant, $value in $colorSet {
+		@if $variant == 'base' {
+			.has-#{$color}-color {
+				color: #{$value};
+			}
+			a.has-#{$color}-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					color: #{$value};
+				}
+			}
+			.has-#{$color}-background-color {
+				background-color: #{$value};
+			}
+			a.has-#{$color}-background-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					background-color: #{$value};
+				}
+			}
+		} @else {
+			.has-#{$color}-#{$variant}-color {
+				color: #{$value};
+			}
+			a.has-#{$color}-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					color: #{$value};
+				}
+			}
+			.has-#{$color}-#{$variant}-background-color {
+				background-color: #{$value};
+			}
+			a.has-#{$color}-background-color {
+				&:active,
+				&:focus,
+				&:hover,
+				&:visited {
+					background-color: #{$value};
+				}
+			}
+		}
+	}
 }
