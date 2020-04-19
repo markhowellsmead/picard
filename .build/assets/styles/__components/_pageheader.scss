@@ -1,8 +1,5 @@
 :root {
-	--masthead-height: #{rem-calc(95px)};
-	@include desktop {
-		--masthead-height: #{rem-calc(107px)};
-	}
+	--masthead-height: #{rem-calc(105px)};
 }
 
 .c-pageheader {
@@ -29,15 +26,18 @@
 	}
 
 	&__inner {
-		padding: var(--unit-large) var(--unit-medium);
+		padding: var(--unit-medium);
 		@include flex-row;
 		align-items: center;
 		justify-content: space-between;
 		position: relative;
 		z-index: 2;
-		@include desktop {
-			padding-left: var(--unit-xlarge);
-			padding-right: var(--unit-xlarge);
+		margin-left: auto;
+		margin-right: auto;
+		max-width: var(--constraint-wide);
+		@include laptop {
+			padding-left: 0;
+			padding-right: 0;
 		}
 	}
 
