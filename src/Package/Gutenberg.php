@@ -36,6 +36,7 @@ class Gutenberg
 		add_filter('block_categories', [$this, 'blockCategories']);
 		add_filter('block_editor_settings', [ $this, 'editorSettings' ]);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
+		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
 	}
 
 	/**
@@ -133,5 +134,16 @@ class Gutenberg
 	public function isContextEdit()
 	{
 		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
+	}
+
+	public function reusableBlocksAdminMenu()
+	{
+		add_submenu_page(
+			'themes.php',
+			_x('Wiederverwendbare Blöcke', 'Admin page title', 'sht'),
+			_x('Wiederverwendbare Blöcke', 'Admin menu label', 'sht'),
+			'edit_posts',
+			'edit.php?post_type=wp_block'
+		);
 	}
 }
