@@ -1,7 +1,9 @@
 .wp-block-group {
 
-	margin-top: 0;
-	margin-bottom: 0;
+	& + .wp-block-group {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 
 	&.is-style-padding {
 		.wp-block-group__inner-container {
