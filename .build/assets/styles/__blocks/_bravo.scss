@@ -1,0 +1,139 @@
+.wp-block-mhm-bravo {
+
+	margin-top: var(--unit-xlarge);
+	margin-bottom: var(--unit-xlarge);
+
+	&.alignfull {
+		margin-top: var(--unit-xxlarge);
+		margin-bottom: var(--unit-xxlarge);
+	}
+
+	&.alignwide {
+		.wp-block-mhm-bravo__inner {
+			@include tablet {
+				@supports(display: grid) {
+					grid-template-columns: 6fr 3fr;
+				}
+			}
+		}
+		&.is-style-flipped {
+			.wp-block-mhm-bravo__inner {
+				@include tablet {
+					@supports(display: grid) {
+						grid-template-columns: 3fr 6fr;
+					}
+				}
+			}
+		}
+	}
+
+	&__content {
+		font-size: var(--font-size-small);
+		color: c(gray);
+		padding-left: var(--unit);
+		padding-right: var(--unit);
+		@extend .h-stack;
+		@include tablet {
+			grid-column: 2/3;
+			grid-row: 1/2;
+			padding-left: 0;
+			padding-right: 0;
+			padding-bottom: var(--unit-large);
+		}
+	}
+
+	&__inner {
+		display: flex;
+		flex-flow: column-reverse;
+		@include tablet {
+			@supports(display: grid) {
+				display: grid;
+				grid-column-gap: var(--unit-medium);
+				grid-template-columns: 4fr 3fr;
+				grid-template-rows: auto;
+				align-items: flex-end;
+			}
+		}
+	}
+
+	&__figure {
+		margin-bottom: var(--unit);
+		@include tablet {
+			@supports(display: grid) {
+				margin-bottom: 0;
+				grid-column: 1/2;
+				grid-row: 1/2;
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__text {
+		@extend .h-stack;
+	}
+
+	&__title {
+		font-size: 1em;
+		font-weight: inherit;
+		font-style: italic;
+		color: c(black);
+	}
+
+	&.is-style-flipped {
+		.wp-block-mhm-bravo {
+			&__content {
+				@include tablet {
+					@supports(display: grid) {
+						grid-column: 1/2;
+						text-align: right;
+					}
+				}
+			}
+
+			&__figure {
+				@include tablet {
+					@supports(display: grid) {
+						grid-column: 2/3;
+					}
+				}
+			}
+
+			&__inner {
+				@include tablet {
+					@supports(display: grid) {
+						grid-template-columns: 3fr 4fr;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include context-edit() {
+	.wp-block-mhm-bravo {
+		&__imagepositioner {
+			@extend .wp-block-mhm-bravo__figure;
+
+			.wp-block-mhm-bravo__figure {
+				flex-basis: 100%;
+			}
+		}
+
+		&__titlepositioner {
+			@extend .c-block__title;
+
+			.c-block__title {
+				margin: 0;
+			}
+		}
+
+		&.is-style-flipped {
+			.wp-block-mhm-bravo__imagepositioner {
+				order: -1;
+			}
+		}
+	}
+}
