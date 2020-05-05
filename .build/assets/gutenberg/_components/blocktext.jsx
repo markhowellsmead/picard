@@ -25,7 +25,7 @@ export class BlockText extends Component {
 				allowedFormats = {['core/bold', 'core/italic', 'core/link']}
 				formattingControls = {[]}
 				placeholder = {placeHolder}
-				multiline = "p"
+				multiline = "br"
 				value = { text }
 				keepPlaceholderOnFocus = { true }
 				onChange = {value => {

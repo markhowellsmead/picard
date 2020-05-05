@@ -93,13 +93,14 @@ export default class LazyImageSelector extends Component {
 													<Button
 														onClick={open}
 														isDefault
-														isLarge>
+														isLarge
+														isPrimary>
 														{_x('Bild ersetzen', 'Admin component button text', 'sha')}
 													</Button>
 													<Button
 														onClick={() => setAttributes({image: {id: false}})}
-														isLink
-														isDestructive>
+														isDefault
+														isSmall>
 														{_x('Bild entfernen', 'Admin component button text', 'sha')}
 													</Button>
 												</Fragment>

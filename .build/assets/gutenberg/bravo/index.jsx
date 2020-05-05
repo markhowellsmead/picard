@@ -51,8 +51,13 @@ registerBlockType('mhm/bravo', {
 
 		render() {
 
-			const { attributes, className, setAttributes } = this.props;
-			const classNameBase = getBlockDefaultClassName( 'mhm/bravo' );
+			const { attributes, setAttributes } = this.props;
+			let classNameBase = getBlockDefaultClassName( 'mhm/bravo' );
+			let className = this.props.className;
+
+			if(attributes.image && attributes.image.attributes.width < attributes.image.attributes.height){
+				className += ` ${classNameBase}--tall`;
+			}
 
 			return [
 				(
@@ -73,13 +78,12 @@ registerBlockType('mhm/bravo', {
 									setAttributes={setAttributes}
 								/>
 							</div>
-							<div className={`${classNameBase}__imagepositioner`}>
-								<LazyImageSelector
-									attributes={attributes}
-									image={attributes.image}
-									setAttributes={setAttributes}
-								/>
-							</div>
+							<LazyImageSelector
+								attributes={attributes}
+								className={`${classNameBase}__figure`}
+								image={attributes.image}
+								setAttributes={setAttributes}
+							/>
 						</div>
 					</section>
 				)
@@ -87,21 +91,27 @@ registerBlockType('mhm/bravo', {
 		}
 	},
 	save({ attributes }){
-		const className = getBlockDefaultClassName( 'mhm/bravo' );
+		let className = getBlockDefaultClassName( 'mhm/bravo' );
+		const classNameBase = getBlockDefaultClassName( 'mhm/bravo' );
+
+		if(!!attributes.image && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
+			className += ` ${className}--tall`;
+		}
+
 		return(
 			<section className={className}>
-				<div className={`${className}__inner`}>
-					<div className={`${className}__content`}>
-						<header className={`${className}__header`}>
-							<RichText.Content tagName="h2" className={`${className}__title`} value={ attributes.title } />
+				<div className={`${classNameBase}__inner`}>
+					<div className={`${classNameBase}__content`}>
+						<header className={`${classNameBase}__header`}>
+							<RichText.Content tagName="h2" className={`${classNameBase}__title`} value={ attributes.title } />
 						</header>
 						{
-							!!attributes.text && <RichText.Content tagName="div" className={`${className}__text`} value={ attributes.text } />
+							attributes.text !== '<p></p>' && <RichText.Content tagName="div" className={`${classNameBase}__text`} value={ attributes.text } />
 						}
 					</div>
 					{
 						attributes.image && attributes.image.id &&
-						<LazyImage className={`${className}__figure`} image={attributes.image} background={false} admin={false} />
+						<LazyImage className={`${classNameBase}__figure`} image={attributes.image} background={false} admin={false} />
 					}
 				</div>
 			</section>
