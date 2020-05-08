@@ -17,13 +17,13 @@
 	}
 
 	&__link {
+		@extend .o-button;
 		font-size: 1em;
-		padding: .65em 1.3em;
-		border-radius: var(--radius) !important;
 	}
 }
 
 .wp-block-buttons {
+	margin-bottom: -8px; // offset child margin
 	.wp-block-button {
 		margin-top: 0;
 		&:first-child {

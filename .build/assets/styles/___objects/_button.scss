@@ -2,16 +2,27 @@
 
 	cursor: pointer;
 	padding: var(--unit-xsmall) var(--unit);
-	border: 1px solid c(gray, mid);
-	border-radius: .25em;
-	background: c(white);
+	border: 1px solid transparent;
+	border-radius: var(--radius);
 	text-decoration: none;
+	@include transition;
+
+	&:not(.has-background) {
+		background: c(white);
+		border-color: c(gray, mid);
+	}
+
+	&:hover {
+		filter: saturate(1.5);
+		transform: translateY(-1px);
+	}
 
 	&--solid {
 		@extend .o-button;
-		background-color: c(gray, mid);
-		color: c(white);
-		&:hover {
+		&:not(.has-background) {
+			background-color: c(gray, mid);
+		}
+		&:not(.has-text-color) {
 			color: c(white);
 		}
 	}
