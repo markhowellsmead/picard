@@ -1,7 +1,6 @@
 .wp-block-cover {
 
 	min-height: 25vh;
-	align-items: flex-end;
 
 	a {
 		text-decoration-color: currentColor;
@@ -116,6 +115,13 @@
 		}
 		.block-editor-block-list__block {
 			color: inherit;
+		}
+
+		[data-type='core/cover'][data-editorskit-is-vertically-bottom="1"] & {
+			align-items: flex-end;
+		}
+		[data-type='core/cover'][data-editorskit-is-vertically-top="1"] & {
+			align-items: flex-start;
 		}
 	}
 }
