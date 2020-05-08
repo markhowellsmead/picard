@@ -184,6 +184,18 @@ h1 {
 	@include desktop {
 		font-size: 2.25em;
 	}
+	&.is-style-large {
+		font-size: 2.5em;
+		@include desktop {
+			font-size: 3em;
+		}
+	}
+	&.is-style-xlarge {
+		font-size: 3.5em;
+		@include desktop {
+			font-size: 4em;
+		}
+	}
 }
 
 .is-style-lead {

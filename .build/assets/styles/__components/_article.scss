@@ -30,7 +30,7 @@
 
 			.admin-bar & {
 				@include desktop {
-					margin-top: calc((var(--unit) * -3));
+					margin-top: calc(var(--unit-large) * -4 + var(--unit-xlarge));
 				}
 			}
 		}

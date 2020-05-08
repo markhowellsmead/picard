@@ -5,6 +5,10 @@
 		margin-bottom: 0;
 	}
 
+	.wp-block-cover + & {
+		margin-top: 0;
+	}
+
 	&.is-style-padding {
 		.wp-block-group__inner-container {
 			padding-top: var(--unit);
