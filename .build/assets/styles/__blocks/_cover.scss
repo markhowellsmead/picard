@@ -97,13 +97,25 @@
 	&__inner-container {
 		@extend .h-stack;
 		padding-top: var(--unit);
-		padding-bottom: var(--unit-medium);
+		padding-bottom: var(--unit);
 		width: 100vw;
 		max-width: var(--constraint-narrow);
 		.alignfull & {
 			@include desktop {
 				max-width: var(--constraint-wide);
 			}
+		}
+	}
+
+	&.is-vertically-aligned-bottom {
+		@include desktop {
+			padding-bottom: var(--unit-large);
+		}
+	}
+
+	&.is-vertically-aligned-top {
+		@include desktop {
+			padding-top: var(--unit-large);
 		}
 	}
 }
