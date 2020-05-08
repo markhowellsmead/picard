@@ -5,6 +5,7 @@
 	border: 1px solid transparent;
 	border-radius: var(--radius);
 	text-decoration: none;
+	box-shadow: 0 0 .35em rgba(0,0,0,.2);
 	@include transition;
 
 	&:not(.has-background) {
@@ -12,9 +13,12 @@
 		border-color: c(gray, mid);
 	}
 
+	&:not(.has-text-color) {
+		color: inherit;
+	}
+
 	&:hover {
-		filter: saturate(1.5);
-		transform: translateY(-1px);
+		filter: brightness(1.2);
 	}
 
 	&--solid {
