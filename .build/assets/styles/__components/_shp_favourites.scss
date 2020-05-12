@@ -1,0 +1,30 @@
+.shp_favourites {
+	&__button {
+		display: inline-flex;
+		align-items: center;
+		opacity: .2;
+		@include transition;
+		cursor: pointer;
+		&::before {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			margin-right: .25em;
+			background: url('../img/icons/favorite_border-24px.min.svg') center/contain no-repeat;
+			content: '';
+		}
+		&--active {
+			opacity: 1;
+		}
+		&--selected::before {
+			background-image: url('../img/icons/favorite-24px.min.svg');
+		}
+	}
+	&__wrapper {
+		font-size: var(--font-size-small);
+		text-align: center;
+		padding: var(--unit-small);
+		background-color: var(--color-white);
+		box-shadow: 0 0 .5rem rgba(0,0,0,.125);
+	}
+}

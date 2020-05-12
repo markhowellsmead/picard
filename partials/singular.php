@@ -18,7 +18,10 @@
 			endif; ?>
 
 			<div class="c-article__content">
-				<?php the_content(); ?>
+				<?php
+				the_content();
+				get_template_part('partials/functions/like');
+				?>
 			</div>
 		</div>
 		<?php
