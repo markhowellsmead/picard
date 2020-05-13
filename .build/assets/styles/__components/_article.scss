@@ -22,7 +22,8 @@
 			}
 		}
 
-		> .wp-block-cover:first-child {
+		> .wp-block-cover:first-child,
+		> .b-home-carousel:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 			@include desktop {
 				margin-top: calc(var(--unit-large) * -2);

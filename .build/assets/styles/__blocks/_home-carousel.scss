@@ -1,0 +1,76 @@
+.b-home-carousel {
+	background: #222;
+	color: var(--color-white);
+	padding: var(--unit-xlarge) 0;
+
+	& + .wp-block-cover,
+	& + .wp-block-group {
+		margin-top: 0;
+	}
+
+	&__caption {
+		padding: 0;
+		text-align: center;
+	}
+
+	&__entry {
+		@include transition;
+		opacity: .2;
+		transform: scale(.9);
+		&.swiper-slide-active {
+			opacity: 1;
+			transform: scale(1);
+			.b-home-carousel__link {
+				pointer-events: all;
+			}
+		}
+		@include desktop {
+			transform: scale(1);
+		}
+	}
+
+	&__imagewrap {
+		position: relative;
+		background-color: transparent;
+		&::after {
+			content: '';
+			display: block;
+			padding-bottom: 56.25%;
+		}
+		img {
+			@include flood;
+			height: 100%;
+			object-fit: cover;
+			border: .125rem solid c(black);
+			box-shadow: 0 0 .5rem rgba(0,0,0,.125);
+			outline: none;
+		}
+	}
+
+	&__link {
+		display: block;
+		@include flood;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	&__paginationwrap {
+		position: absolute;
+		z-index: 1;
+		pointer-events: none;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100vw;
+		max-width: var(--constraint-wide);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&__pagination {
+		pointer-events: all;
+		color: c(white);
+		text-shadow: 0 0 4px c(black);
+		// color: c(gray, dark);
+	}
+}

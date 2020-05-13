@@ -7,6 +7,7 @@ import './footnotes';
 import './form';
 import './main';
 import './menu';
+import './swiper';
 
 window.anchorAnimateOffset = window.innerHeight / 2;
 $('a[href*="#"]').anchorAnimate();
