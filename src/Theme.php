@@ -87,6 +87,7 @@ class Theme
 				\SayHello\Theme\Block\BlogCards::class,
 				\SayHello\Theme\Block\CountPosts::class,
 				\SayHello\Theme\Block\CountPhotos::class,
+				\SayHello\Theme\Block\HomeCarousel::class,
 				\SayHello\Theme\Block\ImageGallery::class,
 				\SayHello\Theme\Block\PostHeader::class,
 				\SayHello\Theme\Block\YearsOnline::class,

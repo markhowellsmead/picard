@@ -49,6 +49,10 @@ class Assets
 		$deps = ['wp-block-library'];
 		wp_enqueue_style('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.css', [], '3.4.0');
 		$deps[] = 'fancybox';
+
+		wp_enqueue_style('swiper', $this->theme_url . '/assets/plugins/swiper/swiper.min.css', [], '5.3.8');
+		$deps[] = 'swiper';
+
 		wp_enqueue_style(sht_theme()->prefix . '-style', $this->theme_url . '/assets/styles/ui' . ($min ? '.min' : '') . '.css', $deps, $theme_version);
 
 		/**
@@ -63,6 +67,9 @@ class Assets
 			wp_enqueue_script('ui-modernizr', $this->theme_url . '/assets/scripts/modernizr/ui-modernizr.min.js', [], $theme_version, true);
 			$deps[] = 'ui-modernizr';
 		}
+
+		wp_enqueue_script('swiper', $this->theme_url . '/assets/plugins/swiper/swiper.min.js', [ 'jquery' ], '5.3.8', true);
+		$deps[] = 'swiper';
 
 		wp_enqueue_script('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.js', [ 'jquery' ], '3.4.0', true);
 		$deps[] = 'fancybox';
