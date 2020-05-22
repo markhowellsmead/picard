@@ -5,6 +5,7 @@ import "./bravo/index.jsx";
 import "./count-photos/index.jsx";
 import "./count-posts/index.jsx";
 import "./footnotes/index.jsx";
+import "./image/index.jsx";
 import "./language-excerpt/index.jsx";
 import "./post-excerpt/index.jsx";
 import "./post-header/index.jsx";

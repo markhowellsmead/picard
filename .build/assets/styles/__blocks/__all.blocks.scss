@@ -34,6 +34,7 @@ figcaption {
 @import "mhm-blog-cards";
 @import "mhm-count-posts";
 @import "mhm-count-photos";
+@import "mhm-image";
 @import "mhm-language-excerpt";
 @import "mhm-post-excerpt";
 @import "mhm-years-online";
@@ -51,13 +52,16 @@ figcaption {
 @include context-edit {
 	.wp-block {
 		max-width: var(--constraint-narrow);
+
 		&.alignwide,
 		&[data-align="wide"] {
 			max-width: var(--constraint-wide);
 		}
+
 		&.alignxwide {
 			max-width: var(--constraint-xwide);
 		}
+
 		&.alignfull,
 		&[data-align="full"] {
 			max-width: var(--constraint-full);
