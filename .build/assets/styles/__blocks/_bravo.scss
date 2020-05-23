@@ -3,7 +3,17 @@
 	margin-top: var(--unit-xlarge);
 	margin-bottom: var(--unit-xlarge);
 
+	&__inner {
+		padding-left: var(--unit);
+		padding-right: var(--unit);
+		@include desktop {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
 	&.alignwide {
+
 		@include desktop {
 			margin-top: var(--unit-xxlarge);
 			margin-bottom: var(--unit-xxlarge);
