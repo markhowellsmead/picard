@@ -1,18 +1,5 @@
 .wp-block-mhm-project-header {
 
-	& + .wp-block-columns {
-		margin-top: 0;
-	}
-
-	&__inner {
-		padding-left: var(--unit);
-		padding-right: var(--unit);
-		@include desktop {
-			padding-left: 0;
-			padding-right: 0;
-		}
-	}
-
 	&__content {
 		font-size: var(--font-size-xsmall);
 		padding-left: var(--unit);
@@ -66,8 +53,8 @@
 		}
 	}
 
-	&__text {
-		@extend .h-stack;
+	*:not(.has-text-color) {
+		color: inherit;
 	}
 
 	&.is-style-flipped {

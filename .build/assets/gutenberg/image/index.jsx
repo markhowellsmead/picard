@@ -82,6 +82,15 @@ registerBlockType( 'mhm/image', {
 									}, {
 										label: '4:1',
 										value: 'is-aspect--4x1'
+									}, {
+										label: '2 x 3',
+										value: 'is-aspect--2x3'
+									}, {
+										label: '3 x 4',
+										value: 'is-aspect--3x4'
+									}, {
+										label: '4 x 5',
+										value: 'is-aspect--4x5'
 									}
 								]} onChange={value => {
 									setAttributes( { ratio: value } );

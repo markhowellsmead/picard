@@ -1,5 +1,5 @@
 import {Button, SelectControl, PanelBody} from '@wordpress/components';
-import {MediaUpload, MediaUploadCheck, RichText, InspectorControls} from '@wordpress/block-editor';
+import {InnerBlocks, RichText, InspectorControls} from '@wordpress/block-editor';
 import {Fragment, Component} from '@wordpress/element';
 import {__, _x} from '@wordpress/i18n';
 import {getBlockDefaultClassName, registerBlockType} from '@wordpress/blocks';
@@ -64,19 +64,14 @@ registerBlockType('mhm/project-header', {
 					<section className={className}>
 						<div className={`${classNameBase}__inner`}>
 							<div className={`${classNameBase}__content`}>
-								<header className={`${classNameBase}__header`}>
-									<BlockTitle
-										className={`${classNameBase}__title`}
-										tagName='h1'
-										title={attributes.title}
-										setAttributes={setAttributes}
-										/>
-								</header>
-								<BlockText
-									className={`${classNameBase}__text`}
-									placeholder={_x('Add text…', 'Field placeholder', 'sha')}
-									text={attributes.text}
-									setAttributes={setAttributes}
+								<InnerBlocks
+									allowedBlocks={(['core/heading'], ['core/paragraph'])}
+									template={[
+										['core/heading', {
+											'level': 1
+										}],
+										['core/paragraph']
+									]}
 								/>
 							</div>
 							<LazyImageSelector
@@ -103,17 +98,7 @@ registerBlockType('mhm/project-header', {
 			<section className={className}>
 				<div className={`${classNameBase}__inner`}>
 					<div className={`${classNameBase}__content`}>
-						<header className={`${classNameBase}__header`}>
-							<RichText.Content tagName="h1" className={`${classNameBase}__title`} value={ attributes.title } />
-						</header>
-						{
-							!!attributes.text && attributes.text !== '<p></p>' &&
-							<RichText.Content
-								tagName="div"
-								className={`${classNameBase}__text`}
-								value={ attributes.text }
-								/>
-						}
+						<InnerBlocks.Content />
 					</div>
 					{
 						attributes.image && attributes.image.id &&

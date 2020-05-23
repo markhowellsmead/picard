@@ -41,6 +41,21 @@
 
 	}
 
+	&.is-aspect--2x3::before {
+		padding-bottom: percentage(3/2);
+
+	}
+
+	&.is-aspect--3x4::before {
+		padding-bottom: percentage(4/3);
+
+	}
+
+	&.is-aspect--4x5::before {
+		padding-bottom: percentage(5/4);
+
+	}
+
 	&__figure {
 		@supports(object-fit: cover) {
 			@include flood;
