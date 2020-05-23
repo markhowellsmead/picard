@@ -55,7 +55,7 @@ registerBlockType('mhm/bravo', {
 			let classNameBase = getBlockDefaultClassName( 'mhm/bravo' );
 			let className = this.props.className;
 
-			if(attributes.image && attributes.image.attributes.width < attributes.image.attributes.height){
+			if(!!attributes.image.id && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
 				className += ` ${classNameBase}--tall`;
 			}
 
@@ -94,7 +94,7 @@ registerBlockType('mhm/bravo', {
 		let className = getBlockDefaultClassName( 'mhm/bravo' );
 		const classNameBase = getBlockDefaultClassName( 'mhm/bravo' );
 
-		if(!!attributes.image && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
+		if(!!attributes.image.id && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
 			className += ` ${className}--tall`;
 		}
 
