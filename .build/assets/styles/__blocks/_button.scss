@@ -1,9 +1,5 @@
 .wp-block-button {
 
-	&:not(.has-text-color) {
-		color: inherit;
-	}
-
 	&.is-style-xsmall {
 		font-size: var(--font-size-xsmall);
 	}

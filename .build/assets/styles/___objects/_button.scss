@@ -5,17 +5,8 @@
 	border: 1px solid transparent;
 	border-radius: var(--radius);
 	text-decoration: none;
-	box-shadow: 0 0 .35em rgba(0,0,0,.2);
+	box-shadow: 0 0 .25em rgba(0,0,0,.1);
 	@include transition;
-
-	&:not(.has-background) {
-		background: c(white);
-		border-color: c(gray, mid);
-	}
-
-	&:not(.has-text-color) {
-		color: inherit;
-	}
 
 	&:hover {
 		filter: brightness(1.2);
@@ -23,12 +14,6 @@
 
 	&--solid {
 		@extend .o-button;
-		&:not(.has-background) {
-			background-color: c(gray, mid);
-		}
-		&:not(.has-text-color) {
-			color: c(white);
-		}
 	}
 
 	&--size-small {

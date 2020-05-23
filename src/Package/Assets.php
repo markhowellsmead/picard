@@ -26,7 +26,7 @@ class Assets
 		add_action('wp_enqueue_scripts', [ $this, 'registerAssets' ]);
 		add_action('admin_enqueue_scripts', [ $this, 'registerAdminAssets' ]);
 		add_action('admin_init', [ $this, 'editorStyle' ]);
-		// add_action('wp_head', [ $this, 'loadFonts' ]);
+		add_action('wp_head', [ $this, 'loadFonts' ]);
 	}
 
 	public function registerAssets()
@@ -126,28 +126,14 @@ class Assets
 
 	public function loadFonts()
 	{
-
-		$fontver = $this->getSetting('theme_fontver');
-		if ($fontver) {
-			$this->font_version = $fontver;
-		}
-
-		$theme_url = str_replace(get_home_url(), '', get_template_directory_uri());
-		$font_name = sanitize_title(sht_theme()->name) . '-font-' . $this->font_version;
-
-		$file = get_template_directory() . '/assets/scripts/loadfonts.min.js';
-		if (! file_exists($file)) {
-			echo 'loadfonts.min.js not found!';
-			die;
-		}
-
-		echo '<script id="loadFonts">';
-		echo file_get_contents($file);
-		echo "loadFont('$font_name', '$theme_url/assets/fonts/fonts-woff.css', '$theme_url/assets/fonts/fonts-woff2.css');";
-		echo '</script>';
-		echo '<noscript>';
-		echo "<link rel='stylesheet' id='font' href='$theme_url/assets/fonts/fonts-woff.css' type='text/css' media='all'>";
-		echo '</noscript>';
+		printf(
+			'<link rel="preconnect" href="%1$s" crossorigin />
+			<link rel="preload" as="style" href="%2$s&display=swap" />
+			<link rel="stylesheet" href="%2$s&display=swap" media="print" onload="this.media=\'all\'" />
+			<noscript><link rel="stylesheet" href="%2$s&display=swap" /></noscript>',
+			'https://fonts.gstatic.com',
+			'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700'
+		);
 	}
 
 	/**
