@@ -1,0 +1,5 @@
+@mixin postcard-border {
+	border: .25rem solid c(white);
+	box-shadow: 0 0 .5rem rgba(0,0,0,.125);
+	outline: none;
+}

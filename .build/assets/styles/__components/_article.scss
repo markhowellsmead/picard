@@ -22,8 +22,8 @@
 			}
 		}
 
-		> .wp-block-cover:first-child,
-		> .b-home-carousel:first-child {
+		> .b-home-carousel:first-child,
+		> .wp-block-cover:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 			@include desktop {
 				margin-top: calc(var(--unit-large) * -2);
@@ -148,9 +148,6 @@
 
 	&__thumbnailimage {
 		width: 100%;
-		border: .25rem solid c(white);
-		box-shadow: 0 0 .5rem rgba(0,0,0,.125);
-		outline: none;
 	}
 
 	&__video {
