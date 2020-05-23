@@ -46,12 +46,21 @@ export default class LazyImageSelector extends Component {
 			attributes,
 			attributeKey,
 			imageFormat,
-			setAttributes
+			setAttributes,
+			objectFocalPoint
 		} = this.props;
 
 		const allowed_types = allowedTypes || [ 'image' ];
 		const attribute_key = attributeKey || 'image';
 		const image_format = imageFormat || 'full';
+
+		let style_orig = {};
+		let style_pre = {};
+
+		if (this.props.objectFocalPoint) {
+			style_orig.objectPosition = `${this.props.objectFocalPoint.x * 100}% ${this.props.objectFocalPoint.y * 100}%`;
+			style_pre.objectPosition = `${this.props.objectFocalPoint.x * 100}% ${this.props.objectFocalPoint.y * 100}%`;
+		}
 
 		return (
 			<Fragment>
@@ -66,7 +75,10 @@ export default class LazyImageSelector extends Component {
 							render={({open}) => {
 								const image = attributes[attribute_key];
 								return (
-									<figure className={`o-imageselector__figure ${!image.id ? 'o-imageselector__figure--noimage' : ''}`}>
+									<figure
+										className={`o-imageselector__figure ${!image.id ? 'o-imageselector__figure--noimage' : ''}`}
+										style={style_orig}
+										>
 										{
 											!!image.id &&
 											<img
@@ -74,6 +86,7 @@ export default class LazyImageSelector extends Component {
 												onClick={open}
 												src={image.org[0]}
 												alt={image.alt}
+												style={style_orig}
 												/>
 										}
 										<div className="o-imageselector__buttons">

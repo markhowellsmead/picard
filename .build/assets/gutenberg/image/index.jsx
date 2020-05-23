@@ -1,6 +1,7 @@
 import { createBlock } from '@wordpress/blocks';
-import { SelectControl, PanelBody } from '@wordpress/components';
+import { SelectControl, PanelBody, FocalPointPicker } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
+import { select } from '@wordpress/data';
 import { Fragment, Component } from '@wordpress/element';
 import { _x } from '@wordpress/i18n';
 import { getBlockDefaultClassName, registerBlockType } from '@wordpress/blocks';
@@ -31,6 +32,13 @@ registerBlockType( 'mhm/image', {
 				id: false
 			}
 		},
+		focalPoint: {
+			type: 'Object',
+			default: {
+				x: 0.5,
+				y: 0.5
+			}
+		},
 		ratio: {
 			type: 'string',
 			default: 'is-aspect--3x2'
@@ -52,6 +60,8 @@ registerBlockType( 'mhm/image', {
 			if ( !!attributes.image.id && parseInt( attributes.image.attributes.width ) < parseInt( attributes.image.attributes.height ) ) {
 				className += ` ${ classNameBase }--tall`;
 			}
+
+			let imageData = !!attributes.image.id ? select( 'core' ).getMedia( attributes.image.id ) : null;
 
 			return (
 				<Fragment>
@@ -95,6 +105,18 @@ registerBlockType( 'mhm/image', {
 								]} onChange={value => {
 									setAttributes( { ratio: value } );
 								}}/>
+								{
+									imageData && imageData.media_details &&
+									<FocalPointPicker
+										url={ imageData.media_details.sizes.full.source_url }
+										dimensions={ {
+											width: imageData.media_details.sizes.full.width,
+											height: imageData.media_details.sizes.full.height
+										} }
+										value={ attributes.focalPoint }
+										onChange={ ( newFocalPoint ) => setAttributes( { focalPoint: newFocalPoint } ) }
+									/>
+								}
 						</PanelBody>
 					</InspectorControls>
 					<section className={`${className} ${attributes.ratio}`}>
@@ -103,6 +125,7 @@ registerBlockType( 'mhm/image', {
 							className={`${ classNameBase }__figure`}
 							image={attributes.image}
 							setAttributes={setAttributes}
+							objectFocalPoint={attributes.focalPoint}
 						/>
 					</section>
 				</Fragment>
@@ -125,6 +148,7 @@ registerBlockType( 'mhm/image', {
 					image={attributes.image}
 					background={false}
 					admin={false}
+					objectFocalPoint={attributes.focalPoint}
 				/>
 			}
 		</section> );
