@@ -11,7 +11,7 @@ import { BlockText } from '../_components/blocktext.jsx';
 
 registerBlockType('mhm/bravo', {
 	title: _x('Bravo', 'Block title', 'sha'),
-	icon: <svg xmlns="http://www.w3.org/2000/svg" width="24.002" height="24" viewBox="0 0 24.002 24"><path id="Menu-Open" d="M-20929-20519h21l-21,10.83h21l-21,10.17h21" transform="translate(20930.5 20520.5)" fill="none" stroke="#b18771" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>,
+	icon: 'layout',
 	category: 'widgets',
 	keywords: [
 		_x('Bravo', 'Gutenberg block keyword', 'sha')

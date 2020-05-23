@@ -48,8 +48,10 @@
 		}
 	}
 
-	&--tall.alignwide {
-		max-width: var(--constraint-medium);
+	&--tall {
+		&.alignwide {
+			max-width: var(--constraint-medium);
+		}
 	}
 
 	&__content {
