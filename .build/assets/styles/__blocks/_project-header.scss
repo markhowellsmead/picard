@@ -1,0 +1,122 @@
+.wp-block-mhm-project-header {
+
+	& + .wp-block-columns {
+		margin-top: 0;
+	}
+
+	&__inner {
+		padding-left: var(--unit);
+		padding-right: var(--unit);
+		@include desktop {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	&__content {
+		font-size: var(--font-size-xsmall);
+		padding-left: var(--unit);
+		padding-right: var(--unit);
+		@extend .h-stack;
+		@include tablet_landscape {
+			font-size: var(--font-size-small);
+			grid-column: 2/3;
+			grid-row: 1/2;
+			padding-left: var(--unit-medium);
+			padding-right: 0;
+			padding-bottom: var(--unit-medium);
+		}
+		@include desktop {
+			font-size: var(--font-size);
+			padding-left: var(--unit-large);
+			padding-bottom: var(--unit-medium);
+		}
+		> * {
+			max-width: 540px;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	&__inner {
+		display: flex;
+		flex-flow: column-reverse;
+		@include tablet_landscape {
+			@supports(display: grid) {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: auto;
+				align-items: flex-end;
+			}
+		}
+	}
+
+	&__figure {
+		margin-bottom: var(--unit);
+		@include tablet_landscape {
+			@supports(display: grid) {
+				margin-bottom: 0;
+				grid-column: 1/2;
+				grid-row: 1/2;
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__text {
+		@extend .h-stack;
+	}
+
+	&.is-style-flipped {
+		.wp-block-mhm-project-header {
+			&__content {
+				@include tablet_landscape {
+					@supports(display: grid) {
+						grid-column: 1/2;
+						text-align: right;
+						> * {
+							margin-left: auto;
+						}
+					}
+				}
+			}
+
+			&__figure {
+				@include tablet_landscape {
+					@supports(display: grid) {
+						grid-column: 2/3;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include context-edit() {
+	.wp-block-mhm-project-header {
+		&__imagepositioner {
+			@extend .wp-block-mhm-project-header__figure;
+
+			.wp-block-mhm-project-header__figure {
+				flex-basis: 100%;
+			}
+		}
+
+		&__titlepositioner {
+			@extend .c-block__title;
+
+			.c-block__title {
+				margin: 0;
+			}
+		}
+
+		&.is-style-flipped {
+			.wp-block-mhm-project-header__imagepositioner {
+				order: -1;
+			}
+		}
+	}
+}
