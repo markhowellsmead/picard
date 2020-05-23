@@ -106,7 +106,12 @@ registerBlockType('mhm/bravo', {
 							<RichText.Content tagName="h2" className={`${classNameBase}__title`} value={ attributes.title } />
 						</header>
 						{
-							attributes.text !== '<p></p>' && <RichText.Content tagName="div" className={`${classNameBase}__text`} value={ attributes.text } />
+							!!attributes.text && attributes.text !== '<p></p>' &&
+							<RichText.Content
+								tagName="div"
+								className={`${classNameBase}__text`}
+								value={ attributes.text }
+								/>
 						}
 					</div>
 					{
