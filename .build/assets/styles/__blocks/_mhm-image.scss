@@ -5,6 +5,16 @@
 		@include proportional-image-figure;
 	}
 
+	&__figcaption {
+		@include flood;
+		z-index: 2;
+		max-width: 100%;
+		top: auto;
+		left: var(--unit-medium);
+		bottom: var(--unit-medium);
+		font-size: var(--font-size-medium);
+	}
+
 	img {
 		outline: none;
 	}

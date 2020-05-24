@@ -1,12 +1,11 @@
 .wp-block-mhm-project-header {
 
 	&__content {
-		font-size: var(--font-size-xsmall);
+		font-size: var(--font-size-small);
 		padding-left: var(--unit);
 		padding-right: var(--unit);
 		@extend .h-stack;
 		@include tablet_landscape {
-			font-size: var(--font-size-small);
 			grid-column: 2/3;
 			grid-row: 1/2;
 			padding-left: var(--unit-medium);
@@ -114,10 +113,6 @@
 			padding-bottom: percentage(5/4);
 
 		}
-	}
-
-	*:not(.has-text-color) {
-		color: inherit;
 	}
 
 	&.is-style-flipped {

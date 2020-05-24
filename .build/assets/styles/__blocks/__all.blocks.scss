@@ -47,26 +47,23 @@ figcaption {
 @import "shb-video-bar";
 @import "sht-post-header";
 
-.has-bottom-black-shadow-gradient-background {
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 100%);
-}
-
-@include context-edit {
-	.wp-block {
-		max-width: var(--constraint-narrow);
-
-		&.alignwide,
-		&[data-align="wide"] {
-			max-width: var(--constraint-wide);
-		}
-
-		&.alignxwide {
-			max-width: var(--constraint-xwide);
-		}
-
-		&.alignfull,
-		&[data-align="full"] {
-			max-width: var(--constraint-full);
-		}
-	}
-}
+// @include context-edit {
+//
+// 	.wp-block {
+// 		max-width: var(--constraint-narrow);
+//
+// 		&.alignwide,
+// 		&[data-align="wide"] {
+// 			max-width: var(--constraint-wide);
+// 		}
+//
+// 		&.alignxwide {
+// 			max-width: var(--constraint-xwide);
+// 		}
+//
+// 		&.alignfull,
+// 		&[data-align="full"] {
+// 			max-width: var(--constraint-full);
+// 		}
+// 	}
+// }

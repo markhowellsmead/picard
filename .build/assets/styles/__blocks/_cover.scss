@@ -1,7 +1,6 @@
 .wp-block-cover {
 
 	min-height: 25vh;
-	text-shadow: 0 0 .25em rgba(0,0,0,.75);
 
 	a {
 		text-decoration-color: currentColor;
@@ -90,6 +89,7 @@
 	}
 
 	&__inner-container {
+		text-shadow: 0 0 .25em rgba(0,0,0,.75);
 		@extend .h-stack;
 		padding-top: var(--unit);
 		padding-bottom: var(--unit);
