@@ -9,6 +9,7 @@
 	position: relative;
 	opacity: .5;
 	border: 1px dotted #{c(gray, dark50)};
+
 	.editor-post-title__input {
 		font-family: var(--font-heading);
 	}

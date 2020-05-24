@@ -8,6 +8,7 @@
 
 	@include tablet {
 		flex-wrap: nowrap;
+
 		> * + * {
 			margin-top: 0;
 		}
@@ -24,5 +25,10 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
+	}
+
+	&.is-style-gapless {
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 }

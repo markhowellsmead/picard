@@ -3,7 +3,17 @@
 	margin-top: var(--unit-xlarge);
 	margin-bottom: var(--unit-xlarge);
 
+	&__inner {
+		padding-left: var(--unit);
+		padding-right: var(--unit);
+		@include desktop {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
 	&.alignwide {
+
 		@include desktop {
 			margin-top: var(--unit-xxlarge);
 			margin-bottom: var(--unit-xxlarge);
@@ -48,8 +58,10 @@
 		}
 	}
 
-	&--tall.alignwide {
-		max-width: var(--constraint-medium);
+	&--tall {
+		&.alignwide {
+			max-width: var(--constraint-medium);
+		}
 	}
 
 	&__content {
@@ -102,7 +114,7 @@
 
 	&__title {
 		font-size: 1em;
-		font-weight: inherit;
+		font-weight: var(--font-weight-body);
 		font-style: italic;
 		color: c(black);
 	}

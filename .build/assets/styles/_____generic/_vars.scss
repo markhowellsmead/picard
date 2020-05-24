@@ -8,6 +8,7 @@
 	--constraint-medium: #{rem-calc(1000px)};
 	--constraint-wide: #{rem-calc(1280px)};
 	--constraint-xwide: #{rem-calc(1600px)};
+	--constraint-full: 100%;
 	--unit-xxsmall: calc(var(--unit) / 8);
 	--unit-xsmall: calc(var(--unit) / 4);
 	--unit-small: calc(var(--unit) / 2);

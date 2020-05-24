@@ -11,7 +11,7 @@ import { BlockText } from '../_components/blocktext.jsx';
 
 registerBlockType('mhm/bravo', {
 	title: _x('Bravo', 'Block title', 'sha'),
-	icon: <svg xmlns="http://www.w3.org/2000/svg" width="24.002" height="24" viewBox="0 0 24.002 24"><path id="Menu-Open" d="M-20929-20519h21l-21,10.83h21l-21,10.17h21" transform="translate(20930.5 20520.5)" fill="none" stroke="#b18771" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>,
+	icon: 'layout',
 	category: 'widgets',
 	keywords: [
 		_x('Bravo', 'Gutenberg block keyword', 'sha')
@@ -55,7 +55,7 @@ registerBlockType('mhm/bravo', {
 			let classNameBase = getBlockDefaultClassName( 'mhm/bravo' );
 			let className = this.props.className;
 
-			if(attributes.image && attributes.image.attributes.width < attributes.image.attributes.height){
+			if(!!attributes.image.id && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
 				className += ` ${classNameBase}--tall`;
 			}
 
@@ -94,7 +94,7 @@ registerBlockType('mhm/bravo', {
 		let className = getBlockDefaultClassName( 'mhm/bravo' );
 		const classNameBase = getBlockDefaultClassName( 'mhm/bravo' );
 
-		if(!!attributes.image && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
+		if(!!attributes.image.id && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
 			className += ` ${className}--tall`;
 		}
 
@@ -106,7 +106,12 @@ registerBlockType('mhm/bravo', {
 							<RichText.Content tagName="h2" className={`${classNameBase}__title`} value={ attributes.title } />
 						</header>
 						{
-							attributes.text !== '<p></p>' && <RichText.Content tagName="div" className={`${classNameBase}__text`} value={ attributes.text } />
+							!!attributes.text && attributes.text !== '<p></p>' &&
+							<RichText.Content
+								tagName="div"
+								className={`${classNameBase}__text`}
+								value={ attributes.text }
+								/>
 						}
 					</div>
 					{
