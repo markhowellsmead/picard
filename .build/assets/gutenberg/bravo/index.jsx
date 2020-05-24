@@ -7,7 +7,6 @@ import {getBlockDefaultClassName, registerBlockType} from '@wordpress/blocks';
 import LazyImageSelector from '../_vendor/lazyimageselector.jsx';
 import { LazyImage } from '../_vendor/lazyimage.jsx';
 import { BlockTitle } from '../_components/blocktitles.jsx';
-import { BlockText } from '../_components/blocktext.jsx';
 
 registerBlockType('mhm/bravo', {
 	title: _x('Bravo', 'Block title', 'sha'),
@@ -71,11 +70,17 @@ registerBlockType('mhm/bravo', {
 										setAttributes={setAttributes}
 										/>
 								</header>
-								<BlockText
-									className={`${classNameBase}__text`}
-									placeholder={_x('Add text…', 'Field placeholder', 'sha')}
-									text={attributes.text}
-									setAttributes={setAttributes}
+								<RichText
+									tagName = 'div'
+									className = {`${classNameBase}__text`}
+									allowedFormats = { ['core/link'] }
+									placeholder = { _x('Add text', '', 'sha') }
+									multiline = 'p'
+									value = { attributes.text }
+									keepPlaceholderOnFocus = { true }
+									onChange = {value => {
+										setAttributes({text: value});
+									}}
 								/>
 							</div>
 							<LazyImageSelector
