@@ -44,13 +44,18 @@ export class LazyImage extends Component {
 		if (this.props.className) {
 			className += ' ' + this.props.className;
 		}
+
+		let style_orig = {};
+		let style_pre = {};
+
+		if (this.props.objectFocalPoint) {
+			style_orig.objectPosition = `${this.props.objectFocalPoint.x * 100}% ${this.props.objectFocalPoint.y * 100}%`;
+			style_pre.objectPosition = `${this.props.objectFocalPoint.x * 100}% ${this.props.objectFocalPoint.y * 100}%`;
+		}
+
 		if (this.props.background === true) {
-			let style_orig = {
-				backgroundImage: `url('${image.org[0]}')`
-			};
-			let style_pre = {
-				backgroundImage: `url('${image.pre}')`
-			};
+			style_orig.backgroundImage = "url('${image.org[0]}')";
+			style_pre.backgroundImage = "url('${image.pre}')";
 
 			if (this.props.focalPoint) {
 				style_orig.backgroundPosition = `${this.props.focalPoint.x *
@@ -97,20 +102,26 @@ export class LazyImage extends Component {
 		}
 		if (this.props.admin) {
 			return (
-				<figure className={className}>
+				<figure className={className} style={style_orig}>
 					<img
 						{...image.attributes}
 						className="o-lazyimage__image o-lazyimage__image--lazyloaded"
 						src={image.org[0]}
 						srcset={srcset}
+						style={style_orig}
 					/>
 				</figure>
 			);
 		}
+
 		return (
-			<figure className={className}>
+			<figure className={className} style={style_orig}>
 				{!image.svg && (
-					<img className="o-lazyimage__preview" src={image.pre} />
+					<img
+						className="o-lazyimage__preview"
+						src={image.pre}
+						style={style_pre}
+						/>
 				)}
 				<img
 					{...image.attributes}
@@ -118,6 +129,7 @@ export class LazyImage extends Component {
 					data-sizes="auto"
 					src={image.pre}
 					data-srcset={srcset}
+					style={style_orig}
 				/>
 				<noscript>
 					<img
@@ -125,6 +137,7 @@ export class LazyImage extends Component {
 						className="o-lazyimage__image"
 						src={image.org[0]}
 						srcset={srcset}
+						style={style_orig}
 					/>
 				</noscript>
 			</figure>

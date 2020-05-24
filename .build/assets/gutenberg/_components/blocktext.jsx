@@ -11,20 +11,22 @@ export class BlockText extends Component {
 
 	render() {
 
-		const { className, placeHolder, tagName, text, setAttributes } = this.props;
+		const { allowedFormats, className, formattingControls, placeHolder, tagName, text, setAttributes } = this.props;
 
+		const allowed_formats = allowedFormats || ['core/bold', 'core/italic', 'core/link'];
 		const tag_name = tagName || 'div';
 		const class_name = className || 'c-block__text';
 		const place_holder = placeHolder || _x('Add an excerpt in an alternative language…', 'Field placeholder', 'sha');
+		const formatting_controls = formattingControls || [];
 
 		return (
 			<RichText
 				tagName = { tag_name }
 				className = { class_name }
 				format = "string"
-				allowedFormats = {['core/bold', 'core/italic', 'core/link']}
-				formattingControls = {[]}
-				placeholder = {placeHolder}
+				allowedFormats = { allowed_formats }
+				formattingControls={ formatting_controls }
+				placeholder = { placeHolder }
 				multiline = "br"
 				value = { text }
 				keepPlaceholderOnFocus = { true }

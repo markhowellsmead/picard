@@ -15,6 +15,7 @@
 		@if $variant == 'base' {
 			.has-#{$color}-color {
 				color: var(--color-#{$color});
+				--color-heading: var(--color-#{$color});
 			}
 			a,
 			button {
@@ -39,6 +40,7 @@
 		} @else {
 			.has-#{$color}-#{$variant}-color {
 				color: var(--color-#{$color}-#{$variant});
+				--color-heading: var(--color-#{$color}-#{$variant});
 			}
 			a,
 			button {
@@ -57,4 +59,8 @@
 			}
 		}
 	}
+}
+
+.has-bottom-black-shadow-gradient-background {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 100%);
 }

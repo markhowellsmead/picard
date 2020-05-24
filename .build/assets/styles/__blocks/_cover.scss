@@ -1,7 +1,6 @@
 .wp-block-cover {
 
 	min-height: 25vh;
-	text-shadow: 0 0 .25em rgba(0,0,0,.75);
 
 	a {
 		text-decoration-color: currentColor;
@@ -10,12 +9,6 @@
 	&::after {
 		content: '';
 		display: block;
-	}
-
-	&:not(.alignwide):not(.alignfull) {
-		border: .25rem solid c(white);
-		box-shadow: 0 0 .5rem rgba(0,0,0,.125);
-		outline: none;
 	}
 
 	&.alignfull {
@@ -96,21 +89,14 @@
 	}
 
 	&__inner-container {
+		text-shadow: 0 0 .25em rgba(0,0,0,.75);
 		@extend .h-stack;
 		padding-top: var(--unit);
 		padding-bottom: var(--unit);
 		width: 100vw;
 		max-width: var(--constraint-narrow);
-		.alignfull & {
-			p {
-				max-width: var(--constraint-narrow);
-				margin-left: auto;
-				margin-right: auto;
-			}
-			@include desktop {
-				max-width: var(--constraint-wide);
-			}
-		}
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	&.is-vertically-aligned-bottom {

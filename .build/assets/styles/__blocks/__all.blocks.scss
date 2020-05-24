@@ -6,17 +6,6 @@ figcaption {
 	margin-right: auto;
 }
 
-.alignfull,
-.alignwide,
-.alignxwide {
-	figcaption {
-		padding-left: var(--unit);
-		@include tablet {
-			padding-left: 0;
-		}
-	}
-}
-
 @import "bravo";
 @import "button";
 @import "code";
@@ -34,33 +23,36 @@ figcaption {
 @import "mhm-blog-cards";
 @import "mhm-count-posts";
 @import "mhm-count-photos";
+@import "mhm-image";
 @import "mhm-language-excerpt";
 @import "mhm-post-excerpt";
 @import "mhm-years-online";
 @import "mgl-gallery";
+@import "mhm-project-grid";
+@import "mhm-project-header";
 @import "quote";
 @import "search";
 @import "separator";
 @import "shb-video-bar";
 @import "sht-post-header";
 
-.has-bottom-black-shadow-gradient-background {
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 100%);
-}
-
-@include context-edit {
-	.wp-block {
-		max-width: var(--constraint-narrow);
-		&.alignwide,
-		&[data-align="wide"] {
-			max-width: var(--constraint-wide);
-		}
-		&.alignxwide {
-			max-width: var(--constraint-xwide);
-		}
-		&.alignfull,
-		&[data-align="full"] {
-			max-width: var(--constraint-full);
-		}
-	}
-}
+// @include context-edit {
+//
+// 	.wp-block {
+// 		max-width: var(--constraint-narrow);
+//
+// 		&.alignwide,
+// 		&[data-align="wide"] {
+// 			max-width: var(--constraint-wide);
+// 		}
+//
+// 		&.alignxwide {
+// 			max-width: var(--constraint-xwide);
+// 		}
+//
+// 		&.alignfull,
+// 		&[data-align="full"] {
+// 			max-width: var(--constraint-full);
+// 		}
+// 	}
+// }
