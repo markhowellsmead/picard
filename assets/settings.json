@@ -99,6 +99,7 @@
 	},
 	"theme_breakpoints": {
 		"phone": 330,
+		"wordpress_small": 600,
 		"tablet": 768,
 		"wordpress_medium": 783,
 		"tablet_landscape": 1024,

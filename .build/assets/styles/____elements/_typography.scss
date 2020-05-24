@@ -13,12 +13,16 @@
 	--font-size-xxlarge: #{$font-size-xxlarge};
 	--font-size-xxxlarge: #{$font-size-xxxlarge};
 	--font-size-xxxxlarge: #{$font-size-xxxxlarge};
-	--font-weight-heading: 600;
+
+	--font-weight-body: 400;
+	--font-weight-heading: 500;
 
 	--line-height: 1.625;
 	--line-height-large: 1.75;
 	--line-height-heading: 1.2;
 	--radius: .3em;
+
+	--color-heading: var(--color-black);
 }
 
 html {
@@ -29,6 +33,7 @@ body {
 	font-family: var(--font-family);
 	font-size: 1rem;
 	line-height: var(--line-height);
+	font-weight: var(--font-weight-body);
 	color: c(gray, dark);
 }
 
@@ -49,6 +54,11 @@ a {
 	&:hover {
 		text-decoration-color: currentColor;
 	}
+}
+
+b,
+strong {
+	font-weight: 600;
 }
 
 button {
@@ -165,6 +175,7 @@ h6 {
 	font-family: var(--font-family-heading);
 	line-height: var(--line-height-heading);
 	font-weight: var(--font-weight-heading);
+	color: var(--color-heading);
 	margin: 0;
 
 	a,

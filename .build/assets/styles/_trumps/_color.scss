@@ -15,6 +15,7 @@
 		@if $variant == 'base' {
 			.has-#{$color}-color {
 				color: var(--color-#{$color});
+				--color-heading: var(--color-#{$color});
 			}
 			a,
 			button {
@@ -39,6 +40,7 @@
 		} @else {
 			.has-#{$color}-#{$variant}-color {
 				color: var(--color-#{$color}-#{$variant});
+				--color-heading: var(--color-#{$color}-#{$variant});
 			}
 			a,
 			button {

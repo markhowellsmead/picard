@@ -45,6 +45,10 @@ registerBlockType( 'mhm/image', {
 			type: 'string',
 			default: ''
 		},
+		textOpacity: {
+			type: 'Number',
+			default: 100,
+		},
 	},
 	edit,
 	save( { attributes } ) {
@@ -55,14 +59,16 @@ registerBlockType( 'mhm/image', {
 			className += ` ${ className }--tall`;
 		}
 
-		let style = {};
+		let textStyle = {
+			opacity: !!attributes.textOpacity ? attributes.textOpacity/100 : 0
+		};
 
 		if(!!attributes.textColor){
-			style.color = attributes.textColor;
+			textStyle.color = attributes.textColor;
 		}
 
 		return (
-			<section className={`${className} ${attributes.ratio}`} style={style}>
+			<section className={`${className} ${attributes.ratio}`}>
 				{
 					!!attributes.image.id &&
 					<LazyImage
@@ -76,7 +82,7 @@ registerBlockType( 'mhm/image', {
 				{
 					!!attributes.figcaption &&
 					<RichText.Content
-						style={style}
+						style={textStyle}
 						tagName="figcaption"
 						className={`${classNameBase}__figcaption`}
 						value={ attributes.figcaption }

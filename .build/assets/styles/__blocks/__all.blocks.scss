@@ -6,17 +6,6 @@ figcaption {
 	margin-right: auto;
 }
 
-.alignfull,
-.alignwide,
-.alignxwide {
-	figcaption {
-		padding-left: var(--unit);
-		@include tablet {
-			padding-left: 0;
-		}
-	}
-}
-
 @import "bravo";
 @import "button";
 @import "code";

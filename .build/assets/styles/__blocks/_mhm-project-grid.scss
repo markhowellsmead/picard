@@ -19,7 +19,9 @@
 
 		&-column {
 			margin: 0;
-			flex-basis: 50% !important; // override core rule
+			@include for-screen-min(wordpress_small) {
+				flex-basis: 50% !important; // override core rule
+			}
 		}
 
 		&-mhm-project-header {
@@ -32,6 +34,9 @@
 		&-mhm-image,
 		&-mhm-project-header__figure {
 			border: 1px solid transparent;
+		}
+		&-mhm-project-header__figure {
+			border-top-width: 0;
 		}
 	}
 }

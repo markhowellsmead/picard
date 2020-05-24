@@ -1,9 +1,9 @@
-import { SelectControl, PanelBody, ColorPalette, FocalPointPicker } from '@wordpress/components';
 import { InspectorControls, RichText } from '@wordpress/block-editor';
+import { getBlockDefaultClassName, registerBlockType } from '@wordpress/blocks';
+import { SelectControl, PanelBody, ColorPalette, FocalPointPicker, RangeControl } from '@wordpress/components';
 import { select, withSelect } from '@wordpress/data';
 import { Fragment, Component } from '@wordpress/element';
 import { _x } from '@wordpress/i18n';
-import { getBlockDefaultClassName, registerBlockType } from '@wordpress/blocks';
 
 import LazyImageSelector from '../_vendor/lazyimageselector.jsx';
 import { LazyImage } from '../_vendor/lazyimage.jsx';
@@ -26,10 +26,12 @@ class Edit extends Component {
 
 		let imageData = !!attributes.image.id ? select( 'core' ).getMedia( attributes.image.id ) : null;
 
-		let style = {};
+		let textStyle = {
+			opacity: !!attributes.textOpacity ? attributes.textOpacity/100 : 0
+		};
 
 		if(!!attributes.textColor){
-			style.color = attributes.textColor;
+			textStyle.color = attributes.textColor;
 		}
 
 		return (
@@ -94,9 +96,16 @@ class Edit extends Component {
 							value={ attributes.textColor }
 							onChange={ ( textColor ) => setAttributes( { textColor } ) }
 						/>
+						<RangeControl
+							label={ _x('Text transparency', 'Range control label','sha') }
+							value={ attributes.textOpacity }
+							onChange={ ( textOpacity ) => setAttributes( { textOpacity } ) }
+							min={ 0 }
+							max={ 100 }
+						/>
 				</PanelBody>
 				</InspectorControls>
-				<section className={`${className} ${attributes.ratio}`} style={style}>
+				<section className={`${className} ${attributes.ratio}`}>
 					<LazyImageSelector
 						attributes={attributes}
 						className={`${ classNameBase }__figure`}
@@ -105,7 +114,7 @@ class Edit extends Component {
 						objectFocalPoint={attributes.focalPoint}
 					/>
 					<RichText
-						style={style}
+						style={textStyle}
 						tagName="figcaption"
 						className={`${className}__figcaption`}
 						format="string"
