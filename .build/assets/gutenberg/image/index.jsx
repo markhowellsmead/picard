@@ -26,10 +26,6 @@ registerBlockType( 'mhm/image', {
 				id: false
 			}
 		},
-		figcaption: {
-			type: 'string',
-			default: ''
-		},
 		focalPoint: {
 			type: 'Object',
 			default: {
@@ -40,6 +36,10 @@ registerBlockType( 'mhm/image', {
 		ratio: {
 			type: 'string',
 			default: 'is-aspect--3x2'
+		},
+		figcaption: {
+			type: 'string',
+			default: ''
 		},
 		textColor: {
 			type: 'string',
