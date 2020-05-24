@@ -27,6 +27,7 @@ class Assets
 		add_action('admin_enqueue_scripts', [ $this, 'registerAdminAssets' ]);
 		add_action('admin_init', [ $this, 'editorStyle' ]);
 		add_action('wp_head', [ $this, 'loadFonts' ]);
+		add_action('admin_head', [ $this, 'loadFonts' ]);
 	}
 
 	public function registerAssets()
@@ -132,7 +133,7 @@ class Assets
 			<link rel="stylesheet" href="%2$s&display=swap" media="print" onload="this.media=\'all\'" />
 			<noscript><link rel="stylesheet" href="%2$s&display=swap" /></noscript>',
 			'https://fonts.gstatic.com',
-			'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700'
+			'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700'
 		);
 	}
 
