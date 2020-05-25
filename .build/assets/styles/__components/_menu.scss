@@ -6,6 +6,9 @@
 
 	&--primary {
 		display: none;
+		font-size: var(--font-size-small);
+		text-transform: uppercase;
+		@include av(20);
 
 		@include laptop {
 			display: block;
