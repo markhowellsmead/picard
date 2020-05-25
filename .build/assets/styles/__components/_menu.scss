@@ -6,6 +6,9 @@
 
 	&--primary {
 		display: none;
+		font-size: var(--font-size-small);
+		text-transform: uppercase;
+		@include av(20);
 
 		@include laptop {
 			display: block;
@@ -14,6 +17,7 @@
 		.c-menu {
 			&__entry {
 				display: block;
+
 				&:last-child {
 					a {
 						padding-right: 0;
@@ -33,6 +37,7 @@
 				@include flex-row;
 			}
 		}
+
 		&--mobile {
 			display: block;
 		}
@@ -40,8 +45,16 @@
 
 	&__entry {
 		display: inline-block;
+
 		&--mobile {
 			display: block;
+		}
+
+		&--primary {
+			&.current-menu-item,
+			&.current-page-ancestor {
+				font-weight: bold;
+			}
 		}
 	}
 
