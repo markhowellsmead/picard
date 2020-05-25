@@ -51,6 +51,7 @@
 	.comment-body,
 	.comment-content {
 		@extend .h-stack;
+
 		pre {
 			padding: 0;
 			overflow-x: auto;
@@ -72,6 +73,7 @@
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
+
 			> * {
 				margin-top: 0;
 			}
@@ -92,6 +94,10 @@
 		font-size: var(--font-size-small);
 	}
 
+	.comment-reply-title {
+		font-size: 1em;
+	}
+
 	.comment-respond {
 		clear: both;
 	}
@@ -107,6 +113,7 @@
 	#cancel-comment-reply-link {
 		font-weight: normal;
 		text-decoration: underline;
+
 		&:active,
 		&:hover {
 			color: c(primary, dark);

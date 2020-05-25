@@ -14,6 +14,7 @@
 
 		> * {
 			@include mobile-padding-x;
+
 			&.alignfull,
 			&.alignwide,
 			&.alignxwide {
@@ -22,11 +23,11 @@
 			}
 		}
 
-		> .wp-block-cover:first-child,
+		> .b-home-carousel:first-child,
 		 > .wp-block-media-text:first-child,
 		 > .wp-block-mhm-project-grid:first-child,
 		 > .wp-block-mhm-project-header:first-child,
-		> .b-home-carousel:first-child {
+		> .wp-block-cover:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 			@include desktop {
 				margin-top: calc(var(--unit-large) * -2);
@@ -53,6 +54,7 @@
 
 	&__contentandthumbnail {
 		@extend .h-stack--medium;
+
 		.o-body--tallthumbnail.single-format-image,
 		.o-body--tallthumbnail.single-format-standard & {
 			max-width: var(--constraint-narrow);
@@ -64,10 +66,12 @@
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
 					grid-column-gap: var(--unit-medium);
+
 					.c-article {
 						&__content {
 							grid-column: 2/3;
 						}
+
 						&__thumbnail {
 							grid-column: 1/2;
 						}
@@ -105,15 +109,14 @@
 
 	&__meta {
 		@extend .h-constraint;
-		@extend .h-stack--medium;
+		@extend .h-stack;
 		@include mobile-padding-x;
 		padding-top: var(--unit-medium);
 		padding-bottom: var(--unit-medium);
 	}
 
 	&__metatitle {
-		font-size: 1.1em;
-		font-weight: 700;
+		font-size: 1em;
 		margin: 0;
 	}
 
@@ -124,24 +127,35 @@
 	&__taxonomyentries {
 		line-height: var(--line-height);
 		color: c(gray);
+
 		a {
 			color: currentColor;
 			text-decoration-color: c(gray, light);
 		}
 	}
 
+	&__title {
+		&--image,
+		&--photo {
+			font-size: 1.25em;
+		}
+	}
+
 	&__thumbnail {
 		@extend .h-constraint;
+
 		&.alignwide {
 			> * {
 				max-width: var(--constraint-wide);
 			}
 		}
+
 		&.alignxwide {
 			> * {
 				max-width: var(--constraint-xwide);
 			}
 		}
+
 		&.alignfull {
 			> * {
 				max-width: var(--constraint-full);
@@ -151,6 +165,7 @@
 
 	&__thumbnailimage {
 		width: 100%;
+		pointer-events: none;
 	}
 
 	&__video {
@@ -160,6 +175,7 @@
 		@include desktop {
 			padding: var(--unit-xlarge);
 		}
+
 		.wp-block-embed {
 			@extend .alignwide;
 			margin-bottom: 0;
@@ -184,6 +200,7 @@
 		> * {
 			width: 100%;
 		}
+
 		.c-article {
 			&__header {
 				width: 100%;
@@ -191,18 +208,17 @@
 				margin-left: auto;
 				margin-right: auto;
 				margin-top: var(--unit-medium);
+
 				> {
 					padding-right: 0;
 				}
 			}
-			&__title {
-				font-size: var(--font-size-xxxxlarge);
-				color: inherit;
-			}
+
 			&__thumbnail {
 				order: -2;
 				margin-top: 0;
 			}
+
 			&__contentandthumbnail {
 				@include laptop {
 					margin-top: 0;

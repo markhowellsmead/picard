@@ -53,7 +53,7 @@ class Gutenberg
 		add_theme_support('menu');
 		add_theme_support('post-thumbnails', [ 'post', 'page', 'photo' ]);
 		add_theme_support('title-tag');
-		add_theme_support('post-formats', [ 'gallery', 'video' ]);
+		add_theme_support('post-formats', [ 'image', 'gallery', 'video' ]);
 		// add_theme_support('disable-custom-colors');
 		$path = trailingslashit(get_template_directory()) . 'assets/settings.json';
 		if (!is_file($path)) {
