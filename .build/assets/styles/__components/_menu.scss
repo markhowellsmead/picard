@@ -6,8 +6,9 @@
 
 	&--primary {
 		display: none;
-		font-size: var(--font-size-small);
-		text-transform: uppercase;
+		font-size: var(--font-size-medium);
+		font-family: var(--font-family-primary-menu);
+		font-weight: 400;
 		@include av(20);
 
 		@include laptop {
