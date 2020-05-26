@@ -131,9 +131,11 @@ class Assets
 			'<link rel="preconnect" href="%1$s" crossorigin />
 			<link rel="preload" as="style" href="%2$s&display=swap" />
 			<link rel="stylesheet" href="%2$s&display=swap" media="print" onload="this.media=\'all\'" />
-			<noscript><link rel="stylesheet" href="%2$s&display=swap" /></noscript>',
+			<link rel="stylesheet" href="%3$s&display=swap" media="print" onload="this.media=\'all\'" />
+			<noscript><link rel="stylesheet" href="%2$s&display=swap" /><link rel="stylesheet" href="%3$s&display=swap" /></noscript>',
 			'https://fonts.gstatic.com',
-			'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700'
+			'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700',
+			'https://fonts.googleapis.com/css2?family=Oswald:wght@400'
 		);
 	}
 
