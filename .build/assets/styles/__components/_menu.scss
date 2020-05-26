@@ -9,6 +9,7 @@
 		font-size: var(--font-size-medium);
 		font-family: var(--font-family-primary-menu);
 		font-weight: 400;
+		text-transform: uppercase;
 		@include av(20);
 
 		@include laptop {
