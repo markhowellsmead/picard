@@ -19,6 +19,11 @@
 		.c-menu {
 			&__entry {
 				display: block;
+				opacity: .65;
+
+				body.home & {
+					opacity: 1;
+				}
 
 				&:last-child {
 					a {
@@ -55,7 +60,7 @@
 		&--primary {
 			&.current-menu-item,
 			&.current-page-ancestor {
-				font-weight: bold;
+				opacity: 1;
 			}
 		}
 	}
