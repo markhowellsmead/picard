@@ -1,6 +1,9 @@
 :root {
-	--font-weight-menu-primary: var(--font-weight-heading);
-	--font-size-menu-primary: 15px;
+	--menu-primary-offset-y: 3px; // align with logo
+	--menu-primary-font-weight-: var(--font-weight-heading);
+	--menu-primary-font-size: 1rem;
+	--menu-primary-font-weight: 500;
+	--menu-primary-font-weight-active: 600;
 }
 
 .c-menu {
@@ -11,9 +14,9 @@
 
 	&--primary {
 		display: none;
-		font-size: var(--font-size-menu-primary);
-		font-weight: var(--font-weight-menu-primary);
-		// text-transform: uppercase;
+		margin-top: var(--menu-primary-offset-y);
+		font-size: var(--menu-primary-font-size);
+		font-weight: var(--menu-primary-font-weight);
 
 		@include laptop {
 			display: block;
@@ -26,6 +29,7 @@
 
 				body.home & {
 					opacity: 1;
+					font-weight: var(--menu-primary-font-weight-active);
 				}
 
 				&:last-child {
@@ -69,6 +73,7 @@
 			&.current-menu-item,
 			&.current-page-ancestor {
 				opacity: 1;
+				font-weight: var(--menu-primary-font-weight-active);
 			}
 		}
 	}
