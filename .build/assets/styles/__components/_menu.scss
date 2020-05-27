@@ -1,3 +1,8 @@
+:root {
+	--font-weight-menu-primary: var(--font-weight-heading);
+	--font-size-menu-primary: 15px;
+}
+
 .c-menu {
 	list-style: none;
 	text-align: center;
@@ -6,11 +11,9 @@
 
 	&--primary {
 		display: none;
-		font-size: var(--font-size-medium);
-		font-family: var(--font-family-primary-menu);
-		font-weight: 400;
-		text-transform: uppercase;
-		@include av(20);
+		font-size: var(--font-size-menu-primary);
+		font-weight: var(--font-weight-menu-primary);
+		// text-transform: uppercase;
 
 		@include laptop {
 			display: block;
@@ -30,6 +33,11 @@
 						padding-right: 0;
 					}
 				}
+			}
+
+			&__entrylink {
+				padding-left: 1em;
+				padding-right: 1em;
 			}
 		}
 
