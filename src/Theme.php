@@ -93,8 +93,8 @@ class Theme
 				\SayHello\Theme\Block\YearsOnline::class,
 
 				\SayHello\Theme\PostType\BlockArea::class,
-				\SayHello\Theme\PostType\Destination::class,
 				\SayHello\Theme\PostType\Page::class,
+				\SayHello\Theme\PostType\Feature::class,
 				\SayHello\Theme\PostType\Photo::class,
 				\SayHello\Theme\PostType\Post::class,
 
