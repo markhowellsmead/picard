@@ -33,6 +33,7 @@
 				grid-template-columns: 3fr 2fr;
 				grid-gap: var(--unit-large);
 				align-items: flex-end;
+
 				.c-excerpt {
 					&__content {
 						grid-column: 2/-1;
@@ -40,6 +41,7 @@
 						margin-left: 0;
 						padding-bottom: var(--unit);
 					}
+
 					&__thumbnail {
 						grid-column: 1/2;
 						grid-row: 1/-1;
@@ -47,6 +49,7 @@
 				}
 			}
 		}
+
 		&.c-article__thumbnailaspect--wide {
 			@extend .alignwide;
 			grid-template-columns: 3fr 2fr;
@@ -77,6 +80,7 @@
 			@include laptop {
 				@supports(grid-gap: 1rem) {
 					grid-template-columns: 2fr 3fr;
+
 					.c-excerpt {
 						&__content {
 							grid-column: 1/2;
@@ -84,6 +88,7 @@
 							margin-left: auto;
 							margin-right: 0;
 						}
+
 						&__thumbnail {
 							grid-column: 2/-1;
 							grid-row: 1/-1;
@@ -124,10 +129,10 @@
 	&__thumbnailfigure--video:not(.c-excerpt--photo) {
 		.c-excerpt__imagelink {
 			position: relative;
+
 			&::before {
 				content: '';
 				@include flood;
-				margin: .25rem;
 				background: url('../img/icons/ic_play_circle_filled_24px_white_75.min.svg') center no-repeat, linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,.5) 100%) center bottom repeat-x;
 				background-size: 3rem;
 			}
