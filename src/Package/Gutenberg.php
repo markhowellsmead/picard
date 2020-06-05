@@ -36,6 +36,7 @@ class Gutenberg
 		add_filter('block_categories', [$this, 'blockCategories']);
 		add_filter('block_editor_settings', [ $this, 'editorSettings' ]);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
+		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
 	}
 
 	/**
@@ -52,43 +53,35 @@ class Gutenberg
 		add_theme_support('menu');
 		add_theme_support('post-thumbnails', [ 'post', 'page', 'photo' ]);
 		add_theme_support('title-tag');
-		add_theme_support('post-formats', [ 'gallery', 'video' ]);
+		add_theme_support('post-formats', [ 'image', 'gallery', 'video' ]);
 		// add_theme_support('disable-custom-colors');
-		add_theme_support(
-			'editor-color-palette',
-			[
-				[
-					'name'  => esc_html__('Black', 'sht'),
-					'slug' => 'black',
-					'color' => '#000',
-				],
-				[
-					'name'  => esc_html__('Light gray', 'sht'),
-					'slug' => 'light-gray',
-					'color' => '#777',
-				],
-				[
-					'name'  => esc_html__('Yellow', 'sht'),
-					'slug' => 'yellow',
-					'color' => '#ffc',
-				],
-				[
-					'name'  => esc_html__('Blue', 'sht'),
-					'slug' => 'primary',
-					'color' => '#1A56B0',
-				],
-				[
-					'name'  => esc_html__('WordPress blue', 'sht'),
-					'slug' => 'wordpress-blue',
-					'color' => '#0073aa',
-				],
-				[
-					'name'  => esc_html__('White', 'sht'),
-					'slug' => 'white',
-					'color' => '#fff',
-				]
-			]
-		);
+		$path = trailingslashit(get_template_directory()) . 'assets/settings.json';
+		if (!is_file($path)) {
+			return false;
+		}
+
+		$settings = file_get_contents($path);
+
+		if (is_string($settings) && !empty($settings)) {
+			$settings = json_decode($settings, true);
+			if (isset($settings['gutenberg_colors'])) {
+				$colors = [];
+
+				foreach ($settings['gutenberg_colors'] as $color_key => $color) {
+					foreach ($color as $variation_key => $variation) {
+						$colors[] = [
+							'name' => $variation_key === 'base' ? ucfirst($color_key) : implode(' ', [ucfirst($color_key), $variation_key]),
+							'slug' => $variation_key === 'base' ? $color_key : implode(' ', [$color_key, $variation_key]),
+							'color' => $color[$variation_key]
+						];
+					}
+				}
+
+				if (!empty($colors)) {
+					add_theme_support('editor-color-palette', $colors);
+				}
+			}
+		}
 		add_theme_support('editor-gradient-presets', [
 			[
 				'name'     => __('Bottom shadow', 'picard'),
@@ -114,9 +107,17 @@ class Gutenberg
 	public function enqueueBlockAssets()
 	{
 		if ($this->js) {
-			wp_enqueue_script(sht_theme()->prefix . '-gutenberg-script', $this->js, ['wp-blocks', 'wp-element', 'wp-edit-post', 'lodash'], sht_theme()->version);
+			$script_asset_path = get_template_directory().'/assets/gutenberg/blocks.asset.php';
+			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
+			wp_enqueue_script(
+				sht_theme()->prefix . '-gutenberg-script',
+				$this->js,
+				$script_asset['dependencies'],
+				$script_asset['version']
+			);
 			$vars = json_encode(apply_filters('sht_disabled_blocks', []));
 			wp_add_inline_script(sht_theme()->prefix . '-gutenberg-script', "var shtDisabledBlocks = {$vars};", 'before');
+			wp_set_script_translations(sht_theme()->prefix . '-gutenberg-script', 'sht', get_template_directory() . '/languages');
 		}
 	}
 
@@ -128,5 +129,21 @@ class Gutenberg
 				'title' => __('Blocks by Say Hello', 'sha'),
 			],
 		]);
+	}
+
+	public function isContextEdit()
+	{
+		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
+	}
+
+	public function reusableBlocksAdminMenu()
+	{
+		add_submenu_page(
+			'themes.php',
+			_x('Wiederverwendbare Blöcke', 'Admin page title', 'sht'),
+			_x('Wiederverwendbare Blöcke', 'Admin menu label', 'sht'),
+			'edit_posts',
+			'edit.php?post_type=wp_block'
+		);
 	}
 }

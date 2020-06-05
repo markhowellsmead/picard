@@ -1,3 +1,11 @@
+:root {
+	--menu-primary-offset-y: 3px; // align with logo
+	--menu-primary-font-weight-: var(--font-weight-heading);
+	--menu-primary-font-size: 1rem;
+	--menu-primary-font-weight: 500;
+	--menu-primary-font-weight-active: 600;
+}
+
 .c-menu {
 	list-style: none;
 	text-align: center;
@@ -6,6 +14,9 @@
 
 	&--primary {
 		display: none;
+		margin-top: var(--menu-primary-offset-y);
+		font-size: var(--menu-primary-font-size);
+		font-weight: var(--menu-primary-font-weight);
 
 		@include laptop {
 			display: block;
@@ -14,11 +25,23 @@
 		.c-menu {
 			&__entry {
 				display: block;
+				opacity: .65;
+
+				body.home & {
+					opacity: 1;
+					font-weight: var(--menu-primary-font-weight-active);
+				}
+
 				&:last-child {
 					a {
 						padding-right: 0;
 					}
 				}
+			}
+
+			&__entrylink {
+				padding-left: 1em;
+				padding-right: 1em;
 			}
 		}
 
@@ -33,6 +56,7 @@
 				@include flex-row;
 			}
 		}
+
 		&--mobile {
 			display: block;
 		}
@@ -40,8 +64,17 @@
 
 	&__entry {
 		display: inline-block;
+
 		&--mobile {
 			display: block;
+		}
+
+		&--primary {
+			&.current-menu-item,
+			&.current-page-ancestor {
+				opacity: 1;
+				font-weight: var(--menu-primary-font-weight-active);
+			}
 		}
 	}
 

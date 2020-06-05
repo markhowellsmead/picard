@@ -1,0 +1,42 @@
+.wp-block-mhm-project-grid {
+
+	--project-grid-outline-color: var(--color-white);
+
+	> * {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	img {
+		outline: none;
+	}
+
+	p:empty {
+		display: none;
+	}
+
+	.wp-block {
+
+		&-column {
+			margin: 0;
+			@include for-screen-min(wordpress_small) {
+				flex-basis: 50% !important; // override core rule
+			}
+		}
+
+		&-mhm-project-header {
+			margin-bottom: var(--unit);
+			@include tablet_landscape {
+				margin-bottom: 0;
+			}
+		}
+
+		&-mhm-image,
+		&-mhm-project-header__figure {
+			border: 1px solid transparent;
+		}
+		&-mhm-project-header__figure {
+			border-top-width: 0;
+		}
+	}
+}

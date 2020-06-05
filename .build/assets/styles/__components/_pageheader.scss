@@ -1,13 +1,10 @@
 :root {
-	--masthead-height: #{rem-calc(95px)};
-	@include desktop {
-		--masthead-height: #{rem-calc(107px)};
-	}
+	--masthead-height: #{rem-calc(105px)};
+	--masthead-border-bottom: 1px solid var(--color-gray-xlight);
 }
 
 .c-pageheader {
 
-	@extend .h-constraint;
 	font-size: var(--font-size-small);
 
 	@include desktop {
@@ -19,7 +16,8 @@
 		z-index: 1;
 		min-height: var(--masthead-height);
 		background: linear-gradient(var(--page-background-color), transparent 75%);
-		border-bottom: 1px solid c(gray, xlight);
+		border-bottom: var(--masthead-border-bottom);
+
 		&::before {
 			content: '';
 			@include flood;
@@ -30,20 +28,29 @@
 	}
 
 	&__inner {
-		@include mobile-padding-x;
-		padding-top: var(--unit-large);
-		padding-bottom: var(--unit-large);
+		padding: var(--unit-medium);
 		@include flex-row;
+		align-items: center;
 		justify-content: space-between;
 		position: relative;
 		z-index: 2;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: var(--constraint-wide);
 		@include laptop {
-			align-items: center;
+			padding-left: 0;
+			padding-right: 0;
 		}
 	}
 
 	&__title {
 		font-size: 1.1em;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	&__titlelink {
+		text-decoration: none;
 	}
 
 	.admin-bar & {

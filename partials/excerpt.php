@@ -2,7 +2,7 @@
 use SayHello\Theme\Package\Lazysizes;
 
 ?>
-<article itemscope itemtype="http://schema.org/BlogPosting" <?php post_class('c-excerpt');?>">
+<article itemscope itemtype="http://schema.org/BlogPosting" <?php post_class('c-excerpt');?>>
 
 	<?php
 

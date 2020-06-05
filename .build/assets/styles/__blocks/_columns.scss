@@ -4,16 +4,31 @@
 
 .wp-block-columns {
 
+	@extend .h-stack;
+
 	@include tablet {
 		flex-wrap: nowrap;
+
+		> * + * {
+			margin-top: 0;
+		}
 	}
 
 	&.alignwide {
 		padding-left: var(--unit-medium);
 		padding-right: var(--unit-medium);
+		@include laptop {
+			padding-left: var(--unit-large);
+			padding-right: var(--unit-large);
+		}
 		@include desktop {
 			padding-left: 0;
 			padding-right: 0;
 		}
+	}
+
+	&.is-style-gapless {
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 }

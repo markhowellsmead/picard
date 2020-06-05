@@ -1,12 +1,4 @@
 .wp-block-embed {
-
-	figcaption {
-		max-width: var(--constraint-narrow);
-		margin-left: auto;
-		margin-right: auto;
-		padding-right: 15%;
-	}
-
 	&__wrapper {
 		> .responsive-embed {
 			@include flood;
@@ -37,6 +29,14 @@
 			.wp-block-embed__wrapper {
 				padding-bottom: percentage(3/4);
 			}
+		}
+	}
+
+	&.is-provider-permanent-tourist {
+		iframe {
+			width: 100%;
+			border: 1px solid c(gray, light);
+			background-color: c(white);
 		}
 	}
 }

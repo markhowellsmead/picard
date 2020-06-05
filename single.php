@@ -15,4 +15,5 @@ get_header();
 	?>
 </main>
 <?php
+get_template_part('partials/block-area/footer-single');
 get_footer();

@@ -10,6 +10,7 @@ namespace SayHello\Theme\Package;
 class Media
 {
 
+	const META_KEY = 'video_ref';
 	private $wide_aspectratio = 2;
 	private $xwide_aspectratio = 2.25;
 
@@ -20,14 +21,19 @@ class Media
 		add_filter('image_size_names_choose', [$this, 'selectableImageSizes']);
 		add_filter('body_class', [ $this, 'thumbnailAspectCSS' ]);
 		add_filter('post_class', [$this, 'postClasses']);
+		add_action('wpseo_add_opengraph_images', [$this, 'videoThumbnail']);
+		add_filter('wpseo_opengraph_desc', [$this, 'maybeChangeDescription']);
+		add_filter('wpseo_opengraph_image_size', [$this, 'yoastSeoOpengraphChangeImageSize'], 10, 0);
 	}
 
 	public function addImageSizes()
 	{
+		add_image_size('card', 296*2, 198*2, true);
 		add_image_size('list_view', 540*2, 9999);
 		add_image_size('list_view_tall', 9999, 540);
 		add_image_size('gutenberg_wide', 1280, 9999);
 		add_image_size('gutenberg_full', 2560, 9999);
+		add_image_size('facebook_preview', 524*2, 273*2, true);
 	}
 
 	public function jpegQuality()
@@ -44,7 +50,7 @@ class Media
 
 	public function thumbnailAspectCSS($css_classes)
 	{
-		if (!has_post_thumbnail()) {
+		if (!has_post_thumbnail() || (bool) get_field('hide_thumbnail', get_the_ID())) {
 			return $css_classes;
 		}
 
@@ -121,7 +127,6 @@ class Media
 			return '';
 		}
 
-		// angabe ohne url gibt leeres string zurück
 		$atts = [
 			'url' => $source_url
 		];
@@ -136,13 +141,12 @@ class Media
 		switch ($aPath['host']) {
 			case 'youtu.be':
 				$atts['id'] = preg_replace('~^/~', '', $aPath['path']);
-				return '//i.ytimg.com/vi/'.$atts['id'].'/maxresdefault.jpg';
+				return 'https://i.ytimg.com/vi/'.$atts['id'].'/hqdefault.jpg';
 			break;
 
 			case 'youtube.com':
 				$aParams = explode('&', $aPath['query']);
 				foreach ($aParams as $param) :
-					// nach parameter 'v' suchen
 					$thisPair = explode('=', $param);
 					if (strtolower($thisPair[0]) == 'v') :
 						$atts['id'] = $thisPair[1];
@@ -150,9 +154,9 @@ class Media
 					endif;
 				endforeach;
 				if (!isset($atts['id']) || !$atts['id']) {
-					return '';    // wenn ID nicht verfügbar, gibt leeres string zurück
+					return '';
 				} else {
-					return '//i.ytimg.com/vi/'.$atts['id'].'/maxresdefault.jpg'; // gibt 1. thumbnail-bild-src zurück.
+					return 'https://i.ytimg.com/vi/'.$atts['id'].'/hqdefault.jpg';
 				}
 				break;
 
@@ -162,14 +166,35 @@ class Media
 				if ($hash && $hash[0] && (isset($hash[0]['thumbnail_large']) && $hash[0]['thumbnail_large'] !== '')) {
 					return $hash[0]['thumbnail_large'];
 				} else {
-					return '';//$this->template_uri.'/img/listicon_video.jpg';
+					return '';
 				}
 				break;
 
 			default:
-				// gibt leeres string zurück
 				return '';
 			break;
 		}
+	}
+
+	public function maybeChangeDescription($description)
+	{
+		if (!empty($excerpt = wp_strip_all_tags(get_the_excerpt(), true))) {
+			return $excerpt;
+		}
+		return $description;
+	}
+
+	public function videoThumbnail($object)
+	{
+		if (!has_post_thumbnail() && !empty($video_url = get_post_meta(get_the_ID(), self::META_KEY, true))) {
+			$video_thumbnail = $this->getVideoThumbnail($video_url);
+			$object->add_image($video_thumbnail);
+		}
+	}
+
+
+	public function yoastSeoOpengraphChangeImageSize()
+	{
+		return 'facebook_preview';
 	}
 }

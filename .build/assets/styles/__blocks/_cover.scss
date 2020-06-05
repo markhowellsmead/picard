@@ -1,7 +1,6 @@
 .wp-block-cover {
 
 	min-height: 25vh;
-	align-items: flex-end;
 
 	a {
 		text-decoration-color: currentColor;
@@ -29,6 +28,13 @@
 		}
 	}
 
+	&.is-style-aspect-251 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(1/2.5);
+		}
+	}
+
 	&.is-style-aspect-31 {
 		min-height: 0;
 		&::after {
@@ -36,10 +42,31 @@
 		}
 	}
 
+	&.is-style-aspect-32 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(2/3);
+		}
+	}
+
 	&.is-style-aspect-41 {
 		min-height: 0;
 		&::after {
 			padding-bottom: percentage(1/4);
+		}
+	}
+
+	&.is-style-aspect-43 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(3/4);
+		}
+	}
+
+	&.is-style-aspect-45 {
+		min-height: 0;
+		&::after {
+			padding-bottom: percentage(5/4);
 		}
 	}
 
@@ -61,31 +88,42 @@
 		background-color: c(black);
 	}
 
-	&.has-primary-background-color {
-		background-color: c(primary);
-		color: c(black);
-	}
-
-	&.has-yellow-background-color {
-		background-color: c(yellow);
-		color: c(black);
-	}
-
-	&.has-white-background-color {
-		background-color: c(white);
-		color: c(black);
-	}
-
 	&__inner-container {
+		text-shadow: 0 0 .25em rgba(0,0,0,.75);
 		@extend .h-stack;
 		padding-top: var(--unit);
-		padding-bottom: var(--unit-medium);
+		padding-bottom: var(--unit);
 		width: 100vw;
 		max-width: var(--constraint-narrow);
-		color: inherit !important;
-		.alignfull & {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&.is-vertically-aligned-bottom {
+		.wp-block-cover__inner-container {
 			@include desktop {
-				max-width: var(--constraint-wide);
+				padding-bottom: var(--unit-xlarge);
+			}
+		}
+	}
+
+	&.is-vertically-aligned-top {
+		.wp-block-cover__inner-container {
+			@include desktop {
+				padding-top: var(--unit-xlarge);
+			}
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		& + .wp-block-buttons {
+			@include desktop {
+				margin-top: var(--unit-medium);
 			}
 		}
 	}
@@ -98,6 +136,13 @@
 		}
 		.block-editor-block-list__block {
 			color: inherit;
+		}
+
+		[data-type='core/cover'][data-editorskit-is-vertically-bottom="1"] & {
+			align-items: flex-end;
+		}
+		[data-type='core/cover'][data-editorskit-is-vertically-top="1"] & {
+			align-items: flex-start;
 		}
 	}
 }

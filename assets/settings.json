@@ -2,6 +2,7 @@
 	"theme_colors": {
 		"primary": {
 			"base": "#1A56B0",
+			"light": "#437070",
 			"basewithopacity": "#1A56B080",
 			"basewithhalfopacity": "#1A56B040",
 			"dark": "#134084"
@@ -18,15 +19,34 @@
 		"gray": {
 			"base": "#888",
 			"basewithopacity": "rgba(136, 136, 136, 0.8)",
-			"dark": "rgb(47, 79, 79)",
+			"dark": "hsl(0, 0%, 20%)",
 			"dark50": "rgba(47, 79, 79, 0.5)",
 			"mid": "#aaa",
 			"light": "#ccc",
 			"xlight": "#f0f0f0",
 			"xxlight": "#f9f9f9"
 		},
+		"light-gray": {
+			"base": "#777"
+		},
+		"mid-gray": {
+			"base": "#aaa"
+		},
+		"lighter-gray": {
+			"base": "#ccc"
+		},
+		"xlight-gray": {
+			"base": "#f0f0f0"
+		},
+		"xxlight-gray": {
+			"base": "#f9f9f9"
+		},
+		"xlight-gray": {
+			"base": "#f0f0f0"
+		},
 		"wordpress": {
-			"base": "#0073aa"
+			"base": "#0073aa",
+			"blue": "#0073aa"
 		},
 		"brown": {
 			"base": "#930"
@@ -55,13 +75,37 @@
 			"border": "#A01E32"
 		}
 	},
+	"gutenberg_colors": {
+		"primary": {
+			"base": "#1a56b0"
+		},
+		"wordpress-blue": {
+			"base": "#0073aa"
+		},
+		"black": {
+			"base": "#000"
+		},
+		"gray": {
+			"dark": "hsl(0,0%,20%)",
+			"base": "#777",
+			"mid": "#aaa",
+			"lighter": "#ccc",
+			"xlight": "#f0f0f0",
+			"xxlight": "#f9f9f9"
+		},
+		"white": {
+			"base": "#fff"
+		}
+	},
 	"theme_breakpoints": {
 		"phone": 330,
+		"wordpress_small": 600,
 		"tablet": 768,
 		"wordpress_medium": 783,
 		"tablet_landscape": 1024,
 		"laptop": 1280,
-		"desktop": 1440
+		"desktop": 1440,
+		"desktop_large": 1920
 	},
 	"easing_speed": 200,
 	"easing_speed_fast": 100,

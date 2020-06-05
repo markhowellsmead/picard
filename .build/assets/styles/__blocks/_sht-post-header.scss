@@ -1,0 +1,8 @@
+.wp-block-sht-post-header {
+	padding-top: var(--unit-large);
+	padding-bottom: var(--unit-large);
+
+	&__inner {
+		@extend .h-stack--medium;
+	}
+}

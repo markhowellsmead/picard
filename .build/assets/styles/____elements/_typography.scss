@@ -1,46 +1,28 @@
-@import url('https://use.typekit.net/ifk0xgd.css');
 :root {
-	--font-family: 'pt-serif-pro-1', 'pt-serif-pro-2', serif;
-	--font-family-heading: 'pt-serif-pro-1', 'pt-serif-pro-2', serif;
-	--font-family-narrow: 'pt-sans-pro-narrow-1', 'pt-sans-pro-narrow-2', sans-serif;
+	--font-family: 'Barlow', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	--font-family-heading: 'Barlow', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
 	--font-size-rembase: 100%;
 	--font-size: #{$font-size};
 	--font-size-xxsmall: #{$font-size-xxsmall};
 	--font-size-xsmall: #{$font-size-xsmall};
 	--font-size-small: #{$font-size-small};
+	--font-size-medium: #{$font-size-medium};
 	--font-size-large: #{$font-size-large};
 	--font-size-xlarge: #{$font-size-xlarge};
 	--font-size-xxlarge: #{$font-size-xxlarge};
 	--font-size-xxxlarge: #{$font-size-xxxlarge};
 	--font-size-xxxxlarge: #{$font-size-xxxxlarge};
+
+	--font-weight-body: 400;
+	--font-weight-heading: 500;
+
 	--line-height: 1.625;
 	--line-height-large: 1.75;
 	--line-height-heading: 1.2;
 	--radius: .3em;
-}
 
-.has-white-color {
-	color: c(white);
-}
-
-.has-black-color {
-	color: c(black);
-}
-
-.has-light-gray-color {
-	color: c(gray, light);
-}
-
-.has-yellow-color {
-	color: c(yellow);
-}
-
-.has-primary-color {
-	color: c(primary);
-}
-
-.has-wordpress-blue-color {
-	color: c(wordpress);
+	--color-heading: var(--color-black);
 }
 
 html {
@@ -51,26 +33,33 @@ body {
 	font-family: var(--font-family);
 	font-size: 1rem;
 	line-height: var(--line-height);
-	font-weight: 300;
+	font-weight: var(--font-weight-body);
 	color: c(gray, dark);
 }
 
 a,
 button {
 	color: currentColor;
+	@include transition;
 
 	&:active,
 	&:hover {
-		color: c(primary, dark);
+		color: c(primary, light);
 	}
 }
 
 a {
 	text-underline-position: under;
 	text-decoration-color: c(gray, dark50);
+
 	&:hover {
 		text-decoration-color: currentColor;
 	}
+}
+
+b,
+strong {
+	font-weight: 600;
 }
 
 button {
@@ -80,6 +69,7 @@ button {
 blockquote {
 	margin: 0;
 	@extend .h-stack;
+
 	p {
 		font-weight: 600;
 	}
@@ -120,7 +110,7 @@ img {
 }
 
 img {
-	outline: 1px solid c(gray, light);
+	outline: 1px solid c(gray, xlight);
 }
 
 figure {
@@ -164,14 +154,14 @@ tr {
 
 sub,
 sup {
-	font-size: .55555556em;
+	font-size: var(--font-size-xsmall);
 	line-height: 0;
 	position: relative;
 	vertical-align: baseline;
 }
 
 sup {
-	top: -0.5em;
+	top: -1em;
 }
 
 sub {
@@ -186,6 +176,8 @@ h5,
 h6 {
 	font-family: var(--font-family-heading);
 	line-height: var(--line-height-heading);
+	font-weight: var(--font-weight-heading);
+	color: var(--color-heading);
 	margin: 0;
 
 	a,
@@ -198,9 +190,22 @@ h6 {
 
 h1 {
 	font-size: 1.75em;
-	color: c(black);
 	@include desktop {
 		font-size: 2.25em;
+	}
+
+	&.is-style-large {
+		font-size: 2.5em;
+		@include desktop {
+			font-size: 3em;
+		}
+	}
+
+	&.is-style-xlarge {
+		font-size: 3.5em;
+		@include desktop {
+			font-size: 4em;
+		}
 	}
 }
 

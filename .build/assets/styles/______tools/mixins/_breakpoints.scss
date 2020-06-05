@@ -40,6 +40,12 @@
 	}
 }
 
+@mixin tablet_landscape() {
+	@include for-screen-min(tablet_landscape) {
+		@content;
+	}
+}
+
 @mixin laptop() {
 	@include for-screen-min(laptop) {
 		@content;
@@ -48,6 +54,12 @@
 
 @mixin desktop() {
 	@include for-screen-min(desktop) {
+		@content;
+	}
+}
+
+@mixin desktop_large() {
+	@include for-screen-min(desktop_large) {
 		@content;
 	}
 }

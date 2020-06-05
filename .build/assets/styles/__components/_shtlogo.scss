@@ -1,0 +1,15 @@
+.c-shtlogo {
+	max-width: var(--unit-xxxlarge);
+	&__link {
+		display: block;
+	}
+
+	svg {
+		fill: currentColor;
+	}
+
+	path {
+		@include transition;
+		fill: inherit !important;
+	}
+}

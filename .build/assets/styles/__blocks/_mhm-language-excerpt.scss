@@ -1,0 +1,10 @@
+.wp-block-mhm-language-excerpt {
+	@extend .h-stack;
+	color: c(gray);
+	background: url('../img/icons/ic_sms_24px_light.min.svg') center right 1rem no-repeat;
+	background-size: var(--unit-xlarge);
+	background-color: c(gray, xlight);
+	border: 1px dashed c(gray, light);
+	font-style: italic;
+	padding: var(--unit) var(--unit-xxlarge) var(--unit) var(--unit);
+}
