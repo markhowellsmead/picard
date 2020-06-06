@@ -25,6 +25,16 @@
 			background-color: var(--page-background-color);
 			opacity: .9;
 		}
+
+	}
+
+	@supports(backdrop-filter: blur(10px)) {
+		backdrop-filter: blur(10px);
+		background: transparent;
+		&::before {
+			background-color: var(--color-white);
+			opacity: .8;
+		}
 	}
 
 	&__inner {
