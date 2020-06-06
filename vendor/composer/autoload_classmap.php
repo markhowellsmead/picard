@@ -40,8 +40,6 @@ return array(
     'SayHello\\Theme\\PostType\\Post' => $baseDir . '/src/PostType/Post.php',
     'SayHello\\Theme\\Theme' => $baseDir . '/src/Theme.php',
     'SayHello\\Theme\\Vendor\\LazyImage' => $baseDir . '/src/Vendor/LazyImage.php',
-    'SayHello\\Theme\\list' => $baseDir . '/src/Theme.php',
-    'SayHello\\Theme\\named' => $baseDir . '/src/Theme.php',
     'enshrined\\svgSanitize\\ElementReference\\Resolver' => $vendorDir . '/enshrined/svg-sanitize/src/ElementReference/Resolver.php',
     'enshrined\\svgSanitize\\ElementReference\\Subject' => $vendorDir . '/enshrined/svg-sanitize/src/ElementReference/Subject.php',
     'enshrined\\svgSanitize\\ElementReference\\Usage' => $vendorDir . '/enshrined/svg-sanitize/src/ElementReference/Usage.php',
