@@ -1,0 +1,82 @@
+{
+    "key": "group_57051d5321bba",
+    "title": "Geographic",
+    "fields": [
+        {
+            "key": "field_5edb7fe1a3860",
+            "label": "Related viewpoint",
+            "name": "related_viewpoint",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "mhm-viewpoint"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 1,
+            "return_format": "object",
+            "show_column": 1,
+            "show_column_weight": 1000,
+            "allow_quickedit": 1,
+            "allow_bulkedit": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_50aaab6a345e4",
+            "label": "Geographic location",
+            "name": "location",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "46.8131873",
+            "center_lng": "8.2242101",
+            "zoom": 10,
+            "height": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "photo"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1591451952
+}
