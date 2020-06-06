@@ -23,6 +23,9 @@
 	img {
 		outline: none;
 		pointer-events: none;
+		body.logged-in & {
+			pointer-events: all;
+		}
 	}
 }
 

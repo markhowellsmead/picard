@@ -34,6 +34,7 @@ return array(
     'SayHello\\Theme\\Package\\View' => $baseDir . '/src/Package/View.php',
     'SayHello\\Theme\\PostType\\BlockArea' => $baseDir . '/src/PostType/BlockArea.php',
     'SayHello\\Theme\\PostType\\Destination' => $baseDir . '/src/PostType/Destination.php',
+    'SayHello\\Theme\\PostType\\Feature' => $baseDir . '/src/PostType/Feature.php',
     'SayHello\\Theme\\PostType\\Page' => $baseDir . '/src/PostType/Page.php',
     'SayHello\\Theme\\PostType\\Photo' => $baseDir . '/src/PostType/Photo.php',
     'SayHello\\Theme\\PostType\\Post' => $baseDir . '/src/PostType/Post.php',

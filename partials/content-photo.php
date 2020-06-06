@@ -38,9 +38,10 @@
 		?>
 	<div class="c-article__meta">
 		<?php
+		get_template_part('partials/tax-albums');
+		get_template_part('partials/related_viewpoints');
 		get_template_part('partials/tags');
 		get_template_part('partials/collections');
-		get_template_part('partials/related_destinations');
 		?>
 	</div>
 	<?php }

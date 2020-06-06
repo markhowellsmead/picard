@@ -57,6 +57,7 @@ class ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7
         'SayHello\\Theme\\Package\\View' => __DIR__ . '/../..' . '/src/Package/View.php',
         'SayHello\\Theme\\PostType\\BlockArea' => __DIR__ . '/../..' . '/src/PostType/BlockArea.php',
         'SayHello\\Theme\\PostType\\Destination' => __DIR__ . '/../..' . '/src/PostType/Destination.php',
+        'SayHello\\Theme\\PostType\\Feature' => __DIR__ . '/../..' . '/src/PostType/Feature.php',
         'SayHello\\Theme\\PostType\\Page' => __DIR__ . '/../..' . '/src/PostType/Page.php',
         'SayHello\\Theme\\PostType\\Photo' => __DIR__ . '/../..' . '/src/PostType/Photo.php',
         'SayHello\\Theme\\PostType\\Post' => __DIR__ . '/../..' . '/src/PostType/Post.php',
