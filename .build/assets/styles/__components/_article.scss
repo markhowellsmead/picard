@@ -173,6 +173,9 @@
 	&__thumbnailimage {
 		width: 100%;
 		pointer-events: none;
+		body.logged-in & {
+			pointer-events: all;
+		}
 	}
 
 	&__video {
