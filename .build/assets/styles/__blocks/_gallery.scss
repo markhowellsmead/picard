@@ -4,5 +4,8 @@
 	}
 	img {
 		pointer-events: none;
+		body.logged-in & {
+			pointer-events: all;
+		}
 	}
 }

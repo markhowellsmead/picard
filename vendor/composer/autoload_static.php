@@ -63,8 +63,6 @@ class ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7
         'SayHello\\Theme\\PostType\\Post' => __DIR__ . '/../..' . '/src/PostType/Post.php',
         'SayHello\\Theme\\Theme' => __DIR__ . '/../..' . '/src/Theme.php',
         'SayHello\\Theme\\Vendor\\LazyImage' => __DIR__ . '/../..' . '/src/Vendor/LazyImage.php',
-        'SayHello\\Theme\\list' => __DIR__ . '/../..' . '/src/Theme.php',
-        'SayHello\\Theme\\named' => __DIR__ . '/../..' . '/src/Theme.php',
         'enshrined\\svgSanitize\\ElementReference\\Resolver' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Resolver.php',
         'enshrined\\svgSanitize\\ElementReference\\Subject' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Subject.php',
         'enshrined\\svgSanitize\\ElementReference\\Usage' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Usage.php',

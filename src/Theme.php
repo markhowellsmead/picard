@@ -191,7 +191,7 @@ class Theme
 		);
 		add_theme_support('html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ]);
 		add_theme_support('menu');
-		add_theme_support('post-thumbnails', [ 'post', 'mhm_destination' ]);
+		add_theme_support('post-thumbnails', [ 'post', 'mhm-viewpoint' ]);
 		add_theme_support('title-tag');
 	}
 

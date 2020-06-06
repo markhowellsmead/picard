@@ -13,6 +13,7 @@ class Photo
 	public function run()
 	{
 		add_filter('get_the_archive_title', [ $this, 'changeTheTitle' ], 30);
+		add_action('pre_get_posts', [$this, 'postsPerAlbumPage']);
 	}
 
 	public function changeTheTitle($title)
@@ -27,5 +28,13 @@ class Photo
 		}
 
 		return $title;
+	}
+
+	public function postsPerAlbumPage($query)
+	{
+		if (!is_admin() && $query->is_main_query() && is_tax('album')) {
+			$query->set('posts_per_page', 64);
+			return;
+		}
 	}
 }
