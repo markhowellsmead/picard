@@ -125,7 +125,7 @@ class Gutenberg
 	{
 		return array_merge($categories, [
 			[
-				'slug'  => 'sht/blocks',
+				'slug'  => 'sht-blocks',
 				'title' => __('Blocks by Say Hello', 'sha'),
 			],
 		]);
