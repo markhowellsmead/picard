@@ -20,15 +20,15 @@ class ImageGallery
 		if (function_exists('acf_register_block_type')) {
 			// Block using ACF fields
 			acf_register_block_type([
-				'name' => 'sht/imagegallery',
+				'name' => 'image-gallery',
 				'category' => 'layout',
-				'icon' => 'images-alt2',
+				'icon' => 'format-gallery',
 				'keywords' => [
 					_x('Gallery', 'Gutenberg block keyword', 'sha'),
 					_x('Image gallery', 'Gutenberg block keyword', 'sha'),
 					_x('Image', 'Gutenberg block keyword', 'sha')
 				],
-				'post_types' => ['post', 'page'],
+				'post_types' => ['post', 'page', 'mhm-viewpoint'],
 				'supports' => [
 					'align' => ['wide', 'full']
 				],
