@@ -10,8 +10,9 @@
 
 }
 
-.wp-block-mhm-project-header + .wp-block-photos-by-collection {
-	margin-top: 0;
+.wp-block-mhm-project-header + .wp-block-photos-by-collection,
+.wp-block-mhm-viewpoint-header + .wp-block-photos-by-collection {
+	margin-top: var(--grid-border-width);
 	.wp-block-photos-by-collection {
 		&__images {
 			margin-top: 0;

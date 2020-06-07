@@ -1,3 +1,7 @@
+:root {
+	--grid-border-width: 2px;
+}
+
 figcaption {
 	width: 100%;
 	padding-right: var(--unit-large);
@@ -30,6 +34,7 @@ figcaption {
 @import "mgl-gallery";
 @import "mhm-project-grid";
 @import "mhm-project-header";
+@import "mhm-viewpoint-header";
 @import "photos-by-collection";
 @import "quote";
 @import "search";
