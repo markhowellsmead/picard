@@ -1,6 +1,6 @@
 :root {
 	--grid500-unit: .5rem;
-	--grid500-unit-small: calc(var(--grid500-unit) / 2);
+	--grid500-unit-small: var(--grid-border-width);
 }
 
 .c-grid500 {

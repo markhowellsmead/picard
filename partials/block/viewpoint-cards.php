@@ -15,7 +15,7 @@ if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])
 <section class="c-fourcards wp-block-mhm-blog-cards<?php echo $align;?>">
 	<div class="c-fourcards__inner wp-block-mhm-blog-cards__inner">
 		<header class="c-fourcards__header wp-block-mhm-blog-cards__header">
-			<h2 class="c-fourcards__title wp-block-mhm-blog-cards__title"><?php _ex('Latest blog posts', 'News list default title', 'sht');?></h2>
+			<h2 class="c-fourcards__title wp-block-mhm-blog-cards__title"><?php _ex('Latest viewpoints', 'News list default title', 'sht');?></h2>
 		</header>
 		<div class="c-fourcards__entrieswrap wp-block-mhm-blog-cards__entrieswrap">
 			<ul class="c-fourcards__entries wp-block-mhm-blog-cards__entries">

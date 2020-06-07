@@ -21,7 +21,7 @@ class ImageGallery
 			// Block using ACF fields
 			acf_register_block_type([
 				'name' => 'image-gallery',
-				'category' => 'layout',
+				'category' => 'common',
 				'icon' => 'format-gallery',
 				'keywords' => [
 					_x('Gallery', 'Gutenberg block keyword', 'sha'),

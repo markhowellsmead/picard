@@ -33,7 +33,7 @@
 
 		&-mhm-image,
 		&-mhm-project-header__figure {
-			border: 1px solid transparent;
+			border: var(--grid-border-width) solid transparent;
 		}
 		&-mhm-project-header__figure {
 			border-top-width: 0;
