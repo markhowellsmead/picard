@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7
+class ComposerStaticInitce6bd351e9f1cea7321133286a714cf0
 {
     public static $prefixLengthsPsr4 = array (
         'e' => 
@@ -28,60 +28,11 @@ class ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7
         ),
     );
 
-    public static $classMap = array (
-        'SayHello\\Theme\\Block\\BlogCards' => __DIR__ . '/../..' . '/src/Block/BlogCards.php',
-        'SayHello\\Theme\\Block\\CountPhotos' => __DIR__ . '/../..' . '/src/Block/CountPhotos.php',
-        'SayHello\\Theme\\Block\\CountPosts' => __DIR__ . '/../..' . '/src/Block/CountPosts.php',
-        'SayHello\\Theme\\Block\\HomeCarousel' => __DIR__ . '/../..' . '/src/Block/HomeCarousel.php',
-        'SayHello\\Theme\\Block\\ImageGallery' => __DIR__ . '/../..' . '/src/Block/ImageGallery.php',
-        'SayHello\\Theme\\Block\\PostHeader' => __DIR__ . '/../..' . '/src/Block/PostHeader.php',
-        'SayHello\\Theme\\Block\\YearsOnline' => __DIR__ . '/../..' . '/src/Block/YearsOnline.php',
-        'SayHello\\Theme\\Package\\Ajax' => __DIR__ . '/../..' . '/src/Package/Ajax.php',
-        'SayHello\\Theme\\Package\\Assets' => __DIR__ . '/../..' . '/src/Package/Assets.php',
-        'SayHello\\Theme\\Package\\Bodyclass' => __DIR__ . '/../..' . '/src/Package/BodyClass.php',
-        'SayHello\\Theme\\Package\\CustomPages' => __DIR__ . '/../..' . '/src/Package/CustomPages.php',
-        'SayHello\\Theme\\Package\\Customizer' => __DIR__ . '/../..' . '/src/Package/Customizer.php',
-        'SayHello\\Theme\\Package\\Error' => __DIR__ . '/../..' . '/src/Package/Error.php',
-        'SayHello\\Theme\\Package\\Footnotes' => __DIR__ . '/../..' . '/src/Package/Footnotes.php',
-        'SayHello\\Theme\\Package\\Gutenberg' => __DIR__ . '/../..' . '/src/Package/Gutenberg.php',
-        'SayHello\\Theme\\Package\\Helpers' => __DIR__ . '/../..' . '/src/Package/Helpers.php',
-        'SayHello\\Theme\\Package\\Language' => __DIR__ . '/../..' . '/src/Package/Language.php',
-        'SayHello\\Theme\\Package\\Lazysizes' => __DIR__ . '/../..' . '/src/Package/Lazysizes.php',
-        'SayHello\\Theme\\Package\\LoginScreen' => __DIR__ . '/../..' . '/src/Package/LoginScreen.php',
-        'SayHello\\Theme\\Package\\Media' => __DIR__ . '/../..' . '/src/Package/Media.php',
-        'SayHello\\Theme\\Package\\Navigation' => __DIR__ . '/../..' . '/src/Package/Navigation.php',
-        'SayHello\\Theme\\Package\\Oembed' => __DIR__ . '/../..' . '/src/Package/Oembed.php',
-        'SayHello\\Theme\\Package\\SVG' => __DIR__ . '/../..' . '/src/Package/SVG.php',
-        'SayHello\\Theme\\Package\\Sidebars' => __DIR__ . '/../..' . '/src/Package/Sidebars.php',
-        'SayHello\\Theme\\Package\\ThemeOptions' => __DIR__ . '/../..' . '/src/Package/ThemeOptions.php',
-        'SayHello\\Theme\\Package\\View' => __DIR__ . '/../..' . '/src/Package/View.php',
-        'SayHello\\Theme\\PostType\\BlockArea' => __DIR__ . '/../..' . '/src/PostType/BlockArea.php',
-        'SayHello\\Theme\\PostType\\Destination' => __DIR__ . '/../..' . '/src/PostType/Destination.php',
-        'SayHello\\Theme\\PostType\\Feature' => __DIR__ . '/../..' . '/src/PostType/Feature.php',
-        'SayHello\\Theme\\PostType\\Page' => __DIR__ . '/../..' . '/src/PostType/Page.php',
-        'SayHello\\Theme\\PostType\\Photo' => __DIR__ . '/../..' . '/src/PostType/Photo.php',
-        'SayHello\\Theme\\PostType\\Post' => __DIR__ . '/../..' . '/src/PostType/Post.php',
-        'SayHello\\Theme\\Theme' => __DIR__ . '/../..' . '/src/Theme.php',
-        'SayHello\\Theme\\Vendor\\LazyImage' => __DIR__ . '/../..' . '/src/Vendor/LazyImage.php',
-        'enshrined\\svgSanitize\\ElementReference\\Resolver' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Resolver.php',
-        'enshrined\\svgSanitize\\ElementReference\\Subject' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Subject.php',
-        'enshrined\\svgSanitize\\ElementReference\\Usage' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/ElementReference/Usage.php',
-        'enshrined\\svgSanitize\\Exceptions\\NestingException' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/Exceptions/NestingException.php',
-        'enshrined\\svgSanitize\\Helper' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/Helper.php',
-        'enshrined\\svgSanitize\\Sanitizer' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/Sanitizer.php',
-        'enshrined\\svgSanitize\\data\\AllowedAttributes' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/AllowedAttributes.php',
-        'enshrined\\svgSanitize\\data\\AllowedTags' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/AllowedTags.php',
-        'enshrined\\svgSanitize\\data\\AttributeInterface' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/AttributeInterface.php',
-        'enshrined\\svgSanitize\\data\\TagInterface' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/TagInterface.php',
-        'enshrined\\svgSanitize\\data\\XPath' => __DIR__ . '/..' . '/enshrined/svg-sanitize/src/data/XPath.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit30a976fd35c7f78499aa4c99d7a36fc7::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitce6bd351e9f1cea7321133286a714cf0::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitce6bd351e9f1cea7321133286a714cf0::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }
