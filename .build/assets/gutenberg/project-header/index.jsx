@@ -15,13 +15,18 @@ registerBlockType('mhm/project-header', {
 	supports: {
 		align: ['wide', 'full'],
 		html: false,
-		inserter: true
+		inserter: true,
+		multiple: false
 	},
 	styles: [
 		{ name: 'default', label: _x( 'Default', 'block style', 'sha' ), isDefault: true },
 		{ name: 'flipped', label: _x( 'Flipped', 'block style', 'sha' ) },
 	],
 	attributes: {
+		align: {
+			type: 'string',
+			default: 'full'
+		},
 		focalPoint: {
 			type: 'Object',
 			default: {
@@ -77,7 +82,7 @@ registerBlockType('mhm/project-header', {
 					</div>
 					{
 						!!attributes.image.id &&
-						<div className={`${className}__figurewrap ${attributes.ratio}`}>
+						<div className={`${classNameBase}__figurewrap ${attributes.ratio}`}>
 							<LazyImage
 								className={`${classNameBase}__figure`}
 								image={attributes.image}

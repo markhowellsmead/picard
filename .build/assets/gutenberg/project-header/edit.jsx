@@ -18,7 +18,7 @@ class Edit extends Component {
 
 		const { attributes, colors, setAttributes } = this.props;
 		let classNameBase = getBlockDefaultClassName( 'mhm/project-header' );
-		let className = this.props.className;
+		let className = classNameBase;
 
 		let imageData = !!attributes.image.id ? select( 'core' ).getMedia( attributes.image.id ) : null;
 
@@ -33,6 +33,8 @@ class Edit extends Component {
 		if(!!attributes.image.id && parseInt(attributes.image.attributes.width) < parseInt(attributes.image.attributes.height)){
 			className += ` ${classNameBase}--tall`;
 		}
+
+		let imageFormat = 'full_uncropped';
 
 		return (
 			<Fragment>
@@ -118,7 +120,7 @@ class Edit extends Component {
 								]}
 							/>
 						</div>
-						<div className={`${className}__figurewrap ${attributes.ratio}`}>
+						<div className={`${classNameBase}__figurewrap ${attributes.ratio}`}>
 							<LazyImageSelector
 								attributes={attributes}
 								className={`${classNameBase}__figure`}
@@ -126,11 +128,12 @@ class Edit extends Component {
 								setAttributes={setAttributes}
 								objectFocalPoint={attributes.focalPoint}
 								admin={true}
+								imageFormat={imageFormat}
 							/>
 							<RichText
 								style={textStyle}
 								tagName="figcaption"
-								className={`${className}__figcaption`}
+								className={`${classNameBase}__figcaption`}
 								format="string"
 								allowedFormats={['core/link']}
 								formattingControls={[]}
