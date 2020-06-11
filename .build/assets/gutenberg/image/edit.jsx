@@ -34,7 +34,7 @@ class Edit extends Component {
 			textStyle.color = attributes.textColor;
 		}
 
-		let imageFormat = 'full_fixed';
+		let imageFormat = 'full_uncropped';
 
 		return (
 			<Fragment>

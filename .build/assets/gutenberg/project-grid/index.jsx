@@ -16,9 +16,11 @@ registerBlockType( 'mhm/project-grid', {
 		multiple: true,
 		reusable: true
 	},
-	align: {
-		type: 'string',
-		default: 'full'
+	attributes: {
+		align: {
+			type: 'string',
+			default: 'full'
+		}
 	},
 	edit: class extends Component {
 		constructor( props ) {
@@ -36,7 +38,9 @@ registerBlockType( 'mhm/project-grid', {
 						allowedBlocks={['core/columns', 'mhm/project-header']}
 						template={[
 							['mhm/project-header'],
-							['core/columns']
+							['core/columns', {
+								'align': 'full'
+							}]
 						]}
 						templateLock={false}
 					/>
