@@ -17,12 +17,6 @@
 
 	.wp-block {
 
-		&-column {
-			@include for-screen-min(wordpress_small) {
-				flex-basis: 50% !important; // override core rule
-			}
-		}
-
 		&-mhm-project-header {
 			margin-bottom: var(--unit);
 			@include tablet_landscape {

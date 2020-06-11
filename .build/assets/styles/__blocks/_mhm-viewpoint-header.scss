@@ -169,11 +169,11 @@
 @include context-edit() {
 	.wp-block-mhm-viewpoint-header {
 
-		.o-imageselector__figurewrapper {
+		.c-imageselector__figurewrapper {
 			@include proportional-image-wrapper;
 		}
 
-		.o-imageselector__figure {
+		.c-imageselector__figure {
 			@include proportional-image-figure;
 		}
 

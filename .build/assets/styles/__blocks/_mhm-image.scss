@@ -1,5 +1,6 @@
 .wp-block-mhm-image {
 	@include proportional-image-wrapper;
+	height: 100%;
 
 	&__figure {
 		@include proportional-image-figure;
@@ -31,7 +32,7 @@
 
 @include context-edit {
 	.wp-block-mhm-image {
-		.o-imageselector {
+		.c-imageselector {
 			@supports(object-fit: cover) {
 				@include flood;
 				object-fit: cover;
