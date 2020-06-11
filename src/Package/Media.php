@@ -33,6 +33,7 @@ class Media
 		add_image_size('list_view_tall', 9999, 540);
 		add_image_size('gutenberg_wide', 1280, 9999);
 		add_image_size('gutenberg_full', 2560, 9999);
+		add_image_size('full_fixed', 2560, 9999, true);
 		add_image_size('facebook_preview', 524*2, 273*2, true);
 	}
 

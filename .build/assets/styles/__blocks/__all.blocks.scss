@@ -41,24 +41,3 @@ figcaption {
 @import "separator";
 @import "shb-video-bar";
 @import "sht-post-header";
-
-// @include context-edit {
-//
-// 	.wp-block {
-// 		max-width: var(--constraint-narrow);
-//
-// 		&.alignwide,
-// 		&[data-align="wide"] {
-// 			max-width: var(--constraint-wide);
-// 		}
-//
-// 		&.alignxwide {
-// 			max-width: var(--constraint-xwide);
-// 		}
-//
-// 		&.alignfull,
-// 		&[data-align="full"] {
-// 			max-width: var(--constraint-full);
-// 		}
-// 	}
-// }
