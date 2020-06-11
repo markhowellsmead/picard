@@ -22,6 +22,10 @@ registerBlockType('mhm/viewpoint-header', {
 		{ name: 'flipped', label: _x( 'Flipped', 'block style', 'sha' ) },
 	],
 	attributes: {
+		align: {
+			type: 'string',
+			default: 'full'
+		},
 		focalPoint: {
 			type: 'Object',
 			default: {

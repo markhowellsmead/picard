@@ -40,3 +40,12 @@
 		}
 	}
 }
+
+@include context-edit {
+	.wp-block-mhm-project-grid {
+		[data-align='full'] {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
