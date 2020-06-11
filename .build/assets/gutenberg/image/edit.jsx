@@ -18,7 +18,7 @@ class Edit extends Component {
 
 		const { attributes, colors, setAttributes } = this.props;
 		let classNameBase = getBlockDefaultClassName( 'mhm/image' );
-		let className = this.props.className;
+		let className = classNameBase;
 
 		if ( !!attributes.image.id && parseInt( attributes.image.attributes.width ) < parseInt( attributes.image.attributes.height ) ) {
 			className += ` ${ classNameBase }--tall`;
@@ -112,11 +112,12 @@ class Edit extends Component {
 						image={attributes.image}
 						setAttributes={setAttributes}
 						objectFocalPoint={attributes.focalPoint}
+						imageFormat={imageFormat}
 					/>
 					<RichText
 						style={textStyle}
 						tagName="figcaption"
-						className={`${className}__figcaption`}
+						className={`${classNameBase}__figcaption`}
 						format="string"
 						allowedFormats={['core/link']}
 						formattingControls={[]}
