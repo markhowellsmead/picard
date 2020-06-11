@@ -34,6 +34,8 @@ class Edit extends Component {
 			textStyle.color = attributes.textColor;
 		}
 
+		let imageFormat = 'full_fixed';
+
 		return (
 			<Fragment>
 				<InspectorControls>
