@@ -52,18 +52,21 @@ img.alignright {
 	margin-right: auto;
 }
 
-.alignmedium {
-	max-width: var(--constraint-medium);
-}
+@include context-view {
 
-.alignwide {
-	max-width: var(--constraint-wide);
-}
+	.alignmedium {
+		max-width: var(--constraint-medium);
+	}
 
-.alignxwide {
-	max-width: var(--constraint-xwide);
-}
+	.alignwide {
+		max-width: var(--constraint-wide);
+	}
 
-.alignfull {
-	max-width: var(--constraint-full);
+	.alignxwide {
+		max-width: var(--constraint-xwide);
+	}
+
+	.alignfull {
+		max-width: var(--constraint-full);
+	}
 }
