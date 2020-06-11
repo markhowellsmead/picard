@@ -10,6 +10,13 @@ figcaption {
 	margin-right: auto;
 }
 
+@include context-edit {
+	[data-align='full'] [data-align='full'] {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
 @import "bravo";
 @import "button";
 @import "code";
