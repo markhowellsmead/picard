@@ -39,7 +39,8 @@ registerBlockType( 'mhm/project-grid', {
 						template={[
 							['mhm/project-header'],
 							['core/columns', {
-								'align': 'full'
+								'align': 'full',
+								'className': 'is-style-gapless'
 							}]
 						]}
 						templateLock={false}

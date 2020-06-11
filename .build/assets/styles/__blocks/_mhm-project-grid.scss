@@ -18,7 +18,6 @@
 	.wp-block {
 
 		&-column {
-			margin: 0;
 			@include for-screen-min(wordpress_small) {
 				flex-basis: 50% !important; // override core rule
 			}
