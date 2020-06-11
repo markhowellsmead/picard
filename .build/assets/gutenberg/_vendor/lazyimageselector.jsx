@@ -62,58 +62,57 @@ export default class LazyImageSelector extends Component {
 			style_pre.objectPosition = `${this.props.objectFocalPoint.x * 100}% ${this.props.objectFocalPoint.y * 100}%`;
 		}
 
+		const image_attribute = attributes[attribute_key];
+
 		return (
 			<Fragment>
-				<div className="o-imageselector">
+				<div className="c-imageselector">
 					<MediaUploadCheck>
 						<MediaUpload
 							onSelect={image => {
 								getLazySrcs(image.id, image_format).then(image => setAttributes({[attribute_key]: image}));
 							}}
 							allowedTypes={allowed_types}
-							value={[attribute_key].id}
+							value={image_attribute.id}
 							render={({open}) => {
-								const image = attributes[attribute_key];
 								return (
 									<figure
-										className={`o-imageselector__figure ${!image.id ? 'o-imageselector__figure--noimage' : ''}`}
+										className={`c-imageselector__figure ${!image_attribute.id ? 'c-imageselector__figure--noimage' : ''}`}
 										style={style_orig}
 										>
 										{
-											!!image.id &&
+											!!image_attribute.id &&
 											<img
-												className="o-imageselector__image"
+												className="c-imageselector__image"
 												onClick={open}
-												src={image.org[0]}
-												alt={image.alt}
+												src={image_attribute.org[0]}
+												alt={image_attribute.alt}
 												style={style_orig}
 												/>
 										}
-										<div className="o-imageselector__buttons">
+										<div className="c-imageselector__buttons">
 											{
-												!image.id &&
+												!image_attribute.id &&
 												<Button
 													onClick={open}
-													isDefault
 													isLarge
 													isPrimary>
 														{_x('Bild auswählen', 'Admin component button text', 'sha')}
 												</Button>
 											}
 											{
-												!!image.id &&
+												!!image_attribute.id &&
 												<Fragment>
 													<Button
 														onClick={open}
-														isDefault
 														isLarge
 														isPrimary>
 														{_x('Bild ersetzen', 'Admin component button text', 'sha')}
 													</Button>
 													<Button
-														onClick={() => setAttributes({image: {id: false}})}
-														isDefault
-														isSmall>
+														onClick={() => setAttributes({[attribute_key]: {id: false}})}
+														isSmall
+														isSecondary>
 														{_x('Bild entfernen', 'Admin component button text', 'sha')}
 													</Button>
 												</Fragment>
