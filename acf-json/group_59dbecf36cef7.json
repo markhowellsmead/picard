@@ -1,9 +1,9 @@
 {
-    "key": "group_5d644b650a289",
-    "title": "Block - Image Gallery",
+    "key": "group_59dbecf36cef7",
+    "title": "Gallery fields",
     "fields": [
         {
-            "key": "field_5d644b6a3517e",
+            "key": "field_59dbecec4941a",
             "label": "Images",
             "name": "images",
             "type": "gallery",
@@ -15,27 +15,32 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all",
             "min": "",
             "max": "",
+            "insert": "append",
+            "library": "all",
             "min_width": "",
             "min_height": "",
             "min_size": "",
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "return_format": "array",
+            "preview_size": "medium"
         }
     ],
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/image-gallery"
+                "value": "post"
+            },
+            {
+                "param": "post_format",
+                "operator": "==",
+                "value": "gallery"
             }
         ]
     ],
@@ -46,6 +51,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "",
-    "modified": 1591979502
+    "description": "If post format is gallery",
+    "modified": 1591979536
 }
