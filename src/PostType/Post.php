@@ -10,9 +10,13 @@ namespace SayHello\Theme\PostType;
 class Post
 {
 
+	const POST_TYPE = 'post';
+	const PREFIX = 'sht_post';
+
 	public function run()
 	{
 		add_filter('get_the_archive_title', [ $this, 'changeTheTitle' ], 20);
+		add_action('init', [$this, 'registerMetaFields']);
 	}
 
 	public function changeTheTitle($title)
@@ -45,5 +49,17 @@ class Post
 		}
 
 		return $title;
+	}
+
+	public function registerMetaFields()
+	{
+		register_post_meta(self::POST_TYPE, 'hide_title', [
+			'show_in_rest' => true,
+			'single' => true,
+			'type' => 'boolean',
+			'auth_callback' => function () {
+				return current_user_can('edit_posts');
+			}
+		]);
 	}
 }

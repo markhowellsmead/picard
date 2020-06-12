@@ -1,4 +1,6 @@
 // import "./image-gallery/block.jsx";
+import "./post-controls/index.jsx";
+
 import "./block-styles/index.jsx";
 import "./blog-cards/index.jsx";
 import "./bravo/index.jsx";

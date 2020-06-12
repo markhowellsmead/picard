@@ -3,26 +3,7 @@
     "title": "Layout options",
     "fields": [
         {
-            "key": "field_5cd7fde9a155f",
-            "label": "Hide page header",
-            "name": "hide_title",
-            "type": "true_false",
-            "instructions": "Useful when building pages visually using the Gutenberg editor.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5050e0a0c1ae2",
+            "key": "field_5cdeee0327c2a",
             "label": "Hide thumbnail",
             "name": "hide_thumbnail",
             "type": "true_false",
@@ -39,6 +20,34 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5b857e8657f58",
+            "label": "Toolbar style",
+            "name": "toolbar_style",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "with--toolbar-standard": "Standard",
+                "with--toolbar-transparent-over-dark": "Transparent with light text",
+                "with--toolbar-transparent-over-light": "Transparent with dark text",
+                "with--toolbar-transparent-custom-colour": "Transparent with custom colour",
+                "with--hidden-toolbar": "Hidden"
+            },
+            "default_value": "with--toolbar-standard",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
         },
         {
             "key": "field_5d854e22f9bf6",
@@ -58,6 +67,21 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5b85803b5be52",
+            "label": "Text colour",
+            "name": "text_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
         }
     ],
     "location": [
@@ -84,5 +108,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "For posts and pages.",
-    "modified": 1569010215
+    "modified": 1591976136
 }
