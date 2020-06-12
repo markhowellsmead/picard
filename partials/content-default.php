@@ -1,6 +1,10 @@
-<article <?php post_class('c-article c-article--'.get_post_type()); ?>>
+<?php
 
-	<?php if (!(bool) get_field('hide_title')) : ?>
+$hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
+
+?><article <?php post_class('c-article c-article--'.get_post_type()); ?>>
+
+	<?php if (!$hide_title) : ?>
 		<header class="c-article__header c-main__header">
 			<h1 class="c-article__title c-article__title--<?php echo get_post_type();?> c-article__title--<?php echo (get_post_format() ?? 'default');?>"><?php the_title(); ?></h1>
 			<time class="c-article__date" datetime="<?php echo get_the_date('c'); ?>"><?php printf(_x('Published on %s', 'sht'), get_the_date()); ?></time>
@@ -10,7 +14,7 @@
 	if (!empty(get_the_content())) {
 		?>
 		<div class="c-article__contentandthumbnail">
-			<?php if (!(bool) get_field('hide_title')) : ?>
+			<?php if (!$hide_title) : ?>
 				<?php
 				get_template_part('partials/meta/video', get_post_type());
 				get_template_part('partials/meta/thumbnail', get_post_type());
@@ -21,7 +25,7 @@
 			</div>
 		</div>
 		<?php
-	} elseif (!(bool) get_field('hide_title')) {
+	} elseif (!$hide_title) {
 		get_template_part('partials/meta/video', get_post_type());
 		get_template_part('partials/meta/thumbnail', get_post_type());
 	}
