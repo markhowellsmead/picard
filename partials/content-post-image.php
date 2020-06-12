@@ -1,6 +1,10 @@
-<article <?php post_class('c-article c-article--'.get_post_type()); ?>>
+<?php
 
-	<?php if (!(bool) get_field('hide_title')) :
+$hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
+
+?><article <?php post_class('c-article c-article--'.get_post_type()); ?>>
+
+	<?php if (!$hide_title) :
 		get_template_part('partials/meta/video', get_post_type());
 		get_template_part('partials/meta/thumbnail', get_post_type());
 		?>

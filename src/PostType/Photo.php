@@ -10,10 +10,14 @@ namespace SayHello\Theme\PostType;
 class Photo
 {
 
+	const POST_TYPE = 'photo';
+	const PREFIX = 'sht_photo';
+
 	public function run()
 	{
 		add_filter('get_the_archive_title', [ $this, 'changeTheTitle' ], 30);
 		add_action('pre_get_posts', [$this, 'postsPerAlbumPage']);
+		add_action('init', [$this, 'registerMetaFields']);
 	}
 
 	public function changeTheTitle($title)
@@ -36,5 +40,17 @@ class Photo
 			$query->set('posts_per_page', 64);
 			return;
 		}
+	}
+
+	public function registerMetaFields()
+	{
+		// register_post_meta(self::POST_TYPE, 'hide_title', [
+		// 	'show_in_rest' => true,
+		// 	'single' => true,
+		// 	'type' => 'boolean',
+		// 	'auth_callback' => function () {
+		// 		return current_user_can('edit_posts');
+		// 	}
+		// ]);
 	}
 }
