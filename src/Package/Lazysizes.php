@@ -169,37 +169,39 @@ class Lazysizes
 
 				$tpl = new DOMDocument;
 				$tpl->loadHTML($lazy_image);
-				$new_figure = $domDocument->importNode($tpl->documentElement->getElementsByTagName('figure')->item(0), true);
+				if ($tpl->documentElement->getElementsByTagName('figure') && $tpl->documentElement->getElementsByTagName('figure')->length) {
+					$new_figure = $domDocument->importNode($tpl->documentElement->getElementsByTagName('figure')->item(0), true);
 
-				$wrapper = $domDocument->createElement('div');
-				$wrapper->setAttribute('class', $figure_class);
+					$wrapper = $domDocument->createElement('div');
+					$wrapper->setAttribute('class', $figure_class);
 
-				foreach ($block->childNodes as $child) {
-					if (strtolower($child->tagName) === 'a') {
-						$link = $child->cloneNode(false); // Just the link tag, not its childNodes
-						$images = $xpath->query(".//img[contains(concat(' ',normalize-space(@class),' '),' o-lazyimage__image ')]", $new_figure);
-						foreach ($images as $image) {
-							$link->appendChild($image);
+					foreach ($block->childNodes as $child) {
+						if (strtolower($child->tagName) === 'a') {
+							$link = $child->cloneNode(false); // Just the link tag, not its childNodes
+							$images = $xpath->query(".//img[contains(concat(' ',normalize-space(@class),' '),' o-lazyimage__image ')]", $new_figure);
+							foreach ($images as $image) {
+								$link->appendChild($image);
+							}
+							$new_figure->insertBefore($link, $new_figure->firstChild->nextSibling);
+							break;
 						}
-						$new_figure->insertBefore($link, $new_figure->firstChild->nextSibling);
-						break;
 					}
+
+					$wrapper->appendChild($new_figure);
+
+					$figcaption = $xpath->query('.//figcaption', $block);
+					if ((int) $figcaption->length ?? 0) {
+						$new_cap = $figcaption[0]->cloneNode(true);
+						$wrapper->appendChild($new_cap);
+					}
+
+					$block->parentNode->insertBefore($wrapper, $block);
+					$block->parentNode->removeChild($block);
 				}
-
-				$wrapper->appendChild($new_figure);
-
-				$figcaption = $xpath->query('.//figcaption', $block);
-				if ((int) $figcaption->length ?? 0) {
-					$new_cap = $figcaption[0]->cloneNode(true);
-					$wrapper->appendChild($new_cap);
-				}
-
-				$block->parentNode->insertBefore($wrapper, $block);
-				$block->parentNode->removeChild($block);
 			}
 		}
 		$body = $domDocument->saveHtml($domDocument->getElementsByTagName('body')->item(0));
-		$content = str_replace(array( '<body>', '</body>' ), '', $body);
+		$content = str_replace([ '<body>', '</body>' ], '', $body);
 		return $content;
 	}
 }
