@@ -393,7 +393,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   --color-white-off: #fffff9;
   --color-gray: #888;
   --color-gray-basewithopacity: rgba(136, 136, 136, 0.8);
-  --color-gray-dark: #333333;
+  --color-gray-dark: #33333b;
   --color-gray-dark50: rgba(47, 79, 79, 0.5);
   --color-gray-mid: #aaa;
   --color-gray-light: #ccc;
@@ -3121,7 +3121,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   --color-white-off: #fffff9;
   --color-gray: #888;
   --color-gray-basewithopacity: rgba(136, 136, 136, 0.8);
-  --color-gray-dark: #333333;
+  --color-gray-dark: #33333b;
   --color-gray-dark50: rgba(47, 79, 79, 0.5);
   --color-gray-mid: #aaa;
   --color-gray-light: #ccc;
