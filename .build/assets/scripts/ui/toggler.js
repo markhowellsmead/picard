@@ -11,15 +11,17 @@
 		this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') == 'true' ? 'false' : 'true');
 		target.setAttribute('aria-hidden', this.getAttribute('aria-expanded') == 'true' ? 'false' : 'true');
 
-		if(this.getAttribute('aria-expanded') == 'true') {
-			document.documentElement.classList.add('s-menuopen');
-		} else {
-			document.documentElement.classList.remove('s-menuopen');
+		if(target.getAttribute('aria-hidden') === 'false' && target.querySelector('input')) {
+			target.querySelector('input').focus();
 		}
 
-		// setTimeout(function () {
-		// 	target.style.display = target.getAttribute('aria-hidden') == 'true' ? 'none' : 'flex';
-		// }, jQuery.fx.speeds._default * 1.05);
+		if(this.getAttribute('data-opensinline') !== 'true') {
+			if(this.getAttribute('aria-expanded') == 'true') {
+				document.documentElement.classList.add('s-menuopen');
+			} else {
+				document.documentElement.classList.remove('s-menuopen');
+			}
+		}
 	};
 
 	controllers.forEach(controller => {

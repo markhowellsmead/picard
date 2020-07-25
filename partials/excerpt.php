@@ -61,18 +61,26 @@ use SayHello\Theme\Package\Lazysizes;
 		<?php
 		the_excerpt();
 
-		switch (get_post_format()) {
-			case 'gallery':
-				printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('View gallery', 'Excerpt link text', 'picard'));
-				break;
-			case 'image':
+		switch (get_post_type()) {
+			case 'photo':
 				printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('View larger', 'Excerpt link text', 'picard'));
 				break;
-			case 'video':
-				printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('Watch video', 'Excerpt link text', 'picard'));
-				break;
+			break;
 			default:
-				printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('Read more', 'Excerpt link text', 'picard'));
+				switch (get_post_format()) {
+					case 'gallery':
+						printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('View gallery', 'Excerpt link text', 'picard'));
+						break;
+					case 'image':
+						printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('View larger', 'Excerpt link text', 'picard'));
+						break;
+					case 'video':
+						printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('Watch video', 'Excerpt link text', 'picard'));
+						break;
+					default:
+						printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('Read more', 'Excerpt link text', 'picard'));
+						break;
+				}
 				break;
 		}
 		?>
