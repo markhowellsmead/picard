@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="24" height="24" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Search" clip-path="url(#clip-path)">
+    <path id="Path_2" data-name="Path 2" d="M3,10.5A7.427,7.427,0,0,1,10.5,3,7.427,7.427,0,0,1,18,10.5,7.427,7.427,0,0,1,10.5,18,7.427,7.427,0,0,1,3,10.5ZM21.45,23.55a1.485,1.485,0,0,0,2.1-2.1L18.9,16.8A10.27,10.27,0,0,0,21,10.5,10.435,10.435,0,0,0,10.5,0,10.435,10.435,0,0,0,0,10.5,10.435,10.435,0,0,0,10.5,21a10.27,10.27,0,0,0,6.3-2.1Z" fill="currentColor"/>
+  </g>
+</svg>

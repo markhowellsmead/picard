@@ -29,6 +29,8 @@
 					'menu_class'     => 'c-menu c-menu--primary',
 				]
 			);
+
+			get_template_part('partials/navigation/searchdrawer');
 			?>
 
 			<button class="c-menutoggler" aria-controls="mobile-menu" aria-expanded="false">
