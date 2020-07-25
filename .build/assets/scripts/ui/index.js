@@ -6,8 +6,9 @@ import './fancybox';
 import './footnotes';
 import './form';
 import './main';
-import './menu';
+import './search';
 import './swiper';
+import './toggler';
 
 window.anchorAnimateOffset = window.innerHeight / 2;
 $('a[href*="#"]').anchorAnimate();

@@ -1,0 +1,16 @@
+.o-searchbutton {
+	cursor: pointer;
+	color: c(white);
+	flex: 0 0 rem-calc(24px);
+	width: rem-calc(24px);
+	height: rem-calc(24px);
+	transition: none;
+	background: c(transparent) url('../img/icons/search.min.svg') center no-repeat;
+	background-size: 16px;
+	border: 0;
+	padding: 0;
+
+	&[aria-expanded='true'] {
+		background-image: url('../img/icons/close-24px.min.svg');
+	}
+}
