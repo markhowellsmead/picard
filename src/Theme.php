@@ -89,6 +89,7 @@ class Theme
 				\SayHello\Theme\Block\HomeCarousel::class,
 				\SayHello\Theme\Block\ImageGallery::class,
 				\SayHello\Theme\Block\PostHeader::class,
+				\SayHello\Theme\Block\PhotosByAlbum::class,
 				\SayHello\Theme\Block\PhotosByCollection::class,
 				\SayHello\Theme\Block\ViewpointAncestors::class,
 				\SayHello\Theme\Block\ViewpointCards::class,
