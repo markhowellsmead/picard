@@ -33,22 +33,19 @@
 		padding-left: var(--unit-large);
 		padding-right: 0;
 	}
+}
 
-	.search-form {
-		.search-submit {
-			box-shadow: none;
-			margin-left: 0;
-			border: 1px solid var(--color-gray-mid);
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-		}
+.c-searchform {
+	.search-form .search-submit {
+		box-shadow: none;
+		margin-left: 0;
+		border: 1px solid var(--color-gray-mid);
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 	}
-
-	.c-searchform {
-		&__searchfield {
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-			border-right: 0;
-		}
+	.c-searchform__searchfield {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-right: 0;
 	}
 }
