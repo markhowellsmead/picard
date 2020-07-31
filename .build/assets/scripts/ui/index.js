@@ -6,6 +6,7 @@ import './fancybox';
 import './footnotes';
 import './form';
 import './main';
+import './maps';
 import './search';
 import './swiper';
 import './toggler';

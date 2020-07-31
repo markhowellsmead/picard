@@ -1,0 +1,30 @@
+.wp-block-mhm-map-by-viewpoint {
+
+	background-color: var(--color-white);
+
+	&__map {
+		height: 100%;
+		min-height: 600px;
+
+		img {
+			outline: none;
+		}
+	}
+}
+
+@include context-edit {
+	.wp-block-mhm-map-by-viewpoint {
+		&.c-editormessage {
+			display: block;
+			&--error {
+				.wp-block-mhm-map-by-viewpoint__title {
+					color: inherit;
+				}
+			}
+		}
+
+		a {
+			pointer-events: none;
+		}
+	}
+}

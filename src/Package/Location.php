@@ -70,6 +70,6 @@ class Location
 		$lng['sec'] = floatval($lng['sec'][0]) / floatval($lng['sec'][1]);
 		$lng['decimal'] = $this->DMStoDEC($lng['deg'], $lng['min'], $lng['sec']);
 
-		return implode(',', [$lat['decimal'], $lng['decimal']]);
+		return ['lat' => $lat['decimal'], 'lng' => $lng['decimal']];
 	}
 }

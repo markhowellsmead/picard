@@ -1,0 +1,19 @@
+.c-googlemap {
+	&__reset {
+		@extend .o-button;
+		@extend .o-button--white;
+		box-shadow: 0 0 4px var(--color-shadow-medium);
+		position: absolute;
+		bottom: 36px;
+		right: 10px;
+	}
+}
+
+@include context-edit {
+	.c-googlemap {
+		&__reset {
+			background-color: var(--color-white) !important;
+			padding: var(--button-padding) !important;
+		}
+	}
+}

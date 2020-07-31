@@ -67,7 +67,19 @@ class Assets
 
 		wp_enqueue_script('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.js', [ 'jquery' ], '3.4.0', true);
 		$deps[] = 'fancybox';
+
 		wp_enqueue_script(sht_theme()->prefix . '-script', $this->theme_url . '/assets/scripts/ui' . (sht_theme()->debug ? '' : '.min') . '.js', $deps, filemtime($this->theme_path . '/assets/scripts/ui' . (sht_theme()->debug ? '' : '.min') . '.js'), true);
+		wp_localize_script(sht_theme()->prefix . '-script', 'shtTranslations', [
+			'reset' => _x('Reset', 'Interactive control button text', 'sht'),
+		]);
+		wp_localize_script(sht_theme()->prefix . '-script', 'shtThemeData', [
+			'directory_uri' => get_template_directory_uri(),
+		]);
+		if (function_exists('acf_get_setting') && !empty(acf_get_setting('google_api_key') ?? '')) {
+			wp_localize_script(sht_theme()->prefix . '-script', 'shtMapData', [
+				'google_api_key' => acf_get_setting('google_api_key'),
+			]);
+		}
 
 		/**
 		 * Footer JS
