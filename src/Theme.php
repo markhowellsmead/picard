@@ -91,6 +91,7 @@ class Theme
 				\SayHello\Theme\Block\PostHeader::class,
 				\SayHello\Theme\Block\PhotosByAlbum::class,
 				\SayHello\Theme\Block\PhotosByCollection::class,
+				\SayHello\Theme\Block\PhotosByViewpoint::class,
 				\SayHello\Theme\Block\ViewpointAncestors::class,
 				\SayHello\Theme\Block\ViewpointCards::class,
 				\SayHello\Theme\Block\YearsOnline::class,
