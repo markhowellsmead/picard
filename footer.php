@@ -16,6 +16,8 @@
 				'menu_class'     => 'c-menu c-menu--mobile',
 			]
 		);
+
+		get_template_part('partials/navigation/searchform');
 		?>
 	</div>
 

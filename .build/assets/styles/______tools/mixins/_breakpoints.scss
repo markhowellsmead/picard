@@ -34,6 +34,12 @@
 	}
 }
 
+@mixin smartphone() {
+	@include for-screen-min(smartphone) {
+		@content;
+	}
+}
+
 @mixin tablet() {
 	@include for-screen-min(tablet) {
 		@content;

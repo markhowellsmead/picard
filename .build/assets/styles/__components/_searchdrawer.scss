@@ -1,0 +1,51 @@
+.c-searchdrawer {
+	display: none;
+	@include transition;
+	width: 100%;
+	max-width: 0;
+	overflow: hidden;
+
+	@include tablet {
+		display: flex;
+	}
+
+	@include laptop {
+		margin-top: var(--unit-xsmall);
+	}
+
+	&__toggler {
+		display: none;
+		margin-right: var(--unit-medium);
+		margin-left: var(--unit-large);
+
+		@include tablet {
+			display: inline-block;
+		}
+
+		@include laptop {
+			margin-top: var(--unit-xsmall);
+			margin-right: 0;
+		}
+	}
+
+	&[aria-hidden='false'] {
+		max-width: rem-calc(284px);
+		padding-left: var(--unit-large);
+		padding-right: 0;
+	}
+}
+
+.c-searchform {
+	.search-form .search-submit {
+		box-shadow: none;
+		margin-left: 0;
+		border: 1px solid var(--color-gray-mid);
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.c-searchform__searchfield {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-right: 0;
+	}
+}

@@ -19,7 +19,7 @@
 		"gray": {
 			"base": "#888",
 			"basewithopacity": "rgba(136, 136, 136, 0.8)",
-			"dark": "hsl(0, 0%, 20%)",
+			"dark": "#33333b",
 			"dark50": "rgba(47, 79, 79, 0.5)",
 			"mid": "#aaa",
 			"light": "#ccc",
@@ -99,6 +99,7 @@
 	},
 	"theme_breakpoints": {
 		"phone": 330,
+		"smartphone": 375,
 		"wordpress_small": 600,
 		"tablet": 768,
 		"wordpress_medium": 783,
