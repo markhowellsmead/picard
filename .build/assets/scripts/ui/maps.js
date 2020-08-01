@@ -25,8 +25,10 @@ import { map_styles } from './map_styles';
 			url: shtThemeData.directory_uri + '/assets/img/icons/pt-map-pin.min.svg', // url
 			scaledSize: new google.maps.Size(22, 52), // scaled size
 			origin: new google.maps.Point(0, 0), // origin
-			anchor: new google.maps.Point(0, 0) // anchor
+			anchor: new google.maps.Point(0, 52) // anchor
 		};
+
+		let activeInfoWindow = null;
 
 		document.querySelectorAll('[data-map]').forEach(function (mapContainer) {
 			mapContainer.markers = [];
@@ -51,6 +53,8 @@ import { map_styles } from './map_styles';
 					styles: map_styles
 				});
 
+			let markers = [];
+
 			// Add the markers to the map
 			map_data.forEach(pin => {
 				if(!!pin.location && !!pin.location.lat && !!pin.location.lng) {
@@ -61,26 +65,31 @@ import { map_styles } from './map_styles';
 							visible: true,
 							icon: icon
 						});
+					marker.set('infowindow', new google.maps.InfoWindow({
+						content: pin.preview,
+						map: map
+					}));
+					google.maps.event.addListener(marker, 'click', function () {
+						if(activeInfoWindow) { activeInfoWindow.close(); }
+						this.get('infowindow').open(map, this);
+						activeInfoWindow = this.get('infowindow');
+					});
 					marker.set('id', 'markerLocation' + pin.ID);
 					mapContainer.markers['markerLocation' + pin.ID] = marker;
-					marker.addListener('click', function () {
-						map.setZoom(15);
-						map.setCenter(marker.getPosition());
-					});
 
+					google.maps.event.addListener(marker, 'mouseover', function () {
+						event.target.closest('[data-map-block]').querySelectorAll('[data-map-entry-id="' + this.id.replace('markerLocation', '') + '"]').forEach(element => {
+							element.classList.add('is--hovered');
+						});
+					});
+					google.maps.event.addListener(marker, 'mouseout', function () {
+						event.target.closest('[data-map-block]').querySelectorAll('[data-map-entry-id="' + this.id.replace('markerLocation', '') + '"]').forEach(element => {
+							element.classList.remove('is--hovered');
+						});
+					});
+					bounds.extend(markerLocation);
 				}
 
-				google.maps.event.addListener(marker, 'mouseover', function () {
-					event.target.closest('[data-map-block]').querySelectorAll('[data-map-entry-id="' + this.id.replace('markerLocation', '') + '"]').forEach(element => {
-						element.classList.add('is--hovered');
-					});
-				});
-				google.maps.event.addListener(marker, 'mouseout', function () {
-					event.target.closest('[data-map-block]').querySelectorAll('[data-map-entry-id="' + this.id.replace('markerLocation', '') + '"]').forEach(element => {
-						element.classList.remove('is--hovered');
-					});
-				});
-				bounds.extend(markerLocation);
 			});
 
 			// Adjust map view to encompass all markers
@@ -98,34 +107,8 @@ import { map_styles } from './map_styles';
 				this.blur();
 			});
 			mapContainer.appendChild(reset_button);
-
-
-			// Add hover events to address list
-			mapContainer.closest('[data-map-block]').querySelectorAll('[data-map-entry-id]').forEach(element => {
-				element.addEventListener('mouseenter', function (event) {
-					if(!event.target.getAttribute('data-map-entry-id')) {
-						return;
-					}
-					let marker = mapContainer.markers['markerLocation' + event.target.getAttribute('data-map-entry-id')];
-					if(!!marker && 'getAnimation' in marker && marker.getAnimation() === null) {
-						marker.setAnimation(google.maps.Animation.BOUNCE);
-					}
-				});
-				element.addEventListener('mouseleave', function (event) {
-					if(!event.target.getAttribute('data-map-entry-id')) {
-						return;
-					}
-					let marker = mapContainer.markers['markerLocation' + event.target.getAttribute('data-map-entry-id')];
-					if(!!marker && 'getAnimation' in marker && marker.getAnimation() !== null) {
-						marker.setAnimation(null);
-					}
-				});
-			});
-
-
 		});
 	};
-
 
 	// Load the Google Maps script and call the init function once it's loaded
 	const maps_script = document.createElement('script');

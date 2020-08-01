@@ -2,6 +2,8 @@
 	--stack-space-top: 2rem;
 	--stack-space-bottom: 2rem;
 
+	@extend .h-stack;
+
 	&__images {
 		list-style: none;
 		padding: 0;
