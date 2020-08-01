@@ -71,9 +71,6 @@ if (empty($map_locations)) {
 	return;
 }
 
-$script_enqueued = false;
-$api_key = get_field('google_maps_api_key', 'theme_options');
-
 ?>
 
 <section class="wp-block-mhm-map-by-viewpoint<?php echo !empty($data['align']) ? ' align'.$data['align'] : '';?>" data-map-block>
