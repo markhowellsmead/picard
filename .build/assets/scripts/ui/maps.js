@@ -27,9 +27,7 @@ import { map_styles } from './map_styles';
 	const initMaps = function () {
 
 		iw = new google.maps.InfoWindow();
-		google.maps.event.addListener(iw, 'closeclick', function (e) {
-			e.preventDefault();
-		});
+
 		const icon = {
 			url: shtThemeData.directory_uri + '/assets/img/icons/pt-map-pin.min.svg', // url
 			scaledSize: new google.maps.Size(22, 52), // scaled size
