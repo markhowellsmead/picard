@@ -32,7 +32,7 @@ import { map_styles } from './map_styles';
 			url: shtThemeData.directory_uri + '/assets/img/icons/pt-map-pin.min.svg', // url
 			scaledSize: new google.maps.Size(22, 52), // scaled size
 			// origin: new google.maps.Point(0, 0), // origin
-			anchor: new google.maps.Point(0, 52) // anchor
+			// anchor: new google.maps.Point(0, 52) // anchor
 		};
 
 		document.querySelectorAll('[data-map]').forEach(function (mapContainer) {
@@ -45,6 +45,10 @@ import { map_styles } from './map_styles';
 					center: { lat: 46.7985286, lng: 8.2296061 }, // Älggialp
 					zoom: 8,
 					disableDefaultUI: true,
+					fullscreenControl: true,
+					fullscreenControlOptions: {
+						position: google.maps.ControlPosition.RIGHT_TOP
+					},
 					mapTypeControl: true,
 					mapTypeControlOptions: {
 						mapTypeIds: [google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.ROADMAP]

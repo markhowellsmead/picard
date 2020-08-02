@@ -36,7 +36,7 @@ foreach ($photos_by_viewpoint as $photo) {
 	$thumbnail_id = get_post_thumbnail_id($photo);
 	$metadata = wp_get_attachment_metadata($thumbnail_id);
 	$location = get_field('location', $photo->ID);
-	$lazy_image = Lazysizes::getLazyImage($thumbnail_id, 'card', 'wp-block-mhm-map-by-viewpoint__figure', 'wp-block-mhm-map-by-viewpoint__image');
+	$lazy_image = Lazysizes::getLazyImage($thumbnail_id, 'medium', 'wp-block-mhm-map-by-viewpoint__figure', 'wp-block-mhm-map-by-viewpoint__image');
 	if (!empty($lazy_image)) {
 		$lazy_image = sprintf(
 			'<a href="%s">%s</a>',

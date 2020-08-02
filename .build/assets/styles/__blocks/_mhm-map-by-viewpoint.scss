@@ -19,7 +19,7 @@
 		min-height: 600px;
 
 		@include desktop_large {
-			min-height: 900px;
+			height: calc(100vh - var(--masthead-height));
 		}
 
 		img {
