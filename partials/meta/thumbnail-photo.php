@@ -13,7 +13,7 @@ $block_width = 'alignwide';
 switch ($imageAspect) {
 	case 'xwide':
 		$image_size = 'full';
-		$block_width = 'alignxwide';
+		$block_width = 'alignfull';
 		break;
 	case 'tall':
 		$image_size = 'gutenberg_wide';
