@@ -6,8 +6,22 @@
 .c-grid500 {
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 100%;
+
 	flex-basis: 100%;
+
+	.alignfull > &,
+	.alignwide > & {
+		@include desktop {
+			max-width: calc(100% + calc(var(--grid500-unit-small) * 2));
+			margin-left: calc(var(--grid500-unit-small) * -1);
+			margin-right: calc(var(--grid500-unit-small) * -1);
+		}
+	}
+
+	.alignfull > & {
+		margin-left: var(--grid500-unit-small);
+		margin-right: var(--grid500-unit-small);
+	}
 
 	&::after {
 		content: '';

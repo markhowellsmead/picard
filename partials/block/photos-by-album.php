@@ -28,12 +28,12 @@ if (empty($album_posts = get_posts([
 	return;
 }
 
-$target_height = 500;
-$image_size = 'large';
+$target_height = 300;
+$image_size = 'medium';
 
-if (count($album_posts) > 10) {
-	$target_height = 400;
-	$image_size = 'medium';
+$align = $data['align'];
+if (!empty($data['align'])) {
+	$align = 'align'.$data['align'];
 }
 
 $unique = uniqid();
@@ -41,14 +41,14 @@ $unique = uniqid();
 ?>
 
 <!-- Grid layout origin: https://github.com/xieranmaya/blog/issues/6 #wowza -->
-<section class="wp-block-photos-by-album <?php echo !empty($data['align']) ? ' align'.$data['align'] : '';?>">
+<section class="wp-block-photos-by-album <?php echo $align;?>">
 	<ul class="wp-block-photos-by-album__images c-grid500">
 		<?php foreach ($album_posts as $album_post) {
 			$thumbnail_id = get_post_thumbnail_id($album_post);
 			$metadata = wp_get_attachment_metadata($thumbnail_id);
 			$source_image_size = $metadata['sizes'][$image_size] ?? null ? $image_size : 'large';
-			$width = $metadata['sizes'][$image_size]['width'];
-			$height = $metadata['sizes'][$image_size]['height'];
+			$width = $metadata['sizes'][$image_size]['width'] ?? $metadata['width'];
+			$height = $metadata['sizes'][$image_size]['height'] ?? $metadata['height'];
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;
