@@ -13,25 +13,25 @@ if (empty($images = get_field('images'))) {
 	return;
 }
 
-$target_height = 280;
+$target_height = 300;
 $image_size = 'medium';
-//
-// if (count($images) > 10) {
-// 	$target_height = 400;
-// 	$image_size = 'medium';
-// }
+
+$align = $data['align'];
+if (!empty($data['align'])) {
+	$align = 'align'.$data['align'];
+}
 
 $unique = uniqid();
 
 ?>
 
 <!-- Grid layout origin: https://github.com/xieranmaya/blog/issues/6 #wowza -->
-<section class="wp-block-sht-imagegallery <?php echo !empty($data['align']) ? ' align'.$data['align'] : '';?>">
+<section class="wp-block-sht-imagegallery <?php echo $align;?>">
 	<ul class="wp-block-sht-imagegallery__images c-grid500">
 		<?php foreach ($images as $image) {
 			$source_image_size = $image['sizes'][$image_size] ?? null ? $image_size : 'large';
-			$width = $image['sizes'][$source_image_size.'-width'];
-			$height = $image['sizes'][$source_image_size.'-height'];
+			$width = $image['sizes'][$source_image_size.'-width'] ?? $image['width'];
+			$height = $image['sizes'][$source_image_size.'-height'] ?? $image['height'];
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;

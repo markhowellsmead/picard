@@ -11,6 +11,8 @@ $number_of_posts = max(1, (int) $data['data']['sht_number_of_posts']);
 if (empty($collection_posts = get_posts([
 	'post_type' => 'photo',
 	'posts_per_page' => $number_of_posts,
+	'orderby' => 'date',
+	'order' => 'DESC',
 	'tax_query' => [
 		[
 			'taxonomy' => 'collection',
@@ -28,12 +30,12 @@ if (empty($collection_posts = get_posts([
 	return;
 }
 
-$target_height = 500;
-$image_size = 'large';
+$target_height = 300;
+$image_size = 'medium';
 
-if (count($collection_posts) > 10) {
-	$target_height = 400;
-	$image_size = 'medium';
+$align = $data['align'];
+if (!empty($data['align'])) {
+	$align = 'align'.$data['align'];
 }
 
 $unique = uniqid();
@@ -41,14 +43,14 @@ $unique = uniqid();
 ?>
 
 <!-- Grid layout origin: https://github.com/xieranmaya/blog/issues/6 #wowza -->
-<section class="wp-block-photos-by-collection <?php echo !empty($data['align']) ? ' align'.$data['align'] : '';?>">
+<section class="wp-block-photos-by-collection <?php echo $align;?>">
 	<ul class="wp-block-photos-by-collection__images c-grid500">
 		<?php foreach ($collection_posts as $collection_post) {
 			$thumbnail_id = get_post_thumbnail_id($collection_post);
 			$metadata = wp_get_attachment_metadata($thumbnail_id);
 			$source_image_size = $metadata['sizes'][$image_size] ?? null ? $image_size : 'large';
-			$width = $metadata['sizes'][$image_size]['width'];
-			$height = $metadata['sizes'][$image_size]['height'];
+			$width = $metadata['sizes'][$image_size]['width'] ?? $metadata['width'];
+			$height = $metadata['sizes'][$image_size]['height'] ?? $metadata['height'];
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;
