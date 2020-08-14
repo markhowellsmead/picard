@@ -57,7 +57,7 @@ if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])
 							);
 						}
 						?>
-						<time class="c-fourcards__entrydate wp-block-mhm-blog-cards__entrydate" datetime="<?php echo get_the_date('c', $data_post->ID); ?>"><?php printf(_x('Published on %s', 'sht'), get_the_date(null, $data_post->ID)); ?></time>
+						<time class="c-fourcards__entrydate wp-block-mhm-blog-cards__entrydate" datetime="<?php echo get_the_date('c', $data_post->ID); ?>"><?php printf(_x('Published on %s', 'sht'), get_the_date('', $data_post->ID)); ?></time>
 						<?php if (!empty($excerpt = get_the_excerpt($data_post->ID))) {?>
 							<div class="c-fourcards__excerpt wp-block-mhm-blog-cards__excerpt">
 								<?php echo $excerpt;?>
