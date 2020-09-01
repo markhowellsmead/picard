@@ -13,15 +13,15 @@
 }
 
 html {
-	overflow-x: hidden;
-	max-height: 100%;
 	line-height: 1.5;
+
 	&.s-menuopen {
 		overflow: hidden;
 		position: fixed;
 		top: 0;
 		width: 100vw;
 		height: 100vh;
+
 		&.admin-bar {
 			margin-top: 0 !important;
 		}
@@ -35,10 +35,20 @@ html {
 
 body {
 	background-color: var(--page-background-color);
-	overflow-x: hidden;
 }
 
 ::selection {
 	background: c(gray, dark);
 	color: c(white);
+}
+
+@include context-view {
+	html {
+		overflow-x: hidden;
+		max-height: 100%;
+	}
+
+	body {
+		overflow-x: hidden;
+	}
 }
