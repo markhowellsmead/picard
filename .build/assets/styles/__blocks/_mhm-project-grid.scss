@@ -16,7 +16,6 @@
 	}
 
 	.wp-block {
-
 		&-mhm-project-header {
 			margin-bottom: var(--unit);
 			@include tablet_landscape {
@@ -24,10 +23,10 @@
 			}
 		}
 
-		&-mhm-image,
-		&-mhm-project-header__figure {
+		&-mhm-image {
 			border: var(--grid-border-width) solid transparent;
 		}
+
 		&-mhm-project-header__figure {
 			border-top-width: 0;
 		}
