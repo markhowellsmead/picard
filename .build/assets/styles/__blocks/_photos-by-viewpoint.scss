@@ -12,10 +12,11 @@
 
 .wp-block-mhm-project-header + .wp-block-photos-by-viewpoint,
 .wp-block-mhm-viewpoint-header + .wp-block-photos-by-viewpoint {
-	margin-top: var(--grid-border-width);
+	margin-top: 0;
+
 	.wp-block-photos-by-viewpoint {
 		&__images {
-			margin-top: 0;
+			margin-top: calc(var(--unit-small) * -1);
 		}
 	}
 }
