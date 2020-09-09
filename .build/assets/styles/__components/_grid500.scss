@@ -19,8 +19,8 @@
 	}
 
 	.alignfull > & {
-		margin-left: var(--grid500-unit-small);
-		margin-right: var(--grid500-unit-small);
+		margin-left: var(--grid500-unit);
+		margin-right: var(--grid500-unit);
 	}
 
 	&::after {
@@ -39,12 +39,11 @@
 	&__item {
 		display: block;
 		flex-basis: calc(50% - var(--grid500-unit-small));
-		margin: var(--grid500-unit-small) 0;
+		margin: var(--grid500-unit-small);
 		background-color: #f0f0f0;
 		position: relative;
 
 		@include tablet {
-			margin: var(--grid500-unit-small);
 			flex-basis: calc(33.33333333% - var(--grid500-unit));
 		}
 

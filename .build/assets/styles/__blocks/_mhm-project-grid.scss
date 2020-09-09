@@ -16,6 +16,17 @@
 	}
 
 	.wp-block {
+		&-columns {
+			padding: 0 var(--unit-small);
+
+			.wp-block-column + .wp-block-column {
+				margin-top: var(--unit-small);
+				@include tablet {
+					margin-top: 0;
+				}
+			}
+		}
+
 		&-mhm-project-header {
 			margin-bottom: var(--unit);
 			@include tablet_landscape {

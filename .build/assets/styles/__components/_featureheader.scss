@@ -27,11 +27,12 @@
 	}
 
 	&__inner {
-		padding: var(--unit-small);
+		padding: 0 var(--unit) var(--unit-large);
 		position: relative;
 		display: flex;
 		flex-flow: column-reverse;
 		@include tablet_landscape {
+			padding: var(--unit);
 			@supports(display: grid) {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
