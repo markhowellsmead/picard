@@ -17,9 +17,11 @@
 		@include transition;
 		opacity: .2;
 		transform: scale(.9);
+
 		&.swiper-slide-active {
 			opacity: 1;
 			transform: scale(1);
+
 			.b-home-carousel__link {
 				pointer-events: all;
 			}
@@ -32,11 +34,14 @@
 	&__imagewrap {
 		position: relative;
 		background-color: transparent;
+		max-height: 565px;
+
 		&::after {
 			content: '';
 			display: block;
 			padding-bottom: 56.25%;
 		}
+
 		img {
 			@include flood;
 			height: 100%;

@@ -120,7 +120,7 @@
 	&.is-vertically-aligned-bottom {
 		.wp-block-cover__inner-container {
 			@include desktop {
-				padding-bottom: var(--unit-large);
+				padding-bottom: var(--unit-medium);
 			}
 		}
 	}
