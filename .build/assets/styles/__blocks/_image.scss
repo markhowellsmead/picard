@@ -5,11 +5,25 @@
 .wp-block-image {
 	img {
 		pointer-events: none;
+
 		body.logged-in & {
 			pointer-events: all;
 		}
 	}
+
 	figcaption {
 		margin-bottom: 0;
+	}
+
+	&.alignfull,
+	&.alignwide {
+		figcaption {
+			padding-left: var(--unit);
+			padding-right: var(--unit);
+			@include tablet {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
 	}
 }
