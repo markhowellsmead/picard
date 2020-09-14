@@ -8,7 +8,7 @@ if (post_password_required() || is_attachment() || ! has_post_thumbnail() || (bo
 
 $imageAspect = sht_theme()->Package->Media->thumbnailAspect();
 
-$block_width = 'alignwide';
+$block_width = 'regular';
 
 switch ($imageAspect) {
 	case 'xwide':
@@ -17,7 +17,11 @@ switch ($imageAspect) {
 		break;
 	case 'tall':
 		$image_size = 'gutenberg_wide';
-		$block_width = '';
+		$block_width = 'tall';
+		break;
+	case '169':
+		$image_size = 'gutenberg_wide';
+		$block_width = 'filmic';
 		break;
 	default:
 		$image_size = 'large';

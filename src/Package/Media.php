@@ -12,6 +12,7 @@ class Media
 
 	const META_KEY = 'video_ref';
 	private $wide_aspectratio = 2;
+	private $film_aspectratio = 1.7;
 	private $xwide_aspectratio = 2.25;
 
 	public function run()
@@ -76,11 +77,14 @@ class Media
 	{
 		$image_src = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'post-thumbnail');
 		if (is_array($image_src)) {
-			$aspect = $image_src[1] / $image_src[2];
+			$aspect = round((int) $image_src[1] / $image_src[2], 6);
+
 			if ($aspect >= $this->xwide_aspectratio) {
 				return 'xwide';
-			} elseif ($aspect >= $this->wide_aspectratio) {
+			} elseif ($aspect >= round($this->wide_aspectratio, 6)) {
 				return 'wide';
+			} elseif ($aspect >= round($this->film_aspectratio, 6)) {
+				return '169';
 			} elseif ($aspect == 1) {
 				return 'square';
 			} elseif ($aspect < 1) {
