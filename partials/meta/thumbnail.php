@@ -25,15 +25,13 @@ $image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-articl
 if (is_singular()) {
 	if (!is_page_template('single-gutenberg')) {
 		printf(
-			'<div class="c-article__thumbnail c-article__thumbnail--%1$s%2$s%3$s">%4$s</div>',
+			'<div class="c-article__thumbnail c-article__thumbnail--%1$s%2$s">%3$s</div>',
 			get_post_type(),
 			!empty($class) ? ' '.$class : '',
-			get_post_format() === 'image' && $imageAspect !== 'tall' ? ' alignwide' : '',
 			$image
 		);
 	}
 } else {
-	var_dump(get_field('video_ref'));
 	if (!empty(get_field('video_ref'))) {
 		if (!empty($video_image = sht_theme()->Package->Media->getVideoThumbnail(get_field('video_ref')))) {
 			$image = $video_image;
