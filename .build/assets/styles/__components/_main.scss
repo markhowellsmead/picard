@@ -6,7 +6,7 @@
 		margin-top: calc(var(--masthead-height) + var(--unit-large));
 
 		.o-body--xwidethumbnail.single-photo & {
-			margin-top: var(--masthead-height) + var(--unit-medium));
+			margin-top: calc(var(--masthead-height) + var(--unit-medium));
 		}
 	}
 	@include desktop_large {
