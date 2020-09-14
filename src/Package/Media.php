@@ -30,6 +30,7 @@ class Media
 	public function addImageSizes()
 	{
 		add_image_size('card', 296*2, 198*2, true);
+		add_image_size('photo_medium', 800*2, 9999);
 		add_image_size('list_view', 540*2, 9999);
 		add_image_size('list_view_tall', 9999, 540);
 		add_image_size('gutenberg_wide', 1280, 9999);

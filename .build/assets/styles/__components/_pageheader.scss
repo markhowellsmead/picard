@@ -31,6 +31,7 @@
 	@supports(backdrop-filter: blur(10px)) {
 		backdrop-filter: blur(10px);
 		background: transparent;
+
 		&::before {
 			background-color: var(--color-white);
 			opacity: .8;
@@ -46,10 +47,13 @@
 		z-index: 2;
 		margin-left: auto;
 		margin-right: auto;
-		max-width: var(--constraint-wide);
+		max-width: var(--constraint-medium);
 		@include laptop {
 			padding-left: 0;
 			padding-right: 0;
+		}
+		@include desktop {
+			max-width: var(--constraint-wide);
 		}
 
 		.c-shtlogo {

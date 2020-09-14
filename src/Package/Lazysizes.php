@@ -131,7 +131,7 @@ class Lazysizes
 			'window' => 2560,
 			'page' => 1376,
 			'large' => 1280,
-			'medium' => 330,
+			'medium' => 768,
 			'smallsquare' => 180,
 			'small' => 160,
 		];
