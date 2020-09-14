@@ -2,18 +2,21 @@
 	position: relative;
 	z-index: 0;
 	flex: 1 0 .00001px;
+
+	.o-body--xwidethumbnail.single-photo & {
+		margin-top: 0;
+	}
+
 	@include desktop {
 		margin-top: calc(var(--masthead-height) + var(--unit-large));
 
 		.o-body--xwidethumbnail.single-photo & {
-			margin-top: calc(var(--masthead-height) + var(--unit-medium));
+			margin-top: var(--masthead-height);
 		}
 	}
+
 	@include desktop_large {
 		margin-top: calc(var(--masthead-height) + var(--unit-xlarge));
 
-		.o-body--xwidethumbnail.single-photo & {
-			margin-top: var(--masthead-height);
-		}
 	}
 }
