@@ -27,13 +27,13 @@ class BlogCards
 		$posts = get_posts([
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 4,
+			'posts_per_page' => 8,
 			'ignore_sticky' => false
 		]);
 
-		if (count($posts) > 4) {
+		if (count($posts) > 8) {
 			// Sticky post!
-			$posts = array_slice($posts, 0, 4);
+			$posts = array_slice($posts, 0, 8);
 		}
 
 		if (!count($posts)) {

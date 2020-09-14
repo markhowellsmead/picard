@@ -27,11 +27,6 @@
 				display: block;
 				opacity: .65;
 
-				body.home & {
-					opacity: 1;
-					font-weight: var(--menu-primary-font-weight-active);
-				}
-
 				&:last-child {
 					a {
 						padding-right: 0;

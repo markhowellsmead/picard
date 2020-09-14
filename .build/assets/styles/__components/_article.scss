@@ -23,13 +23,13 @@
 			}
 		}
 
-		> .wp-block-cover:first-child,
+		> .b-home-carousel:first-child,
 		 > .wp-block-group:first-child,
 		 > .wp-block-media-text:first-child,
 		 > .wp-block-mhm-project-grid:first-child,
 		 > .wp-block-mhm-project-header:first-child,
 		 > .wp-block-mhm-viewpoint-header:first-child,
-		> .b-home-carousel:first-child {
+		> .wp-block-cover:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 			@include desktop {
 				margin-top: calc(var(--unit-large) * -2);
@@ -262,11 +262,6 @@
 				margin-top: 0;
 			}
 
-			&__contentandthumbnail {
-				@include laptop {
-					margin-top: 0;
-				}
-			}
 		}
 	}
 }

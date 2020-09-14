@@ -56,6 +56,11 @@ class Navigation
 		if ($item->current_item_parent) {
 			$classes[] = 'c-menu__entry--current_item_parent';
 		}
+
+		if ($item->type === 'post_type_archive' && get_post_type() === $item->object || is_singular('post') && $item->object_id === get_option('page_for_posts')) {
+			$classes[] = 'current-page-ancestor';
+		}
+
 		return $classes;
 	}
 
