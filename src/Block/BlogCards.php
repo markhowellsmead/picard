@@ -41,7 +41,7 @@ class BlogCards
 		}
 
 		ob_start();
-		sht_theme()->getTemplatePart('partials/block/blog-cards', [
+		get_template_part('partials/block/blog-cards', null, [
 			'attributes' => $attributes,
 			'posts' => $posts
 		]);
