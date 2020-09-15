@@ -13,6 +13,7 @@ import "./post-excerpt/index.jsx";
 import "./post-header/index.jsx";
 import "./project-grid/index.jsx";
 import "./project-header/index.jsx";
+import "./publication-date/index.jsx";
 import "./shb-video-bar/index.jsx";
 import "./viewpoint-ancestors/index.jsx";
 import "./viewpoint-cards/index.jsx";
