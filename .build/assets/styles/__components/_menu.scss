@@ -17,6 +17,11 @@
 		margin-top: var(--menu-primary-offset-y);
 		font-size: var(--menu-primary-font-size);
 		font-weight: var(--menu-primary-font-weight);
+		@include transition;
+
+		.s-searchopen & {
+			opacity: 0;
+		}
 
 		@include laptop {
 			display: block;

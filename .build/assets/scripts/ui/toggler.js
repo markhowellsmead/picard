@@ -18,6 +18,14 @@
 				document.documentElement.classList.remove('s-menuopen');
 			}
 		}
+
+		if (this.getAttribute('aria-controls') == 'masthead-searchform') {
+			if (target.getAttribute('aria-hidden') == 'true') {
+				document.documentElement.classList.remove('s-searchopen');
+			} else {
+				document.documentElement.classList.add('s-searchopen');
+			}
+		}
 	};
 
 	controllers.forEach(controller => {
