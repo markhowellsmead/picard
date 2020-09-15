@@ -23,7 +23,12 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 			<?php endif; ?>
 
 			<div class="c-article__content">
-				<?php the_content(); ?>
+				<?php
+				the_content();
+				if (get_post_format() === 'gallery') {
+					get_template_part('partials/block/image-gallery', null, ['align' => 'full']);
+				}
+				?>
 			</div>
 		</div>
 		<?php

@@ -3,10 +3,10 @@
 use SayHello\Theme\Package\Lazysizes;
 
 if (empty($images = get_field('images'))) {
-	if ($data['is_context_edit'] ?? false) {
+	if ($args['is_context_edit'] ?? false) {
 		?>
-		<section class="wp-block-sht-imagegallery wp-block-sht-imagegallery--empty <?php echo !empty($data['align']) ? ' align'.$data['align'] : '';?>">
-			<p class=""><strong><?php echo $data['title'];?></strong>: <?php _ex('Keine Bilder ausgewählt', 'Editor block message', 'sha');?></p>
+		<section class="wp-block-sht-imagegallery wp-block-sht-imagegallery--empty <?php echo !empty($args['align']) ? ' align'.$args['align'] : '';?>">
+			<p class=""><strong><?php echo $args['title'];?></strong>: <?php _ex('Keine Bilder ausgewählt', 'Editor block message', 'sha');?></p>
 		</section>
 		<?php
 	}
@@ -14,11 +14,15 @@ if (empty($images = get_field('images'))) {
 }
 
 $target_height = 300;
+
+if (count($images) < 6) {
+	$target_height = 400;
+}
 $image_size = 'medium';
 
-$align = $data['align'];
-if (!empty($data['align'])) {
-	$align = 'align'.$data['align'];
+$align = $args['align'];
+if (!empty($args['align'])) {
+	$align = 'align'.$args['align'];
 }
 
 $unique = uniqid();
@@ -32,17 +36,25 @@ $unique = uniqid();
 			$source_image_size = $image['sizes'][$image_size] ?? null ? $image_size : 'large';
 			$width = $image['sizes'][$source_image_size.'-width'] ?? $image['width'];
 			$height = $image['sizes'][$source_image_size.'-height'] ?? $image['height'];
+
+			if ($width < 100 || $height < 100) {
+				$file_path = get_attached_file($image['ID']);
+				$file_dims = getimagesize($file_path);
+				$width = $file_dims[0];
+				$height = $file_dims[1];
+			}
+
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;
-			$href = $data['is_context_edit'] ? '#' : $image['sizes']['full'] ?? $image['sizes']['gutenberg_wide'];
+			$href = $args['is_context_edit'] ? '#' : $image['sizes']['full'] ?? $image['sizes']['gutenberg_wide'];
 			?>
 		<li
 			class="wp-block-sht-imagegallery__entry c-grid500__item"
 			style="flex-grow:<?php echo $flex_grow;?>;flex-basis:<?php echo $flex_basis;?>px;">
 
 			<?php
-			if ($data['is_context_edit']) {
+			if ($args['is_context_edit']) {
 				?>
 				<span class="c-grid500__itemlink">
 					<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom;?>%"></i>

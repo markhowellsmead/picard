@@ -36,7 +36,7 @@ class ImageGallery
 				'description' => __('An image gallery which fills the available space with the selected images.', 'Block description', 'sha'),
 				'render_callback' => function ($block, $content = '', $is_preview = false) {
 					$block['is_context_edit'] = $is_preview;
-					sht_theme()->getTemplatePart('partials/block/image-gallery', $block);
+					get_template_part('partials/block/image-gallery', null, $block);
 				},
 			]);
 		}
