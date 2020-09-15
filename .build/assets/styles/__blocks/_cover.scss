@@ -6,6 +6,10 @@
 		text-decoration-color: currentColor;
 	}
 
+	&::before {
+		will-change: opacity;
+	}
+
 	&::after {
 		content: '';
 		display: block;
@@ -117,15 +121,19 @@
 		margin-right: auto;
 	}
 
-	&.is-vertically-aligned-bottom {
+	&.is-position-bottom-center,
+	&.is-position-bottom-left,
+	&.is-position-bottom-right {
 		.wp-block-cover__inner-container {
-			@include desktop {
+			@include laptop {
 				padding-bottom: var(--unit-medium);
 			}
 		}
 	}
 
-	&.is-vertically-aligned-top {
+	&.is-position-top-center,
+	&.is-position-top-left,
+	&.is-position-top-right {
 		.wp-block-cover__inner-container {
 			@include desktop {
 				padding-top: var(--unit-xlarge);
