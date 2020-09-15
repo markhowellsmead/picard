@@ -55,7 +55,7 @@
 	}
 
 	&__contentandthumbnail {
-		@extend .h-stack--medium;
+		// @extend .h-stack--medium;
 
 		.o-body--tallthumbnail.single-format-image,
 		.o-body--tallthumbnail.single-format-standard & {
@@ -95,8 +95,9 @@
 
 	&__header {
 		@extend .h-constraint;
-		@extend .h-stack;
+		@extend .h-stack--small;
 		@include desktop {
+			padding-top: var(--unit-large);
 			padding-bottom: var(--unit-large);
 		}
 
@@ -137,6 +138,8 @@
 	}
 
 	&__title {
+		font-size: 1.75em;
+
 		&--image,
 		&--photo {
 			font-size: 1.25em;
