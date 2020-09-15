@@ -9,13 +9,13 @@
 			padding-top: 0;
 			grid-column: 2/3;
 			grid-row: 1/2;
-			padding-left: var(--unit-medium);
+			padding-left: var(--unit);
 			padding-right: 0;
 			padding-bottom: var(--unit-medium);
 		}
 		@include desktop {
 			font-size: var(--font-size);
-			padding-left: var(--unit-large);
+			padding-left: var(--unit-small);
 			padding-bottom: var(--unit-medium);
 		}
 
@@ -35,6 +35,7 @@
 			padding: var(--unit);
 			@supports(display: grid) {
 				display: grid;
+				grid-column-gap: var(--unit);
 				grid-template-columns: 1fr 1fr;
 				grid-template-rows: auto;
 				align-items: flex-end;
