@@ -24,7 +24,7 @@ class Photo
 	{
 
 		if (is_post_type_archive('photo')) {
-			return _x('Photo archives', 'Archive title', 'picard');
+			return _x('Photographs', 'Archive title', 'picard');
 		}
 
 		if (is_tax('album')) {
