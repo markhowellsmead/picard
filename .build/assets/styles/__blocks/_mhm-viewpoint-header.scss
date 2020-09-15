@@ -51,6 +51,10 @@
 			}
 		}
 	}
+
+	&:first-child {
+		margin-top: calc(var(--unit-large) * -1);
+	}
 }
 
 @include context-edit() {
