@@ -1,16 +1,13 @@
 .c-searchdrawer {
 	display: none;
-	@include transition;
 	width: 100%;
 	max-width: 0;
 	overflow: hidden;
+	position: absolute;
 
 	@include tablet {
 		display: flex;
-	}
-
-	@include laptop {
-		margin-top: var(--unit-xsmall);
+		justify-content: flex-end;
 	}
 
 	&__toggler {
@@ -29,9 +26,16 @@
 	}
 
 	&[aria-hidden='false'] {
-		max-width: rem-calc(284px);
-		padding-left: var(--unit-large);
+		@include transition;
+		max-width: 17rem;
+		padding-left: 0;
 		padding-right: 0;
+		right: 7.5rem;
+		@include laptop {
+			right: 3rem;
+			padding-left: var(--unit-large);
+			max-width: 32rem;
+		}
 	}
 }
 
@@ -43,6 +47,7 @@
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
+
 	.c-searchform__searchfield {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
