@@ -23,13 +23,13 @@
 			}
 		}
 
-		> .wp-block-cover:first-child,
+		> .b-home-carousel:first-child,
 		 > .wp-block-group:first-child,
 		 > .wp-block-media-text:first-child,
 		 > .wp-block-mhm-project-grid:first-child,
 		 > .wp-block-mhm-project-header:first-child,
 		 > .wp-block-mhm-viewpoint-header:first-child,
-		> .b-home-carousel:first-child {
+		> .wp-block-cover:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 		}
 
@@ -102,6 +102,19 @@
 		}
 	}
 
+	&__postmedia {
+		// Video and thumbnail
+		@extend .h-constraint;
+		padding-left: var(--unit);
+		padding-right: var(--unit);
+		margin-bottom: var(--unit-medium);
+
+		@include tablet_landscape {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
 	&__meta {
 		@extend .h-constraint;
 		@extend .h-stack;
@@ -139,16 +152,6 @@
 	}
 
 	&__thumbnail {
-		@extend .h-constraint;
-		padding-left: var(--unit);
-		padding-right: var(--unit);
-		margin-bottom: var(--unit-medium);
-
-		@include tablet_landscape {
-			padding-left: 0;
-			padding-right: 0;
-		}
-
 		&--photo {
 			> * {
 				max-width: var(--constraint-lessnarrow);
@@ -209,15 +212,13 @@
 
 	&__video {
 		@extend .h-constraint;
-		padding: var(--unit-small);
-		background: c(gray, dark) radial-gradient(c(gray, dark) 25%, c(black));
-		@include desktop {
-			padding: var(--unit-xlarge);
-		}
 
 		.wp-block-embed {
-			@extend .alignwide;
+			max-width: var(--constraint-lessnarrow);
 			margin-bottom: 0;
+			@include desktop {
+				max-width: var(--constraint-medium);
+			}
 		}
 	}
 
@@ -257,7 +258,7 @@
 				}
 			}
 
-			&__thumbnail {
+			&__postmedia {
 				order: -2;
 				margin-top: 0;
 			}
