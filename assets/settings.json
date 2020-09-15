@@ -3,6 +3,7 @@
 		"primary": {
 			"base": "#1A56B0",
 			"light": "#437070",
+			"verylight": "#eaeef1",
 			"basewithopacity": "#1A56B080",
 			"basewithhalfopacity": "#1A56B040",
 			"dark": "#134084"
@@ -77,7 +78,8 @@
 	},
 	"gutenberg_colors": {
 		"primary": {
-			"base": "#1a56b0"
+			"base": "#1a56b0",
+			"verylight": "#eaeef1"
 		},
 		"wordpress-blue": {
 			"base": "#0073aa"

@@ -4,7 +4,6 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 
 ?><article <?php post_class('c-article c-article--'.get_post_type()); ?>>
 
-
 	<?php
 	if (!empty(get_the_content())) {
 		?>

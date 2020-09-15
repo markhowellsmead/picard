@@ -8,7 +8,6 @@
 
 	&__entries {
 		list-style: none;
-		margin-bottom: calc(var(--unit-large) * -1);
 		padding-left: 0;
 		@extend .h-stack--xlarge;
 		@include tablet {
@@ -17,6 +16,7 @@
 			justify-content: center;
 			margin-left: calc(var(--unit) * -1);
 			margin-right: calc(var(--unit) * -1);
+			margin-bottom: calc(var(--unit-large) * -1);
 		}
 	}
 
@@ -54,6 +54,7 @@
 	}
 
 	&__figure {
+		will-change: opacity;
 		position: relative;
 		overflow: hidden;
 		background: var(--color-gray-dark);
@@ -98,9 +99,6 @@
 	&__more {
 		text-align: center;
 		margin-top: var(--unit-xlarge);
-		@include laptop {
-			margin-top: var(--unit-large);
-		}
 	}
 
 	&__morelink {
