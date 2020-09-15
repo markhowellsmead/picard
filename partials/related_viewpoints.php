@@ -5,7 +5,7 @@ if (!is_array($related_viewpoints = get_post_meta(get_the_ID(), 'related_viewpoi
 
 ?>
 <section class="c-article__taxonomy c-article__taxonomy--related_viewpoint">
-	<h2 class="c-article__metatitle"><?php _ex('Viewpoints', 'Post meta title', 'picard');?></h2>
+	<h2 class="c-article__metatitle"><?php _ex('Location', 'Post meta title', 'picard');?></h2>
 	<?php
 
 	$related_viewpoint_array = [];

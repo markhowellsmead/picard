@@ -23,13 +23,13 @@
 			}
 		}
 
-		> .b-home-carousel:first-child,
+		> .wp-block-cover:first-child,
 		 > .wp-block-group:first-child,
 		 > .wp-block-media-text:first-child,
 		 > .wp-block-mhm-project-grid:first-child,
 		 > .wp-block-mhm-project-header:first-child,
 		 > .wp-block-mhm-viewpoint-header:first-child,
-		> .wp-block-cover:first-child {
+		> .b-home-carousel:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 		}
 
@@ -130,6 +130,17 @@
 
 	&__taxonomy {
 		@extend .h-stack--xsmall;
+		@supports (display: grid) {
+			@include tablet {
+				display: grid;
+				grid-template-columns: 1fr 4fr;
+
+				> * {
+					margin: 0;
+					line-height: var(--line-height);
+				}
+			}
+		}
 	}
 
 	&__taxonomyentries {
