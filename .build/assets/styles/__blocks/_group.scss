@@ -70,6 +70,13 @@
 	.wp-block-group {
 		&__inner-container {
 			@extend .h-constraint;
+			padding-left: var(--unit);
+			padding-right: var(--unit);
+
+			@include tablet {
+				padding-left: 0;
+				padding-right: 0;
+			}
 
 			.alignwide {
 				max-width: var(--constraint-wide);
