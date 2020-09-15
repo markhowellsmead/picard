@@ -9,35 +9,35 @@
 	}
 
 	&.is-style-padding {
-		.wp-block-group__inner-container {
+		> .wp-block-group__inner-container {
 			padding-top: var(--unit);
 			padding-bottom: var(--unit);
 		}
 	}
 
 	&.is-style-padding--medium {
-		.wp-block-group__inner-container {
+		> .wp-block-group__inner-container {
 			padding-top: var(--unit-medium);
 			padding-bottom: var(--unit-medium);
 		}
 	}
 
 	&.is-style-padding--large {
-		.wp-block-group__inner-container {
+		> .wp-block-group__inner-container {
 			padding-top: var(--unit-large);
 			padding-bottom: var(--unit-large);
 		}
 	}
 
 	&.is-style-padding--xlarge {
-		.wp-block-group__inner-container {
+		> .wp-block-group__inner-container {
 			padding-top: var(--unit-xlarge);
 			padding-bottom: var(--unit-xlarge);
 		}
 	}
 
 	&.is-style-padding--xxlarge {
-		.wp-block-group__inner-container {
+		> .wp-block-group__inner-container {
 			padding-top: var(--unit-xxlarge);
 			padding-bottom: var(--unit-xxlarge);
 		}
