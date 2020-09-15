@@ -3,10 +3,10 @@
 use SayHello\Theme\Package\Lazysizes;
 
 if (empty($images = get_field('images'))) {
-	if ($data['is_context_edit'] ?? false) {
+	if ($args['is_context_edit'] ?? false) {
 		?>
-		<section class="wp-block-sht-imagegallery wp-block-sht-imagegallery--empty <?php echo !empty($data['align']) ? ' align'.$data['align'] : '';?>">
-			<p class=""><strong><?php echo $data['title'];?></strong>: <?php _ex('Keine Bilder ausgewählt', 'Editor block message', 'sha');?></p>
+		<section class="wp-block-sht-imagegallery wp-block-sht-imagegallery--empty <?php echo !empty($args['align']) ? ' align'.$args['align'] : '';?>">
+			<p class=""><strong><?php echo $args['title'];?></strong>: <?php _ex('Keine Bilder ausgewählt', 'Editor block message', 'sha');?></p>
 		</section>
 		<?php
 	}
@@ -16,9 +16,9 @@ if (empty($images = get_field('images'))) {
 $target_height = 300;
 $image_size = 'medium';
 
-$align = $data['align'];
-if (!empty($data['align'])) {
-	$align = 'align'.$data['align'];
+$align = $args['align'];
+if (!empty($args['align'])) {
+	$align = 'align'.$args['align'];
 }
 
 $unique = uniqid();
@@ -35,14 +35,14 @@ $unique = uniqid();
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;
-			$href = $data['is_context_edit'] ? '#' : $image['sizes']['full'] ?? $image['sizes']['gutenberg_wide'];
+			$href = $args['is_context_edit'] ? '#' : $image['sizes']['full'] ?? $image['sizes']['gutenberg_wide'];
 			?>
 		<li
 			class="wp-block-sht-imagegallery__entry c-grid500__item"
 			style="flex-grow:<?php echo $flex_grow;?>;flex-basis:<?php echo $flex_basis;?>px;">
 
 			<?php
-			if ($data['is_context_edit']) {
+			if ($args['is_context_edit']) {
 				?>
 				<span class="c-grid500__itemlink">
 					<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom;?>%"></i>
