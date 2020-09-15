@@ -14,6 +14,10 @@ if (empty($images = get_field('images'))) {
 }
 
 $target_height = 300;
+
+if (count($images) < 6) {
+	$target_height = 400;
+}
 $image_size = 'medium';
 
 $align = $args['align'];
@@ -32,6 +36,14 @@ $unique = uniqid();
 			$source_image_size = $image['sizes'][$image_size] ?? null ? $image_size : 'large';
 			$width = $image['sizes'][$source_image_size.'-width'] ?? $image['width'];
 			$height = $image['sizes'][$source_image_size.'-height'] ?? $image['height'];
+
+			if ($width < 100 || $height < 100) {
+				$file_path = get_attached_file($image['ID']);
+				$file_dims = getimagesize($file_path);
+				$width = $file_dims[0];
+				$height = $file_dims[1];
+			}
+
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;
