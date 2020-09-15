@@ -1,5 +1,4 @@
 .wp-block-group {
-
 	& + .wp-block-group {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -36,6 +35,13 @@
 			padding-bottom: var(--unit-xlarge);
 		}
 	}
+
+	&.is-style-padding--xxlarge {
+		.wp-block-group__inner-container {
+			padding-top: var(--unit-xxlarge);
+			padding-bottom: var(--unit-xxlarge);
+		}
+	}
 }
 
 @include context-edit {
@@ -44,11 +50,14 @@
 			.block-editor-inner-blocks {
 				max-width: 100%;
 			}
+
 			.block-editor-block-list__layout {
 				@extend .h-constraint;
+
 				[data-align='wide'] {
 					max-width: var(--constraint-wide);
 				}
+
 				[data-align='full'] {
 					max-width: var(--constraint-full);
 				}
@@ -61,9 +70,11 @@
 	.wp-block-group {
 		&__inner-container {
 			@extend .h-constraint;
+
 			.alignwide {
 				max-width: var(--constraint-wide);
 			}
+
 			.alignfull {
 				max-width: var(--constraint-full);
 			}

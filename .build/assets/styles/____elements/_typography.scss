@@ -15,14 +15,16 @@
 	--font-size-xxxxlarge: #{$font-size-xxxxlarge};
 
 	--font-weight-body: 400;
-	--font-weight-heading: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	--font-weight-heading: var(--font-weight-bold);
 
 	--line-height: 1.625;
 	--line-height-large: 1.75;
 	--line-height-heading: 1.2;
 	--radius: .3em;
 
-	--color-heading: var(--color-black);
+	--color-heading: var(--color-gray-dark);
 }
 
 html {

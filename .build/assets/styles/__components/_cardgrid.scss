@@ -70,6 +70,7 @@
 
 	&__header {
 		text-align: center;
+		margin-bottom: var(--unit-xlarge);
 	}
 
 	&__image {
@@ -95,6 +96,10 @@
 
 	&__more {
 		text-align: center;
+		margin-top: var(--unit-xlarge);
+		@include laptop {
+			margin-top: var(--unit-large);
+		}
 	}
 
 	&__morelink {
@@ -111,6 +116,10 @@
 			padding-top: var(--unit);
 			margin-top: auto;
 		}
+	}
+
+	&__title {
+		font-weight: var(--font-weight-bold);
 	}
 
 	&--three {
