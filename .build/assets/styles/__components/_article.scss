@@ -88,10 +88,10 @@
 		@extend .h-constraint;
 		@extend .h-stack--small;
 		margin-bottom: var(--unit-medium);
-		@include desktop {
-			padding-top: var(--unit-large);
-			padding-bottom: var(--unit-large);
-		}
+		// @include desktop {
+		// 	padding-top: var(--unit-large);
+		// 	padding-bottom: var(--unit-large);
+		// }
 
 		> * {
 			@include mobile-padding-x;
@@ -100,36 +100,42 @@
 				padding-right: var(--unit-xlarge);
 			}
 		}
+
+		&--photo {
+			@include desktop {
+				padding-top: 0;
+			}
+		}
 	}
 
 	&__postmedia {
 		// Video and thumbnail
 		@extend .h-constraint;
-		padding-left: var(--unit);
-		padding-right: var(--unit);
-		margin-bottom: var(--unit-medium);
-
-		@include tablet_landscape {
-			padding-left: 0;
-			padding-right: 0;
-		}
+		@include mobile-padding-x;
 	}
 
 	&__meta {
 		@extend .h-constraint;
 		@extend .h-stack;
 		@include mobile-padding-x;
-		padding-top: var(--unit-medium);
-		padding-bottom: var(--unit-medium);
+		padding-top: 0;
+		margin-top: var(--unit-medium);
+
+		&--photo {
+			@extend .h-stack--small;
+		}
 	}
 
 	&__metatitle {
 		font-size: 1em;
 		margin: 0;
+		color: inherit;
+		font-weight: inherit;
 	}
 
 	&__taxonomy {
 		@extend .h-stack--xsmall;
+		@extend .c-article__date;
 		@supports (display: grid) {
 			@include tablet {
 				display: grid;
@@ -159,6 +165,7 @@
 		&--image,
 		&--photo {
 			font-size: 1.25em;
+			@extend .screen-reader-text;
 		}
 	}
 
@@ -264,8 +271,8 @@
 					padding-right: 0;
 				}
 
-				& + .c-article__meta {
-					margin-top: 0;
+				&--photo {
+					margin-bottom: 0;
 				}
 			}
 
