@@ -68,6 +68,8 @@ if (version_compare(get_bloginfo('version'), '4.6', '<') || version_compare(PHP_
 		}
 	 });
 
+	 include 'vendor/autoload.php';
+
 	/**
 	 * Returns the Theme Instance
 	 *

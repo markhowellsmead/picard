@@ -203,4 +203,53 @@ class Media
 	{
 		return 'facebook_preview';
 	}
+
+	public function getCameraDescriptors($camera)
+	{
+		if (strpos($camera, 'iPhone') !==false) {
+			return [
+				'pre' => 'an',
+				'camera' => $camera
+			];
+		}
+		switch ($camera) {
+			case 'NIKON D80':
+				return [
+					'pre' => 'a',
+					'camera' => 'Nikon D80'
+				];
+			break;
+			case 'NIKON D7000':
+				return [
+					'pre' => 'a',
+					'camera' => 'Nikon D7000'
+				];
+			break;
+			case 'FC2103':
+				return [
+					'pre' => 'a',
+					'camera' => 'DJI Mavic Air'
+				];
+			break;
+			case 'FinePix X100':
+				return [
+					'pre' => 'a',
+					'camera' => 'Fujifilm X100'
+				];
+			break;
+			case 'X-T1':
+				return [
+					'pre' => 'a',
+					'camera' => 'Fujifilm X-T1'
+				];
+			break;
+			case 'X-T3':
+				return [
+					'pre' => 'a',
+					'camera' => 'Fujifilm X-T3'
+				];
+			break;
+		}
+		return [];
+	}
 }
