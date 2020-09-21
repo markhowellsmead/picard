@@ -13,11 +13,13 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 			<?php
 			if (has_post_thumbnail()) {
 				$thumbnail_meta = wp_get_attachment_metadata(get_post_thumbnail_id());
+				$camera = sht_theme()->Package->Media->getCameraDescriptors($thumbnail_meta['image_meta']['camera'] ?? '');
 				if (is_array($thumbnail_meta['image_meta']) && isset($thumbnail_meta['image_meta']['created_timestamp']) && $thumbnail_meta['image_meta']['created_timestamp'] > 0) {
 					printf(
-						'<time class="c-article__date c-article__date--captured" datetime="%1$s">%2$s</time>',
+						'<time class="c-article__date c-article__date--captured" datetime="%1$s">%2$s%3$s</time>',
 						date_i18n('c', $thumbnail_meta['image_meta']['created_timestamp']),
-						sprintf(_x('Photographed on %s', 'date', 'picard'), date_i18n('jS F Y', $thumbnail_meta['image_meta']['created_timestamp']))
+						sprintf(_x('Photographed on %s', 'date', 'picard'), date_i18n('jS F Y', $thumbnail_meta['image_meta']['created_timestamp'])),
+						!empty($camera) ? ' using ' .$camera['pre'].' '.$camera['camera'] : ''
 					);
 				}
 			}
