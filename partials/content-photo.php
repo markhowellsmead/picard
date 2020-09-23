@@ -54,6 +54,7 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 		get_template_part('partials/related_viewpoints');
 		get_template_part('partials/tags');
 		get_template_part('partials/collections');
+		get_template_part('partials/post-permalink');
 		?>
 	</div>
 	<?php }
