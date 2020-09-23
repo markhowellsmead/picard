@@ -52,11 +52,6 @@ button {
 
 a {
 	text-underline-position: under;
-	text-decoration-color: c(gray, dark50);
-
-	&:hover {
-		text-decoration-color: currentColor;
-	}
 }
 
 b,
