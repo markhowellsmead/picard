@@ -18,6 +18,7 @@ class Photo
 		add_filter('get_the_archive_title', [ $this, 'changeTheTitle' ], 30);
 		add_action('pre_get_posts', [$this, 'postsPerAlbumPage']);
 		add_action('init', [$this, 'registerMetaFields']);
+		add_shortcode('photo_post_id', [ $this, 'shortcodePostID' ], 10, 0);
 	}
 
 	public function changeTheTitle($title)
@@ -52,5 +53,10 @@ class Photo
 		// 		return current_user_can('edit_posts');
 		// 	}
 		// ]);
+	}
+
+	public function shortcodePostID()
+	{
+		return get_the_ID();
 	}
 }

@@ -49,11 +49,11 @@ class ThemeOptions
 		if (function_exists('acf_add_local_field_group')) {
 			$prefix = sht_theme()->prefix;
 
-			acf_add_local_field_group(array(
+			acf_add_local_field_group([
 				'key' => "{$prefix}-blockarea-group",
 				'title' => 'Theme Options',
-				'fields' => array(
-					array(
+				'fields' => [
+					[
 						'key' => "{$prefix}-blockarea-footer",
 						'label' => 'Footer Block Area',
 						'name' => "{$prefix}-blockarea-footer",
@@ -61,21 +61,21 @@ class ThemeOptions
 						'instructions' => '',
 						'required' => 0,
 						'conditional_logic' => 0,
-						'wrapper' => array(
+						'wrapper' => [
 							'width' => '',
 							'class' => '',
 							'id' => '',
-						),
-						'post_type' => array(
+						],
+						'post_type' => [
 							0 => 'block_area',
-						),
+						],
 						'taxonomy' => '',
 						'allow_null' => 0,
 						'multiple' => 0,
 						'return_format' => 'object',
 						'ui' => 1,
-					),
-					array(
+					],
+					[
 						'key' => "{$prefix}-blockarea-footer-single",
 						'label' => 'Footer Block Area - Single',
 						'name' => "{$prefix}-blockarea-footer-single",
@@ -83,21 +83,21 @@ class ThemeOptions
 						'instructions' => '',
 						'required' => 0,
 						'conditional_logic' => 0,
-						'wrapper' => array(
+						'wrapper' => [
 							'width' => '',
 							'class' => '',
 							'id' => '',
-						),
-						'post_type' => array(
+						],
+						'post_type' => [
 							0 => 'block_area',
-						),
+						],
 						'taxonomy' => '',
 						'allow_null' => 0,
 						'multiple' => 0,
 						'return_format' => 'object',
 						'ui' => 1,
-					),
-					array(
+					],
+					[
 						'key' => "{$prefix}-blockarea-footer-viewpoint-single",
 						'label' => 'Footer Block Area - Viewpoint Single',
 						'name' => "{$prefix}-blockarea-footer-viewpoint-single",
@@ -105,21 +105,21 @@ class ThemeOptions
 						'instructions' => '',
 						'required' => 0,
 						'conditional_logic' => 0,
-						'wrapper' => array(
+						'wrapper' => [
 							'width' => '',
 							'class' => '',
 							'id' => '',
-						),
-						'post_type' => array(
+						],
+						'post_type' => [
 							0 => 'block_area',
-						),
+						],
 						'taxonomy' => '',
 						'allow_null' => 0,
 						'multiple' => 0,
 						'return_format' => 'object',
 						'ui' => 1,
-					),
-					array(
+					],
+					[
 						'key' => "{$prefix}-maps-api-key",
 						'label' => 'Google Maps API Key',
 						'key' => "{$prefix}-maps-api-key",
@@ -127,18 +127,18 @@ class ThemeOptions
 						'instructions' => '',
 						'required' => 0,
 						'conditional_logic' => 0,
-						'wrapper' => array(
+						'wrapper' => [
 							'width' => '',
 							'class' => '',
 							'id' => '',
-						),
+						],
 						'default_value' => '',
 						'placeholder' => '',
 						'prepend' => '',
 						'append' => '',
 						'maxlength' => '',
-					),
-				),
+					],
+				],
 				'location'   => [
 					[
 						[
@@ -156,7 +156,50 @@ class ThemeOptions
 				'hide_on_screen' => '',
 				'active' => true,
 				'description' => '',
-			));
+			]);
+
+			acf_add_local_field_group([
+				'key' => "{$prefix}-extra-notices",
+				'title' => 'Notices',
+				'fields' => [
+					[
+						'key' => 'sht_printorderinfo',
+						'label' => _x('Print order information', 'ACF field label', 'sha'),
+						'name' => 'sht_printorderinfo',
+						'type' => 'wysiwyg',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => [
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						],
+						'default_value' => '',
+						'tabs' => 'all',
+						'toolbar' => 'full',
+						'media_upload' => 1,
+						'delay' => 0,
+					],
+				],
+				'location'   => [
+					[
+						[
+							'param'    => 'options_page',
+							'operator' => '==',
+							'value'    => 'options',
+						],
+					],
+				],
+				'menu_order' => 20,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			]);
 		}
 	}
 
