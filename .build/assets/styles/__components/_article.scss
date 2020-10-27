@@ -23,13 +23,13 @@
 			}
 		}
 
-		> .wp-block-cover:first-child,
+		> .b-home-carousel:first-child,
 		 > .wp-block-group:first-child,
 		 > .wp-block-media-text:first-child,
 		 > .wp-block-mhm-project-grid:first-child,
 		 > .wp-block-mhm-project-header:first-child,
 		 > .wp-block-mhm-viewpoint-header:first-child,
-		> .b-home-carousel:first-child {
+		> .wp-block-cover:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 		}
 
@@ -172,7 +172,7 @@
 				@include laptop {
 					max-width: var(--constraint-medium);
 				}
-				@include desktop_xlarge {
+				@include desktop_large {
 					max-width: var(--constraint-wide);
 				}
 			}
@@ -186,6 +186,9 @@
 			&.filmic {
 				> * {
 					max-width: var(--constraint-medium);
+					@include desktop_large {
+						max-width: var(--constraint-wide);
+					}
 				}
 			}
 		}
