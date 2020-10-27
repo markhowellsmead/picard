@@ -75,3 +75,9 @@
 		@content;
 	}
 }
+
+@mixin desktop_xxlarge() {
+	@include for-screen-min(desktop_xxlarge) {
+		@content;
+	}
+}

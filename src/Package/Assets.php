@@ -92,21 +92,6 @@ class Assets
 
 		wp_enqueue_style(sht_theme()->prefix . '-admin-editor-style', $this->theme_url . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css', ['wp-edit-blocks'], filemtime($this->theme_path . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css'));
 		wp_enqueue_style(sht_theme()->prefix . '-admin-style', $this->theme_url . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css', [sht_theme()->prefix . '-admin-editor-style', 'wp-edit-blocks'], filemtime($this->theme_path . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css'));
-
-		wp_enqueue_script(sht_theme()->prefix . '-admin-script', $this->theme_url . '/assets/scripts/admin' . (sht_theme()->debug ? '' : '.min') . '.js', [], filemtime($this->theme_path . '/assets/scripts/admin' . (sht_theme()->debug ? '' : '.min') . '.js'), true);
-
-		/**
-		 * Admin Footer JS
-		 */
-		$defaults = [
-			'GeneralError' => sht_theme()->error,
-			'AjaxURL'      => admin_url('admin-ajax.php'),
-			'homeurl'      => get_home_url(),
-			'templateurl'  => get_template_directory_uri(),
-		];
-
-		$vars = json_encode(apply_filters('sht_admin_footer_js', $defaults));
-		wp_add_inline_script(sht_theme()->prefix . '-admin-script', "var SayHelloVars = {$vars};", 'before');
 	}
 
 	public function editorStyle()
