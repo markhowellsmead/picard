@@ -112,6 +112,10 @@
 		// Video and thumbnail
 		@extend .h-constraint;
 		@include mobile-padding-x;
+
+		& + .c-article__header {
+			margin-top: var(--unit-medium);
+		}
 	}
 
 	&__meta {
@@ -172,7 +176,7 @@
 				@include laptop {
 					max-width: var(--constraint-medium);
 				}
-				@include desktop_xlarge {
+				@include desktop_large {
 					max-width: var(--constraint-wide);
 				}
 			}
@@ -186,6 +190,9 @@
 			&.filmic {
 				> * {
 					max-width: var(--constraint-medium);
+					@include desktop_large {
+						max-width: var(--constraint-wide);
+					}
 				}
 			}
 		}
