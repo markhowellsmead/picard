@@ -15,6 +15,9 @@ figcaption {
 		margin-left: 0;
 		margin-right: 0;
 	}
+	.wp-block.is-reusable {
+		max-width: 100%;
+	}
 }
 
 @import "bravo";
