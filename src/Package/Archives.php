@@ -53,6 +53,9 @@ class Archives
 				_x('Posts from', 'Archive title day', 'sht')
 			);
 			$title = ' '.$original_title;
+		} elseif (is_post_type_archive('photo')) {
+			$prefix = '';
+			$title = '';
 		} elseif (is_post_type_archive()) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
