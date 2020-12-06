@@ -12,6 +12,18 @@
 		> .wp-block-group__inner-container {
 			padding-top: var(--unit);
 			padding-bottom: var(--unit);
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				&:first-child {
+					margin-bottom: var(--unit);
+				}
+			}
+
 			.wp-block-buttons:last-child {
 				margin-top: var(--unit);
 			}
@@ -23,6 +35,17 @@
 			padding-top: var(--unit-medium);
 			padding-bottom: var(--unit-medium);
 
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				&:first-child {
+					margin-bottom: var(--unit-medium);
+				}
+			}
+
 			.wp-block-buttons:last-child {
 				margin-top: var(--unit-medium);
 			}
@@ -33,6 +56,18 @@
 		> .wp-block-group__inner-container {
 			padding-top: var(--unit-large);
 			padding-bottom: var(--unit-large);
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				&:first-child {
+					margin-bottom: var(--unit-large);
+				}
+			}
+
 			.wp-block-buttons:last-child {
 				margin-top: var(--unit-large);
 			}
@@ -43,6 +78,18 @@
 		> .wp-block-group__inner-container {
 			padding-top: var(--unit-xlarge);
 			padding-bottom: var(--unit-xlarge);
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				&:first-child {
+					margin-bottom: var(--unit-xlarge);
+				}
+			}
+
 			.wp-block-buttons:last-child {
 				margin-top: var(--unit-xlarge);
 			}
@@ -53,6 +100,18 @@
 		> .wp-block-group__inner-container {
 			padding-top: var(--unit-xxlarge);
 			padding-bottom: var(--unit-xxlarge);
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				&:first-child {
+					margin-bottom: var(--unit-xxlarge);
+				}
+			}
+
 			.wp-block-buttons:last-child {
 				margin-top: var(--unit-xxlarge);
 			}

@@ -31,6 +31,9 @@
 		 > .wp-block-mhm-viewpoint-header:first-child,
 		> .wp-block-cover:first-child {
 			margin-top: calc(var(--unit-large) * -1);
+			@include desktop_large {
+				margin-top: calc(var(--unit-xlarge) * -1);
+			}
 		}
 
 		> ul {
