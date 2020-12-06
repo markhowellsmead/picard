@@ -26,6 +26,9 @@
 		top: 0;
 		width: 100%;
 		@include transition(opacity);
+		.o-lazyimage--loaded > & {
+			opacity: 0;
+		}
 	}
 
 	&--background {

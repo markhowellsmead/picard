@@ -23,17 +23,21 @@ switch ($imageAspect) {
 		$image_size = 'gutenberg_wide';
 		$block_width = 'filmic';
 		break;
+	case 'square':
+		$image_size = 'large';
+		$block_width = 'square';
+		break;
 	default:
 		$image_size = 'large';
 		break;
 }
 
-$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-article__thumbnailfigure', 'c-article__thumbnailimage');
+$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-article__thumbnailfigure c-article__thumbnailfigure--'.$block_width, 'c-article__thumbnailimage c-article__thumbnailimage--'.$block_width);
 
 if (is_singular()) {
 	if (!is_page_template('single-gutenberg')) {
 		printf(
-			'<div class="c-article__postmedia c-article__thumbnail c-article__thumbnail--%1$s%2$s%3$s">%4$s</div>',
+			'<div class="c-article__postmedia c-article__postmedia--%1$s c-article__thumbnail c-article__thumbnail--%1$s%2$s%3$s">%4$s</div>',
 			get_post_type(),
 			!empty($class) ? ' '.$class : '',
 			' '.$block_width,

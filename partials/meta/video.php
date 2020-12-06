@@ -8,7 +8,7 @@ $video = wp_oembed_get(get_field('video_ref'));
 
 if (!empty($video)) {
 	printf(
-		'<div class="c-article__video c-article__postmedia"><figure class="wp-block-embed is-type-video wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">%s</div></figure></div>',
+		'<div class="c-article__video c-article__postmedia c-article__postmedia--video"><figure class="wp-block-embed is-type-video wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">%s</div></figure></div>',
 		$video
 	);
 }
