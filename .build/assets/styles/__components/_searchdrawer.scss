@@ -25,6 +25,11 @@
 		}
 	}
 
+	&__wrapper {
+		width: 100%;
+		margin-top: var(--unit-xsmall);
+	}
+
 	&[aria-hidden='false'] {
 		@include transition;
 		max-width: 17rem;
@@ -32,7 +37,6 @@
 		padding-right: 0;
 		right: 7.5rem;
 		@include laptop {
-			right: 3rem;
 			padding-left: var(--unit-large);
 			max-width: 32rem;
 		}

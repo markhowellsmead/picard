@@ -1,12 +1,14 @@
 .c-menutoggler {
 	display: block;
-	@include laptop {
-		display: none;
-	}
 	height: var(--unit);
 	width: var(--unit-medium);
 	position: relative;
 	cursor: pointer;
+
+	@include laptop {
+		margin-left: var(--unit-large);
+		margin-top: var(--unit-xsmall);
+	}
 
 	&__line {
 		position: absolute;

@@ -25,7 +25,7 @@ $image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-articl
 if (is_singular()) {
 	if (!is_page_template('single-gutenberg')) {
 		printf(
-			'<div class="c-article__postmedia c-article__thumbnail c-article__thumbnail--%1$s%2$s">%3$s</div>',
+			'<div class="c-article__postmedia c-article__postmedia--%1$s c-article__thumbnail c-article__thumbnail--%1$s%2$s">%3$s</div>',
 			get_post_type(),
 			!empty($class) ? ' '.$class : '',
 			$image

@@ -23,13 +23,13 @@
 			}
 		}
 
-		> .wp-block-cover:first-child,
+		> .b-home-carousel:first-child,
 		 > .wp-block-group:first-child,
 		 > .wp-block-media-text:first-child,
 		 > .wp-block-mhm-project-grid:first-child,
 		 > .wp-block-mhm-project-header:first-child,
 		 > .wp-block-mhm-viewpoint-header:first-child,
-		> .b-home-carousel:first-child {
+		> .wp-block-cover:first-child {
 			margin-top: calc(var(--unit-large) * -1);
 		}
 
@@ -115,6 +115,29 @@
 
 		& + .c-article__header {
 			margin-top: var(--unit-medium);
+		}
+
+		&--photo {
+			@include laptop {
+
+				.c-article {
+					&__thumbnailfigure {
+						&--square,
+						&--tall {
+							object-fit: contain;
+							width: 100%;
+							height: 69vh;
+							overflow: hidden;
+							position: relative;
+							img {
+								object-fit: contain;
+								width: 100%;
+								height: 100%;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 

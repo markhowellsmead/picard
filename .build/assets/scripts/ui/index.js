@@ -9,6 +9,7 @@ import './main';
 import './search';
 import './swiper';
 import './toggler';
+import './watch-pageheader';
 
 window.anchorAnimateOffset = window.innerHeight / 2;
 $('a[href*="#"]').anchorAnimate();
