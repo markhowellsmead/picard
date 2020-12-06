@@ -52,7 +52,7 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
-		@include desktop_xxlarge {
+		@include desktop {
 			max-width: var(--constraint-wide);
 		}
 
@@ -78,8 +78,8 @@
 	}
 
 	.s-menuopen & {
-		position: relative;
+		// position: relative;
 		z-index: 20;
-		margin-top: var(--admin-bar-height);
+		// margin-top: var(--admin-bar-height);
 	}
 }

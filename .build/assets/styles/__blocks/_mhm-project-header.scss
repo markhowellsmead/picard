@@ -55,6 +55,11 @@
 	&:first-child {
 		margin-top: calc(var(--unit-large) * -1);
 	}
+
+	& + .wp-block-columns {
+		margin-top: calc(var(--unit-small) * -1);
+	}
+
 }
 
 @include context-edit() {

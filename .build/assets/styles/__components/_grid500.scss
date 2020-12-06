@@ -6,6 +6,7 @@
 .c-grid500 {
 	display: flex;
 	flex-wrap: wrap;
+	margin-top: calc(var(--grid500-unit-small) * -1);
 
 	flex-basis: 100%;
 

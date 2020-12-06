@@ -25,7 +25,12 @@
 	&.has-post-thumbnail:not(.c-excerpt--photo),
 	&.has-video-thumbnail:not(.c-excerpt--photo) {
 		&:not(.c-article__thumbnailaspect--tall) {
-			@extend .alignmedium;
+			max-width: var(--constraint-medium);
+			margin-left: auto;
+			margin-right: auto;
+			@include desktop {
+				max-width: var(--constraint-wide);
+			}
 		}
 		@include laptop {
 			@supports(grid-gap: 1rem) {
