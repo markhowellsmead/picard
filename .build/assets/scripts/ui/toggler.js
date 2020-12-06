@@ -1,3 +1,5 @@
+import * as settings from '../../../../assets/settings.json';
+
 (function () {
 
 	var controllers = document.querySelectorAll('[aria-controls]');
@@ -25,6 +27,10 @@
 			} else {
 				document.documentElement.classList.add('s-searchopen');
 			}
+		}
+
+		if (window.innerWidth >= settings.default.theme_breakpoints.laptop && target.getAttribute('aria-hidden') == 'false' && target.querySelector('input[type="search"]')) {
+			target.querySelector('input[type="search"]').focus();
 		}
 	};
 

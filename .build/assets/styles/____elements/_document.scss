@@ -25,11 +25,6 @@ html {
 		&.admin-bar {
 			margin-top: 0 !important;
 		}
-		@include desktop {
-			overflow-y: auto;
-			position: static;
-			height: auto;
-		}
 	}
 }
 

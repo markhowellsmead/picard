@@ -10,16 +10,16 @@
 		background-color: c(white);
 		transition: opacity 300ms ease-in;
 		transform-origin: top right;
-		padding: var(--unit);
+		padding: var(--masthead-height) var(--unit);
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
 
-		@include desktop {
-			display: none;
+		@include laptop {
+			padding-top: calc(var(--masthead-height) + var(--unit-large));
 		}
 
 		&[aria-hidden="true"] {
@@ -36,7 +36,15 @@
 			@include smartphone {
 				margin-top: var(--unit-xlarge);
 			}
+			@include laptop {
+				display: none;
+			}
 
+		}
+
+		.sub-menu {
+			font-size: .65em;
+			margin-bottom: var(--unit-large);
 		}
 	}
 }
