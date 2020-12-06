@@ -8,8 +8,6 @@
 		height: 100vh;
 		z-index: 10;
 		background-color: c(white);
-		transition: opacity 300ms ease-in;
-		transform-origin: top right;
 		padding: var(--masthead-height) var(--unit);
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
@@ -23,7 +21,8 @@
 		}
 
 		&[aria-hidden="true"] {
-			transform: translateX(100vw) scale(0);
+			pointer-events: none;
+			transition: opacity 300ms ease-in;
 			opacity: 0;
 		}
 
