@@ -19,7 +19,7 @@ class LazyImage
 	public $image_org = [];
 	public $image_pre_src = '';
 	protected $image_pre_width = 30;
-	protected $image_pre_quality = 30;
+	protected $image_pre_quality = 10;
 	public $image_aspect = 0;
 	public $image_srcset = [];
 	public $wrapper_class = '';
