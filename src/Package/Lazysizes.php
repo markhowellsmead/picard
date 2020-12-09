@@ -118,10 +118,7 @@ class Lazysizes
 				}
 
 				return $srcs;
-			},
-			'args' => [
-				'id',
-			],
+			}
 		]);
 	}
 
