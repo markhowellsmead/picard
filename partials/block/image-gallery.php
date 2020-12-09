@@ -47,14 +47,14 @@ $unique = uniqid();
 			$flex_grow = $width * 100 / $height;
 			$flex_basis = $width * $target_height / $height;
 			$padding_bottom = ($height / $width) * 100;
-			$href = $args['is_context_edit'] ? '#' : $image['sizes']['full'] ?? $image['sizes']['gutenberg_wide'];
+			$href = $args['is_context_edit'] ?? false ? '#' : $image['sizes']['full'] ?? $image['sizes']['gutenberg_wide'];
 			?>
 		<li
 			class="wp-block-sht-imagegallery__entry c-grid500__item"
 			style="flex-grow:<?php echo $flex_grow;?>;flex-basis:<?php echo $flex_basis;?>px;">
 
 			<?php
-			if ($args['is_context_edit']) {
+			if ($args['is_context_edit'] ?? false) {
 				?>
 				<span class="c-grid500__itemlink">
 					<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom;?>%"></i>
