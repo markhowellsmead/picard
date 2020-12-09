@@ -8,6 +8,8 @@
 	</head>
 <body <?php body_class(); ?>>
 
+<?php do_action('sht_after_body_open');?>
+
 <div class="c-outer">
 
 	<header class="c-pageheader">
