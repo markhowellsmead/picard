@@ -27,7 +27,7 @@ class Lazysizes
 	public function run()
 	{
 		add_action('wp_head', [$this, 'noscriptCSS'], 50);
-		add_action('wp_footer', [$this, 'svgFilter'], 50000);
+		add_action('sht_after_body_open', [$this, 'svgFilter'], 50000);
 		add_action('wp_enqueue_scripts', [$this, 'addAssets']);
 		add_action('rest_api_init', [$this, 'registerRoute']);
 		add_filter('lazy_sizes_size', [$this, 'customLazySizes'], 10, 0);
@@ -49,7 +49,7 @@ class Lazysizes
 	{
 		echo '<svg class="o-lazysizes-svgfilter">
 				<filter id="ls-sharp-blur">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="20"/>
+					<feGaussianBlur in="SourceGraphic" stdDeviation="60"/>
 					<feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0"></feColorMatrix>
 					<feComposite in2="SourceGraphic" operator="in"></feComposite>
 				</filter>
