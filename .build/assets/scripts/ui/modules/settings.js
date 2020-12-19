@@ -7,7 +7,7 @@ jQuery.easing.def = jQuery.bez(settings.easing_bezier);
 jQuery.fx.speeds = {
 	slow: settings.easing_speed_slow,
 	fast: settings.easing_speed_fast,
-	_default: settings.easing_speed
+	_default: settings.easing_speed,
 };
 
 export const color = (mycolor, tone = 'base') => {
@@ -19,11 +19,11 @@ export const c = (mycolor, tone = 'base') => {
 };
 
 export const is_mobile = () => {
-	return (verge.viewportW() <= settings.theme_breakpoints['tablet']);
+	return verge.viewportW() <= settings.theme_breakpoints['tablet'];
 };
 
 const themeObject = settings;
-for(const attrname in ThemeJSVars) {
+for (const attrname in ThemeJSVars) {
 	themeObject[attrname] = ThemeJSVars[attrname];
 }
 

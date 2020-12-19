@@ -11,12 +11,10 @@ window.anchorAnimateOffset = 0;
 		anchorAnimate: function () {
 			return this.each(function () {
 				$(this).bind('click.js-hashscroll', function (e) {
-					if($(this).attr('href')) {
-						var targetAnchor = $(this)
-							.attr('href')
-							.split('#');
+					if ($(this).attr('href')) {
+						var targetAnchor = $(this).attr('href').split('#');
 						var destination = $('#' + targetAnchor[1]);
-						if(destination && destination.length) {
+						if (destination && destination.length) {
 							$(destination).scrollToMe();
 						}
 					}
@@ -25,7 +23,7 @@ window.anchorAnimateOffset = 0;
 		},
 		scrollToMe: function () {
 			var destination = $(this);
-			if(destination && destination.length) {
+			if (destination && destination.length) {
 				var destinationTop = destination.offset().top;
 				destinationTop = destinationTop - window.anchorAnimateOffset;
 
@@ -40,7 +38,7 @@ window.anchorAnimateOffset = 0;
 	});
 
 	$(window).on('load.js-hashscroll', function () {
-		if(window.location.hash && window.location.hash !== '' && $(window.location.hash) && $(window.location.hash).length === 1) {
+		if (window.location.hash && window.location.hash !== '' && $(window.location.hash) && $(window.location.hash).length === 1) {
 			setTimeout(function () {
 				$(window.location.hash).scrollToMe();
 			}, 200);

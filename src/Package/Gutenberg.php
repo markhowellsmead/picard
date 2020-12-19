@@ -34,7 +34,7 @@ class Gutenberg
 		}
 		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockAssets']);
 		add_filter('block_categories', [$this, 'blockCategories']);
-		add_filter('block_editor_settings', [ $this, 'editorSettings' ]);
+		add_filter('block_editor_settings', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
 	}
@@ -46,14 +46,15 @@ class Gutenberg
 	 */
 	public function themeSupports()
 	{
+		remove_theme_support('core-block-patterns');
 		add_theme_support('align-wide');
 		add_theme_support('automatic-feed-links');
 		add_theme_support('custom-logo');
-		add_theme_support('html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ]);
+		add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
 		add_theme_support('menu');
-		add_theme_support('post-thumbnails', [ 'post', 'page', 'photo' ]);
+		add_theme_support('post-thumbnails', ['post', 'page', 'photo']);
 		add_theme_support('title-tag');
-		add_theme_support('post-formats', [ 'image', 'gallery', 'video' ]);
+		add_theme_support('post-formats', ['image', 'gallery', 'video']);
 		// add_theme_support('disable-custom-colors');
 		$path = trailingslashit(get_template_directory()) . 'assets/settings.json';
 		if (!is_file($path)) {
@@ -107,7 +108,7 @@ class Gutenberg
 	public function enqueueBlockAssets()
 	{
 		if ($this->js) {
-			$script_asset_path = get_template_directory().'/assets/gutenberg/blocks.asset.php';
+			$script_asset_path = get_template_directory() . '/assets/gutenberg/blocks.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
 			wp_enqueue_script(
 				sht_theme()->prefix . '-gutenberg-script',

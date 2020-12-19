@@ -1,58 +1,61 @@
 .wp-block-mhm-image {
-	@include proportional-image-wrapper;
-	height: 100%;
+    @include proportional-image-wrapper;
+    height: 100%;
 
-	&__figure {
-		@include proportional-image-figure;
-	}
+    &__figure {
+        @include proportional-image-figure;
+    }
 
-	&__figcaption {
-		@include flood;
-		z-index: 2;
-		max-width: 100%;
-		top: auto;
-		padding-left: var(--unit);
-		padding-bottom: var(--unit-small);
-		font-size: var(--font-size-small);
-		text-shadow: 0 0 .125em rgba(0,0,0,.5);
-		@include tablet {
-			padding-left: var(--unit-medium);
-			padding-bottom: var(--unit-medium);
-		}
-	}
+    &__figcaption {
+        @include flood;
+        z-index: 2;
+        max-width: 100%;
+        top: auto;
+        padding-left: var(--unit);
+        padding-bottom: var(--unit-small);
+        font-size: var(--font-size-small);
+        @include tablet {
+            padding-left: var(--unit-medium);
+            padding-bottom: var(--unit-medium);
+        }
 
-	img {
-		outline: none;
-		pointer-events: none;
-		body.logged-in & {
-			pointer-events: all;
-		}
-	}
+        &--textshadow {
+            text-shadow: 0 0 0.125em rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    img {
+        outline: none;
+        pointer-events: none;
+        body.logged-in & {
+            pointer-events: all;
+        }
+    }
 }
 
 @include context-edit {
-	.wp-block-mhm-image {
-		.c-imageselector {
-			@supports(object-fit: cover) {
-				@include flood;
-				object-fit: cover;
-				object-position: center;
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
+    .wp-block-mhm-image {
+        .c-imageselector {
+            @supports (object-fit: cover) {
+                @include flood;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
 
-				&__figure {
-					height: 100%;
-				}
+                &__figure {
+                    height: 100%;
+                }
 
-				img {
-					object-fit: cover;
-					object-position: center;
-					width: 100%;
-					height: 100%;
-					overflow: hidden;
-				}
-			}
-		}
-	}
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
 }
