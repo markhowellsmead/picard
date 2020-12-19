@@ -14,7 +14,8 @@ import { select, withSelect } from '@wordpress/data';
 import { Fragment, Component } from '@wordpress/element';
 import { _x } from '@wordpress/i18n';
 
-import LazyImageSelector from '../_vendor/lazyimageselector';
+import ImageSelectorWithPlaceholder from '../_components/ImageSelectorWithPlaceholder';
+import { LazyImage } from '../_components/lazyimage';
 
 import ratios from './ratios';
 
@@ -121,14 +122,25 @@ class Edit extends Component {
                     </PanelBody>
                 </InspectorControls>
                 <section className={`${className} ${ratio}`}>
-                    <LazyImageSelector
+                    <ImageSelectorWithPlaceholder
                         attributes={attributes}
-                        className={classNameFigure}
-                        image={image}
                         setAttributes={setAttributes}
-                        objectFocalPoint={focalPoint}
-                        imageFormat={imageFormat}
+                        allowedTypes={['image']}
+                        accept={'image'}
+                        allowURL={false}
+                        labels={{
+                            title: _x('Select an image', 'MediaPlaceholder title', 'sha'),
+                            replace: _x('Replace image', 'MediaPlaceholder instructions', 'sha'),
+                        }}
                     />
+                    {!!image.id && (
+                        <LazyImage
+                            className={`${classNameBase}__figure`}
+                            image={image}
+                            background={false}
+                            admin={true}
+                        />
+                    )}
                     <RichText
                         style={textStyle}
                         tagName='figcaption'
