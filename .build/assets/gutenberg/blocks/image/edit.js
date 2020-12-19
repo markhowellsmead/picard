@@ -60,8 +60,6 @@ class Edit extends Component {
             textStyle.color = textColor;
         }
 
-        let imageFormat = 'full_uncropped';
-
         return (
             <Fragment>
                 <InspectorControls>
