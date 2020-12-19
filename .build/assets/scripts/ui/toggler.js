@@ -1,7 +1,6 @@
 import * as settings from '../../../../assets/settings.json';
 
 (function () {
-
 	var controllers = document.querySelectorAll('[aria-controls]');
 
 	if (!controllers) {
@@ -38,5 +37,4 @@ import * as settings from '../../../../assets/settings.json';
 		controller.addEventListener('click', clickHandler);
 		controller.setAttribute('aria-expanded', 'false');
 	});
-
 })();
