@@ -1,33 +1,38 @@
 .wp-block-column {
-	@extend .h-stack;
+    @extend .h-stack;
+
+    @include for-screen-min(wordpress_medium) {
+        &:not(:first-child) {
+            margin-left: var(--unit-medium);
+        }
+    }
 }
 
 .wp-block-columns {
+    @extend .h-stack;
 
-	@extend .h-stack;
+    @include tablet {
+        flex-wrap: nowrap;
 
-	@include tablet {
-		flex-wrap: nowrap;
+        > * + * {
+            margin-top: 0;
+        }
+    }
 
-		> * + * {
-			margin-top: 0;
-		}
-	}
+    &.alignwide {
+        padding-left: var(--unit-medium);
+        padding-right: var(--unit-medium);
+        @include laptop {
+            padding-left: var(--unit-large);
+            padding-right: var(--unit-large);
+        }
+        @include desktop {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 
-	&.alignwide {
-		padding-left: var(--unit-medium);
-		padding-right: var(--unit-medium);
-		@include laptop {
-			padding-left: var(--unit-large);
-			padding-right: var(--unit-large);
-		}
-		@include desktop {
-			padding-left: 0;
-			padding-right: 0;
-		}
-	}
-
-	&.is-style-gapless {
-		padding: 0;
-	}
+    &.is-style-gapless {
+        padding: 0;
+    }
 }
