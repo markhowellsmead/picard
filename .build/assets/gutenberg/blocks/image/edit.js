@@ -144,7 +144,7 @@ class Edit extends Component {
                     <RichText
                         style={textStyle}
                         tagName='figcaption'
-                        className={`${classNameBase}__figcaption`}
+                        className={classNameFigure}
                         format='string'
                         allowedFormats={['core/link']}
                         formattingControls={[]}
