@@ -1,0 +1,38 @@
+.wp-block-mhm-albums {
+    &__entries {
+        @extend .h-stack--medium;
+        list-style-type: none;
+        padding: 0;
+
+        @include tablet {
+            @supports (grid-template-columns: repeat(3, 1fr)) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: var(--unit);
+                row-gap: var(--unit-large);
+            }
+        }
+    }
+    &__entry {
+        @extend .h-stack;
+        @include tablet {
+            @supports (grid-template-columns: repeat(3, 1fr)) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__entrydescription {
+        font-size: var(--font-size-medium);
+    }
+
+    &__figure--empty {
+        padding-bottom: percentage(2/3);
+        background-color: var(--color-gray-light);
+    }
+
+    &__entrydate {
+        @extend .c-article__date;
+        margin-top: 0;
+    }
+}

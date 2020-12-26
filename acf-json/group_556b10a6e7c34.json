@@ -60,6 +60,13 @@
                 "operator": "==",
                 "value": "collection"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "album"
+            }
         ]
     ],
     "menu_order": 0,
@@ -68,7 +75,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1591979476
+    "modified": 1608987660
 }

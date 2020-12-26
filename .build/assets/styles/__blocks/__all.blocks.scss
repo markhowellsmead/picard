@@ -1,56 +1,57 @@
 :root {
-	--grid-border-width: .5rem;
+    --grid-border-width: 0.5rem;
 }
 
 figcaption {
-	width: 100%;
-	padding-right: var(--unit-large);
-	max-width: var(--constraint-narrow);
-	margin-left: auto;
-	margin-right: auto;
+    width: 100%;
+    padding-right: var(--unit-large);
+    max-width: var(--constraint-narrow);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @include context-edit {
-	[data-align='full'] [data-align='full'] {
-		margin-left: 0;
-		margin-right: 0;
-	}
-	.wp-block.is-reusable {
-		max-width: 100%;
-	}
+    [data-align='full'] [data-align='full'] {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .wp-block.is-reusable {
+        max-width: 100%;
+    }
 }
 
-@import "bravo";
-@import "button";
-@import "code";
-@import "columns";
-@import "cover";
-@import "embed";
-@import "footnotes";
-@import "gallery";
-@import "group";
-@import "home-carousel";
-@import "image";
-@import "imagegallery";
-@import "latest-posts";
-@import "media-text";
-@import "mhm-blog-cards";
-@import "mhm-count-posts";
-@import "mhm-count-photos";
-@import "mhm-image";
-@import "mhm-language-excerpt";
-@import "mhm-post-excerpt";
-@import "mhm-years-online";
-@import "mgl-gallery";
-@import "mhm-project-grid";
-@import "mhm-project-header";
-@import "mhm-viewpoint-header";
-@import "photos-by-album";
-@import "photos-by-collection";
-@import "photos-by-viewpoint";
-@import "quote";
-@import "search";
-@import "separator";
-@import "shb-video-bar";
-@import "sht-post-header";
-@import "viewpoint-ancestors";
+@import 'bravo';
+@import 'button';
+@import 'code';
+@import 'columns';
+@import 'cover';
+@import 'embed';
+@import 'footnotes';
+@import 'gallery';
+@import 'group';
+@import 'home-carousel';
+@import 'image';
+@import 'imagegallery';
+@import 'latest-posts';
+@import 'media-text';
+@import 'mhm-albums';
+@import 'mhm-blog-cards';
+@import 'mhm-count-posts';
+@import 'mhm-count-photos';
+@import 'mhm-image';
+@import 'mhm-language-excerpt';
+@import 'mhm-post-excerpt';
+@import 'mhm-years-online';
+@import 'mgl-gallery';
+@import 'mhm-project-grid';
+@import 'mhm-project-header';
+@import 'mhm-viewpoint-header';
+@import 'photos-by-album';
+@import 'photos-by-collection';
+@import 'photos-by-viewpoint';
+@import 'quote';
+@import 'search';
+@import 'separator';
+@import 'shb-video-bar';
+@import 'sht-post-header';
+@import 'viewpoint-ancestors';
