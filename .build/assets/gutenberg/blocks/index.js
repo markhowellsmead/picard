@@ -1,3 +1,4 @@
+import './albums';
 import './blog-cards';
 import './bravo';
 import './count-photos';

@@ -84,6 +84,7 @@ class Theme
 				\SayHello\Theme\Package\ThemeOptions::class,
 				\SayHello\Theme\Package\View::class,
 
+				\SayHello\Theme\Block\Albums::class,
 				\SayHello\Theme\Block\BlogCards::class,
 				\SayHello\Theme\Block\CountPosts::class,
 				\SayHello\Theme\Block\CountPhotos::class,
@@ -107,14 +108,14 @@ class Theme
 			]
 		);
 
-		add_action('after_setup_theme', [ $this, 'addNavigations' ]);
-		add_action('after_setup_theme', [ $this, 'addThemeSupports' ]);
-		add_action('after_setup_theme', [ $this, 'contentWidth' ]);
+		add_action('after_setup_theme', [$this, 'addNavigations']);
+		add_action('after_setup_theme', [$this, 'addThemeSupports']);
+		add_action('after_setup_theme', [$this, 'contentWidth']);
 		add_action('comment_form_before', [$this, 'enqueueReplyScript']);
 
-		add_action('wp_head', [ $this, 'noJsScript' ]);
-		add_action('wp_head', [ $this, 'setResolutionCookie' ]);
-		add_action('wp_head', [ $this, 'humansTxt' ]);
+		add_action('wp_head', [$this, 'noJsScript']);
+		add_action('wp_head', [$this, 'setResolutionCookie']);
+		add_action('wp_head', [$this, 'humansTxt']);
 
 		$this->cleanHead();
 	}
@@ -127,7 +128,7 @@ class Theme
 	 */
 	public static function getInstance()
 	{
-		if (! isset(self::$instance) && ! (self::$instance instanceof Theme)) {
+		if (!isset(self::$instance) && !(self::$instance instanceof Theme)) {
 			self::$instance = new Theme;
 
 			self::$instance->name    = self::$instance->theme->name;
@@ -136,7 +137,7 @@ class Theme
 			self::$instance->error   = __('An unexpected error occured.', 'sht');
 			self::$instance->debug   = true;
 
-			if (! isset($_SERVER[ 'HTTP_HOST' ]) || strpos($_SERVER[ 'HTTP_HOST' ], '.hello') === false && ! in_array($_SERVER[ 'REMOTE_ADDR' ], [ '127.0.0.1', '::1' ])) {
+			if (!isset($_SERVER['HTTP_HOST']) || strpos($_SERVER['HTTP_HOST'], '.hello') === false && !in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
 				self::$instance->debug = false;
 			}
 		}
@@ -154,9 +155,9 @@ class Theme
 		foreach ($classes as $class) {
 			$class_parts = explode('\\', $class);
 			$class_short = end($class_parts);
-			$class_set   = $class_parts[ count($class_parts) - 2 ];
+			$class_set   = $class_parts[count($class_parts) - 2];
 
-			if (! isset(sht_theme()->{$class_set}) || ! is_object(sht_theme()->{$class_set})) {
+			if (!isset(sht_theme()->{$class_set}) || !is_object(sht_theme()->{$class_set})) {
 				sht_theme()->{$class_set} = new \stdClass();
 			}
 
@@ -177,7 +178,7 @@ class Theme
 	 */
 	public function contentWidth()
 	{
-		$GLOBALS[ 'content_width' ] = apply_filters('sht/content_width', 1280);
+		$GLOBALS['content_width'] = apply_filters('sht/content_width', 1280);
 	}
 
 	/**
@@ -195,9 +196,9 @@ class Theme
 				'flex-height' => true,
 			]
 		);
-		add_theme_support('html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ]);
+		add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
 		add_theme_support('menu');
-		add_theme_support('post-thumbnails', [ 'post', 'mhm-viewpoint' ]);
+		add_theme_support('post-thumbnails', ['post', 'mhm-viewpoint']);
 		add_theme_support('title-tag');
 	}
 
@@ -240,7 +241,7 @@ class Theme
 	 */
 	public function noJsScript()
 	{
-		echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>".chr(10);
+		echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>" . chr(10);
 	}
 
 	public function getTemplatePart(string $file_path, ...$arguments)
@@ -264,7 +265,7 @@ class Theme
 			// prepend the alternative (e.g. post type) name to the paths array
 			// e.g. [partials/excerpt-customposttype, partials/excerpt]
 			if (is_string($arguments[0] ?? null)) {
-				array_unshift($parts, $file_path.'-'.$arguments[0]);
+				array_unshift($parts, $file_path . '-' . $arguments[0]);
 			}
 		}
 
