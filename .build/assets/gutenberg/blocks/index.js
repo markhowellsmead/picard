@@ -12,6 +12,7 @@ import './project-grid';
 import './project-header';
 import './publication-date';
 import './shb-video-bar';
+import './subpages';
 import './viewpoint-ancestors';
 import './viewpoint-cards';
 import './viewpoint-header';
