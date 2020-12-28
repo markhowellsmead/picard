@@ -5,70 +5,72 @@ $alignment-spacing: var(--unit) !default;
 
 .alignleft,
 .alignright {
-	position: relative;
-	z-index: 1;
-	margin-bottom: $alignment-spacing;
+    position: relative;
+    z-index: 1;
+    margin-bottom: $alignment-spacing;
 }
 
 .alignleft {
-	float: left;
-	margin-right: $alignment-spacing;
+    float: left;
+    margin-right: $alignment-spacing;
 }
 
 .alignright {
-	float: right;
-	margin-left: $alignment-spacing;
+    float: right;
+    margin-left: $alignment-spacing;
 }
 
 .aligncenter {
-	clear: both;
-	margin-left: auto;
-	margin-right: auto;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .aligncenter,
 .alignleft,
 .alignnone,
 .alignright {
-	a,
-	img {
-		margin: 0;
-		display: block;
-	}
+    a,
+    img {
+        margin: 0;
+        display: block;
+    }
 }
 
 figure.alignleft,
 figure.alignright,
 img.alignleft,
 img.alignright {
-	max-width: 50%;
+    max-width: 50%;
 }
 
 .alignfull,
 .alignmedium,
 .alignwide,
 .alignxwide {
-	margin-left: auto;
-	margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @include context-view {
-	.alignmedium {
-		max-width: var(--constraint-medium);
-	}
+    .alignmedium {
+        max-width: var(--constraint-medium);
+    }
 
-	.alignwide {
-		max-width: var(--constraint-medium);
-		@include desktop_large {
-			max-width: var(--constraint-wide);
-		}
-	}
+    .alignwide {
+        @include tablet {
+            max-width: var(--constraint-medium);
+        }
+        @include desktop_large {
+            max-width: var(--constraint-wide);
+        }
+    }
 
-	.alignxwide {
-		max-width: var(--constraint-xwide);
-	}
+    .alignxwide {
+        max-width: var(--constraint-xwide);
+    }
 
-	.alignfull {
-		max-width: var(--constraint-full);
-	}
+    .alignfull {
+        max-width: var(--constraint-full);
+    }
 }

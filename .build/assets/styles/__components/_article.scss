@@ -1,320 +1,316 @@
 .c-article {
+    @include clearfix;
+    @extend .h-stack--medium;
 
-	@include clearfix;
-	@extend .h-stack--medium;
+    @include desktop {
+        font-size: 1.125rem;
+    }
 
-	@include desktop {
-		font-size: 1.125rem;
-	}
+    &__content {
+        @include clearfix;
+        @extend .h-constraint;
+        @extend .h-stack--medium;
 
-	&__content {
-		@include clearfix;
-		@extend .h-constraint;
-		@extend .h-stack--medium;
+        > * {
+            @include mobile-padding-x;
 
-		> * {
-			@include mobile-padding-x;
+            &.alignfull,
+            &.alignxwide {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
 
-			&.alignfull,
-			&.alignwide,
-			&.alignxwide {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
+        > .b-home-carousel:first-child,
+        > .wp-block-group:first-child,
+        > .wp-block-media-text:first-child,
+        > .wp-block-mhm-project-grid:first-child,
+        > .wp-block-mhm-project-header:first-child,
+        > .wp-block-mhm-viewpoint-header:first-child,
+        > .wp-block-cover:first-child {
+            margin-top: calc(var(--unit-large) * -1);
+            @include desktop_large {
+                margin-top: calc(var(--unit-xlarge) * -1);
+            }
+        }
 
-		> .b-home-carousel:first-child,
-		 > .wp-block-group:first-child,
-		 > .wp-block-media-text:first-child,
-		 > .wp-block-mhm-project-grid:first-child,
-		 > .wp-block-mhm-project-header:first-child,
-		 > .wp-block-mhm-viewpoint-header:first-child,
-		> .wp-block-cover:first-child {
-			margin-top: calc(var(--unit-large) * -1);
-			@include desktop_large {
-				margin-top: calc(var(--unit-xlarge) * -1);
-			}
-		}
+        > ul {
+            padding-left: 2.2em;
+            @include tablet {
+                padding-left: 1.2em;
+            }
+        }
 
-		> ul {
-			padding-left: 2.2em;
-			@include tablet {
-				padding-left: 1.2em;
-			}
-		}
+        .has-medium-font-size:first-child {
+            color: c(black);
+        }
+    }
 
-		.has-medium-font-size:first-child {
-			color: c(black);
-		}
-	}
+    &__contentandthumbnail {
+        // @extend .h-stack--medium;
 
-	&__contentandthumbnail {
-		// @extend .h-stack--medium;
+        .o-body--tallthumbnail.single-format-image,
+        .o-body--tallthumbnail.single-format-standard & {
+            max-width: var(--constraint-narrow);
+            margin-left: auto;
+            margin-right: auto;
+            @include laptop {
+                @supports (display: grid) {
+                    max-width: var(--constraint-wide);
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-column-gap: var(--unit-medium);
 
-		.o-body--tallthumbnail.single-format-image,
-		.o-body--tallthumbnail.single-format-standard & {
-			max-width: var(--constraint-narrow);
-			margin-left: auto;
-			margin-right: auto;
-			@include laptop {
-				@supports(display: grid) {
-					max-width: var(--constraint-wide);
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					grid-column-gap: var(--unit-medium);
+                    .c-article {
+                        &__content {
+                            grid-column: 2/3;
+                        }
 
-					.c-article {
-						&__content {
-							grid-column: 2/3;
-						}
+                        &__thumbnail {
+                            grid-column: 1/2;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-						&__thumbnail {
-							grid-column: 1/2;
-						}
-					}
-				}
-			}
-		}
-	}
+    &__date {
+        display: block;
+        font-size: var(--font-size-small);
+        color: c(gray);
 
-	&__date {
-		display: block;
-		font-size: var(--font-size-small);
-		color: c(gray);
+        + .c-article__date {
+            margin-top: 0;
+        }
+    }
 
-		+ .c-article__date {
-			margin-top: 0;
-		}
-	}
+    &__header {
+        @extend .h-constraint;
+        @extend .h-stack--small;
+        margin-bottom: var(--unit-medium);
+        // @include desktop {
+        // 	padding-top: var(--unit-large);
+        // 	padding-bottom: var(--unit-large);
+        // }
 
-	&__header {
-		@extend .h-constraint;
-		@extend .h-stack--small;
-		margin-bottom: var(--unit-medium);
-		// @include desktop {
-		// 	padding-top: var(--unit-large);
-		// 	padding-bottom: var(--unit-large);
-		// }
+        > * {
+            @include mobile-padding-x;
+            padding-right: 15%;
+            @include desktop {
+                padding-right: var(--unit-xlarge);
+            }
+        }
 
-		> * {
-			@include mobile-padding-x;
-			padding-right: 15%;
-			@include desktop {
-				padding-right: var(--unit-xlarge);
-			}
-		}
+        &--photo {
+            @include desktop {
+                padding-top: 0;
+            }
+        }
+    }
 
-		&--photo {
-			@include desktop {
-				padding-top: 0;
-			}
-		}
-	}
+    &__postmedia {
+        // Video and thumbnail
+        @extend .h-constraint;
+        @include mobile-padding-x;
 
-	&__postmedia {
-		// Video and thumbnail
-		@extend .h-constraint;
-		@include mobile-padding-x;
+        & + .c-article__header {
+            margin-top: var(--unit-medium);
+        }
 
-		& + .c-article__header {
-			margin-top: var(--unit-medium);
-		}
+        &--photo {
+            @include laptop {
+                .c-article {
+                    &__thumbnailfigure {
+                        &--square,
+                        &--tall {
+                            object-fit: contain;
+                            width: 100%;
+                            height: 69vh;
+                            overflow: hidden;
+                            position: relative;
+                            img {
+                                object-fit: contain;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-		&--photo {
-			@include laptop {
+    &__meta {
+        @extend .h-constraint;
+        @extend .h-stack;
+        @include mobile-padding-x;
+        padding-top: 0;
+        margin-top: var(--unit-medium);
 
-				.c-article {
-					&__thumbnailfigure {
-						&--square,
-						&--tall {
-							object-fit: contain;
-							width: 100%;
-							height: 69vh;
-							overflow: hidden;
-							position: relative;
-							img {
-								object-fit: contain;
-								width: 100%;
-								height: 100%;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+        &--orderinfo {
+            display: block;
+            font-size: var(--font-size-small);
+        }
+    }
 
-	&__meta {
-		@extend .h-constraint;
-		@extend .h-stack;
-		@include mobile-padding-x;
-		padding-top: 0;
-		margin-top: var(--unit-medium);
+    &__metatitle {
+        font-size: 1em;
+        margin: 0;
+        color: inherit;
+        font-weight: inherit;
+    }
 
-		&--orderinfo {
-			display: block;
-			font-size: var(--font-size-small);
-		}
-	}
+    &__taxonomy {
+        @extend .h-stack--xsmall;
+        font-size: var(--font-size-small);
+        color: c(gray);
+        @supports (display: grid) {
+            @include tablet {
+                display: grid;
+                grid-template-columns: 1fr 4fr;
 
-	&__metatitle {
-		font-size: 1em;
-		margin: 0;
-		color: inherit;
-		font-weight: inherit;
-	}
+                > * {
+                    margin: 0;
+                    line-height: var(--line-height);
+                }
+            }
+        }
+    }
 
-	&__taxonomy {
-		@extend .h-stack--xsmall;
-		font-size: var(--font-size-small);
-		color: c(gray);
-		@supports (display: grid) {
-			@include tablet {
-				display: grid;
-				grid-template-columns: 1fr 4fr;
+    &__taxonomyentries {
+        line-height: var(--line-height);
+        color: c(gray);
 
-				> * {
-					margin: 0;
-					line-height: var(--line-height);
-				}
-			}
-		}
-	}
+        a {
+            color: currentColor;
+            text-decoration-color: c(gray, light);
+        }
+    }
 
-	&__taxonomyentries {
-		line-height: var(--line-height);
-		color: c(gray);
+    &__title {
+        font-size: 1.75em;
 
-		a {
-			color: currentColor;
-			text-decoration-color: c(gray, light);
-		}
-	}
+        &--photo {
+            font-size: 1.25em;
+            @extend .screen-reader-text;
+        }
+    }
 
-	&__title {
-		font-size: 1.75em;
+    &__thumbnail {
+        &--photo {
+            > * {
+                max-width: var(--constraint-lessnarrow);
+                @include laptop {
+                    max-width: var(--constraint-medium);
+                }
+                @include desktop_large {
+                    max-width: var(--constraint-wide);
+                }
+            }
 
-		&--photo {
-			font-size: 1.25em;
-			@extend .screen-reader-text;
-		}
-	}
+            &.tall {
+                > * {
+                    max-width: var(--constraint-narrow);
+                }
+            }
 
-	&__thumbnail {
-		&--photo {
-			> * {
-				max-width: var(--constraint-lessnarrow);
-				@include laptop {
-					max-width: var(--constraint-medium);
-				}
-				@include desktop_large {
-					max-width: var(--constraint-wide);
-				}
-			}
+            &.filmic {
+                > * {
+                    max-width: var(--constraint-medium);
+                    @include desktop_large {
+                        max-width: var(--constraint-wide);
+                    }
+                }
+            }
+        }
 
-			&.tall {
-				> * {
-					max-width: var(--constraint-narrow);
-				}
-			}
+        &.alignwide {
+            > * {
+                max-width: var(--constraint-wide);
+            }
+        }
 
-			&.filmic {
-				> * {
-					max-width: var(--constraint-medium);
-					@include desktop_large {
-						max-width: var(--constraint-wide);
-					}
-				}
-			}
-		}
+        &.alignxwide {
+            > * {
+                max-width: var(--constraint-xwide);
+            }
+        }
 
-		&.alignwide {
-			> * {
-				max-width: var(--constraint-wide);
-			}
-		}
+        &.alignfull {
+            > * {
+                max-width: var(--constraint-full);
+            }
+        }
 
-		&.alignxwide {
-			> * {
-				max-width: var(--constraint-xwide);
-			}
-		}
+        &--mhm-viewpoint {
+            > * {
+                max-width: var(--constraint-wide);
+            }
+        }
+    }
 
-		&.alignfull {
-			> * {
-				max-width: var(--constraint-full);
-			}
-		}
+    &__thumbnailimage {
+        width: 100%;
+        pointer-events: none;
 
-		&--mhm-viewpoint {
-			> * {
-				max-width: var(--constraint-wide);
-			}
-		}
-	}
+        body.logged-in & {
+            pointer-events: all;
+        }
+    }
 
-	&__thumbnailimage {
-		width: 100%;
-		pointer-events: none;
+    &__video {
+        @extend .h-constraint;
 
-		body.logged-in & {
-			pointer-events: all;
-		}
-	}
+        .wp-block-embed {
+            max-width: var(--constraint-lessnarrow);
+            margin-bottom: 0;
+            @include desktop {
+                max-width: var(--constraint-medium);
+            }
+        }
+    }
 
-	&__video {
-		@extend .h-constraint;
+    &--post {
+        .single-post & {
+            margin-bottom: var(--unit-xlarge);
+        }
+    }
 
-		.wp-block-embed {
-			max-width: var(--constraint-lessnarrow);
-			margin-bottom: 0;
-			@include desktop {
-				max-width: var(--constraint-medium);
-			}
-		}
-	}
+    &--photo {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
 
-	&--post {
-		.single-post & {
-			margin-bottom: var(--unit-xlarge);
-		}
-	}
+        .single-photo & {
+            margin-bottom: var(--unit-xlarge);
+        }
 
-	&--photo {
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
+        > * {
+            width: 100%;
+        }
 
-		.single-photo & {
-			margin-bottom: var(--unit-xlarge);
-		}
+        .c-article {
+            &__header {
+                width: 100%;
+                max-width: var(--constraint-narrow);
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0;
 
-		> * {
-			width: 100%;
-		}
+                > {
+                    padding-right: 0;
+                }
 
-		.c-article {
-			&__header {
-				width: 100%;
-				max-width: var(--constraint-narrow);
-				margin-left: auto;
-				margin-right: auto;
-				margin-top: 0;
+                &--photo {
+                    margin-bottom: 0;
+                }
+            }
 
-				> {
-					padding-right: 0;
-				}
-
-				&--photo {
-					margin-bottom: 0;
-				}
-			}
-
-			&__postmedia {
-				order: -2;
-				margin-top: 0;
-			}
-
-		}
-	}
+            &__postmedia {
+                order: -2;
+                margin-top: 0;
+            }
+        }
+    }
 }

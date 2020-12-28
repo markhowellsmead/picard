@@ -31,6 +31,22 @@
             pointer-events: all;
         }
     }
+
+    &.alignwide {
+        .wp-block-mhm-image {
+            &__figure {
+                left: var(--unit);
+                right: var(--unit);
+                width: calc(100% - var(--unit-large));
+
+                @include tablet_landscape {
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 @include context-edit {

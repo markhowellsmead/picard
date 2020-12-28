@@ -1,170 +1,174 @@
 .wp-block-group {
-	& + .wp-block-group {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
+    & + .wp-block-group {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 
-	.wp-block-cover + & {
-		margin-top: 0;
-	}
+    .wp-block-cover + & {
+        margin-top: 0;
+    }
 
-	&.is-style-padding {
-		> .wp-block-group__inner-container {
-			padding-top: var(--unit);
-			padding-bottom: var(--unit);
+    &.is-style-padding {
+        > .wp-block-group__inner-container {
+            padding-top: var(--unit);
+            padding-bottom: var(--unit);
 
-			> h1,
-			 > h3,
-			 > h4,
-			 > h5,
-			 > h6,
-			> h2 {
-				&:first-child {
-					margin-bottom: var(--unit);
-				}
-			}
+            > h1,
+            > h3,
+            > h4,
+            > h5,
+            > h6,
+            > h2 {
+                &:first-child {
+                    margin-bottom: var(--unit);
+                }
+            }
 
-			.wp-block-buttons:last-child {
-				margin-top: var(--unit);
-			}
-		}
-	}
+            .wp-block-buttons:last-child {
+                margin-top: var(--unit);
+            }
+        }
+    }
 
-	&.is-style-padding--medium {
-		> .wp-block-group__inner-container {
-			padding-top: var(--unit-medium);
-			padding-bottom: var(--unit-medium);
+    &.is-style-padding--medium {
+        > .wp-block-group__inner-container {
+            padding-top: var(--unit-medium);
+            padding-bottom: var(--unit-medium);
 
-			> h2,
-			 > h3,
-			 > h4,
-			 > h5,
-			 > h6,
-			> h1 {
-				&:first-child {
-					margin-bottom: var(--unit-medium);
-				}
-			}
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6,
+            > h1 {
+                &:first-child {
+                    margin-bottom: var(--unit-medium);
+                }
+            }
 
-			.wp-block-buttons:last-child {
-				margin-top: var(--unit-medium);
-			}
-		}
-	}
+            .wp-block-buttons:last-child {
+                margin-top: var(--unit-medium);
+            }
+        }
+    }
 
-	&.is-style-padding--large {
-		> .wp-block-group__inner-container {
-			padding-top: var(--unit-large);
-			padding-bottom: var(--unit-large);
+    &.is-style-padding--large {
+        > .wp-block-group__inner-container {
+            padding-top: var(--unit-large);
+            padding-bottom: var(--unit-large);
 
-			> h2,
-			 > h3,
-			 > h4,
-			 > h5,
-			 > h6,
-			> h1 {
-				&:first-child {
-					margin-bottom: var(--unit-large);
-				}
-			}
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6,
+            > h1 {
+                &:first-child {
+                    margin-bottom: var(--unit-large);
+                }
+            }
 
-			.wp-block-buttons:last-child {
-				margin-top: var(--unit-large);
-			}
-		}
-	}
+            .wp-block-buttons:last-child {
+                margin-top: var(--unit-large);
+            }
+        }
+    }
 
-	&.is-style-padding--xlarge {
-		> .wp-block-group__inner-container {
-			padding-top: var(--unit-xlarge);
-			padding-bottom: var(--unit-xlarge);
+    &.is-style-padding--xlarge {
+        > .wp-block-group__inner-container {
+            padding-top: var(--unit-xlarge);
+            padding-bottom: var(--unit-xlarge);
 
-			> h2,
-			 > h3,
-			 > h4,
-			 > h5,
-			 > h6,
-			> h1 {
-				&:first-child {
-					margin-bottom: var(--unit-xlarge);
-				}
-			}
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6,
+            > h1 {
+                &:first-child {
+                    margin-bottom: var(--unit-xlarge);
+                }
+            }
 
-			.wp-block-buttons:last-child {
-				margin-top: var(--unit-xlarge);
-			}
-		}
-	}
+            .wp-block-buttons:last-child {
+                margin-top: var(--unit-xlarge);
+            }
+        }
+    }
 
-	&.is-style-padding--xxlarge {
-		> .wp-block-group__inner-container {
-			padding-top: var(--unit-xxlarge);
-			padding-bottom: var(--unit-xxlarge);
+    &.is-style-padding--xxlarge {
+        > .wp-block-group__inner-container {
+            padding-top: var(--unit-xxlarge);
+            padding-bottom: var(--unit-xxlarge);
 
-			> h2,
-			 > h3,
-			 > h4,
-			 > h5,
-			 > h6,
-			> h1 {
-				&:first-child {
-					margin-bottom: var(--unit-xxlarge);
-				}
-			}
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6,
+            > h1 {
+                &:first-child {
+                    margin-bottom: var(--unit-xxlarge);
+                }
+            }
 
-			.wp-block-buttons:last-child {
-				margin-top: var(--unit-xxlarge);
-			}
-		}
-	}
+            .wp-block-buttons:last-child {
+                margin-top: var(--unit-xxlarge);
+            }
+        }
+    }
 }
 
 @include context-edit {
-	.wp-block-group {
-		&__inner-container {
-			.block-editor-inner-blocks {
-				max-width: 100%;
-			}
+    .wp-block-group {
+        &__inner-container {
+            .block-editor-inner-blocks {
+                max-width: 100%;
+            }
 
-			.block-editor-block-list__layout {
-				@extend .h-constraint;
+            .block-editor-block-list__layout {
+                @extend .h-constraint;
 
-				[data-align='wide'] {
-					max-width: var(--constraint-wide);
-				}
+                [data-align='wide'] {
+                    max-width: var(--constraint-wide);
+                }
 
-				[data-align='full'] {
-					max-width: var(--constraint-full);
-				}
-			}
-		}
-	}
+                [data-align='full'] {
+                    max-width: var(--constraint-full);
+                }
+            }
+        }
+    }
 }
 
 @include context-view {
-	.wp-block-group {
-		&__inner-container {
-			@extend .h-constraint;
-			@extend .h-stack--medium;
-			padding-left: var(--unit);
-			padding-right: var(--unit);
+    .wp-block-group {
+        &__inner-container {
+            @extend .h-constraint;
+            @extend .h-stack--medium;
+            padding-left: var(--unit);
+            padding-right: var(--unit);
 
-			@include tablet {
-				padding-left: 0;
-				padding-right: 0;
-			}
+            @include tablet {
+                padding-left: 0;
+                padding-right: 0;
+            }
 
-			.alignwide {
-				max-width: var(--constraint-wide);
-				padding-left: 0;
-				padding-right: 0;
-			}
+            .alignwide {
+                max-width: var(--constraint-wide);
+                padding-left: var(--unit);
+                padding-right: var(--unit);
+                @include for-screen-min(wide) {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
 
-			.alignfull {
-				max-width: var(--constraint-full);
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
-	}
+            .alignfull {
+                max-width: var(--constraint-full);
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
 }
