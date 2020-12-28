@@ -159,9 +159,10 @@
             &__content {
                 padding-left: var(--unit);
                 padding-right: var(--unit);
-                @include laptop {
-                    padding-left: 0;
-                }
+            }
+            &__inner {
+                padding-left: var(--unit-small);
+                padding-right: var(--unit-small);
             }
         }
     }
