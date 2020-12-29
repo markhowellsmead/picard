@@ -61,7 +61,12 @@ $unique = uniqid();
 					<?php if (!$data['is_preview']) { ?>
 						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($collection_post); ?>">
 							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
-							<?php echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image'); ?>
+							<?php
+							echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image');
+							if ((bool) get_field('sht_show_captions')) {
+								printf('<figcaption class="c-grid500__caption">%s</figcaption>', get_the_title($collection_post));
+							}
+							?>
 						</a>
 					<?php } else { ?>
 						<span class="c-grid500__itemlink" title="<?php echo get_the_title($collection_post); ?>">
