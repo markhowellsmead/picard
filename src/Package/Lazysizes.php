@@ -32,6 +32,7 @@ class Lazysizes
 		add_action('rest_api_init', [$this, 'registerRoute']);
 		add_filter('lazy_sizes_size', [$this, 'customLazySizes'], 10, 0);
 		add_filter('the_content', [$this, 'makeImageBlocksLazy']);
+		add_action('after_setup_theme', [$this, 'addImageSizes']);
 	}
 
 	public function noscriptCSS()
@@ -86,10 +87,10 @@ class Lazysizes
 	{
 		$image_object = new LazyImage($image, $size);
 		$image_object->setAttributes($attributes);
-		if (! empty($wrapper_class)) {
+		if (!empty($wrapper_class)) {
 			$image_object->setWrapperClass($wrapper_class);
 		}
-		if (! empty($image_class)) {
+		if (!empty($image_class)) {
 			$image_object->setImageClass($image_class);
 		}
 
@@ -122,6 +123,18 @@ class Lazysizes
 		]);
 	}
 
+	public function addImageSizes()
+	{
+
+		$intermediate_image_sizes = get_intermediate_image_sizes();
+
+		foreach ($this->customLazySizes() as $key => $size) {
+			if (!array_key_exists($key, $intermediate_image_sizes)) {
+				add_image_size($key, $size, 9999);
+			}
+		}
+	}
+
 	public function customLazySizes()
 	{
 		return [
@@ -132,7 +145,6 @@ class Lazysizes
 			'smallsquare' => 180,
 			'small' => 160,
 		];
-		return $image_object->getImage($background);
 	}
 
 	public function makeImageBlocksLazy($content)
@@ -199,7 +211,7 @@ class Lazysizes
 			}
 		}
 		$body = $domDocument->saveHtml($domDocument->getElementsByTagName('body')->item(0));
-		$content = str_replace([ '<body>', '</body>' ], '', $body);
+		$content = str_replace(['<body>', '</body>'], '', $body);
 		return $content;
 	}
 }
