@@ -22,7 +22,7 @@ $fancybox_href = wp_get_attachment_image_url(get_post_thumbnail_id(), 'gutenberg
 ?>
 
 <article class="c-grid500__item" style="flex-grow:<?php echo $flex_grow; ?>;flex-basis:<?php echo $flex_basis; ?>px;">
-	<a data-type="image" data-srcset="<?php echo $fancybox_href; ?>" class="c-grid500__itemlink" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" data-fancybox="<?php echo $data['fancybox_name'] ?? ''; ?>">
+	<a class="c-grid500__itemlink" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" data-fancybox="<?php echo $data['fancybox_name'] ?? ''; ?>" data-type="image" data-srcset="<?php echo $fancybox_href; ?>">
 		<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 		<?php echo Lazysizes::getLazyImage(get_post_thumbnail_id(), $data['image_size'], 'c-grid500__figure', 'c-grid500__image'); ?>
 	</a>

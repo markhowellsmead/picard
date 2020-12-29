@@ -1,18 +1,16 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
-
 if (empty($data['posts'])) {
 	return;
 }
 
-if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])) {
-	$align = ' align'.$align;
+if (!empty($align = $data['attributes']['align'] ?? '')) {
+	$align = ' align' . $align;
 }
 
 ?>
 
-<section class="wp-block-mhm-viewpoint-ancestors<?php echo $align;?>">
+<section class="wp-block-mhm-viewpoint-ancestors<?php echo $align; ?>">
 	<?php
 	$ancestor_links = [];
 	foreach ($data['posts'] as $ancestor) {
@@ -23,8 +21,9 @@ if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])
 		);
 	}
 	printf(
-		'<p class="wp-block-mhm-viewpoint-ancestors__ancestors">This viewpoint is in the following %s: %s</p>',
-		count($ancestor_links) > 1 ? 'areas' : 'area',
+		'<p class="wp-block-mhm-viewpoint-ancestors__ancestors">%s is in %s%s.</p>',
+		get_the_title(),
+		count($ancestor_links) > 1 ? 'the following areas: ' : '',
 		implode(', ', $ancestor_links)
 	);
 	?>

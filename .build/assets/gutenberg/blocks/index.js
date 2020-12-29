@@ -15,5 +15,6 @@ import './shb-video-bar';
 import './subpages';
 import './viewpoint-ancestors';
 import './viewpoint-cards';
+import './viewpoint-descendants';
 import './viewpoint-header';
 import './years-online';

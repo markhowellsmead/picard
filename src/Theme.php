@@ -98,6 +98,7 @@ class Theme
 				\SayHello\Theme\Block\Subpages::class,
 				\SayHello\Theme\Block\ViewpointAncestors::class,
 				\SayHello\Theme\Block\ViewpointCards::class,
+				\SayHello\Theme\Block\ViewpointDescendants::class,
 				\SayHello\Theme\Block\YearsOnline::class,
 
 				\SayHello\Theme\PostType\BlockArea::class,

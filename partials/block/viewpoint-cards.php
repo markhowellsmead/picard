@@ -6,22 +6,22 @@ if (empty($data['posts'])) {
 	return;
 }
 
-if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])) {
-	$align = ' align'.$align;
+if (!empty($align = $data['attributes']['align'] ?? $data['attributes']['align'])) {
+	$align = ' align' . $align;
 }
 
 ?>
 
-<section class="c-cardgrid c-cardgrid--four wp-block-mhm-blog-cards<?php echo $align;?>">
+<section class="c-cardgrid c-cardgrid--four wp-block-mhm-blog-cards<?php echo $align; ?>">
 	<div class="c-cardgrid__inner wp-block-mhm-blog-cards__inner">
 		<header class="c-cardgrid__header wp-block-mhm-blog-cards__header">
-			<h2 class="c-cardgrid__title wp-block-mhm-blog-cards__title"><?php _ex('Latest viewpoints', 'News list default title', 'sht');?></h2>
+			<h2 class="c-cardgrid__title wp-block-mhm-blog-cards__title"><?php _ex('Latest viewpoints', 'News list default title', 'sht'); ?></h2>
 		</header>
 		<div class="c-cardgrid__entrieswrap wp-block-mhm-blog-cards__entrieswrap">
 			<ul class="c-cardgrid__entries wp-block-mhm-blog-cards__entries">
 				<?php foreach ($data['posts'] as $data_post) {
 					if (has_post_thumbnail($data_post)) {
-						$thumbnail = '<a class="c-cardgrid__figurelink wp-block-mhm-blog-cards__figurelink" href="'.get_the_permalink($data_post->ID).'">'.Lazysizes::getLazyImage(get_post_thumbnail_id($data_post), 'card', 'c-cardgrid__figure wp-block-mhm-blog-cards__figure', 'c-cardgrid__image wp-block-mhm-blog-cards__image').'</a>';
+						$thumbnail = '<a class="c-cardgrid__figurelink wp-block-mhm-blog-cards__figurelink" href="' . get_the_permalink($data_post->ID) . '">' . Lazysizes::getLazyImage(get_post_thumbnail_id($data_post), 'card', 'c-cardgrid__figure wp-block-mhm-blog-cards__figure', 'c-cardgrid__image wp-block-mhm-blog-cards__image') . '</a>';
 					} elseif (!empty($video_url = get_field('video_ref', $data_post->ID))) {
 						$thumbnail = sht_theme()->Package->Media->getVideoThumbnail($video_url);
 						if (!empty($thumbnail)) {
@@ -35,11 +35,11 @@ if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])
 					} else {
 						$thumbnail = '<div class="c-cardgrid__figure wp-block-mhm-blog-cards__figure c-cardgrid__figure--empty wp-block-mhm-blog-cards__figure--empty"></div>';
 					}
-					?>
+				?>
 					<li class="c-cardgrid__entry wp-block-mhm-blog-cards__entry">
 						<?php echo $thumbnail; ?>
 						<h3 class="c-cardgrid__entrytitle wp-block-mhm-blog-cards__entrytitle">
-							<a href="<?php the_permalink($data_post->ID);?>"><?php echo get_the_title($data_post->ID);?></a>
+							<a href="<?php the_permalink($data_post->ID); ?>"><?php echo get_the_title($data_post->ID); ?></a>
 						</h3>
 						<?php
 						if (!empty($ancestors = get_post_ancestors($data_post))) {
@@ -57,16 +57,16 @@ if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])
 							);
 						}
 						?>
-						<time class="c-cardgrid__entrydate wp-block-mhm-blog-cards__entrydate" datetime="<?php echo get_the_date('c', $data_post->ID); ?>"><?php printf(_x('Published on %s', 'sht'), get_the_date('', $data_post->ID)); ?></time>
-						<?php if (!empty($excerpt = get_the_excerpt($data_post->ID))) {?>
+						<?php if (!empty($excerpt = get_the_excerpt($data_post->ID))) { ?>
 							<div class="c-cardgrid__excerpt wp-block-mhm-blog-cards__excerpt">
-								<?php echo $excerpt;?>
+								<?php echo $excerpt; ?>
 							</div>
-							<?php
-						}?>
-						<div class="c-cardgrid__readmorewrap wp-block-mhm-blog-cards__readmorewrap"><a class="c-cardgrid__readmore wp-block-mhm-blog-cards__readmore" href="<?php the_permalink($data_post->ID);?>"><?php _ex('Read more', 'Blog card read more text', 'sht');?></a></div>
+						<?php
+						} ?>
+						<div class="c-cardgrid__readmorewrap wp-block-mhm-blog-cards__readmorewrap"><a class="c-cardgrid__readmore wp-block-mhm-blog-cards__readmore o-button o-b
+						utton--primary" href="<?php the_permalink($data_post->ID); ?>"><?php _ex('View photos', 'Blog card read more text', 'sht'); ?></a></div>
 					</li>
-				<?php }?>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>
