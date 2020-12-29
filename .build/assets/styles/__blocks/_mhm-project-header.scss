@@ -59,6 +59,19 @@
     & + .wp-block-photos-by-collection {
         margin-top: calc(var(--unit-small) * -1);
     }
+
+    &.alignfull {
+        .wp-block-mhm-project-header {
+            &__content {
+                padding-left: 0;
+                padding-right: 0;
+                @include tablet_landscape {
+                    padding-left: var(--unit);
+                    padding-right: var(--unit);
+                }
+            }
+        }
+    }
 }
 
 @include context-edit() {

@@ -80,16 +80,16 @@
         left: 0;
         right: 0;
         z-index: 1;
-        background: rgba(0, 0, 0, 0.75);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), transparent);
         color: #fff;
         padding: var(--grid500-unit-small);
         font-size: var(--font-size-small);
-        opacity: 0;
+        opacity: 1;
         // @include transition;
 
-        &:hover & {
-            opacity: 1;
-        }
+        // &:hover & {
+        //     opacity: 1;
+        // }
     }
 
     &__figure {
