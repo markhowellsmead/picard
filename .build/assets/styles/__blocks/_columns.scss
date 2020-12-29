@@ -22,4 +22,24 @@
     &.is-style-gapless {
         padding: 0;
     }
+
+    &.is-style-narrow-gap {
+        .wp-block-column:not(:first-child) {
+            @include for-screen-min(wordpress_medium) {
+                margin-left: var(--grid-border-width);
+            }
+        }
+    }
+}
+
+@include context-edit {
+    .wp-block-columns {
+        &.is-style-gapless {
+            .wp-block-column:not(:first-child) {
+                @include for-screen-min(wordpress_medium) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 }

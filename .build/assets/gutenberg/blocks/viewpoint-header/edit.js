@@ -150,6 +150,8 @@ class Edit extends Component {
                                         },
                                     ],
                                     ['core/paragraph'],
+                                    ['mhm/viewpoint-ancestors'],
+                                    ['mhm/viewpoint-descendants'],
                                 ]}
                             />
                         </div>

@@ -56,10 +56,11 @@ $unique = uniqid();
 				$flex_basis = $width * $target_height / $height;
 				$padding_bottom = ($height / $width) * 100;
 				$href = get_the_permalink($collection_post);
+				$fancybox_href = wp_get_attachment_image_url($thumbnail_id, 'gutenberg_full');
 			?>
 				<div class="wp-block-photos-by-collection__entry c-grid500__item" style="flex-grow:<?php echo $flex_grow; ?>;flex-basis:<?php echo $flex_basis; ?>px;">
 					<?php if (!$data['is_preview']) { ?>
-						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($collection_post); ?>">
+						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($collection_post); ?>" data-fancybox="photos-by-viewpoint" data-caption="<?php echo get_the_title($collection_post); ?>" data-type="image" data-srcset="<?php echo $fancybox_href; ?>">
 							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 							<?php
 							echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image');

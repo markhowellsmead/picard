@@ -11,7 +11,7 @@ registerBlockType('mhm/viewpoint-ancestors', {
         align: ['wide', 'full'],
         mode: false,
         html: false,
-        multiple: false,
+        multiple: true,
         reusable: true,
     },
     edit: class extends Component {

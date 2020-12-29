@@ -53,8 +53,14 @@
 
     & + .wp-block-columns,
     & + .wp-block-photos-by-collection,
-    & + .wp-block-photos-by-album {
+    & + .wp-block-photos-by-album,
+    & + .wp-block-mhm-project-grid {
         margin-top: calc(var(--unit-small) * -1);
+    }
+
+    & + .wp-block-columns.alignfull {
+        padding-left: var(--grid-border-width);
+        padding-right: var(--grid-border-width);
     }
 
     &:first-child {
