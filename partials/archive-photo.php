@@ -24,6 +24,7 @@
 				<?php
 				$target_height = 150;
 				$image_size = 'large';
+				$fancybox_name = get_queried_object()->slug ?? 'photos';
 				if (have_posts()) {
 					while (have_posts()) {
 						the_post();
@@ -31,7 +32,7 @@
 							sht_theme()->getTemplatePart('partials/excerpt-grid-photo', [
 								'target_height' => $target_height,
 								'image_size' => $image_size,
-								'fancybox_name' => get_queried_object()->slug
+								'fancybox_name' => $fancybox_name
 							]);
 						}
 					}

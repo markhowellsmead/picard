@@ -18,9 +18,9 @@ class Media
 	public function run()
 	{
 		add_filter('jpeg_quality', [$this, 'jpegQuality']);
-		add_action('after_setup_theme', [ $this, 'addImageSizes' ]);
+		add_action('after_setup_theme', [$this, 'addImageSizes']);
 		add_filter('image_size_names_choose', [$this, 'selectableImageSizes']);
-		add_filter('body_class', [ $this, 'thumbnailAspectCSS' ]);
+		add_filter('body_class', [$this, 'thumbnailAspectCSS']);
 		add_filter('post_class', [$this, 'postClasses']);
 		add_action('wpseo_add_opengraph_images', [$this, 'videoThumbnail']);
 		add_filter('wpseo_opengraph_desc', [$this, 'maybeChangeDescription']);
@@ -29,14 +29,15 @@ class Media
 
 	public function addImageSizes()
 	{
-		add_image_size('card', 296*2, 198*2, true);
-		add_image_size('photo_medium', 800*2, 9999);
-		add_image_size('list_view', 540*2, 9999);
+		add_image_size('card', 296 * 2, 198 * 2, true);
+		add_image_size('photo_medium', 800 * 2, 9999);
+		add_image_size('list_view', 540 * 2, 9999);
 		add_image_size('list_view_tall', 9999, 540);
 		add_image_size('gutenberg_wide', 1280, 9999);
+		add_image_size('page', 1376, 9999);
 		add_image_size('gutenberg_full', 2560, 9999);
 		add_image_size('full_uncropped', 2560, 9999, true);
-		add_image_size('facebook_preview', 524*2, 273*2, true);
+		add_image_size('facebook_preview', 524 * 2, 273 * 2, true);
 	}
 
 	public function jpegQuality()
@@ -111,7 +112,7 @@ class Media
 	public function postClasses($classes)
 	{
 		if (has_post_thumbnail()) {
-			$classes[] = 'c-article__thumbnailaspect--'.$this->thumbnailAspect();
+			$classes[] = 'c-article__thumbnailaspect--' . $this->thumbnailAspect();
 		} else {
 			$classes[] = 'c-article--nothumbnail';
 		}
@@ -124,7 +125,7 @@ class Media
 	/**
 	 * Get remote video thumbnail URL
 	 *
-	 * @param string $source_url The video URL
+	 * @param  string $source_url The video URL
 	 * @return string The Video Thumbnail URL
 	 **/
 	public static function getVideoThumbnail($source_url)
@@ -147,8 +148,8 @@ class Media
 		switch ($aPath['host']) {
 			case 'youtu.be':
 				$atts['id'] = preg_replace('~^/~', '', $aPath['path']);
-				return 'https://i.ytimg.com/vi/'.$atts['id'].'/hqdefault.jpg';
-			break;
+				return 'https://i.ytimg.com/vi/' . $atts['id'] . '/hqdefault.jpg';
+				break;
 
 			case 'youtube.com':
 				$aParams = explode('&', $aPath['query']);
@@ -162,13 +163,13 @@ class Media
 				if (!isset($atts['id']) || !$atts['id']) {
 					return '';
 				} else {
-					return 'https://i.ytimg.com/vi/'.$atts['id'].'/hqdefault.jpg';
+					return 'https://i.ytimg.com/vi/' . $atts['id'] . '/hqdefault.jpg';
 				}
 				break;
 
 			case 'vimeo.com':
 				$urlParts = explode('/', $atts['url']);
-				$hash = @unserialize(@file_get_contents('https://vimeo.com/api/v2/video/'.$urlParts[3].'.php'));
+				$hash = @unserialize(@file_get_contents('https://vimeo.com/api/v2/video/' . $urlParts[3] . '.php'));
 				if ($hash && $hash[0] && (isset($hash[0]['thumbnail_large']) && $hash[0]['thumbnail_large'] !== '')) {
 					return $hash[0]['thumbnail_large'];
 				} else {
@@ -178,7 +179,7 @@ class Media
 
 			default:
 				return '';
-			break;
+				break;
 		}
 	}
 
@@ -206,7 +207,7 @@ class Media
 
 	public function getCameraDescriptors($camera)
 	{
-		if (strpos($camera, 'iPhone') !==false) {
+		if (strpos($camera, 'iPhone') !== false) {
 			return [
 				'pre' => 'an',
 				'camera' => $camera
@@ -218,37 +219,37 @@ class Media
 					'pre' => 'a',
 					'camera' => 'Nikon D80'
 				];
-			break;
+				break;
 			case 'NIKON D7000':
 				return [
 					'pre' => 'a',
 					'camera' => 'Nikon D7000'
 				];
-			break;
+				break;
 			case 'FC2103':
 				return [
 					'pre' => 'a',
 					'camera' => 'DJI Mavic Air'
 				];
-			break;
+				break;
 			case 'FinePix X100':
 				return [
 					'pre' => 'a',
 					'camera' => 'Fujifilm X100'
 				];
-			break;
+				break;
 			case 'X-T1':
 				return [
 					'pre' => 'a',
 					'camera' => 'Fujifilm X-T1'
 				];
-			break;
+				break;
 			case 'X-T3':
 				return [
 					'pre' => 'a',
 					'camera' => 'Fujifilm X-T3'
 				];
-			break;
+				break;
 		}
 		return [];
 	}
