@@ -6,13 +6,13 @@ if (empty($data['posts'])) {
 	return;
 }
 
-if (!empty($align = $data['attributes']['align']?? $data['attributes']['align'])) {
-	$align = ' align'.$align;
+if (!empty($align = $data['attributes']['align'] ?? '')) {
+	$align = ' align' . $align;
 }
 
 ?>
 
-<section class="wp-block-mhm-viewpoint-ancestors<?php echo $align;?>">
+<section class="wp-block-mhm-viewpoint-ancestors<?php echo $align; ?>">
 	<?php
 	$ancestor_links = [];
 	foreach ($data['posts'] as $ancestor) {
