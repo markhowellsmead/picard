@@ -53,11 +53,27 @@
 
     &:first-child {
         margin-top: calc(var(--unit-large) * -1);
+        .wp-block-mhm-project-header__inner {
+            padding-top: 0;
+        }
     }
 
     & + .wp-block-columns,
     & + .wp-block-photos-by-collection {
         margin-top: calc(var(--unit-small) * -1);
+    }
+
+    &.alignfull {
+        .wp-block-mhm-project-header {
+            &__content {
+                padding-left: 0;
+                padding-right: 0;
+                @include tablet_landscape {
+                    padding-left: var(--unit);
+                    padding-right: var(--unit);
+                }
+            }
+        }
     }
 }
 

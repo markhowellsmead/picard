@@ -31,7 +31,7 @@
             @supports (display: grid) {
                 display: grid;
                 grid-column-gap: var(--unit);
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto;
                 align-items: flex-end;
             }
@@ -159,6 +159,9 @@
             &__content {
                 padding-left: var(--unit);
                 padding-right: var(--unit);
+                @include for-screen-min(tablet_landscape) {
+                    padding-left: 0;
+                }
             }
             &__inner {
                 padding-left: var(--unit-small);

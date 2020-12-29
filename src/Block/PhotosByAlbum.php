@@ -93,6 +93,24 @@ class PhotosByAlbum
 						'max' => '',
 						'step' => '',
 					],
+					[
+						'key' => 'sht_show_captions',
+						'label' => _x('Show captions', 'ACF field label', 'sha'),
+						'name' => 'sht_show_captions',
+						'type' => 'true_false',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => [
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						],
+						'message' => '',
+						'default_value' => 0,
+						'ui' => 1,
+						'ui_on_text' => _x('Yes', 'ACF field label', 'sha'),
+						'ui_off_text' => _x('No', 'ACF field label', 'sha'),
+					],
 				],
 				'location' => [
 					[
