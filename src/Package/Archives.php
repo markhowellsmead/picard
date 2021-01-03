@@ -22,37 +22,37 @@ class Archives
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Posts from the category', 'Archive title category', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
 		} elseif (is_tag()) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Posts about', 'Archive title post tag', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
 		} elseif (is_author()) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Posts by', 'Archive title author', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
 		} elseif (is_year()) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Posts from', 'Archive title year', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
 		} elseif (is_month()) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Posts from', 'Archive title month/year', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
 		} elseif (is_day()) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Posts from', 'Archive title day', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
 		} elseif (is_post_type_archive('photo')) {
 			$prefix = '';
 			$title = '';
@@ -61,24 +61,30 @@ class Archives
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Beitragsarchiv', 'CPT archive title', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
 		} elseif (is_tax('collection')) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
 				_x('Photos from the collection', 'Archive title year', 'sht')
 			);
-			$title = ' '.$original_title;
+			$title = ' ' . $original_title;
+		} elseif (is_tax('place')) {
+			$prefix = sprintf(
+				'<span class="c-archive__titleprefix">%s</span>',
+				_x('Photos from', 'Archive title year', 'sht')
+			);
+			$title = ' ' . $original_title;
 		} elseif (is_search()) {
 			if ($GLOBALS['wp_query']->found_posts > 0) {
-				return '<span class="c-archive__titleprefix">'. sprintf(
+				return '<span class="c-archive__titleprefix">' . sprintf(
 					_nx('%s search result for', '%s search results for', $GLOBALS['wp_query']->found_posts, 'Archive list header', 'sht'),
 					$GLOBALS['wp_query']->found_posts
-				).'</span> '. get_search_query();
+				) . '</span> ' . get_search_query();
 			} else {
-				return '<span class="c-archive__titleprefix">'. sprintf(
+				return '<span class="c-archive__titleprefix">' . sprintf(
 					_x('No search results for', 'Archive list header', 'sht'),
 					$GLOBALS['wp_query']->found_posts
-				).'</span> ' .get_search_query();
+				) . '</span> ' . get_search_query();
 			}
 		} else {
 			$prefix = '';
