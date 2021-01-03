@@ -2,35 +2,35 @@
 
 $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 
-?><article <?php post_class('c-article c-article--'.get_post_type()); ?>>
+?><article <?php post_class('c-article c-article--' . get_post_type()); ?>>
 
 	<?php if (!$hide_title) :
 		get_template_part('partials/meta/video', get_post_type());
 		get_template_part('partials/meta/thumbnail', get_post_type());
-		?>
+	?>
 		<header class="c-article__header c-article__header--photo c-main__header">
-			<h1 class="c-article__title c-article__title--<?php echo get_post_type();?> c-article__title--<?php echo (get_post_format() ?? 'default');?>"><?php the_title(); ?></h1>
+			<h1 class="c-article__title c-article__title--<?php echo get_post_type(); ?> c-article__title--<?php echo (get_post_format() ?? 'default'); ?>"><?php the_title(); ?></h1>
 		</header>
-		<?php
+	<?php
 	endif; ?>
 
 	<?php
 	if (!empty(get_the_content())) {
-		?>
+	?>
 		<div class="c-article__contentandthumbnail">
 			<div class="c-article__content">
 				<?php the_content(); ?>
 			</div>
 		</div>
-		<?php
+	<?php
 	}
 	?>
 
 	<div class="c-article__info c-article__info--photo">
 
-		<?php if (!empty($print_notice = get_field('sht_printorderinfo', 'options'))) {?>
+		<?php if (!empty($print_notice = get_field('sht_printorderinfo', 'options'))) { ?>
 			<div class="c-article__meta c-article__meta--orderinfo">
-				<?php echo $print_notice;?>
+				<?php echo $print_notice; ?>
 			</div>
 		<?php } ?>
 
@@ -45,7 +45,7 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 						'<time class="c-article__date c-article__date--captured" datetime="%1$s">%2$s%3$s</time>',
 						date_i18n('c', $thumbnail_meta['image_meta']['created_timestamp']),
 						sprintf(_x('Photographed on %s', 'date', 'picard'), date_i18n('jS F Y', $thumbnail_meta['image_meta']['created_timestamp'])),
-						!empty($camera) ? ' using ' .$camera['pre'].' '.$camera['camera'] : ''
+						!empty($camera) ? ' using ' . $camera['pre'] . ' ' . $camera['camera'] : ''
 					);
 				}
 			}
@@ -56,16 +56,17 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 	<?php
 
 	if (!empty(get_the_terms(get_the_ID(), 'post_tag')) || !empty(get_the_terms(get_the_ID(), 'collection'))) {
-		?>
-	<div class="c-article__meta c-article__meta--photo">
-		<?php
-		get_template_part('partials/tax-albums');
-		get_template_part('partials/related_viewpoints');
-		get_template_part('partials/tags');
-		get_template_part('partials/collections');
-		get_template_part('partials/post-permalink');
-		?>
-	</div>
+	?>
+		<div class="c-article__meta c-article__meta--photo">
+			<?php
+			get_template_part('partials/tax-albums');
+			// get_template_part('partials/related_viewpoints');
+			get_template_part('partials/places');
+			get_template_part('partials/tags');
+			get_template_part('partials/collections');
+			get_template_part('partials/post-permalink');
+			?>
+		</div>
 	<?php }
 	get_template_part('partials/comments/template');
 	?>
