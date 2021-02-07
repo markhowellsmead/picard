@@ -448,9 +448,6 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 .editor-styles-wrapper :-ms-input-placeholder {
   color: var(--color-gray-light); }
 
-.editor-styles-wrapper ::-ms-input-placeholder {
-  color: var(--color-gray-light); }
-
 .editor-styles-wrapper ::placeholder {
   color: var(--color-gray-light); }
 

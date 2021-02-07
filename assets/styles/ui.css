@@ -463,9 +463,6 @@ body {
 :-ms-input-placeholder {
   color: var(--color-gray-light); }
 
-::-ms-input-placeholder {
-  color: var(--color-gray-light); }
-
 ::placeholder {
   color: var(--color-gray-light); }
 
