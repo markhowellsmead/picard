@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_5edb7fe1a3860",
-            "label": "Related viewpoint",
-            "name": "related_viewpoint",
+            "label": "Related place",
+            "name": "related_place",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -15,9 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "mhm-viewpoint"
-            ],
+            "post_type": ["mhm-place"],
             "taxonomy": "",
             "allow_null": 1,
             "multiple": 1,

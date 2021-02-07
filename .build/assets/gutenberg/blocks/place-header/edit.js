@@ -21,7 +21,7 @@ class Edit extends Component {
 
     render() {
         const { attributes, colors, setAttributes } = this.props;
-        let classNameBase = getBlockDefaultClassName('mhm/viewpoint-header');
+        let classNameBase = getBlockDefaultClassName('mhm/place-header');
         let className = classNameBase;
 
         let imageData = !!attributes.image.id ? select('core').getMedia(attributes.image.id) : null;
@@ -139,8 +139,8 @@ class Edit extends Component {
                                 allowedBlocks={
                                     (['core/heading'],
                                     ['core/paragraph'],
-                                    ['mhm/viewpoint-ancestors'],
-                                    ['mhm/viewpoint-descendants'])
+                                    ['mhm/place-ancestors'],
+                                    ['mhm/place-descendants'])
                                 }
                                 template={[
                                     [
@@ -150,8 +150,8 @@ class Edit extends Component {
                                         },
                                     ],
                                     ['core/paragraph'],
-                                    ['mhm/viewpoint-ancestors'],
-                                    ['mhm/viewpoint-descendants'],
+                                    ['mhm/place-ancestors'],
+                                    ['mhm/place-descendants'],
                                 ]}
                             />
                         </div>

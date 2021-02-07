@@ -10,18 +10,18 @@ if (!empty($align = $data['attributes']['align'] ?? '')) {
 
 ?>
 
-<section class="wp-block-mhm-viewpoint-descendants<?php echo $align; ?>">
+<section class="wp-block-mhm-place-descendants<?php echo $align; ?>">
 	<?php
 	$ancestor_links = [];
 	foreach ($data['posts'] as $ancestor) {
 		$ancestor_links[] = sprintf(
-			'<a class="wp-block-mhm-viewpoint-descendants__descendant-link" href="%s">%s</a>',
+			'<a class="wp-block-mhm-place-descendants__descendant-link" href="%s">%s</a>',
 			get_the_permalink($ancestor),
 			get_the_title($ancestor)
 		);
 	}
 
-	switch ($data['attributes']['viewpoint_type'] ?? 'place') {
+	switch ($data['attributes']['place_type'] ?? 'place') {
 		case 'country':
 			$descriptor = _x('Within this country: %2$s.', '', 'picard');
 			break;
@@ -34,7 +34,7 @@ if (!empty($align = $data['attributes']['align'] ?? '')) {
 	}
 
 	printf(
-		'<p class="wp-block-mhm-viewpoint-descendants__descendant">%s</p>',
+		'<p class="wp-block-mhm-place-descendants__descendant">%s</p>',
 		sprintf(
 			$descriptor,
 			count($ancestor_links) > 1 ? 'destinations' : 'destination',

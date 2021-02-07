@@ -2,21 +2,21 @@
 
 use SayHello\Theme\Package\Lazysizes;
 
-if (empty($viewpoints = ((array) $data['data']['sht_viewpoint'] ?? []))) {
+if (empty($places = ((array) $data['data']['sht_place'] ?? []))) {
 	return;
 }
 
 $number_of_posts = max(1, (int) $data['data']['sht_number_of_posts']);
 
-if (empty($viewpoint_posts = get_posts([
+if (empty($place_posts = get_posts([
 	'post_type' => 'photo',
 	'posts_per_page' => $number_of_posts,
 	'orderby' => 'date',
 	'order' => 'DESC',
 	'meta_query' => [
 		[
-			'key' => 'related_viewpoint',
-			'value' => '"' . $viewpoints[0] . '"',
+			'key' => 'related_place',
+			'value' => '"' . $places[0] . '"',
 			'compare' => 'LIKE',
 		],
 		[
@@ -40,11 +40,11 @@ $unique = uniqid();
 ?>
 
 <!-- Grid layout origin: https://github.com/xieranmaya/blog/issues/6 #wowza -->
-<section class="wp-block-photos-by-viewpoint <?php echo $align; ?>">
-	<div class="wp-block-photos-by-viewpoint__images c-grid500">
+<section class="wp-block-photos-by-place <?php echo $align; ?>">
+	<div class="wp-block-photos-by-place__images c-grid500">
 		<div class="c-grid500__inner">
-			<?php foreach ($viewpoint_posts as $viewpoint_post) {
-				$thumbnail_id = get_post_thumbnail_id($viewpoint_post);
+			<?php foreach ($place_posts as $place_post) {
+				$thumbnail_id = get_post_thumbnail_id($place_post);
 				$metadata = wp_get_attachment_metadata($thumbnail_id);
 				$source_image_size = $metadata['sizes'][$image_size] ?? null ? $image_size : 'large';
 				$width = $metadata['sizes'][$image_size]['width'] ?? $metadata['width'];
@@ -52,22 +52,22 @@ $unique = uniqid();
 				$flex_grow = $width * 100 / $height;
 				$flex_basis = $width * $target_height / $height;
 				$padding_bottom = ($height / $width) * 100;
-				$href = get_the_permalink($viewpoint_post);
+				$href = get_the_permalink($place_post);
 				$fancybox_href = wp_get_attachment_image_url($thumbnail_id, 'gutenberg_full');
 			?>
-				<div class="wp-block-photos-by-viewpoint__entry c-grid500__item" style="flex-grow:<?php echo $flex_grow; ?>;flex-basis:<?php echo $flex_basis; ?>px;">
+				<div class="wp-block-photos-by-place__entry c-grid500__item" style="flex-grow:<?php echo $flex_grow; ?>;flex-basis:<?php echo $flex_basis; ?>px;">
 					<?php if (!$data['is_preview']) { ?>
-						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($viewpoint_post); ?>" data-fancybox="photos-by-viewpoint" data-caption="<?php echo get_the_title($viewpoint_post); ?>" data-type="image" data-srcset="<?php echo $fancybox_href; ?>">
+						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($place_post); ?>" data-fancybox="photos-by-place" data-caption="<?php echo get_the_title($place_post); ?>" data-type="image" data-srcset="<?php echo $fancybox_href; ?>">
 							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 							<?php
 							echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image');
 							if ((bool) get_field('sht_show_captions')) {
-								printf('<figcaption class="c-grid500__caption">%s</figcaption>', get_the_title($viewpoint_post));
+								printf('<figcaption class="c-grid500__caption">%s</figcaption>', get_the_title($place_post));
 							}
 							?>
 						</a>
 					<?php } else { ?>
-						<span class="c-grid500__itemlink" title="<?php echo get_the_title($viewpoint_post); ?>">
+						<span class="c-grid500__itemlink" title="<?php echo get_the_title($place_post); ?>">
 							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 						<?php
 						printf(

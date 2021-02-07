@@ -4,8 +4,8 @@ import { SelectControl, PanelBody, ServerSideRender } from '@wordpress/component
 import { Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
 
-registerBlockType('mhm/viewpoint-descendants', {
-    title: _x('Viewpoint descendants', 'Block title', 'sha'),
+registerBlockType('mhm/place-descendants', {
+    title: _x('Place descendants', 'Block title', 'sha'),
     icon: 'layout',
     category: 'widgets',
     supports: {
@@ -16,32 +16,32 @@ registerBlockType('mhm/viewpoint-descendants', {
         reusable: false,
     },
     attributes: {
-        viewpoint_type: {
+        place_type: {
             type: 'string',
             default: 'place',
         },
     },
     edit({ attributes, setAttributes }) {
-        const { viewpoint_type } = attributes;
+        const { place_type } = attributes;
         return (
             <Fragment>
                 <InspectorControls>
                     <PanelBody title='Block options' initialOpen={true}>
                         <SelectControl
-                            label='Select viewpoint type'
-                            value={viewpoint_type}
+                            label='Select place type'
+                            value={place_type}
                             options={[
                                 { label: 'Country', value: 'country' },
                                 { label: 'Region', value: 'region' },
                                 { label: 'Place', value: 'place', isDefault: true },
                             ]}
                             onChange={value => {
-                                setAttributes({ viewpoint_type: value });
+                                setAttributes({ place_type: value });
                             }}
                         />
                     </PanelBody>
                 </InspectorControls>
-                <ServerSideRender block='mhm/viewpoint-descendants' attributes={attributes} />
+                <ServerSideRender block='mhm/place-descendants' attributes={attributes} />
             </Fragment>
         );
     },

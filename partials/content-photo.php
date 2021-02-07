@@ -60,7 +60,7 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 		<div class="c-article__meta c-article__meta--photo">
 			<?php
 			get_template_part('partials/tax-albums');
-			// get_template_part('partials/related_viewpoints');
+			// get_template_part('partials/related_places');
 			get_template_part('partials/places');
 			get_template_part('partials/tags');
 			get_template_part('partials/collections');

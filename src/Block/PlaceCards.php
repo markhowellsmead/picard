@@ -7,7 +7,7 @@ namespace SayHello\Theme\Block;
  *
  * @author Mark Howells-Mead <mark@sayhello.ch>
  */
-class ViewpointCards
+class PlaceCards
 {
 
 	public function run()
@@ -17,7 +17,7 @@ class ViewpointCards
 
 	public function registerBlocks()
 	{
-		register_block_type('mhm/viewpoint-cards', [
+		register_block_type('mhm/place-cards', [
 			'render_callback' => [$this, 'renderBlock']
 		]);
 	}
@@ -25,7 +25,7 @@ class ViewpointCards
 	public function renderBlock($attributes)
 	{
 		$posts = get_posts([
-			'post_type' => 'mhm-viewpoint',
+			'post_type' => 'mhm-place',
 			'post_status' => 'publish',
 			'posts_per_page' => 4,
 			'ignore_sticky' => false
@@ -41,7 +41,7 @@ class ViewpointCards
 		}
 
 		ob_start();
-		sht_theme()->getTemplatePart('partials/block/viewpoint-cards', [
+		sht_theme()->getTemplatePart('partials/block/place-cards', [
 			'attributes' => $attributes,
 			'posts' => $posts
 		]);

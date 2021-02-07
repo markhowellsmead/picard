@@ -28,7 +28,7 @@ class ImageGallery
 					_x('Image gallery', 'Gutenberg block keyword', 'sha'),
 					_x('Image', 'Gutenberg block keyword', 'sha')
 				],
-				'post_types' => ['post', 'page', 'mhm-viewpoint'],
+				'post_types' => ['post', 'page', 'mhm-place'],
 				'supports' => [
 					'align' => ['wide', 'full']
 				],

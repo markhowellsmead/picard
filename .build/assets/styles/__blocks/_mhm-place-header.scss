@@ -1,4 +1,4 @@
-.wp-block-mhm-viewpoint-header {
+.wp-block-mhm-place-header {
     @extend .c-featureheader;
 
     &__content {
@@ -27,7 +27,7 @@
     }
 
     &.is-style-flipped {
-        .wp-block-mhm-viewpoint-header {
+        .wp-block-mhm-place-header {
             &__content {
                 @include tablet_landscape {
                     @supports (display: grid) {
@@ -65,14 +65,14 @@
 
     &:first-child {
         margin-top: calc(var(--unit-large) * -1);
-        .wp-block-mhm-viewpoint-header__inner {
+        .wp-block-mhm-place-header__inner {
             padding-top: 0;
         }
     }
 }
 
 @include context-edit() {
-    .wp-block-mhm-viewpoint-header {
+    .wp-block-mhm-place-header {
         .c-imageselector__figurewrapper {
             @include proportional-image-wrapper;
         }
@@ -82,9 +82,9 @@
         }
 
         &__imagepositioner {
-            @extend .wp-block-mhm-viewpoint-header__figure;
+            @extend .wp-block-mhm-place-header__figure;
 
-            .wp-block-mhm-viewpoint-header__figure {
+            .wp-block-mhm-place-header__figure {
                 flex-basis: 100%;
             }
         }
@@ -98,7 +98,7 @@
         }
 
         &.is-style-flipped {
-            .wp-block-mhm-viewpoint-header__imagepositioner {
+            .wp-block-mhm-place-header__imagepositioner {
                 order: -1;
             }
         }

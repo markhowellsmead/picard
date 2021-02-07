@@ -7,7 +7,7 @@ namespace SayHello\Theme\Block;
  *
  * @author Mark Howells-Mead <mark@sayhello.ch>
  */
-class ViewpointDescendants
+class PlaceDescendants
 {
 
 	public function run()
@@ -17,10 +17,10 @@ class ViewpointDescendants
 
 	public function registerBlocks()
 	{
-		register_block_type('mhm/viewpoint-descendants', [
+		register_block_type('mhm/place-descendants', [
 			'render_callback' => [$this, 'renderBlock'],
 			'attributes' => [
-				'viewpoint_type' => [
+				'place_type' => [
 					'type'  => 'string',
 				],
 			],
@@ -44,10 +44,10 @@ class ViewpointDescendants
 
 		ob_start();
 
-		sht_theme()->getTemplatePart('partials/block/viewpoint-descendants', [
+		sht_theme()->getTemplatePart('partials/block/place-descendants', [
 			'attributes' => $attributes,
 			'posts' => get_posts([
-				'post_type' => 'mhm-viewpoint',
+				'post_type' => 'mhm-place',
 				'post_status' => 'publish',
 				'post__in' => (array) $descendants
 			])

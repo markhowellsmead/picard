@@ -13,9 +13,9 @@ class ThemeOptions
 
 	public function run()
 	{
-		add_action('acf/init', [ $this, 'page' ], 1);
-		add_action('acf/init', [ $this, 'options' ]);
-		add_action('acf/init', [ $this, 'acfInit' ]);
+		add_action('acf/init', [$this, 'page'], 1);
+		add_action('acf/init', [$this, 'options']);
+		add_action('acf/init', [$this, 'acfInit']);
 	}
 
 	public function acfInit()
@@ -98,9 +98,9 @@ class ThemeOptions
 						'ui' => 1,
 					],
 					[
-						'key' => "{$prefix}-blockarea-footer-viewpoint-single",
-						'label' => 'Footer Block Area - Viewpoint Single',
-						'name' => "{$prefix}-blockarea-footer-viewpoint-single",
+						'key' => "{$prefix}-blockarea-footer-place-single",
+						'label' => 'Footer Block Area - Place Single',
+						'name' => "{$prefix}-blockarea-footer-place-single",
 						'type' => 'post_object',
 						'instructions' => '',
 						'required' => 0,
@@ -221,7 +221,7 @@ class ThemeOptions
 
 		// if $args is string, set string to first item of $args
 		if ('string' == gettype($args)) {
-			$args = [ $args ];
+			$args = [$args];
 		}
 
 		// defualt $base_class if $base_class = true
@@ -230,7 +230,7 @@ class ThemeOptions
 		}
 
 		// if $args is not an array return
-		if (! is_array($args)) {
+		if (!is_array($args)) {
 			return;
 		}
 
@@ -239,17 +239,17 @@ class ThemeOptions
 			'tel'     => [
 				'prop' => 'telephone',
 				'elem' => 'a',
-				'attr' => [ 'href="tel:{value}"' ],
+				'attr' => ['href="tel:{value}"'],
 			],
 			'fax'     => [
 				'prop' => 'faxNumber',
 				'elem' => 'a',
-				'attr' => [ 'href="fax:{value}"' ],
+				'attr' => ['href="fax:{value}"'],
 			],
 			'email'   => [
 				'prop' => 'email',
 				'elem' => 'a',
-				'attr' => [ 'href="mailto:{value}"' ],
+				'attr' => ['href="mailto:{value}"'],
 			],
 			'name'    => [
 				'prop' => 'name',
@@ -290,19 +290,19 @@ class ThemeOptions
 		foreach ($itemprops as $key => $itemprop) {
 			// add all options or just the one in $args
 			if (empty($args) || in_array($key, $args)) {
-				$prop  = isset($args[ $key ][ 'prop' ]) ? $args[ $key ][ 'prop' ] : $itemprops[ $key ][ 'prop' ];
-				$elem  = isset($args[ $key ][ 'elem' ]) ? $args[ $key ][ 'elem' ] : $itemprops[ $key ][ 'elem' ];
-				$attr  = isset($args[ $key ][ 'attr' ]) ? $args[ $key ][ 'attr' ] : $itemprops[ $key ][ 'attr' ];
-				$value = (! empty(get_field($field_key . $key, 'option'))) ? get_field($field_key . $key, 'option') : false;
+				$prop  = isset($args[$key]['prop']) ? $args[$key]['prop'] : $itemprops[$key]['prop'];
+				$elem  = isset($args[$key]['elem']) ? $args[$key]['elem'] : $itemprops[$key]['elem'];
+				$attr  = isset($args[$key]['attr']) ? $args[$key]['attr'] : $itemprops[$key]['attr'];
+				$value = (!empty(get_field($field_key . $key, 'option'))) ? get_field($field_key . $key, 'option') : false;
 
 				// if is street add number if exists
 				if ('street' == $key) {
-					$value = (! empty(get_field($field_key . 'number', 'option'))) ? $value . ' ' . get_field($field_key . 'number', 'option') : $value;
+					$value = (!empty(get_field($field_key . 'number', 'option'))) ? $value . ' ' . get_field($field_key . 'number', 'option') : $value;
 				}
 
 				// if $attr is string, set string to first item of $attr
 				if ('string' == gettype($attr)) {
-					$attr = [ $attr ];
+					$attr = [$attr];
 				}
 
 				// // if classes are enabled, check $string and generate BEM class
@@ -317,9 +317,9 @@ class ThemeOptions
 								preg_match_all('/"(.*?)"/', $string, $matches);
 
 								// get value in class=""
-								if (! empty($matches[ 1 ])) {
-									unset($attr[ $name ]);
-									$bem_class .= ' ' . $matches[ 1 ][ 0 ];
+								if (!empty($matches[1])) {
+									unset($attr[$name]);
+									$bem_class .= ' ' . $matches[1][0];
 								}
 
 								// remove class attribute in array
@@ -331,11 +331,11 @@ class ThemeOptions
 						array_push($attr, 'class="' . $bem_class . '"');
 					} else {
 						// set class attribute in array
-						$attr = [ 'class="' . $bem_class . '"' ];
+						$attr = ['class="' . $bem_class . '"'];
 					}
 				}
 
-				if (! empty($value) && ! empty($elem)) {
+				if (!empty($value) && !empty($elem)) {
 					// check if this items of $attr has value in curly braces
 					if (is_array($attr)) {
 						foreach ($attr as $name => $string) {
@@ -343,33 +343,33 @@ class ThemeOptions
 							preg_match_all('/{(.*?)}/', $string, $matches);
 
 							// if has value in curly braces
-							if (! empty($matches[ 1 ])) {
+							if (!empty($matches[1])) {
 								// what to do for matches matching
-								switch ($matches[ 1 ][ 0 ]) {
+								switch ($matches[1][0]) {
 									case 'value':
-										$replace = str_replace('{' . $matches[ 1 ][ 0 ] . '}', $value, $attr[ $name ]);
+										$replace = str_replace('{' . $matches[1][0] . '}', $value, $attr[$name]);
 										//var_dump( $replace );
 										break;
 								}
 
 								// replace value from attr item
-								if (! empty($replace)) {
-									$attr[ $name ] = $replace;
+								if (!empty($replace)) {
+									$attr[$name] = $replace;
 								}
 							}
 						}
 					}
 
 					$html = '<' . $elem . ' itemprop="' . $prop . '" ';
-					if (! empty($attr)) {
+					if (!empty($attr)) {
 						$html .= implode(' ', $attr) . ' ';
 					}
 					$html .= '>' . $value . '</' . $elem . '>';
 
-					$output[ $key ] = [
-						'prop'  => ($prop) ? $prop : $itemprop[ 'prop' ],
-						'elem'  => ($elem) ? $elem : $itemprop[ 'elem' ],
-						'attr'  => ($attr) ? $attr : $itemprop[ 'attr' ],
+					$output[$key] = [
+						'prop'  => ($prop) ? $prop : $itemprop['prop'],
+						'elem'  => ($elem) ? $elem : $itemprop['elem'],
+						'attr'  => ($attr) ? $attr : $itemprop['attr'],
 						'value' => $value,
 						'html'  => $html,
 					];
@@ -378,7 +378,7 @@ class ThemeOptions
 		}
 
 		//if $return is false return data
-		if (! $return) {
+		if (!$return) {
 			if (1 == sizeof($output)) {
 				// returns the first elemen of array regardless of key
 				return reset($output);
@@ -402,7 +402,7 @@ class ThemeOptions
 				$html_output = ($container) ? '<address ' . $class . ' itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">' : '';
 
 				foreach ($output as $key => $value) {
-					$html_output .= $value[ 'html' ];
+					$html_output .= $value['html'];
 				}
 
 				// if $container is set to true, end with wrapper

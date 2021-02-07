@@ -7,7 +7,7 @@ namespace SayHello\Theme\Block;
  *
  * @author Mark Howells-Mead <mark@sayhello.ch>
  */
-class ViewpointAncestors
+class PlaceAncestors
 {
 
 	public function run()
@@ -17,7 +17,7 @@ class ViewpointAncestors
 
 	public function registerBlocks()
 	{
-		register_block_type('mhm/viewpoint-ancestors', [
+		register_block_type('mhm/place-ancestors', [
 			'render_callback' => [$this, 'renderBlock']
 		]);
 	}
@@ -29,10 +29,10 @@ class ViewpointAncestors
 		}
 
 		ob_start();
-		sht_theme()->getTemplatePart('partials/block/viewpoint-ancestors', [
+		sht_theme()->getTemplatePart('partials/block/place-ancestors', [
 			'attributes' => $attributes,
 			'posts' => get_posts([
-				'post_type' => 'mhm-viewpoint',
+				'post_type' => 'mhm-place',
 				'post_status' => 'publish',
 				'post__in' => $ancestors
 			])

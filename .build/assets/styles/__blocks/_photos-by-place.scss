@@ -1,4 +1,4 @@
-.wp-block-photos-by-collection {
+.wp-block-photos-by-place {
     --stack-space-top: 2rem;
     --stack-space-bottom: 2rem;
 
@@ -9,17 +9,19 @@
     }
 }
 
-.wp-block-mhm-project-header + .wp-block-photos-by-collection,
-.wp-block-mhm-place-header + .wp-block-photos-by-collection {
-    .wp-block-photos-by-collection {
+.wp-block-mhm-project-header + .wp-block-photos-by-place,
+.wp-block-mhm-place-header + .wp-block-photos-by-place {
+    margin-top: 0;
+
+    .wp-block-photos-by-place {
         &__images {
-            margin-top: 0;
+            margin-top: calc(var(--unit-small) * -1);
         }
     }
 }
 
 @include context-edit {
-    .wp-block-photos-by-collection {
+    .wp-block-photos-by-place {
         a {
             pointer-events: none;
         }

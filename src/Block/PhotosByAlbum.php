@@ -29,7 +29,7 @@ class PhotosByAlbum
 					_x('Photos', 'Gutenberg block keyword', 'sha'),
 					_x('Album', 'Gutenberg block keyword', 'sha')
 				],
-				'post_types' => ['post', 'page', 'mhm-viewpoint'],
+				'post_types' => ['post', 'page', 'mhm-place'],
 				'supports' => [
 					'align' => ['wide', 'full']
 				],

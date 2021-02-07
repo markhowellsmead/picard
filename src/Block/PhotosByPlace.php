@@ -7,7 +7,7 @@ namespace SayHello\Theme\Block;
  *
  * @author Mark Howells-Mead <mark@sayhello.ch>
  */
-class PhotosByViewpoint
+class PhotosByPlace
 {
 
 	public function run()
@@ -21,23 +21,23 @@ class PhotosByViewpoint
 		if (function_exists('acf_register_block_type')) {
 			// Block using ACF fields
 			acf_register_block_type([
-				'name' => 'photos-by-viewpoint',
+				'name' => 'photos-by-place',
 				'category' => 'common',
 				'icon' => 'format-gallery',
 				'keywords' => [
 					_x('Gallery', 'Gutenberg block keyword', 'sha'),
 					_x('Photos', 'Gutenberg block keyword', 'sha'),
-					_x('Viewpoint', 'Gutenberg block keyword', 'sha')
+					_x('Place', 'Gutenberg block keyword', 'sha')
 				],
-				'post_types' => ['post', 'page', 'mhm-viewpoint'],
+				'post_types' => ['post', 'page', 'mhm-place'],
 				'supports' => [
 					'align' => ['wide', 'full']
 				],
-				'title' => _x('Photo posts by viewpoint', 'Block title', 'sha'),
-				'description' => __('An image gallery containing photos from a viewpoint.', 'Block description', 'sha'),
+				'title' => _x('Photo posts by place', 'Block title', 'sha'),
+				'description' => __('An image gallery containing photos from a place.', 'Block description', 'sha'),
 				'render_callback' => function ($block, $content = '', $is_preview = false) {
 					$block['is_preview'] = $is_preview;
-					sht_theme()->getTemplatePart('partials/block/photos-by-viewpoint', $block);
+					sht_theme()->getTemplatePart('partials/block/photos-by-place', $block);
 				},
 			]);
 		}
@@ -47,13 +47,13 @@ class PhotosByViewpoint
 	{
 		if (function_exists('acf_add_local_field_group')) :
 			acf_add_local_field_group([
-				'key' => 'group_posts_by_viewpoint',
-				'title' => 'Block - Posts By Viewpoint',
+				'key' => 'group_posts_by_place',
+				'title' => 'Block - Posts By Place',
 				'fields' => [
 					[
-						'key' => 'sht_viewpoint',
-						'label' => 'Viewpoint',
-						'name' => 'sht_viewpoint',
+						'key' => 'sht_place',
+						'label' => 'Place',
+						'name' => 'sht_place',
 						'type' => 'post_object',
 						'instructions' => '',
 						'required' => 0,
@@ -64,7 +64,7 @@ class PhotosByViewpoint
 							'id' => '',
 						],
 						'post_type' => [
-							0 => 'mhm-viewpoint',
+							0 => 'mhm-place',
 						],
 						'taxonomy' => '',
 						'allow_null' => 1,
@@ -117,7 +117,7 @@ class PhotosByViewpoint
 						[
 							'param' => 'block',
 							'operator' => '==',
-							'value' => 'acf/photos-by-viewpoint',
+							'value' => 'acf/photos-by-place',
 						],
 					],
 				],

@@ -15,5 +15,5 @@ get_header();
 	?>
 </main>
 <?php
-get_template_part('partials/block-area/footer-single-viewpoint');
+get_template_part('partials/block-area/footer-single-place');
 get_footer();

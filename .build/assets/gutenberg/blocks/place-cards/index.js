@@ -3,9 +3,9 @@ import { registerBlockType } from '@wordpress/blocks';
 import { ServerSideRender } from '@wordpress/components';
 import { Component } from '@wordpress/element';
 
-registerBlockType('mhm/viewpoint-ancestors', {
-    title: _x('Viewpoint ancestors', 'Block title', 'sha'),
-    icon: 'layout',
+registerBlockType('mhm/place-cards', {
+    title: _x('Places as cards', 'Block title', 'sha'),
+    icon: 'image-flip-horizontal',
     category: 'widgets',
     supports: {
         align: ['wide', 'full'],
@@ -14,9 +14,10 @@ registerBlockType('mhm/viewpoint-ancestors', {
         multiple: true,
         reusable: true,
     },
+    keywords: ['cards', 'posts', 'place'],
     edit: class extends Component {
         render() {
-            return <ServerSideRender block='mhm/viewpoint-ancestors' />;
+            return <ServerSideRender block='mhm/place-cards' />;
         }
     },
     save() {
