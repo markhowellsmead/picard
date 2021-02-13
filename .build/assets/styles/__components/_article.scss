@@ -268,6 +268,9 @@
             @include desktop {
                 max-width: var(--constraint-medium);
             }
+            @include desktop_large {
+                max-width: var(--constraint-wide);
+            }
         }
     }
 
