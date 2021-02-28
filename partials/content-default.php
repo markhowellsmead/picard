@@ -25,7 +25,7 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 				<?php
 				the_content();
 				if (get_post_format() === 'gallery') {
-					get_template_part('partials/block/image-gallery', null, ['align' => 'full']);
+					get_template_part('partials/block/image-gallery', null, ['align' => 'wide']);
 				}
 				?>
 			</div>
