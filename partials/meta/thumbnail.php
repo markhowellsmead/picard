@@ -18,9 +18,7 @@ switch ($imageAspect) {
 		break;
 	default:
 		$image_size = 'full';
-		if (get_post_format() === 'image') {
-			$image_width = ' alignwide';
-		}
+		$image_width = ' alignwide';
 		break;
 }
 
