@@ -14,7 +14,7 @@ import { Fragment, Component } from '@wordpress/element';
 import { _x } from '@wordpress/i18n';
 
 import ImageSelectorWithPlaceholder from '../_components/ImageSelectorWithPlaceholder';
-import { LazyImage } from '../_vendor/lazyimage';
+import { LazyImage } from '../_components/LazyImage';
 
 import ratios from './ratios';
 
