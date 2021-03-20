@@ -88,8 +88,6 @@ registerBlockType('mhm/image', {
                     <LazyImage
                         className={`${classNameBase}__figure`}
                         image={image}
-                        background={false}
-                        admin={false}
                         objectFocalPoint={focalPoint}
                     />
                 )}
