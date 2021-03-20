@@ -136,6 +136,7 @@ class Edit extends Component {
                             image={image}
                             background={false}
                             admin={true}
+                            objectFocalPoint={focalPoint}
                         />
                     )}
                     <RichText

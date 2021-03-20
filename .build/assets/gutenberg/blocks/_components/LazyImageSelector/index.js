@@ -30,7 +30,7 @@ import { Component, Fragment } from '@wordpress/element';
 import { MediaUploadCheck, MediaUpload } from '@wordpress/block-editor';
 import { _x } from '@wordpress/i18n';
 
-import { getLazySrcs } from '../_components/lazyimage';
+import { getLazySrcs } from '../LazyImage';
 
 export default class LazyImageSelector extends Component {
     constructor(props) {

@@ -92,6 +92,7 @@ export class LazyImage extends Component {
                 </figure>
             );
         }
+
         if (admin) {
             return (
                 <figure className={classNameOut}>
