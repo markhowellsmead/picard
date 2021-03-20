@@ -22,11 +22,11 @@ export class LazyImage extends Component {
     }
 
     render() {
-        if (this.props.image === undefined) {
+        const { admin, background, className, focalPoint, image, objectFocalPoint } = this.props;
+
+        if (image === undefined) {
             return <p>Kein Bild gefunden</p>;
         }
-
-        let image = this.props.image;
 
         let srcset = [];
         Object.keys(image.srcset).forEach(size => {
@@ -34,45 +34,36 @@ export class LazyImage extends Component {
         });
         srcset = srcset.reverse().join(', ');
 
-        let className = 'o-lazyimage';
-        if (this.props.background === true) {
-            className += ' o-lazyimage--background';
+        let classNameOut = `${className} o-lazyimage`;
+
+        if (background === true) {
+            classNameOut = `${classNameOut} o-lazyimage--background`;
         }
+
         if (image.svg) {
-            className += ' o-lazyimage--svg';
-        }
-        if (this.props.className) {
-            className += ' ' + this.props.className;
+            classNameOut = `${classNameOut} o-lazyimage--svg`;
         }
 
         let style_orig = {};
         let style_pre = {};
 
-        if (this.props.objectFocalPoint) {
-            style_orig.objectPosition = `${this.props.objectFocalPoint.x * 100}% ${
-                this.props.objectFocalPoint.y * 100
-            }%`;
-            style_pre.objectPosition = `${this.props.objectFocalPoint.x * 100}% ${
-                this.props.objectFocalPoint.y * 100
-            }%`;
+        if (objectFocalPoint) {
+            style_orig.objectPosition = `${objectFocalPoint.x * 100}% ${objectFocalPoint.y * 100}%`;
+            style_pre.objectPosition = `${objectFocalPoint.x * 100}% ${objectFocalPoint.y * 100}%`;
         }
 
-        if (this.props.background === true) {
+        if (background === true) {
             style_orig.backgroundImage = "url('${image.org[0]}')";
             style_pre.backgroundImage = "url('${image.pre}')";
 
-            if (this.props.focalPoint) {
-                style_orig.backgroundPosition = `${this.props.focalPoint.x * 100}% ${
-                    this.props.focalPoint.y * 100
-                }%`;
-                style_pre.backgroundPosition = `${this.props.focalPoint.x * 100}% ${
-                    this.props.focalPoint.y * 100
-                }%`;
+            if (focalPoint) {
+                style_orig.backgroundPosition = `${focalPoint.x * 100}% ${focalPoint.y * 100}%`;
+                style_pre.backgroundPosition = `${focalPoint.x * 100}% ${focalPoint.y * 100}%`;
             }
 
-            if (this.props.admin) {
+            if (admin) {
                 return (
-                    <figure className={className}>
+                    <figure className={classNameOut}>
                         <div
                             {...image.attributes}
                             className='o-lazyimage__image o-lazyimage__image--lazyloaded'
@@ -83,7 +74,7 @@ export class LazyImage extends Component {
             }
 
             return (
-                <figure className={className}>
+                <figure className={classNameOut}>
                     {!image.svg && <div className='o-lazyimage__preview' style={style_pre} />}
                     <div
                         {...image.attributes}
@@ -101,9 +92,10 @@ export class LazyImage extends Component {
                 </figure>
             );
         }
-        if (this.props.admin) {
+
+        if (admin) {
             return (
-                <figure className={className} style={style_orig}>
+                <figure className={classNameOut}>
                     <img
                         {...image.attributes}
                         className='o-lazyimage__image o-lazyimage__image--lazyloaded'
@@ -116,7 +108,7 @@ export class LazyImage extends Component {
         }
 
         return (
-            <figure className={className} style={style_orig}>
+            <figure className={classNameOut}>
                 {!image.svg && (
                     <img className='o-lazyimage__preview' src={image.pre} style={style_pre} />
                 )}

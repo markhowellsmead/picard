@@ -11,7 +11,7 @@ import { Fragment, Component } from '@wordpress/element';
 import { _x } from '@wordpress/i18n';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 
-import LazyImageSelector from '../_vendor/lazyimageselector';
+import LazyImageSelector from '../_components/LazyImageSelector';
 
 class Edit extends Component {
     constructor(props) {
