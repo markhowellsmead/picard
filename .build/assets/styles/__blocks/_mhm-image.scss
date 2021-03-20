@@ -46,6 +46,13 @@
             }
         }
     }
+
+    &.alignfull {
+        & + .wp-block-cover.alignfull,
+        & + .wp-block-group.alignfull {
+            margin-top: 0;
+        }
+    }
 }
 
 @include context-edit {
