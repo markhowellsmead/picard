@@ -1,6 +1,5 @@
 .wp-block-mhm-image {
     @include proportional-image-wrapper;
-    height: 100%;
 
     &__figure {
         @include proportional-image-figure;

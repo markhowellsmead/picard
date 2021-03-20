@@ -3,7 +3,7 @@ import { _x } from '@wordpress/i18n';
 import { getBlockDefaultClassName, registerBlockType } from '@wordpress/blocks';
 import classnames from 'classnames';
 
-import { LazyImage } from '../_vendor/lazyimage';
+import { LazyImage } from '../_components/LazyImage';
 import edit from './edit';
 
 registerBlockType('mhm/image', {
@@ -88,8 +88,6 @@ registerBlockType('mhm/image', {
                     <LazyImage
                         className={`${classNameBase}__figure`}
                         image={image}
-                        background={false}
-                        admin={false}
                         objectFocalPoint={focalPoint}
                     />
                 )}

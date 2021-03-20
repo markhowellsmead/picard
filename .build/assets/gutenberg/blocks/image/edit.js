@@ -1,7 +1,6 @@
 import { InspectorControls, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import classnames from 'classnames';
-
 import {
     SelectControl,
     PanelBody,
@@ -15,7 +14,7 @@ import { Fragment, Component } from '@wordpress/element';
 import { _x } from '@wordpress/i18n';
 
 import ImageSelectorWithPlaceholder from '../_components/ImageSelectorWithPlaceholder';
-import { LazyImage } from '../_components/lazyimage';
+import { LazyImage } from '../_components/LazyImage';
 
 import ratios from './ratios';
 
@@ -137,6 +136,7 @@ class Edit extends Component {
                             image={image}
                             background={false}
                             admin={true}
+                            objectFocalPoint={focalPoint}
                         />
                     )}
                     <RichText
