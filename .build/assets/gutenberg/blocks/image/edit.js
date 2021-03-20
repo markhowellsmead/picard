@@ -1,7 +1,6 @@
 import { InspectorControls, RichText } from '@wordpress/block-editor';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import classnames from 'classnames';
-
 import {
     SelectControl,
     PanelBody,
