@@ -1,6 +1,6 @@
 <section class="c-archive">
 
-	<?php if (get_the_archive_title() !=='') {?>
+	<?php if (get_the_archive_title() !== '') { ?>
 		<header class="c-archive__header">
 			<?php
 			the_archive_title('<h1 class="c-archive__title">', '</h1>');
@@ -35,7 +35,7 @@
 	]);
 	if ('' != $paginate) {
 		echo '<div class="c-pagination">';
-		echo '<div class="c-pagination__content">' .$paginate. '</div>';
+		echo '<div class="c-pagination__content">' . $paginate . '</div>';
 		echo '</div>';
 	}
 	?>
