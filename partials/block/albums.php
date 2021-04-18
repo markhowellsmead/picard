@@ -19,7 +19,7 @@ if (empty($args['albums'])) {
 		$albums = [];
 		foreach ($args['albums'] as $album) {
 			$photos = get_posts(array(
-				'post_type' => 'photo',
+				'post_type' => 'post',
 				'numberposts' => 1,
 				'orderby'     => 'date',
 				'order'       => 'DESC',
@@ -40,7 +40,7 @@ if (empty($args['albums'])) {
 		foreach ($albums as $album) {
 
 			$photos = get_posts(array(
-				'post_type' => 'photo',
+				'post_type' => 'post',
 				'numberposts' => 1,
 				'orderby'     => 'date',
 				'order'       => 'DESC',

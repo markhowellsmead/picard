@@ -9,7 +9,7 @@ if (empty($viewpoints = ((array) $data['data']['sht_viewpoint'] ?? []))) {
 $number_of_posts = max(1, (int) $data['data']['sht_number_of_posts']);
 
 if (empty($viewpoint_posts = get_posts([
-	'post_type' => 'photo',
+	'post_type' => 'post',
 	'posts_per_page' => $number_of_posts,
 	'orderby' => 'date',
 	'order' => 'DESC',
