@@ -19,8 +19,7 @@
     @include desktop_large {
         margin-top: calc(var(--masthead-height) + var(--unit-xlarge));
 
-        .single-format-video &,
-        .single-format-image & {
+        .single & {
             margin-top: var(--masthead-height);
         }
     }
