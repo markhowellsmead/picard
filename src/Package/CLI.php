@@ -16,6 +16,7 @@ class CLI
 	{
 		if (class_exists('WP_CLI')) {
 			WP_CLI::add_command('mhm photo topost', 'SayHello\Theme\CLI\PhotoToPost');
+			WP_CLI::add_command('mhm collection totag', 'SayHello\Theme\CLI\CollectionToTag');
 		}
 	}
 }
