@@ -9,7 +9,7 @@ if (empty($albums = ($data['data']['sht_album'] ?? []))) {
 $number_of_posts = max(1, (int) $data['data']['sht_number_of_posts']);
 
 if (empty($album_posts = get_posts([
-	'post_type' => 'photo',
+	'post_type' => 'post',
 	'posts_per_page' => $number_of_posts,
 	'tax_query' => [
 		[
