@@ -232,6 +232,12 @@ class Media
 					'camera' => 'DJI Mavic Air'
 				];
 				break;
+			case 'FC3170':
+				return [
+					'pre' => 'a',
+					'camera' => 'DJI Mavic Air 2'
+				];
+				break;
 			case 'FinePix X100':
 				return [
 					'pre' => 'a',
