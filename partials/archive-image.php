@@ -28,13 +28,11 @@
 				if (have_posts()) {
 					while (have_posts()) {
 						the_post();
-						if (get_post_type() == 'photo') {
-							sht_theme()->getTemplatePart('partials/excerpt-grid-photo', [
-								'target_height' => $target_height,
-								'image_size' => $image_size,
-								'fancybox_name' => $fancybox_name
-							]);
-						}
+						sht_theme()->getTemplatePart('partials/excerpt-grid-photo', [
+							'target_height' => $target_height,
+							'image_size' => $image_size,
+							'fancybox_name' => $fancybox_name
+						]);
 					}
 				}
 				?>
