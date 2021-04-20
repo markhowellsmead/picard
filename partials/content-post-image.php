@@ -40,12 +40,11 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 	<?php
 	}
 
-	if (!empty(get_the_terms(get_the_ID(), 'post_tag')) || !empty(get_the_terms(get_the_ID(), 'collection'))) {
+	if (!empty(get_the_terms(get_the_ID(), 'post_tag'))) {
 	?>
 		<div class="c-article__meta">
 			<?php
 			get_template_part('partials/tags');
-			get_template_part('partials/collections');
 			get_template_part('partials/related_destinations');
 			?>
 		</div>

@@ -1,0 +1,41 @@
+.c-message {
+    @extend .h-stack;
+
+    &__title {
+        font-size: 1.2em;
+        color: inherit;
+    }
+
+    &--danger {
+        padding: var(--unit);
+        color: c(danger);
+        background-color: c(danger, background);
+        border: 1px solid c(danger, border);
+    }
+
+    &--info {
+        padding: var(--unit);
+        color: c(info);
+        background-color: c(info, background);
+        border: 1px solid c(info, border);
+    }
+
+    &--success {
+        padding: var(--unit);
+        color: c(success);
+        background-color: c(success, background);
+        border: 1px solid c(success, border);
+    }
+
+    &--warning {
+        padding: var(--unit);
+        color: c(warning);
+        background-color: c(warning, background);
+        border: 1px solid c(warning, border);
+    }
+
+    + .c-message,
+    + .gform_confirmation_wrapper {
+        margin-top: var(--unit);
+    }
+}
