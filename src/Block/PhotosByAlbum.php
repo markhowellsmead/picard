@@ -37,7 +37,9 @@ class PhotosByAlbum
 				'description' => __('An image gallery containing photos from a album.', 'Block description', 'sha'),
 				'render_callback' => function ($block, $content = '', $is_preview = false) {
 					$block['is_preview'] = $is_preview;
-					sht_theme()->getTemplatePart('partials/block/photos-by-album', $block);
+					$block['sht_album'] = get_field('sht_album');
+					$block['sht_number_of_posts'] = get_field('sht_number_of_posts');
+					get_template_part('partials/block/photos-by-album', null, $block);
 				},
 			]);
 		}
@@ -64,13 +66,13 @@ class PhotosByAlbum
 							'id' => '',
 						],
 						'taxonomy' => 'album',
-						'field_type' => 'checkbox',
+						'field_type' => 'multi_select',
+						'allow_null' => 0,
 						'add_term' => 0,
 						'save_terms' => 0,
 						'load_terms' => 0,
 						'return_format' => 'id',
 						'multiple' => 0,
-						'allow_null' => 0,
 					],
 					[
 						'key' => 'sht_number_of_posts',
