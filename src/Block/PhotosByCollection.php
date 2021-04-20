@@ -37,7 +37,9 @@ class PhotosByCollection
 				'description' => __('An image gallery containing photos from a collection.', 'Block description', 'sha'),
 				'render_callback' => function ($block, $content = '', $is_preview = false) {
 					$block['is_preview'] = $is_preview;
-					sht_theme()->getTemplatePart('partials/block/photos-by-collection', $block);
+					$block['sht_collection'] = get_field('sht_collection');
+					$block['sht_number_of_posts'] = get_field('sht_number_of_posts');
+					get_template_part('partials/block/photos-by-collection', null, $block);
 				},
 			]);
 		}
@@ -63,14 +65,14 @@ class PhotosByCollection
 							'class' => '',
 							'id' => '',
 						],
-						'taxonomy' => 'collection',
-						'field_type' => 'checkbox',
+						'taxonomy' => 'post_tag',
+						'field_type' => 'multi_select',
+						'allow_null' => 0,
 						'add_term' => 0,
 						'save_terms' => 0,
 						'load_terms' => 0,
 						'return_format' => 'id',
 						'multiple' => 0,
-						'allow_null' => 0,
 					],
 					[
 						'key' => 'sht_number_of_posts',

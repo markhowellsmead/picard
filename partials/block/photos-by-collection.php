@@ -2,20 +2,25 @@
 
 use SayHello\Theme\Package\Lazysizes;
 
-if (empty($collections = ($data['data']['sht_collection'] ?? []))) {
+if ((bool) ($args['is_preview'] ?? false)) {
+	printf('<div class="c-message c-message--info">%s</div>', $args['title']);
 	return;
 }
 
-$number_of_posts = max(1, (int) $data['data']['sht_number_of_posts']);
+if (empty($collections = ($args['sht_collection'] ?? []))) {
+	return;
+}
 
-if (empty($collection_posts = get_posts([
+$number_of_posts = max(1, (int) $args['sht_number_of_posts']);
+
+$posts = get_posts([
 	'post_type' => 'post',
 	'posts_per_page' => $number_of_posts,
 	'orderby' => 'date',
 	'order' => 'DESC',
 	'tax_query' => [
 		[
-			'taxonomy' => 'collection',
+			'taxonomy' => 'post_tag',
 			'field'    => 'term_id',
 			'terms'    => $collections,
 			'operator' => 'IN',
@@ -26,16 +31,18 @@ if (empty($collection_posts = get_posts([
 			'key' => '_thumbnail_id'
 		],
 	]
-]))) {
+]);
+
+if (empty($posts)) {
 	return;
 }
 
 $target_height = 300;
 $image_size = 'medium';
 
-$align = $data['align'];
-if (!empty($data['align'])) {
-	$align = 'align' . $data['align'];
+$align = $args['align'];
+if (!empty($args['align'])) {
+	$align = 'align' . $args['align'];
 }
 
 $unique = uniqid();
@@ -46,7 +53,7 @@ $unique = uniqid();
 <section class="wp-block-photos-by-collection <?php echo $align; ?>">
 	<div class="wp-block-photos-by-collection__images c-grid500">
 		<div class=" c-grid500__inner">
-			<?php foreach ($collection_posts as $collection_post) {
+			<?php foreach ($posts as $collection_post) {
 				$thumbnail_id = get_post_thumbnail_id($collection_post);
 				$metadata = wp_get_attachment_metadata($thumbnail_id);
 				$source_image_size = $metadata['sizes'][$image_size] ?? null ? $image_size : 'large';

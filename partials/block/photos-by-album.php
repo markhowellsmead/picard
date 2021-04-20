@@ -2,11 +2,16 @@
 
 use SayHello\Theme\Package\Lazysizes;
 
-if (empty($albums = ($data['data']['sht_album'] ?? []))) {
+if ((bool) ($args['is_preview'] ?? false)) {
+	printf('<div class="c-message c-message--info">%s</div>', $args['title']);
 	return;
 }
 
-$number_of_posts = max(1, (int) $data['data']['sht_number_of_posts']);
+if (empty($albums = ($args['sht_album'] ?? []))) {
+	return;
+}
+
+$number_of_posts = max(1, (int) $args['sht_number_of_posts']);
 
 if (empty($album_posts = get_posts([
 	'post_type' => 'post',
@@ -31,9 +36,9 @@ if (empty($album_posts = get_posts([
 $target_height = 300;
 $image_size = 'medium';
 
-$align = $data['align'];
-if (!empty($data['align'])) {
-	$align = 'align' . $data['align'];
+$align = $args['align'];
+if (!empty($args['align'])) {
+	$align = 'align' . $args['align'];
 }
 
 $unique = uniqid();
