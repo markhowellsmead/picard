@@ -244,6 +244,12 @@ class Media
 					'camera' => 'Fujifilm X100'
 				];
 				break;
+			case 'X100V':
+				return [
+					'pre' => 'a',
+					'camera' => 'Fujifilm X100V'
+				];
+				break;
 			case 'X-T1':
 				return [
 					'pre' => 'a',
