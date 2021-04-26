@@ -1,8 +1,4 @@
-<?php
-use SayHello\Theme\Package\Lazysizes;
-
-?>
-<article itemscope itemtype="http://schema.org/BlogPosting" <?php post_class('c-excerpt');?>>
+<article itemscope itemtype="http://schema.org/BlogPosting" <?php post_class('c-excerpt'); ?>>
 
 	<?php
 
@@ -21,7 +17,7 @@ use SayHello\Theme\Package\Lazysizes;
 		$image = sprintf(
 			'<a class="c-excerpt__imagelink" href="%s">%s</a>',
 			get_permalink(),
-			Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-excerpt__thumbnailfigure', 'c-excerpt__thumbnailimage')
+			'<figure class="c-excerpt__thumbnailfigure">' . wp_get_attachment_image(get_post_thumbnail_id(), $image_size, false, ['class' => 'c-excerpt__thumbnailimage']) . '</figure>'
 		);
 	}
 
@@ -65,7 +61,7 @@ use SayHello\Theme\Package\Lazysizes;
 			case 'photo':
 				printf('<a class="c-excerpt__link" href="%s">%s</a>', get_permalink(), _x('View larger', 'Excerpt link text', 'picard'));
 				break;
-			break;
+				break;
 			default:
 				switch (get_post_format()) {
 					case 'gallery':
