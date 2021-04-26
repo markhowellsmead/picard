@@ -23,7 +23,15 @@
 		if (have_posts()) {
 			while (have_posts()) {
 				the_post();
-				get_template_part('partials/excerpt', get_post_type());
+				if (!empty($template = locate_template([
+					'partials/excerpt-' . get_post_type() . '-' . get_post_format() . '.php',
+					'partials/excerpt-' . get_post_type() . '.php',
+					'partials/excerpt.php'
+				]))) {
+					include $template;
+				} else {
+					dump('empty');
+				}
 			}
 		}
 		?>

@@ -1,16 +1,11 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
-
 if (post_password_required() || is_attachment() || !has_post_thumbnail() || (bool) get_field('hide_thumbnail') || !empty(get_field('video_ref'))) {
 	return;
 }
 
 $imageAspect = sht_theme()->Package->Media->thumbnailAspect();
 $image_width = '';
-
-// var_dump(get_intermediate_image_sizes());
-// var_dump($imageAspect);
 
 switch ($imageAspect) {
 	case 'tall':
@@ -22,7 +17,7 @@ switch ($imageAspect) {
 		break;
 }
 
-$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-article__thumbnailfigure', 'c-article__thumbnailimage');
+$image = '<figure class="c-article__thumbnailfigure">' . wp_get_attachment_image(get_post_thumbnail_id(), $image_size, false, ['class' => 'c-article__thumbnailimage']) . '</figure>';
 
 if (is_singular()) {
 	if (!is_page_template('single-gutenberg')) {
