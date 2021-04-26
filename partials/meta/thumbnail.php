@@ -22,7 +22,7 @@ switch ($imageAspect) {
 		break;
 }
 
-$image = Lazysizes::getLazyImage(get_post_thumbnail_id(), $image_size, 'c-article__thumbnailfigure', 'c-article__thumbnailimage');
+$image = '<figure class="c-article__thumbnailfigure">' . wp_get_attachment_image(get_post_thumbnail_id(), $image_size, false, ['class' => 'c-article__thumbnailimage']) . '</figure>';
 
 if (is_singular()) {
 	if (!is_page_template('single-gutenberg')) {
