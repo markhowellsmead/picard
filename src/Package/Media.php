@@ -23,7 +23,6 @@ class Media
 		add_filter('body_class', [$this, 'thumbnailAspectCSS']);
 		add_filter('post_class', [$this, 'postClasses']);
 		add_action('wpseo_add_opengraph_images', [$this, 'videoThumbnail']);
-		add_filter('wpseo_opengraph_desc', [$this, 'maybeChangeDescription']);
 		add_filter('wpseo_opengraph_image_size', [$this, 'yoastSeoOpengraphChangeImageSize'], 10, 0);
 	}
 
@@ -181,14 +180,6 @@ class Media
 				return '';
 				break;
 		}
-	}
-
-	public function maybeChangeDescription($description)
-	{
-		if (!empty($excerpt = wp_strip_all_tags(get_the_excerpt(), true))) {
-			return $excerpt;
-		}
-		return $description;
 	}
 
 	public function videoThumbnail($object)
