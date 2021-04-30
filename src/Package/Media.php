@@ -256,4 +256,23 @@ class Media
 		}
 		return [];
 	}
+
+	public function convertShutterSpeed($speed)
+	{
+		if ((1 / $speed) > 1) {
+			if ((number_format((1 / $speed), 1)) === 1.3
+				|| number_format((1 / $speed), 1) === 1.5
+				|| number_format((1 / $speed), 1) === 1.6
+				|| number_format((1 / $speed), 1) === 2.5
+			) {
+				$pshutter = '1/' . number_format((1 / $speed), 1, '.', '') . 's';
+			} else {
+				$pshutter = '1/' . number_format((1 / $speed), 0, '.', '') . 's';
+			}
+		} else {
+			$pshutter = $speed . 's';
+		}
+
+		return $pshutter;
+	}
 }
