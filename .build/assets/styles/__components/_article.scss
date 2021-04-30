@@ -23,10 +23,18 @@
         > .wp-block-mhm-project-grid:first-child,
         > .wp-block-mhm-project-header:first-child,
         > .wp-block-mhm-viewpoint-header:first-child,
-        > .wp-block-cover:first-child {
+        > .wp-block-image.alignwide:first-child,
+        > .wp-block-image.alignfull:first-child {
             margin-top: calc(var(--unit-large) * -1);
             @include desktop_large {
                 margin-top: calc(var(--unit-xlarge) * -1);
+            }
+        }
+
+        > .wp-block-cover:first-child {
+            margin-top: calc(var(--unit-large) * -1);
+            @include desktop_large {
+                margin-top: 0;
             }
         }
 

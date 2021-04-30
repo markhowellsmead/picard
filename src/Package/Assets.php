@@ -23,17 +23,17 @@ class Assets
 
 	public function run()
 	{
-		add_action('wp_enqueue_scripts', [ $this, 'registerAssets' ]);
-		add_action('admin_enqueue_scripts', [ $this, 'registerAdminAssets' ]);
-		add_action('admin_init', [ $this, 'editorStyle' ]);
-		add_action('wp_head', [ $this, 'loadFonts' ]);
-		add_action('admin_head', [ $this, 'loadFonts' ]);
+		add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
+		add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets']);
+		add_action('admin_init', [$this, 'editorStyle']);
+		add_action('wp_head', [$this, 'loadFonts']);
+		add_action('admin_head', [$this, 'loadFonts']);
 	}
 
 	public function registerAssets()
 	{
 
-		if (! is_user_logged_in()) {
+		if (!is_user_logged_in()) {
 			wp_deregister_style('dashicons');
 		}
 
@@ -62,12 +62,17 @@ class Assets
 			$deps[] = 'ui-modernizr';
 		}
 
-		wp_enqueue_script('swiper', $this->theme_url . '/assets/plugins/swiper/swiper.min.js', [ 'jquery' ], '5.3.8', true);
+		wp_enqueue_script('swiper', $this->theme_url . '/assets/plugins/swiper/swiper.min.js', ['jquery'], '5.3.8', true);
 		$deps[] = 'swiper';
 
-		wp_enqueue_script('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.js', [ 'jquery' ], '3.4.0', true);
+		wp_enqueue_script('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.js', ['jquery'], '3.4.0', true);
 		$deps[] = 'fancybox';
+
 		wp_enqueue_script(sht_theme()->prefix . '-script', $this->theme_url . '/assets/scripts/ui' . (sht_theme()->debug ? '' : '.min') . '.js', $deps, filemtime($this->theme_path . '/assets/scripts/ui' . (sht_theme()->debug ? '' : '.min') . '.js'), true);
+		wp_localize_script(sht_theme()->prefix . '-script', 'sht_theme', [
+			'directory_uri' => get_template_directory_uri(),
+			'version' => sht_theme()->version
+		]);
 
 		/**
 		 * Footer JS
@@ -127,15 +132,15 @@ class Assets
 	public function getSetting($setting)
 	{
 		$path = trailingslashit(get_template_directory()) . 'assets/settings.json';
-		if (! is_file($path)) {
+		if (!is_file($path)) {
 			return false;
 		}
 
 		$settings = json_decode(file_get_contents($path), true);
-		if (! array_key_exists($setting, $settings)) {
+		if (!array_key_exists($setting, $settings)) {
 			return false;
 		}
 
-		return $settings[ $setting ];
+		return $settings[$setting];
 	}
 }
