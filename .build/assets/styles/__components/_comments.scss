@@ -1,122 +1,112 @@
 .c-comments {
+    padding: var(--unit);
+    background-color: rgba(0, 0, 0, 0.035);
+    max-width: var(--constraint-narrow);
+    margin-left: auto;
+    margin-right: auto;
 
-	padding-left: var(--unit);
-	padding-right: var(--unit);
-	max-width: var(--constraint-narrow);
-	margin-left: auto;
-	margin-right: auto;
+    .children {
+        list-style: none;
+        padding-left: 0;
+    }
 
-	@include tablet {
-		padding-left: 0;
-		padding-right: 0;
-	}
+    .comment,
+    .pingback,
+    .trackback {
+        padding-top: var(--unit);
+        padding-bottom: var(--unit);
+        padding-left: var(--unit-large);
+        @extend .h-stack;
 
-	.children {
-		list-style: none;
-		padding-left: 0;
-	}
+        &.depth-1 {
+            padding-left: 0;
+        }
 
-	.comment,
-	.pingback,
-	.trackback {
-		padding-top: var(--unit);
-		padding-bottom: var(--unit);
-		padding-left: var(--unit-large);
-		@extend .h-stack;
+        // Only if inside an existing comment (so as a specific reply)
+        .comment-respond {
+            padding-top: var(--unit);
+            padding-bottom: var(--unit);
+            border-top: 1px solid c(gray);
+        }
 
-		&.depth-1 {
-			padding-left: 0;
-		}
+        & + .comment,
+        & + .pingback,
+        & + .trackback {
+            border-top: 1px solid c(gray, light);
+        }
+    }
 
-		// Only if inside an existing comment (so as a specific reply)
-		.comment-respond {
-			padding-top: var(--unit);
-			padding-bottom: var(--unit);
-			border-top: 1px solid c(gray);
-		}
+    .comment-awaiting-moderation {
+        flex: 0 0 100%;
+        opacity: 0.65;
+    }
 
-		& + .comment,
-		& + .pingback,
-		& + .trackback {
-			border-top: 1px solid c(gray, light);
-		}
+    .comment-body,
+    .comment-content {
+        @extend .h-stack;
 
-	}
+        pre {
+            padding: 0;
+            overflow-x: auto;
+        }
+    }
 
-	.comment-awaiting-moderation {
-		flex: 0 0 100%;
-		opacity: .65;
-	}
+    .comment-edit-link {
+        @extend .o-button;
+    }
 
-	.comment-body,
-	.comment-content {
-		@extend .h-stack;
+    .commentlist {
+        padding-left: 0;
+        list-style: none;
+    }
 
-		pre {
-			padding: 0;
-			overflow-x: auto;
-		}
-	}
+    .comment-meta {
+        @extend .h-stack--small;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
 
-	.comment-edit-link {
-		@extend .o-button;
-	}
+            > * {
+                margin-top: 0;
+            }
+        }
+    }
 
-	.commentlist {
-		padding-left: 0;
-		list-style: none;
-	}
+    .comment-metadata {
+        font-size: var(--font-size-xsmall);
+        text-align: right;
+        @include tablet {
+            flex: 0 0 40%;
+            margin-left: var(--unit);
+        }
+    }
 
-	.comment-meta {
-		@extend .h-stack--small;
-		@include tablet {
-			display: flex;
-			justify-content: space-between;
-			flex-wrap: wrap;
+    .comment-reply-link {
+        @extend .o-button;
+        font-size: var(--font-size-small);
+    }
 
-			> * {
-				margin-top: 0;
-			}
-		}
-	}
+    .comment-respond {
+        clear: both;
+    }
 
-	.comment-metadata {
-		font-size: var(--font-size-xsmall);
-		text-align: right;
-		@include tablet {
-			flex: 0 0 40%;
-			margin-left: var(--unit);
-		}
-	}
+    .edit-link {
+        margin-left: var(--unit-small);
+    }
 
-	.comment-reply-link {
-		@extend .o-button;
-		font-size: var(--font-size-small);
-	}
+    .navigation {
+        @include clearfix;
+    }
 
-	.comment-reply-title {
-		font-size: 1em;
-	}
+    #cancel-comment-reply-link {
+        margin-left: var(--unit-xsmall);
+        font-weight: normal;
+        text-decoration: underline;
 
-	.comment-respond {
-		clear: both;
-	}
-
-	.edit-link {
-		margin-left: var(--unit-small);
-	}
-
-	.navigation {
-		@include clearfix;
-	}
-
-	#cancel-comment-reply-link {
-		font-weight: normal;
-		text-decoration: underline;
-
-		&:active,
-		&:hover {
-			color: c(primary, dark);
-		}
-	}
+        &:active,
+        &:hover {
+            color: c(primary, dark);
+        }
+    }
 }

@@ -2,10 +2,6 @@
     @include clearfix;
     @extend .h-stack--medium;
 
-    @include desktop {
-        font-size: 1.125rem;
-    }
-
     &__content {
         @include clearfix;
         @extend .h-constraint;
@@ -145,12 +141,25 @@
         @extend .h-constraint;
         @extend .h-stack;
         @include mobile-padding-x;
-        padding-top: 0;
-        margin-top: var(--unit-medium);
+        font-size: var(--font-size-small);
 
         &--orderinfo {
             display: block;
             font-size: var(--font-size-small);
+        }
+
+        & > :first-child {
+            padding-top: var(--unit);
+            border-top: 1px solid var(--line-color);
+        }
+
+        & > :last-child {
+            padding-bottom: var(--unit);
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        & > * {
+            margin-top: var(--unit);
         }
     }
 
@@ -163,7 +172,6 @@
 
     &__taxonomy {
         @extend .h-stack--xsmall;
-        font-size: var(--font-size-small);
         color: c(gray);
         @supports (display: grid) {
             @include tablet {
