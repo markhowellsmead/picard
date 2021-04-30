@@ -1,7 +1,5 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
-
 if (empty($images = get_field('images'))) {
 	if ($args['is_context_edit'] ?? false) {
 ?>
@@ -68,9 +66,10 @@ $unique = uniqid();
 					<?php } else { ?>
 						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" data-fancybox="image" data-caption="<?php echo $image['caption'] ?? $image['title']; ?>">
 							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
-							<?php
-							echo Lazysizes::getLazyImage($image['ID'], $source_image_size, 'c-grid500__figure', 'c-grid500__image');
-							?>
+							<figure class="c-grid500__figure">
+								<?php
+								echo wp_get_attachment_image($image['ID'], $source_image_size, false, ['class' => 'c-grid500__image']);
+								?></figure>
 						</a>
 					<?php
 					} ?>
