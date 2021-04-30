@@ -35,61 +35,60 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 
 	</div>
 
-	<div class="c-exifbox" data-exif>
-		<div class="c-exifbox__content c-article__metagroup">
-			<?php if (get_post_format() === 'image' && has_post_thumbnail()) {
+	<?php if (get_post_format() === 'image' && has_post_thumbnail()) { ?>
+		<div class="c-exifbox" data-exif>
+			<div class="c-exifbox__content c-article__metagroup">
+				<?php
 				$camera = sht_theme()->Package->Media->getCameraDescriptors($image_meta['camera'] ?? '');
 				if (is_array($image_meta) && isset($image_meta['created_timestamp']) && $image_meta['created_timestamp'] > 0) {
-			?> <h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Photographed on', 'Post meta title', 'picard'); ?></h2>
+				?> <h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Photographed on', 'Post meta title', 'picard'); ?></h2>
 					<time class="c-article__date c-article__date--captured" datetime="<?php echo date_i18n('c', $image_meta['created_timestamp']); ?>">
 						<?php echo date_i18n('jS F Y', $image_meta['created_timestamp']); ?>
 					</time>
-				<?php }
+				<?php
+				}
 
 				if (!empty($camera)) {
 				?>
 					<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Camera', 'Post meta title', 'picard'); ?></h2>
 					<p><?php echo $camera['camera']; ?></p>
-			<?php }
-			} ?>
+					<?php }
 
+				if (get_post_format() === 'image' && $image_meta) {
+					if ($image_meta['shutter_speed'] ?? false) {
+					?>
+						<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Shutter speed', 'Post meta title', 'picard'); ?></h2>
+						<p><?php echo sht_theme()->Package->Media->convertShutterSpeed($image_meta['shutter_speed']); ?></p>
+					<?php
+					}
 
+					if ($image_meta['aperture'] ?? null) {
+					?>
+						<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Aperture', 'Post meta title', 'picard'); ?></h2>
+						<p><?php echo "f/{$image_meta['aperture']}"; ?></p>
+					<?php
+					}
 
-			<?php
-			if (get_post_format() === 'image' && $image_meta) {
-				if ($image_meta['shutter_speed'] ?? false) {
-			?>
-					<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Shutter speed', 'Post meta title', 'picard'); ?></h2>
-					<p><?php echo sht_theme()->Package->Media->convertShutterSpeed($image_meta['shutter_speed']); ?></p>
+					if ($image_meta['iso'] ?? null) {
+					?>
+						<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('ISO', 'Post meta title', 'picard'); ?></h2>
+						<p><?php echo $image_meta['iso']; ?></p>
+					<?php
+
+					}
+
+					if ($image_meta['focal_length'] ?? null) {
+					?>
+						<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Focal length', 'Post meta title', 'picard'); ?></h2>
+						<p><?php echo "{$image_meta['focal_length']}mm"; ?></p>
 				<?php
+					}
 				}
-
-				if ($image_meta['aperture'] ?? null) {
 				?>
-					<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Aperture', 'Post meta title', 'picard'); ?></h2>
-					<p><?php echo "f/{$image_meta['aperture']}"; ?></p>
-				<?php
-				}
-
-				if ($image_meta['iso'] ?? null) {
-				?>
-					<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('ISO', 'Post meta title', 'picard'); ?></h2>
-					<p><?php echo $image_meta['iso']; ?></p>
-				<?php
-
-				}
-
-				if ($image_meta['focal_length'] ?? null) {
-				?>
-					<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Focal length', 'Post meta title', 'picard'); ?></h2>
-					<p><?php echo "{$image_meta['focal_length']}mm"; ?></p>
-			<?php
-				}
-			}
-			?>
+			</div>
+			<button class="c-exifbox__toggler o-button o-button--plain o-button--compact" disabled data-exif-toggler data-label-open="<?php _ex('Show photographic (EXIF) data', 'Button text', 'picard'); ?>" data-label-close="<?php _ex('Hide photographic (EXIF) data', 'Button text', 'picard'); ?>" />
 		</div>
-		<button class="c-exifbox__toggler o-button o-button--plain o-button--compact" disabled data-exif-toggler data-label-open="<?php _ex('Show photographic (EXIF) data', 'Button text', 'picard'); ?>" data-label-close="<?php _ex('Hide photographic (EXIF) data', 'Button text', 'picard'); ?>" />
-	</div>
+	<?php } ?>
 
 </div>
 

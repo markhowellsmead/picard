@@ -68,6 +68,10 @@
             align-items: center;
             flex-wrap: wrap;
 
+            @supports (display: grid) {
+                display: grid;
+            }
+
             > * {
                 margin-top: 0;
             }
