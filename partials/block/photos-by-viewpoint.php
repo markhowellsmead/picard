@@ -57,7 +57,7 @@ $unique = uniqid();
 			?>
 				<div class="wp-block-photos-by-viewpoint__entry c-grid500__item" style="flex-grow:<?php echo $flex_grow; ?>;flex-basis:<?php echo $flex_basis; ?>px;">
 					<?php if (!$data['is_preview']) { ?>
-						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($viewpoint_post); ?>" data-fancybox="photos-by-viewpoint" data-caption="<?php echo get_the_title($viewpoint_post); ?>" data-type="image" data-srcset="<?php echo $fancybox_href; ?>">
+						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($viewpoint_post); ?>" data-fancybox="image" data-caption="<?php echo get_the_title($viewpoint_post); ?>" data-srcset="<?php echo $fancybox_href; ?>">
 							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 							<?php
 							echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image');

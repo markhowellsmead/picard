@@ -66,7 +66,7 @@ $unique = uniqid();
 							?>
 						</span>
 					<?php } else { ?>
-						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" _data-fancybox="gallery-<?php echo $unique; ?>" _data-caption="<?php echo $image['caption'] ?? $image['title']; ?>">
+						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" data-fancybox="image" data-caption="<?php echo $image['caption'] ?? $image['title']; ?>">
 							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 							<?php
 							echo Lazysizes::getLazyImage($image['ID'], $source_image_size, 'c-grid500__figure', 'c-grid500__image');
