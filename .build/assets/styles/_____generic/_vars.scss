@@ -10,7 +10,7 @@
     --constraint-wide: #{rem-calc(1280px)};
     --constraint-xwide: #{rem-calc(1600px)};
     // --constraint-full: 100%;
-    --constraint-full: var(--constraint-wide);
+    --constraint-full: var(--constraint-xwide);
     --unit-xxsmall: calc(var(--unit) / 8);
     --unit-xsmall: calc(var(--unit) / 4);
     --unit-small: calc(var(--unit) / 2);
