@@ -163,14 +163,7 @@
         }
     }
 
-    &__metatitle {
-        font-size: 1em;
-        margin: 0;
-        color: inherit;
-        font-weight: inherit;
-    }
-
-    &__taxonomy {
+    &__metagroup {
         @extend .h-stack--xsmall;
         color: c(gray);
         @supports (display: grid) {
@@ -184,6 +177,13 @@
                 }
             }
         }
+    }
+
+    &__metatitle {
+        font-size: 1em;
+        margin: 0;
+        color: inherit;
+        font-weight: inherit;
     }
 
     &__taxonomyentries {
