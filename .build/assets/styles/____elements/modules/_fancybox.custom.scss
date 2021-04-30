@@ -1,15 +1,3 @@
-.fancybox-bg {
-    background-color: #fff;
-}
-
-.fancybox-caption {
-    text-align: center;
-    color: var(--color-black);
-    opacity: 1;
-    visibility: visible;
-
-    &::before {
-        background-image: none;
-        background: linear-gradient(180deg, transparent, #fff);
-    }
+.fancybox-caption::after {
+    border: none;
 }
