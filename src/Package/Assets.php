@@ -71,7 +71,8 @@ class Assets
 		wp_enqueue_script(sht_theme()->prefix . '-script', $this->theme_url . '/assets/scripts/ui' . (sht_theme()->debug ? '' : '.min') . '.js', $deps, filemtime($this->theme_path . '/assets/scripts/ui' . (sht_theme()->debug ? '' : '.min') . '.js'), true);
 		wp_localize_script(sht_theme()->prefix . '-script', 'sht_theme', [
 			'directory_uri' => get_template_directory_uri(),
-			'version' => sht_theme()->version
+			'version' => sht_theme()->version,
+			'nonce' => wp_create_nonce('wp_rest')
 		]);
 
 		/**
