@@ -22,3 +22,15 @@ if (!!document.querySelector('[data-exif-toggler]')) {
     );
     document.head.appendChild(exif_toggler_script);
 }
+
+if (
+    !!document.querySelectorAll('html.logged-in .c-excerpt__header') &&
+    !!document.querySelectorAll('html.logged-in .c-excerpt__header').length
+) {
+    const delete_button_script = document.createElement('script');
+    delete_button_script.setAttribute(
+        'src',
+        `${sht_theme.directory_uri}/assets/scripts/delete-button.min.js?version=${sht_theme.version}`
+    );
+    document.head.appendChild(delete_button_script);
+}
