@@ -62,28 +62,15 @@ $unique = uniqid();
 				$fancybox_href = wp_get_attachment_image_url($thumbnail_id, 'gutenberg_full');
 			?>
 				<div class="wp-block-photos-by-album__entry c-grid500__item" style="flex-grow:<?php echo $flex_grow; ?>;flex-basis:<?php echo $flex_basis; ?>px;">
-					<?php if (!$data['is_preview']) { ?>
-						<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($album_post); ?>" data-fancybox="image" data-caption="<?php echo get_the_title($album_post); ?>" data-srcset="<?php echo $fancybox_href; ?>">
-							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
-							<?php
-							echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image');
-							if ((bool) get_field('sht_show_captions')) {
-								printf('<figcaption class="c-grid500__caption">%s</figcaption>', get_the_title($album_post));
-							}
-							?>
-						</a>
-					<?php } else { ?>
-						<span class="c-grid500__itemlink" title="<?php echo get_the_title($album_post); ?>">
-							<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
+					<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($album_post); ?>" data-fancybox="image" data-caption="<?php echo get_the_title($album_post); ?>" data-srcset="<?php echo $fancybox_href; ?>">
+						<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 						<?php
-						printf(
-							'<figure class="c-grid500__figure">%s</figure>',
-							wp_get_attachment_image($thumbnail_id, $source_image_size, false, [
-								'class' => 'c-grid500__image'
-							])
-						);
-					} ?>
-						</span>
+						echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image');
+						if ((bool) get_field('sht_show_captions')) {
+							printf('<figcaption class="c-grid500__caption">%s</figcaption>', get_the_title($album_post));
+						}
+						?>
+					</a>
 				</div>
 			<?php } ?>
 		</div>
