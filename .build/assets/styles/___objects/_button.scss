@@ -1,34 +1,48 @@
 .o-button {
+    cursor: pointer;
+    padding: var(--unit-small) var(--unit);
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    text-decoration: none;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.1);
+    @include transition;
+    background-color: var(--color-gray-dark);
+    color: var(--color-white);
 
-	cursor: pointer;
-	padding: var(--unit-xsmall) var(--unit);
-	border: 1px solid transparent;
-	border-radius: var(--radius);
-	text-decoration: none;
-	box-shadow: 0 0 .25em rgba(0,0,0,.1);
-	@include transition;
+    &:hover {
+        background-color: var(--color-primary-light);
+        color: var(--color-white);
+    }
 
-	&:hover {
-		filter: brightness(1.2);
-	}
+    &--solid {
+        @extend .o-button;
+    }
 
-	&--solid {
-		@extend .o-button;
-	}
+    &--compact {
+        padding: 0.25em 0.5em;
+    }
 
-	&--size-small {
-		font-size: $font-size-small;
-	}
+    &--plain,
+    &--plain:hover {
+        background-color: var(--color-gray-xlight);
+        color: currentColor;
+        border: 1px solid var(--color-gray-light);
+        box-shadow: none;
+    }
 
-	&--size-large {
-		font-size: $font-size-large;
-	}
+    &--size-small {
+        font-size: $font-size-small;
+    }
 
-	&--size-smaller {
-		font-size: $font-size-xsmall;
-	}
+    &--size-large {
+        font-size: $font-size-large;
+    }
 
-	&--size-larger {
-		font-size: $font-size-xlarge;
-	}
+    &--size-smaller {
+        font-size: $font-size-xsmall;
+    }
+
+    &--size-larger {
+        font-size: $font-size-xlarge;
+    }
 }
