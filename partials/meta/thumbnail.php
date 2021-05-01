@@ -8,12 +8,25 @@ $imageAspect = sht_theme()->Package->Media->thumbnailAspect();
 $image_width = '';
 
 switch ($imageAspect) {
+	case 'xwide':
+		$image_size = 'full';
+		$block_width = 'alignxwide';
+		break;
 	case 'tall':
+		$image_size = 'gutenberg_wide';
+		$block_width = 'tall';
+		break;
+	case '169':
+		$image_size = 'gutenberg_wide';
+		$block_width = 'filmic';
+		break;
+	case 'square':
 		$image_size = 'large';
+		$block_width = 'square';
 		break;
 	default:
-		$image_size = 'full';
-		$image_width = ' alignwide';
+		$image_size = 'gutenberg_wide';
+		$block_width = 'alignwide';
 		break;
 }
 
@@ -26,7 +39,7 @@ if (is_singular()) {
 			get_post_type(),
 			!empty($class) ? ' ' . $class : '',
 			$image,
-			$image_width
+			$block_width
 		);
 	}
 } else {
