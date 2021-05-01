@@ -1,26 +1,27 @@
 :root {
-	--color-button-primary-background: #{c(primary)};
-	--color-button-primary-hover: #{c(white)};
-	--color-button-primary: #{c(white)};
-	--constraint-xxnarrow: #{rem-calc(360px)};
-	--constraint-xnarrow: #{rem-calc(540px)};
-	--constraint-narrow: #{rem-calc(600px)};
-	--constraint-lessnarrow: #{rem-calc(800px)};
-	--constraint-medium: #{rem-calc(1000px)};
-	--constraint-wide: #{rem-calc(1280px)};
-	--constraint-xwide: #{rem-calc(1600px)};
-	--constraint-full: 100%;
-	--unit-xxsmall: calc(var(--unit) / 8);
-	--unit-xsmall: calc(var(--unit) / 4);
-	--unit-small: calc(var(--unit) / 2);
-	--unit-medium: calc(var(--unit) * 1.5);
-	--unit-large: calc(var(--unit) * 2);
-	--unit-xlarge: calc(var(--unit) * 4);
-	--unit-xxlarge: calc(var(--unit) * 8);
-	--unit-xxxlarge: calc(var(--unit) * 10);
-	--unit: 1rem;
+    --color-button-primary-background: #{c(primary)};
+    --color-button-primary-hover: #{c(white)};
+    --color-button-primary: #{c(white)};
+    --constraint-xxnarrow: #{rem-calc(360px)};
+    --constraint-xnarrow: #{rem-calc(540px)};
+    --constraint-narrow: #{rem-calc(600px)};
+    --constraint-lessnarrow: #{rem-calc(800px)};
+    --constraint-medium: #{rem-calc(1000px)};
+    --constraint-wide: #{rem-calc(1280px)};
+    --constraint-xwide: #{rem-calc(1600px)};
+    // --constraint-full: 100%;
+    --constraint-full: var(--constraint-xwide);
+    --unit-xxsmall: calc(var(--unit) / 8);
+    --unit-xsmall: calc(var(--unit) / 4);
+    --unit-small: calc(var(--unit) / 2);
+    --unit-medium: calc(var(--unit) * 1.5);
+    --unit-large: calc(var(--unit) * 2);
+    --unit-xlarge: calc(var(--unit) * 4);
+    --unit-xxlarge: calc(var(--unit) * 8);
+    --unit-xxxlarge: calc(var(--unit) * 10);
+    --unit: 1rem;
 
-	@include laptop {
-		--constraint-narrow: #{rem-calc(720px)};
-	}
+    @include laptop {
+        --constraint-narrow: #{rem-calc(720px)};
+    }
 }

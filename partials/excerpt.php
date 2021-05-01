@@ -17,7 +17,7 @@
 		$image = sprintf(
 			'<a class="c-excerpt__imagelink" href="%s">%s</a>',
 			get_permalink(),
-			'<figure class="c-excerpt__thumbnailfigure">' . wp_get_attachment_image(get_post_thumbnail_id(), $image_size, false, ['class' => 'c-excerpt__thumbnailimage']) . '</figure>'
+			'<figure class="c-excerpt__thumbnailfigure">' . wp_get_attachment_image(get_post_thumbnail_id(), 'medium', false, ['class' => 'c-excerpt__thumbnailimage']) . '</figure>'
 		);
 	}
 

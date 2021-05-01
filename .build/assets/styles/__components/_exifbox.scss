@@ -1,0 +1,10 @@
+.c-exifbox {
+    &[aria-hidden='false'] {
+        @extend .h-stack;
+    }
+    &[aria-hidden='true'] {
+        .c-exifbox__content {
+            display: none;
+        }
+    }
+}

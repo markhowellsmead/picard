@@ -19,12 +19,12 @@
     --font-weight-body: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --font-weight-heading: var(--font-weight-bold);
+    --font-weight-heading: 500;
 
     --line-height: 1.625;
     --line-height-large: 1.75;
     --line-height-heading: 1.2;
-    --radius: 0.3em;
+    --radius: 0.15em;
 
     --color-heading: var(--color-gray-dark);
 }
@@ -189,22 +189,13 @@ h6 {
 
 h1 {
     font-size: 1.75em;
-    @include desktop {
-        font-size: 2.25em;
-    }
 
     &.is-style-large {
         font-size: 2.5em;
-        @include desktop {
-            font-size: 3em;
-        }
     }
 
     &.is-style-xlarge {
         font-size: 3.5em;
-        @include desktop {
-            font-size: 4em;
-        }
     }
 }
 

@@ -205,6 +205,12 @@ class Media
 			];
 		}
 		switch ($camera) {
+			case 'Canon EOS 1200D':
+				return [
+					'pre' => 'a',
+					'camera' => 'Canon EOS 1200D'
+				];
+				break;
 			case 'NIKON D80':
 				return [
 					'pre' => 'a',
@@ -255,5 +261,107 @@ class Media
 				break;
 		}
 		return [];
+	}
+
+	public function convertShutterSpeed($speed)
+	{
+		if ((1 / $speed) > 1) {
+			if ((number_format((1 / $speed), 1)) === 1.3
+				|| number_format((1 / $speed), 1) === 1.5
+				|| number_format((1 / $speed), 1) === 1.6
+				|| number_format((1 / $speed), 1) === 2.5
+			) {
+				$pshutter = '1/' . number_format((1 / $speed), 1, '.', '') . 's';
+			} else {
+				$pshutter = '1/' . number_format((1 / $speed), 0, '.', '') . 's';
+			}
+		} else {
+			$pshutter = $speed . 's';
+		}
+
+		return $pshutter;
+	}
+
+	/**
+	 * Convert GPS DMS (degrees, minutes, seconds) to decimal format
+	 * (longitude/latitude).
+	 *
+	 * @param int $deg Degrees
+	 * @param int $min Minutes
+	 * @param int $sec Seconds
+	 *
+	 * @return int The converted decimal-format value.
+	 */
+	public function DMStoDEC($deg, $min, $sec)
+	{
+		return $deg + ((($min * 60) + ($sec)) / 3600);
+	}
+
+	public function calculateGPS(array $image_meta)
+	{
+
+		if (!($image_meta['latitude'] ?? false) || !($image_meta['latitude'] ?? false)) {
+			return [];
+		}
+
+		$gps = [];
+
+		if (isset($image_meta['latitude'])) {
+			$gps['lat']['deg'] = explode('/', $image_meta['latitude'][0]);
+			$gps['lat']['deg'] = $gps['lat']['deg'][1] > 0 ? $gps['lat']['deg'][0] / $gps['lat']['deg'][1] : 0;
+			$gps['lat']['min'] = explode('/', $image_meta['latitude'][1]);
+			$gps['lat']['min'] = $gps['lat']['min'][1] > 0 ? $gps['lat']['min'][0] / $gps['lat']['min'][1] : 0;
+			$gps['lat']['sec'] = explode('/', $image_meta['latitude'][2]);
+
+			$lat_sec_0 = floatval($gps['lat']['sec'][0]);
+			$lat_sec_1 = floatval($gps['lat']['sec'][1]);
+
+			if ($lat_sec_0 > 0 && $lat_sec_1 > 0) {
+				$gps['lat']['sec'] = $lat_sec_0 / $lat_sec_1;
+			} else {
+				$gps['lat']['sec'] = 0;
+			}
+
+			$gps['GPSLatitudeDecimal'] = $this->DMStoDEC($gps['lat']['deg'], $gps['lat']['min'], $gps['lat']['sec']);
+			if (($image_meta['latitude_ref'] ?? false) === 'S') {
+				$gps['GPSLatitudeDecimal'] = 0 - $gps['GPSLatitudeDecimal'];
+			}
+		} else {
+			$gps['GPSLatitudeDecimal'] = null;
+			$gps['GPSLatitudeRef'] = null;
+		}
+
+		if (isset($image_meta['longitude'])) {
+			$gps['lon']['deg'] = explode('/', $image_meta['longitude'][0]);
+			$gps['lon']['deg'] = $gps['lon']['deg'][1] > 0 ? $gps['lon']['deg'][0] / $gps['lon']['deg'][1] : 0;
+			$gps['lon']['min'] = explode('/', $image_meta['longitude'][1]);
+			$gps['lon']['min'] = $gps['lon']['min'][1] > 0 ? $gps['lon']['min'][0] / $gps['lon']['min'][1] : 0;
+			$gps['lon']['sec'] = explode('/', $image_meta['longitude'][2]);
+
+			$lon_sec_0 = floatval($gps['lon']['sec'][0]);
+			$lon_sec_1 = floatval($gps['lon']['sec'][1]);
+
+			if ($lon_sec_0 > 0 && $lon_sec_1 > 0) {
+				$gps['lon']['sec'] = $lon_sec_0 / $lon_sec_1;
+			} else {
+				$gps['lon']['sec'] = 0;
+			}
+
+			$gps['GPSLongitudeDecimal'] = $this->DMStoDEC($gps['lon']['deg'], $gps['lon']['min'], $gps['lon']['sec']);
+			if (($gps['longitude_ref'] ?? false) === 'W') {
+				$gps['GPSLongitudeDecimal'] = 0 - $gps['GPSLongitudeDecimal'];
+			}
+		} else {
+			$gps['GPSLongitudeDecimal'] = null;
+			$gps['GPSLongitudeRef'] = null;
+		}
+
+		if ($gps['GPSLatitudeDecimal'] && $gps['GPSLongitudeDecimal']) {
+			$gps['GPSCalculatedDecimal'] = $gps['GPSLatitudeDecimal'] . ',' . $gps['GPSLongitudeDecimal'];
+		} else {
+			$gps['GPSCalculatedDecimal'] = null;
+		}
+
+		return $gps;
 	}
 }
