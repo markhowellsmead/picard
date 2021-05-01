@@ -205,10 +205,28 @@ class Media
 			];
 		}
 		switch ($camera) {
+			case 'Canon DIGITAL IXUS 500':
+				return [
+					'pre' => 'a',
+					'camera' => 'Canon Ixus 500'
+				];
+				break;
+			case 'K750i':
+				return [
+					'pre' => 'a',
+					'camera' => 'Sony Ericsson K750i'
+				];
+				break;
 			case 'Canon EOS 1200D':
 				return [
 					'pre' => 'a',
 					'camera' => 'Canon EOS 1200D'
+				];
+				break;
+			case 'NIKON D70':
+				return [
+					'pre' => 'a',
+					'camera' => 'Nikon D70'
 				];
 				break;
 			case 'NIKON D80':
