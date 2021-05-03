@@ -50,35 +50,6 @@
         }
     }
 
-    &__contentandthumbnail {
-        // @extend .h-stack--medium;
-
-        .o-body--tallthumbnail.single-format-image,
-        .o-body--tallthumbnail.single-format-standard & {
-            max-width: var(--constraint-narrow);
-            margin-left: auto;
-            margin-right: auto;
-            @include laptop {
-                @supports (display: grid) {
-                    max-width: var(--constraint-wide);
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-column-gap: var(--unit-medium);
-
-                    .c-article {
-                        &__content {
-                            grid-column: 2/3;
-                        }
-
-                        &__thumbnail {
-                            grid-column: 1/2;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     &__date {
         display: block;
         font-size: var(--font-size-small);
@@ -93,10 +64,6 @@
         @extend .h-constraint;
         @extend .h-stack--small;
         margin-bottom: var(--unit-medium);
-        // @include desktop {
-        // 	padding-top: var(--unit-large);
-        // 	padding-bottom: var(--unit-large);
-        // }
 
         > * {
             @include mobile-padding-x;
