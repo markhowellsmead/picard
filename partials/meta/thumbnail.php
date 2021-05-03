@@ -5,7 +5,8 @@ if (post_password_required() || is_attachment() || !has_post_thumbnail() || (boo
 }
 
 $imageAspect = sht_theme()->Package->Media->thumbnailAspect();
-$image_width = '';
+$image_size = 'gutenberg_wide';
+$block_width = 'alignwide';
 
 switch ($imageAspect) {
 	case 'xwide':
@@ -16,17 +17,11 @@ switch ($imageAspect) {
 		$image_size = 'gutenberg_wide';
 		$block_width = 'tall';
 		break;
-	case '169':
-		$image_size = 'gutenberg_wide';
-		$block_width = 'filmic';
-		break;
+		// case '169':
+		// 	break;
 	case 'square':
 		$image_size = 'large';
 		$block_width = 'square';
-		break;
-	default:
-		$image_size = 'gutenberg_wide';
-		$block_width = 'alignwide';
 		break;
 }
 
