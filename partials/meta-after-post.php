@@ -96,4 +96,3 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 <?php
 get_template_part('partials/related_destinations');
 ?>
-</div>
