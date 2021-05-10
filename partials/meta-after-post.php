@@ -18,6 +18,13 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 		?>
 			<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Topics', 'Post meta title', 'picard'); ?></h2>
 			<?php the_terms(get_the_ID(), 'post_tag', '<p>', ', ', '</p>'); ?>
+		<?php
+		}
+
+		if (!empty(get_the_terms(get_the_ID(), 'place'))) {
+		?>
+			<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Place/s', 'Post meta title', 'picard'); ?></h2>
+			<?php the_terms(get_the_ID(), 'place', '<p>', ', ', '</p>'); ?>
 			<?php
 		}
 
@@ -25,7 +32,7 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 			$gps = sht_theme()->Package->Media->calculateGPS($image_meta);
 			if ($gps['GPSCalculatedDecimal'] ?? false) {
 			?>
-				<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Location', 'Post meta title', 'picard'); ?></h2>
+				<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Map location', 'Post meta title', 'picard'); ?></h2>
 				<p><a href="https://google.com/maps?q=<?php echo $gps['GPSCalculatedDecimal']; ?>" title="View in Google Maps"><?php echo $gps['GPSCalculatedDecimal']; ?></a></p>
 		<?php
 			}
@@ -96,4 +103,3 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 <?php
 get_template_part('partials/related_destinations');
 ?>
-</div>
