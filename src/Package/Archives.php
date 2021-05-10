@@ -71,7 +71,7 @@ class Archives
 		} elseif (is_tax('place')) {
 			$prefix = sprintf(
 				'<span class="c-archive__titleprefix">%s</span>',
-				_x('Photos from', 'Archive title year', 'sht')
+				_x('Entries about', 'Archive place', 'sht')
 			);
 			$title = ' ' . $original_title;
 		} elseif (is_search()) {
