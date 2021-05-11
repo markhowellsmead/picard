@@ -7,22 +7,25 @@ if ((bool) ($args['is_preview'] ?? false)) {
 	return;
 }
 
-if (empty($collections = ($args['sht_collection'] ?? []))) {
+if (empty($tags = ($args['sht_collection'] ?? []))) {
 	return;
 }
 
 $number_of_posts = max(1, (int) $args['sht_number_of_posts']);
 
+$sort_field = 'date';
+$sort_order = get_field('sort') === 'date_az' ? 'ASC' : 'DESC';
+
 $posts = get_posts([
 	'post_type' => 'post',
 	'posts_per_page' => $number_of_posts,
-	'orderby' => 'date',
-	'order' => 'DESC',
+	'orderby' => $sort_field,
+	'order' => $sort_order,
 	'tax_query' => [
 		[
 			'taxonomy' => 'post_tag',
 			'field'    => 'term_id',
-			'terms'    => $collections,
+			'terms'    => $tags,
 			'operator' => 'IN',
 		],
 	],
