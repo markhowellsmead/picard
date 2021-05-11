@@ -110,7 +110,7 @@ class PhotosByCollection
 						],
 						'choices' => [
 							'date_za' => 'Post date (latest first)',
-							'date_az' => 'Post date (newest first)',
+							'date_az' => 'Post date (oldest first)',
 						],
 						'default_value' => 'regular',
 						'allow_null' => 0,
