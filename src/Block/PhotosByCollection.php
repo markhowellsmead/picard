@@ -21,6 +21,8 @@ class PhotosByCollection
 		if (function_exists('acf_register_block_type')) {
 			// Block using ACF fields
 			acf_register_block_type([
+				'title' => _x('Photo posts by tag', 'Block title', 'sha'),
+				'description' => __('An image gallery containing photos associated to a specific tag.', 'Block description', 'sha'),
 				'name' => 'photos-by-collection',
 				'category' => 'common',
 				'icon' => 'format-gallery',
@@ -33,8 +35,6 @@ class PhotosByCollection
 				'supports' => [
 					'align' => ['wide', 'full']
 				],
-				'title' => _x('Photo posts by collection', 'Block title', 'sha'),
-				'description' => __('An image gallery containing photos from a collection.', 'Block description', 'sha'),
 				'render_callback' => function ($block, $content = '', $is_preview = false) {
 					$block['is_preview'] = $is_preview;
 					$block['sht_collection'] = get_field('sht_collection');
@@ -54,8 +54,8 @@ class PhotosByCollection
 				'fields' => [
 					[
 						'key' => 'sht_collection',
-						'label' => 'Collection',
-						'name' => 'sht_collection',
+						'label' => 'Post Tag',
+						'name' => 'post_tag',
 						'type' => 'taxonomy',
 						'instructions' => '',
 						'required' => 0,
@@ -94,6 +94,31 @@ class PhotosByCollection
 						'min' => 1,
 						'max' => '',
 						'step' => '',
+					],
+					[
+						'key' => 'field_609a93dbee0e3',
+						'label' => _x('Order by', 'ACF field label', 'sha'),
+						'name' => 'sort',
+						'type' => 'select',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => [
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						],
+						'choices' => [
+							'date_za' => 'Post date (latest first)',
+							'date_az' => 'Post date (newest first)',
+						],
+						'default_value' => 'regular',
+						'allow_null' => 0,
+						'multiple' => 0,
+						'ui' => 0,
+						'return_format' => 'value',
+						'ajax' => 0,
+						'placeholder' => '',
 					],
 					[
 						'key' => 'sht_show_captions',
