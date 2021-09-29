@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "settings": {
+        "layout": {
+            "contentSize": "720px",
+            "wideSize": "1280px"
+        },
+        "typography": {
+            "fontSizes": []
+        }
+    }
+}
