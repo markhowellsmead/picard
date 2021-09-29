@@ -14,7 +14,51 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 			?>
 				<header class="c-article__header c-main__header">
 					<h1 class="c-article__title c-article__title--<?php echo get_post_type(); ?> c-article__title--<?php echo (get_post_format() ?? 'default'); ?>"><?php the_title(); ?></h1>
-					<time class="c-article__date" datetime="<?php echo get_the_date('c'); ?>"><?php printf(_x('Published on %s', 'sht'), get_the_date()); ?></time>
+					<div class="c-article__topmeta">
+						<?php
+						if (!empty($categories = get_the_category())) {
+							$out = [];
+							foreach ($categories as $category) {
+								if ((int) $category->term_id !== (int) get_option('default_category')) {
+									$out[] = sprintf(
+										'<a href="%s" class="c-categories__entry" title="%s">%s</a>',
+										get_category_link($category->term_id),
+										sprintf(_x('More posts in the category “%s”', '', 'picard'), esc_html($category->name)),
+										esc_html($category->name)
+									);
+								}
+							}
+							if (!empty($out)) {
+						?>
+								<nav class="c-categories">
+									<div class="c-categories__entries"><?php echo implode(', ', $out); ?></div>
+								</nav>
+							<?php
+							}
+						}
+
+						if (!empty($place_terms = get_the_terms(get_the_ID(), 'place'))) {
+							$places = [];
+							foreach ($place_terms as $place) {
+								$places[] = sprintf(
+									'<a href="%s" class="c-categories__entry" title="%s">%s</a>',
+									get_term_link($place->term_id, 'place'),
+									sprintf(_x('More posts from %s', '', 'picard'), esc_html($place->name)),
+									esc_html($place->name)
+								);
+							}
+							if (!empty($places)) {
+							?>
+								<nav class="c-places">
+									<div class="c-places__entries"><?php echo implode(', ', $places); ?></div>
+								</nav>
+						<?php
+							}
+						}
+
+						?>
+						<time class="c-article__date" datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+					</div>
 				</header>
 			<?php } ?>
 
