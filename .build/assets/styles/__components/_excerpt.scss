@@ -1,5 +1,7 @@
 .c-excerpt {
     @extend .h-stack;
+    margin-left: auto;
+    margin-right: auto;
 
     &__content {
         @extend .h-stack;
@@ -39,14 +41,19 @@
 
     &.has-post-thumbnail:not(.c-excerpt--photo),
     &.has-video-thumbnail:not(.c-excerpt--photo) {
-        &:not(.c-article__thumbnailaspect--tall) {
+        &.c-article__thumbnailaspect--square {
             max-width: var(--constraint-medium);
-            margin-left: auto;
-            margin-right: auto;
+            // @include desktop {
+            //     max-width: var(--constraint-wide);
+            // }
+        }
+        &:not(.c-article__thumbnailaspect--tall):not(.c-article__thumbnailaspect--square) {
+            max-width: var(--constraint-medium);
             @include desktop {
                 max-width: var(--constraint-wide);
             }
         }
+
         @include laptop {
             @supports (grid-gap: 1rem) {
                 display: grid;
@@ -75,24 +82,6 @@
             grid-template-columns: 3fr 2fr;
         }
     }
-    // &.format-standard {
-    // 	max-width: var(--constraint-xnarrow);
-    // 	&.has-post-thumbnail {
-    // 		@supports(grid-gap: 1rem) {
-    // 			display: grid;
-    // 			grid-template-columns: 1fr 8fr 1fr;
-    // 			grid-column-gap: var(--unit-small);
-    // 			.c-excerpt {
-    // 				&__content {
-    // 					grid-column: 2/4;
-    // 				}
-    // 				&__thumbnail {
-    // 					grid-column: 1/3;
-    // 				}
-    // 			}
-    // 		}
-    // 	}
-    // }
 
     &:nth-child(even) {
         &.has-post-thumbnail:not(.c-excerpt--photo),
@@ -117,21 +106,6 @@
                 }
             }
         }
-
-        // &.format-standard {
-        // 	&.has-post-thumbnail {
-        // 		@supports(grid-gap: 1rem) {
-        // 			.c-excerpt {
-        // 				&__content {
-        // 					grid-column: 1/3;
-        // 				}
-        // 				&__thumbnail {
-        // 					grid-column: 2/4;
-        // 				}
-        // 			}
-        // 		}
-        // 	}
-        // }
     }
 
     &.format-video.has-post-thumbnail:not(.c-excerpt--photo),

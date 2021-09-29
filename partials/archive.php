@@ -29,8 +29,6 @@
 					'partials/excerpt.php'
 				]))) {
 					include $template;
-				} else {
-					dump('empty');
 				}
 			}
 		}
