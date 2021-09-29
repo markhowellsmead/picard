@@ -3,27 +3,48 @@
  */
 
 .wp-block-image {
-	img {
-		pointer-events: none;
+    img {
+        pointer-events: none;
 
-		body.logged-in & {
-			pointer-events: all;
-		}
-	}
+        body.logged-in & {
+            pointer-events: all;
+        }
+    }
 
-	figcaption {
-		margin-bottom: 0;
-	}
+    figcaption {
+        margin-bottom: 0;
 
-	&.alignfull,
-	&.alignwide {
-		figcaption {
-			padding-left: var(--unit);
-			padding-right: var(--unit);
-			@include tablet {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
-	}
+        .wp-block-columns & {
+            margin-left: 0;
+        }
+
+        .wp-block-columns.alignfull &,
+        .wp-block-columns.alignwide & {
+            padding-left: var(--unit);
+        }
+
+        .wp-block-columns.alignwide & {
+            @include desktop {
+                padding-left: 0;
+            }
+        }
+
+        .wp-block-columns.alignfull & {
+            @include xwide {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &.alignfull,
+    &.alignwide {
+        figcaption {
+            padding-left: var(--unit);
+            padding-right: var(--unit);
+            @include tablet {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
 }
