@@ -185,9 +185,10 @@
     &__topmeta {
         > * + * {
             &:before {
-                content: '~';
+                content: '/';
                 margin-left: var(--unit-small);
                 margin-right: var(--unit-small);
+                font-size: 0.75em;
             }
         }
 
