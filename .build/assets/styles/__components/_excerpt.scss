@@ -1,5 +1,7 @@
 .c-excerpt {
     @extend .h-stack;
+    margin-left: auto;
+    margin-right: auto;
 
     &__content {
         @extend .h-stack;
@@ -39,14 +41,19 @@
 
     &.has-post-thumbnail:not(.c-excerpt--photo),
     &.has-video-thumbnail:not(.c-excerpt--photo) {
-        &:not(.c-article__thumbnailaspect--tall) {
+        &.c-article__thumbnailaspect--square {
             max-width: var(--constraint-medium);
-            margin-left: auto;
-            margin-right: auto;
+            // @include desktop {
+            //     max-width: var(--constraint-wide);
+            // }
+        }
+        &:not(.c-article__thumbnailaspect--tall):not(.c-article__thumbnailaspect--square) {
+            max-width: var(--constraint-medium);
             @include desktop {
                 max-width: var(--constraint-wide);
             }
         }
+
         @include laptop {
             @supports (grid-gap: 1rem) {
                 display: grid;
