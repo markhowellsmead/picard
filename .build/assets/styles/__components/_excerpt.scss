@@ -31,6 +31,12 @@
         display: inline-block;
     }
 
+    &__title {
+        @include laptop {
+            font-size: 1.75rem;
+        }
+    }
+
     &.has-post-thumbnail:not(.c-excerpt--photo),
     &.has-video-thumbnail:not(.c-excerpt--photo) {
         &:not(.c-article__thumbnailaspect--tall) {

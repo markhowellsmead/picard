@@ -19,7 +19,7 @@
     --font-weight-body: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --font-weight-heading: 500;
+    --font-weight-heading: 900;
 
     --line-height: 1.625;
     --line-height-large: 1.75;
@@ -31,6 +31,11 @@
 
 html {
     font-size: var(--font-size-rembase);
+    font-size: 106.25%;
+
+    @include desktop {
+        font-size: 112.5%;
+    }
 }
 
 body {
