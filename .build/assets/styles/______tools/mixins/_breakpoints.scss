@@ -1,83 +1,89 @@
 @mixin for-screen-min($name, $sizes: $breakpoints) {
-	$min: device-breakpoints-min($name, $sizes);
-	@if $min {
-		@media (min-width: $min+0px) {
-			@content;
-		}
-	} @else {
-		@content;
-	}
+    $min: device-breakpoints-min($name, $sizes);
+    @if $min {
+        @media (min-width: $min+0px) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
 }
 
 @mixin for-screen-max($name, $sizes: $breakpoints) {
-	$max: device-breakpoints-max($name, $sizes);
-	@if $max {
-		@media (max-width: $max+0px) {
-			@content;
-		}
-	} @else {
-		@content;
-	}
+    $max: device-breakpoints-max($name, $sizes);
+    @if $max {
+        @media (max-width: $max+0px) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
 }
 
 @mixin for-screen($name, $sizes: $breakpoints) {
-	@include for-screen-min($name, $sizes) {
-		@include for-screen-max($name, $sizes) {
-			@content;
-		}
-	}
+    @include for-screen-min($name, $sizes) {
+        @include for-screen-max($name, $sizes) {
+            @content;
+        }
+    }
 }
 
 @mixin mobile() {
-	@include for-screen-max(tablet) {
-		@content;
-	}
+    @include for-screen-max(tablet) {
+        @content;
+    }
 }
 
 @mixin smartphone() {
-	@include for-screen-min(smartphone) {
-		@content;
-	}
+    @include for-screen-min(smartphone) {
+        @content;
+    }
 }
 
 @mixin tablet() {
-	@include for-screen-min(tablet) {
-		@content;
-	}
+    @include for-screen-min(tablet) {
+        @content;
+    }
 }
 
 @mixin tablet_landscape() {
-	@include for-screen-min(tablet_landscape) {
-		@content;
-	}
+    @include for-screen-min(tablet_landscape) {
+        @content;
+    }
 }
 
 @mixin laptop() {
-	@include for-screen-min(laptop) {
-		@content;
-	}
+    @include for-screen-min(laptop) {
+        @content;
+    }
 }
 
 @mixin desktop() {
-	@include for-screen-min(desktop) {
-		@content;
-	}
+    @include for-screen-min(desktop) {
+        @content;
+    }
 }
 
 @mixin desktop_large() {
-	@include for-screen-min(desktop_large) {
-		@content;
-	}
+    @include for-screen-min(desktop_large) {
+        @content;
+    }
 }
 
 @mixin desktop_xlarge() {
-	@include for-screen-min(desktop_xlarge) {
-		@content;
-	}
+    @include for-screen-min(desktop_xlarge) {
+        @content;
+    }
 }
 
 @mixin desktop_xxlarge() {
-	@include for-screen-min(desktop_xxlarge) {
-		@content;
-	}
+    @include for-screen-min(desktop_xxlarge) {
+        @content;
+    }
+}
+
+@mixin xwide() {
+    @include for-screen-min(xwide) {
+        @content;
+    }
 }

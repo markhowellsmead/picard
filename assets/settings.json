@@ -111,7 +111,8 @@
         "desktop": 1440,
 		"desktop_large": 1600,
 		"desktop_xlarge": 1920,
-		"desktop_xxlarge": 2560
+		"desktop_xxlarge": 2560,
+		"xwide": 1800
 	},
 	"easing_speed": 200,
 	"easing_speed_fast": 100,
