@@ -1,23 +1,33 @@
+/**
+ * Set custom typography sizes (e.g. header)
+ * @param  {int} $size        font-size
+ * @param  {int} $line-height line-height
+ * @param  {int} $av          AV letter-spacing from XD
+ * @return {void}
+ */
+/**
+ * Converts a pixel, percentage, rem or em value to a unitless value based on a given font size. Ideal for working out unitless line heights.
+ *
+ * @param {Number} $value - Value to convert to a unitless line height
+ * @param {Number} $base - The font size to use to work out the line height - defaults to $font-size
+ *
+ * @return {Number} - Unitless number
+ */
+/**
+ * AV letter spacing measurement convertor from Adobe applications
+ * https://scotch.io/tutorials/converting-photoshop-letter-spacing-to-css
+ */
 .acf-hl li:before {
   content: '';
   display: none; }
 
-.editor-post-title__block {
-  position: relative;
-  opacity: 0.5;
-  border: 1px dotted c(gray, dark50); }
-  .editor-post-title__block .editor-post-title__input {
-    font-family: var(--font-heading); }
+.editor-post-title__block .editor-post-title__input {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-heading);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-heading); }
+  @media (min-width: 1280px) {
+    .editor-post-title__block .editor-post-title__input {
+      font-size: 2.5rem; } }
 
-body.post-type-page .editor-post-title__block::after {
-  content: 'Will not be displayed';
-  position: absolute;
-  top: 50%;
-  left: -8rem;
-  max-width: 7.5rem;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  font-size: small;
-  transform: translateY(-50%); }
-
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWRtaW4uY3NzIiwic291cmNlcyI6WyJhZG1pbi5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLEFBQ0ksT0FERyxDQUNILEVBQUUsQUFBQSxPQUFPLENBQUM7RUFDTixPQUFPLEVBQUUsRUFBRTtFQUNYLE9BQU8sRUFBRSxJQUFJLEdBQ2hCOztBQUdMLEFBQUEseUJBQXlCLENBQUM7RUFDdEIsUUFBUSxFQUFFLFFBQVE7RUFDbEIsT0FBTyxFQUFFLEdBQUc7RUFDWixNQUFNLEVBQUUsR0FBRyxDQUFDLE1BQU0sQ0FBQyxlQUFrQixHQUt4QztFQVJELEFBS0kseUJBTHFCLENBS3JCLHlCQUF5QixDQUFDO0lBQ3RCLFdBQVcsRUFBRSxtQkFBbUIsR0FDbkM7O0FBR0wsQUFBQSxJQUFJLEFBQUEsZUFBZSxDQUFDLHlCQUF5QixBQUFBLE9BQU8sQ0FBQztFQUNqRCxPQUFPLEVBQUUsdUJBQXVCO0VBQ2hDLFFBQVEsRUFBRSxRQUFRO0VBQ2xCLEdBQUcsRUFBRSxHQUFHO0VBQ1IsSUFBSSxFQUFFLEtBQUs7RUFDWCxTQUFTLEVBQUUsTUFBTTtFQUNqQixXQUFXLEVBQUUsVUFBVTtFQUN2QixjQUFjLEVBQUUsU0FBUztFQUN6QixTQUFTLEVBQUUsS0FBSztFQUNoQixTQUFTLEVBQUUsZ0JBQWdCLEdBQzlCIn0= */
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWRtaW4uY3NzIiwic291cmNlcyI6WyJhZG1pbi5zY3NzIiwiX19fX19fX3NldHRpbmdzL19fYWxsLnNldHRpbmdzLnNjc3MiLCJfX19fX19fc2V0dGluZ3MvX2JveHNoYWRvdy5zY3NzIiwiX19fX19fX3NldHRpbmdzL19ncmlkLnNjc3MiLCJfX19fX19fc2V0dGluZ3MvX3RyYW5zaXRpb24uc2NzcyIsIl9fX19fX19zZXR0aW5ncy9fdHlwb2dyYXBoeS5zY3NzIiwiX19fX19fdG9vbHMvX19hbGwudG9vbHMuc2NzcyIsIl9fX19fX3Rvb2xzL2Z1bmN0aW9ucy9fYnJlYWtwb2ludHMuc2NzcyIsIl9fX19fX3Rvb2xzL2Z1bmN0aW9ucy9fY29sb3Iuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fYmxvY2tzLnNjc3MiLCJfX19fX190b29scy9taXhpbnMvX2JveC1zaGFkb3cuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fYnJlYWtwb2ludHMuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fY2xlYXJmaXguc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fZWxlbWVudHMuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fZWxsaXBzaXMuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9faW1hZ2Uuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fbGF5b3V0LnNjc3MiLCJfX19fX190b29scy9taXhpbnMvX3NwaW5uZXIuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fdHJhbnNpdGlvbi5zY3NzIiwiX19fX19fdG9vbHMvbWl4aW5zL190eXBvZ3JhcGh5LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFtQjBCQTs7Ozs7O0dBTUc7QUFlSDs7Ozs7OztHQU9HO0FBMENIOzs7R0FHRztBbkJwRkgsQUFDSSxPQURHLENBQ0gsRUFBRSxBQUFBLE9BQU8sQ0FBQztFQUNOLE9BQU8sRUFBRSxFQUFFO0VBQ1gsT0FBTyxFQUFFLElBQUksR0FDaEI7O0FBR0wsQUFDSSx5QkFEcUIsQ0FDckIseUJBQXlCLENBQUM7RUFDdEIsV0FBVyxFQUFFLDBCQUEwQjtFQUN2QyxXQUFXLEVBQUUsMEJBQTBCO0VBQ3ZDLFdBQVcsRUFBRSwwQkFBMEI7RUFDdkMsS0FBSyxFQUFFLG9CQUFvQixHQUk5QjtFVzVCSCxNQUFNLEVBQUUsU0FBUyxFQUFFLE1BQU07SVhtQjNCLEFBQ0kseUJBRHFCLENBQ3JCLHlCQUF5QixDQUFDO01BTWxCLFNBQVMsRUFBRSxNQUFNLEdBRXhCIn0= */
