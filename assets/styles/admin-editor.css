@@ -1131,13 +1131,15 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     margin-top: var(--unit-medium); }
   @media (min-width: 1280px) {
     .editor-styles-wrapper .c-article__postmedia--photo .c-article__thumbnailfigure--square, .editor-styles-wrapper .c-article__postmedia--photo .c-article__thumbnailfigure--tall {
-      object-fit: contain;
+      -o-object-fit: contain;
+         object-fit: contain;
       width: 100%;
       height: 69vh;
       overflow: hidden;
       position: relative; }
       .editor-styles-wrapper .c-article__postmedia--photo .c-article__thumbnailfigure--square img, .editor-styles-wrapper .c-article__postmedia--photo .c-article__thumbnailfigure--tall img {
-        object-fit: contain;
+        -o-object-fit: contain;
+           object-fit: contain;
         width: 100%;
         height: 100%; } }
 
@@ -1368,11 +1370,13 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   display: block;
   top: 50%;
   transform: translateY(-50%); }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .editor-styles-wrapper .c-cardgrid__image {
       width: 100%;
-      object-fit: cover;
-      object-position: center; } }
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center; } }
 
 .editor-styles-wrapper .c-cardgrid__inner {
   padding-left: var(--unit-medium);
@@ -1766,7 +1770,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       .editor-styles-wrapper .c-featureheader__figurewrap.is-aspect--4x5::before, .editor-styles-wrapper .is-aspect--4x5.wp-block-mhm-project-header__figurewrap::before, .editor-styles-wrapper .is-aspect--4x5.wp-block-mhm-viewpoint-header__figurewrap::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .editor-styles-wrapper .c-featureheader__figurewrap .wp-block-mhm-viewpoint-header__figure, .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-viewpoint-header__figure, .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-viewpoint-header__figure, .editor-styles-wrapper .c-featureheader__figurewrap .wp-block-mhm-viewpoint-header__imagepositioner, .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-viewpoint-header__imagepositioner, .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-viewpoint-header__imagepositioner {
       position: absolute;
       top: 0;
@@ -1774,14 +1778,18 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .editor-styles-wrapper .c-featureheader__figurewrap .wp-block-mhm-viewpoint-header__figure img, .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-viewpoint-header__figure img, .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-viewpoint-header__figure img, .editor-styles-wrapper .c-featureheader__figurewrap .wp-block-mhm-viewpoint-header__imagepositioner img, .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-viewpoint-header__imagepositioner img, .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-viewpoint-header__imagepositioner img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
@@ -1914,7 +1922,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
 
-@supports (object-fit: cover) {
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
   .editor-styles-wrapper .wp-block-mhm-viewpoint-header .c-imageselector__figure {
     position: absolute;
     top: 0;
@@ -1922,14 +1930,18 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     bottom: 0;
     right: 0;
     display: block;
-    object-fit: cover;
-    object-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
     width: 100%;
     height: 100%;
     overflow: hidden; }
     .editor-styles-wrapper .wp-block-mhm-viewpoint-header .c-imageselector__figure img {
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; } }
@@ -1997,7 +2009,8 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   .editor-styles-wrapper .c-grid500__image {
     width: 100%;
     height: 100%;
-    object-fit: cover; }
+    -o-object-fit: cover;
+       object-fit: cover; }
   .editor-styles-wrapper .c-grid500__item {
     display: block;
     flex-basis: calc(50% - var(--grid500-unit-small));
@@ -2039,7 +2052,8 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     top: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; }
+    -o-object-fit: cover;
+       object-fit: cover; }
   .editor-styles-wrapper .c-grid500__flood {
     position: relative;
     display: block; }
@@ -2839,7 +2853,8 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       right: 0;
       display: block;
       height: 100%;
-      object-fit: cover;
+      -o-object-fit: cover;
+         object-fit: cover;
       border: 0.125rem solid var(--color-black);
       box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.125);
       outline: none; }
@@ -3092,7 +3107,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       .editor-styles-wrapper .wp-block-mhm-image.is-aspect--4x5::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .editor-styles-wrapper .wp-block-mhm-image__figure {
       position: absolute;
       top: 0;
@@ -3100,14 +3115,18 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .editor-styles-wrapper .wp-block-mhm-image__figure img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
@@ -3148,7 +3167,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   .editor-styles-wrapper .wp-block-mhm-image.alignfull + .wp-block-group.alignfull {
     margin-top: 0; }
 
-@supports (object-fit: cover) {
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
   .editor-styles-wrapper .wp-block-mhm-image .c-imageselector {
     position: absolute;
     top: 0;
@@ -3156,16 +3175,20 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     bottom: 0;
     right: 0;
     display: block;
-    object-fit: cover;
-    object-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
     width: 100%;
     height: 100%;
     overflow: hidden; }
     .editor-styles-wrapper .wp-block-mhm-image .c-imageselector__figure {
       height: 100%; }
     .editor-styles-wrapper .wp-block-mhm-image .c-imageselector img {
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; } }
@@ -3296,7 +3319,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap.is-aspect--4x5::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-project-header__figure, .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-project-header__imagepositioner {
       position: absolute;
       top: 0;
@@ -3304,14 +3327,18 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-project-header__figure img, .editor-styles-wrapper .wp-block-mhm-project-header__figurewrap .wp-block-mhm-project-header__imagepositioner img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
@@ -3421,7 +3448,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
 
-@supports (object-fit: cover) {
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
   .editor-styles-wrapper .wp-block-mhm-project-header .c-imageselector__figure {
     position: absolute;
     top: 0;
@@ -3429,14 +3456,18 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     bottom: 0;
     right: 0;
     display: block;
-    object-fit: cover;
-    object-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
     width: 100%;
     height: 100%;
     overflow: hidden; }
     .editor-styles-wrapper .wp-block-mhm-project-header .c-imageselector__figure img {
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; } }
@@ -3555,7 +3586,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap.is-aspect--4x5::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-project-header__figure, .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-project-header__imagepositioner {
       position: absolute;
       top: 0;
@@ -3563,14 +3594,18 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-project-header__figure img, .editor-styles-wrapper .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-project-header__imagepositioner img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
@@ -3683,7 +3718,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
 
-@supports (object-fit: cover) {
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
   .editor-styles-wrapper .wp-block-mhm-viewpoint-header .c-imageselector__figure {
     position: absolute;
     top: 0;
@@ -3691,14 +3726,18 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     bottom: 0;
     right: 0;
     display: block;
-    object-fit: cover;
-    object-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
     width: 100%;
     height: 100%;
     overflow: hidden; }
     .editor-styles-wrapper .wp-block-mhm-viewpoint-header .c-imageselector__figure img {
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; } }

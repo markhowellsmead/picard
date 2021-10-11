@@ -1126,13 +1126,15 @@ video {
     margin-top: var(--unit-medium); }
   @media (min-width: 1280px) {
     .c-article__postmedia--photo .c-article__thumbnailfigure--square, .c-article__postmedia--photo .c-article__thumbnailfigure--tall {
-      object-fit: contain;
+      -o-object-fit: contain;
+         object-fit: contain;
       width: 100%;
       height: 69vh;
       overflow: hidden;
       position: relative; }
       .c-article__postmedia--photo .c-article__thumbnailfigure--square img, .c-article__postmedia--photo .c-article__thumbnailfigure--tall img {
-        object-fit: contain;
+        -o-object-fit: contain;
+           object-fit: contain;
         width: 100%;
         height: 100%; } }
 
@@ -1390,11 +1392,13 @@ video {
   display: block;
   top: 50%;
   transform: translateY(-50%); }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .c-cardgrid__image {
       width: 100%;
-      object-fit: cover;
-      object-position: center; } }
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center; } }
 
 .c-cardgrid__inner {
   padding-left: var(--unit-medium);
@@ -1788,7 +1792,7 @@ label[for="cren_subscribe_to_comment"].is--checked::before {
       .c-featureheader__figurewrap.is-aspect--4x5::before, .is-aspect--4x5.wp-block-mhm-project-header__figurewrap::before, .is-aspect--4x5.wp-block-mhm-viewpoint-header__figurewrap::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .c-featureheader__figurewrap .wp-block-mhm-viewpoint-header__figure, .wp-block-mhm-project-header__figurewrap .wp-block-mhm-viewpoint-header__figure, .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-viewpoint-header__figure {
       position: absolute;
       top: 0;
@@ -1796,14 +1800,18 @@ label[for="cren_subscribe_to_comment"].is--checked::before {
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .c-featureheader__figurewrap .wp-block-mhm-viewpoint-header__figure img, .wp-block-mhm-project-header__figurewrap .wp-block-mhm-viewpoint-header__figure img, .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-viewpoint-header__figure img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
@@ -1910,7 +1918,8 @@ label[for="cren_subscribe_to_comment"].is--checked::before {
   .c-grid500__image {
     width: 100%;
     height: 100%;
-    object-fit: cover; }
+    -o-object-fit: cover;
+       object-fit: cover; }
   .c-grid500__item {
     display: block;
     flex-basis: calc(50% - var(--grid500-unit-small));
@@ -1952,7 +1961,8 @@ label[for="cren_subscribe_to_comment"].is--checked::before {
     top: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; }
+    -o-object-fit: cover;
+       object-fit: cover; }
   .c-grid500__flood {
     position: relative;
     display: block; }
@@ -2697,7 +2707,8 @@ figcaption {
       right: 0;
       display: block;
       height: 100%;
-      object-fit: cover;
+      -o-object-fit: cover;
+         object-fit: cover;
       border: 0.125rem solid var(--color-black);
       box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.125);
       outline: none; }
@@ -2945,7 +2956,7 @@ figcaption {
       .wp-block-mhm-image.is-aspect--4x5::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .wp-block-mhm-image__figure {
       position: absolute;
       top: 0;
@@ -2953,14 +2964,18 @@ figcaption {
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .wp-block-mhm-image__figure img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
@@ -3124,7 +3139,7 @@ figcaption {
       .wp-block-mhm-project-header__figurewrap.is-aspect--4x5::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .wp-block-mhm-project-header__figurewrap .wp-block-mhm-project-header__figure {
       position: absolute;
       top: 0;
@@ -3132,14 +3147,18 @@ figcaption {
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .wp-block-mhm-project-header__figurewrap .wp-block-mhm-project-header__figure img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
@@ -3274,7 +3293,7 @@ figcaption {
       .wp-block-mhm-viewpoint-header__figurewrap.is-aspect--4x5::before {
         padding-bottom: 0;
         aspect-ratio: 4 / 5; } }
-  @supports (object-fit: cover) {
+  @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-project-header__figure {
       position: absolute;
       top: 0;
@@ -3282,14 +3301,18 @@ figcaption {
       bottom: 0;
       right: 0;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center;
+         object-position: center;
       width: 100%;
       height: 100%;
       overflow: hidden; }
       .wp-block-mhm-viewpoint-header__figurewrap .wp-block-mhm-project-header__figure img {
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         width: 100%;
         height: 100%;
         overflow: hidden; } }
