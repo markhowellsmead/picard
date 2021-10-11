@@ -1,25 +1,22 @@
 import { createBlock } from '@wordpress/blocks';
 
-const blockName = 'mhm/image';
-
 const transforms = {
     to: [
         {
             type: 'block',
             blocks: ['core/image'], // Block type TO which we can convert
-            transform: attributes => {
-                // What to do when converting
-                return createBlock('core/heading', attributes);
-            },
-        },
-    ],
-    from: [
-        {
-            type: 'block',
-            blocks: ['core/image'], // Block types FROM which we can convert
-            transform: attributes => {
-                // What to do when converting
-                return createBlock(blockName, attributes);
+            transform: ({ figcaption, image }) => {
+                const newAtts = {};
+
+                if (!!figcaption) {
+                    newAtts.caption = figcaption;
+                }
+
+                if (!!image && image.org[0]) {
+                    newAtts.url = image.org[0];
+                }
+
+                return createBlock('core/image', newAtts);
             },
         },
     ],
