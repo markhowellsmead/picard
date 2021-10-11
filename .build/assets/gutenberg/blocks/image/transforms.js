@@ -14,6 +14,7 @@ const transforms = {
 
                 if (!!image && image.org[0]) {
                     newAtts.url = image.org[0];
+                    newAtts.id = image.id;
                 }
 
                 return createBlock('core/image', newAtts);
