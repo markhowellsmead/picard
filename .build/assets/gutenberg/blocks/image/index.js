@@ -5,9 +5,10 @@ import classnames from 'classnames';
 
 import { LazyImage } from '../_components/LazyImage';
 import edit from './edit';
+import transforms from './transforms';
 
 registerBlockType('mhm/image', {
-    title: _x('Custom image block', 'Block title', 'sha'),
+    title: _x('Custom image block XX', 'Block title', 'sha'),
     icon: 'format-image',
     category: 'widgets',
     keywords: ['image', 'gallery'],
@@ -50,20 +51,14 @@ registerBlockType('mhm/image', {
             type: 'boolean',
         },
     },
+    transforms,
     edit,
     save({ attributes }) {
         let className = getBlockDefaultClassName('mhm/image');
         const classNameBase = getBlockDefaultClassName('mhm/image');
 
-        const {
-            figcaption,
-            focalPoint,
-            image,
-            textOpacity,
-            textColor,
-            ratio,
-            text_shadow,
-        } = attributes;
+        const { figcaption, focalPoint, image, textOpacity, textColor, ratio, text_shadow } =
+            attributes;
 
         const classNameFigure = classnames({
             [`${classNameBase}__figcaption`]: true,
