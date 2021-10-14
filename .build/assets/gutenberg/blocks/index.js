@@ -11,6 +11,7 @@ import './post-header';
 import './project-grid';
 import './project-header';
 import './publication-date';
+import './redbubble';
 import './shb-video-bar';
 import './subpages';
 import './viewpoint-ancestors';

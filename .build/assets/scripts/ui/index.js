@@ -34,3 +34,14 @@ if (
     );
     document.head.appendChild(delete_button_script);
 }
+
+console.log(!!document.querySelector('[data-mhm-redbubble]'));
+
+if (!!document.querySelector('[data-mhm-redbubble]')) {
+    const script = document.createElement('script');
+    script.setAttribute(
+        'src',
+        `${sht_theme.directory_uri}/assets/scripts/redbubble.min.js?version=${sht_theme.version}`
+    );
+    document.head.appendChild(script);
+}
