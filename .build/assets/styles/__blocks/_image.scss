@@ -36,6 +36,11 @@
         }
     }
 
+    .alignleft,
+    .alignright {
+        margin-bottom: var(--unit-medium);
+    }
+
     &.alignfull,
     &.alignwide {
         figcaption {
