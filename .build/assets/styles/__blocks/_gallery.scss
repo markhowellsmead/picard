@@ -1,11 +1,13 @@
 .wp-block-gallery {
-	figcaption {
-		margin-top: 0;
-	}
-	img {
-		pointer-events: none;
-		body.logged-in & {
-			pointer-events: all;
-		}
-	}
+    clear: both;
+
+    figcaption {
+        margin-top: 0;
+    }
+    img {
+        pointer-events: none;
+        body.logged-in & {
+            pointer-events: all;
+        }
+    }
 }
