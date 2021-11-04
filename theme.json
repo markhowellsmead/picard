@@ -1,12 +1,39 @@
 {
     "version": 1,
     "settings": {
+        "custom": {
+            "lineHeight": {
+                "base": 1.5
+            }
+        },
         "layout": {
             "contentSize": "720px",
             "wideSize": "1280px"
         },
+        "color": {
+            "gradients": [],
+            "link": false
+        },
         "typography": {
-            "fontSizes": []
+            "customFontSize": false,
+            "customLineHeight": false,
+            "dropCap": false,
+            "fontSizes": [
+                {
+                    "slug": "small",
+                    "size": "var(--font-size-small)",
+                    "name": "Small"
+                }
+            ]
+        },
+        "blocks": {
+            "core/heading": {
+                "custom": {
+                    "lineHeight": {
+                        "base": 1.2
+                    }
+                }
+            }
         }
     }
 }

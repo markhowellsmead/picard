@@ -145,7 +145,6 @@
 
                 > * {
                     margin: 0;
-                    line-height: var(--line-height);
                 }
             }
         }
@@ -159,7 +158,6 @@
     }
 
     &__taxonomyentries {
-        line-height: var(--line-height);
         color: c(gray);
 
         a {

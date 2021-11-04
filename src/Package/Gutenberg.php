@@ -33,8 +33,8 @@ class Gutenberg
 			return; // Gutenberg is not active.
 		}
 		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockAssets']);
-		add_filter('block_categories', [$this, 'blockCategories']);
-		add_filter('block_editor_settings', [$this, 'editorSettings']);
+		add_filter('block_categories_all', [$this, 'blockCategories']);
+		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
 	}

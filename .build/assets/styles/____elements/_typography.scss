@@ -21,16 +21,16 @@
     --font-weight-bold: 700;
     --font-weight-heading: 900;
 
-    --line-height: 1.625;
-    --line-height-large: 1.75;
-    --line-height-heading: 1.2;
     --radius: 0.15em;
 
     --color-heading: var(--color-gray-dark);
 }
 
+* {
+    line-height: var(--wp--custom--line-height--base);
+}
+
 html {
-    font-size: var(--font-size-rembase);
     font-size: 106.25%;
 
     @include desktop {
@@ -41,7 +41,7 @@ html {
 body {
     font-family: var(--font-family);
     font-size: 1rem;
-    line-height: var(--line-height);
+    line-height: var(--wp--custom--line-height--base);
     font-weight: var(--font-weight-body);
     color: c(gray, dark);
 }
@@ -179,7 +179,6 @@ h4,
 h5,
 h6 {
     font-family: var(--font-family-heading);
-    line-height: var(--line-height-heading);
     font-weight: var(--font-weight-heading);
     color: var(--color-heading);
     margin: 0;
@@ -201,6 +200,45 @@ h1 {
 
     &.is-style-xlarge {
         font-size: 3.5em;
+    }
+
+    &.has-small-font-size {
+        --wp--preset--font-size--small: 1.5em;
+    }
+}
+
+h2 {
+    font-size: 1.5em;
+    &.has-small-font-size {
+        --wp--preset--font-size--small: 1.25em;
+    }
+}
+
+h3 {
+    font-size: 1.375em;
+    &.has-small-font-size {
+        --wp--preset--font-size--small: 1.125em;
+    }
+}
+
+h4 {
+    font-size: 1.25em;
+    &.has-small-font-size {
+        --wp--preset--font-size--small: 1.0625em;
+    }
+}
+
+h5 {
+    font-size: 1.125em;
+    &.has-small-font-size {
+        --wp--preset--font-size--small: 1em;
+    }
+}
+
+h6 {
+    font-size: 1.0625em;
+    &.has-small-font-size {
+        --wp--preset--font-size--small: 1em;
     }
 }
 
