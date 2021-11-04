@@ -1,0 +1,25 @@
+.wp-block-post-template {
+    .wp-block-post {
+        .wp-block-post-featured-image {
+            aspect-ratio: 3/2;
+            a,
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &.c-article--nothumbnail {
+            &::before {
+                content: '';
+                display: block;
+                aspect-ratio: 3/2;
+                background: rgba(0, 0, 0, 0.5) url('../img/icons/nothumbnail_logo.min.svg') center
+                    no-repeat;
+                background-size: 50% auto;
+                opacity: 0.15;
+            }
+        }
+    }
+}
