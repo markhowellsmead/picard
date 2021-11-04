@@ -1,4 +1,20 @@
 .wp-block-separator {
-	max-width: var(--constraint-xxnarrow);
-	margin: var(--unit-large) auto;
+    max-width: var(--constraint-narrow);
+    margin: var(--unit-large) auto;
+
+    &:not(.is-style-dots) {
+        border: none;
+        height: auto;
+        &:before {
+            content: '';
+            display: block;
+            height: 4rem;
+            background: url('../img/divider.min.svg') center/contain no-repeat;
+            opacity: 0.2;
+        }
+    }
+
+    &.is-style-wide {
+        max-width: var(--constraint-wide);
+    }
 }
