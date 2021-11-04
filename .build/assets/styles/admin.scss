@@ -15,7 +15,6 @@ $context: 'admin';
 .editor-post-title__block {
     .editor-post-title__input {
         font-family: var(--font-family-heading);
-        line-height: var(--line-height-heading);
         font-weight: var(--font-weight-heading);
         color: var(--color-heading);
         @include laptop {
