@@ -122,6 +122,42 @@
             }
         }
     }
+
+    &.c-card {
+        @extend .h-stack--small;
+        box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.2);
+
+        > * {
+            padding: 0 var(--unit-small);
+        }
+
+        p,
+        figcaption {
+            font-size: var(--font-size-xsmall);
+        }
+
+        figcaption {
+            padding: 0 var(--unit-small);
+        }
+
+        .wp-block-image {
+            padding: 0;
+            @extend .h-stack--xsmall;
+        }
+
+        .wp-block-buttons {
+            font-size: var(--font-size-xsmall);
+            padding-bottom: var(--unit);
+
+            &:last-child {
+                margin-top: var(--unit-medium);
+            }
+        }
+
+        .wp-block-button__link {
+            padding: 0.125em 0.5em;
+        }
+    }
 }
 
 @include context-edit {

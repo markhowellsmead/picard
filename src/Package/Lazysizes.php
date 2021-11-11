@@ -31,7 +31,7 @@ class Lazysizes
 		add_action('wp_enqueue_scripts', [$this, 'addAssets']);
 		add_action('rest_api_init', [$this, 'registerRoute']);
 		add_filter('lazy_sizes_size', [$this, 'customLazySizes'], 10, 0);
-		add_filter('the_content', [$this, 'makeImageBlocksLazy']);
+		//add_filter('the_content', [$this, 'makeImageBlocksLazy']);
 		add_action('after_setup_theme', [$this, 'addImageSizes']);
 	}
 
