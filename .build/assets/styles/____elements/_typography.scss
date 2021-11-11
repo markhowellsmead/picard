@@ -193,9 +193,10 @@ h6 {
 
 h1 {
     font-size: 1.75em;
+    font-size: 2.5em;
 
     &.is-style-large {
-        font-size: 2.5em;
+        font-size: 3em;
     }
 
     &.is-style-xlarge {
@@ -208,7 +209,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.75em;
     &.has-small-font-size {
         --wp--preset--font-size--small: 1.25em;
     }
@@ -216,6 +217,7 @@ h2 {
 
 h3 {
     font-size: 1.375em;
+    font-weight: 500;
     &.has-small-font-size {
         --wp--preset--font-size--small: 1.125em;
     }
@@ -223,6 +225,7 @@ h3 {
 
 h4 {
     font-size: 1.25em;
+    font-weight: 600;
     &.has-small-font-size {
         --wp--preset--font-size--small: 1.0625em;
     }
@@ -230,13 +233,15 @@ h4 {
 
 h5 {
     font-size: 1.125em;
+    font-weight: 500;
     &.has-small-font-size {
         --wp--preset--font-size--small: 1em;
     }
 }
 
 h6 {
-    font-size: 1.0625em;
+    font-size: 1em;
+    font-weight: 500;
     &.has-small-font-size {
         --wp--preset--font-size--small: 1em;
     }
