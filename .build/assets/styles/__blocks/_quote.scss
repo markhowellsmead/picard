@@ -1,69 +1,68 @@
 .wp-block-quote {
-	padding: var(--unit) var(--unit-xlarge);
-	font-style: italic;
-	position: relative;
-	border: none; // override core CSS
+    padding: var(--unit) var(--unit-xlarge);
+    font-style: italic;
+    position: relative;
+    border: none; // override core CSS
 
-	> * {
-		position: relative;
-	}
+    > * {
+        position: relative;
+    }
 
-	&:before {
-		content: '“';
-		font-size: 6em;
-		line-height: 1;
-		position: absolute;
-		top: 0;
-		left: 0;
-		pointer-events: none;
-		color: c(gray, mid);
-		opacity: .5;
-		@include tablet {
-			left: -.0625em;
-		}
-		@include desktop {
-			left: -.125em;
-		}
-	}
+    &:before {
+        content: '“';
+        font-size: 6em;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        color: c(gray, mid);
+        opacity: 0.5;
+        @include tablet {
+            left: -0.0625em;
+        }
+        @include desktop {
+            left: -0.125em;
+        }
+    }
 
-	p:last-of-type:before {
-		content: '„';
-		font-size: 6em;
-		line-height: 1;
-		position: absolute;
-		bottom: 0;
-		right: -.5em;
-		pointer-events: none;
-		color: c(gray, mid);
-		opacity: .5;
-		@include tablet {
-			right: -.65em;
-		}
-		@include desktop {
-			right: -.75em;
-		}
-	}
+    p:last-of-type:before {
+        content: '„';
+        font-size: 6em;
+        line-height: 1;
+        position: absolute;
+        bottom: 0;
+        right: -0.5em;
+        pointer-events: none;
+        color: c(gray, mid);
+        opacity: 0.5;
+        @include tablet {
+            right: -0.65em;
+        }
+        @include desktop {
+            right: -0.75em;
+        }
+    }
 
-	&__citation,
-	cite,
-	em {
-		font-size: var(--font-size-small);
-		color: c(gray);
-		font-style: italic;
-		a {
-			color: currentColor;
-		}
-	}
+    &__citation,
+    cite,
+    em {
+        font-size: var(--font-size-small);
+        color: c(gray);
+        font-style: italic;
+        a {
+            color: currentColor;
+        }
+    }
 }
 
 .wp-block-pullquote {
-	font-size: 1.1em;
-	@extend .wp-block-quote;
-	padding-top: var(--unit-large);
-	padding-bottom: var(--unit-large);
-	background-color: c(gray, xlight) !important;
-	max-width: calc(var(--constraint-medium) + var(--unit-large));
-	p {
-		font-size: 1em;
-	}
+    font-size: 1.1em;
+    @extend .wp-block-quote;
+    padding-top: var(--unit-large);
+    padding-bottom: var(--unit-large);
+    background-color: c(gray, xlight) !important;
+    p {
+        font-size: 1em;
+    }
 }
