@@ -33,6 +33,10 @@
         display: inline-block;
     }
 
+    &__thumbnailimage {
+        width: 100%;
+    }
+
     &__title {
         @include laptop {
             font-size: 1.75rem;
