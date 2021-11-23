@@ -158,6 +158,10 @@
             padding: 0.125em 0.5em;
         }
     }
+
+    &.has-background {
+        padding: var(--unit);
+    }
 }
 
 @include context-edit {
