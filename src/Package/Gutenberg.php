@@ -12,7 +12,6 @@ class Gutenberg
 	public $theme_url = '';
 	public $theme_path = '';
 	public $min = false;
-	public $js = false;
 
 	public function __construct()
 	{
@@ -21,10 +20,6 @@ class Gutenberg
 		if (sht_theme()->debug && is_user_logged_in()) {
 			$this->min = true;
 		}
-
-		if (file_exists($this->theme_path . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js')) {
-			$this->js = $this->theme_url . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js';
-		}
 	}
 
 	public function run()
@@ -32,8 +27,6 @@ class Gutenberg
 		if (!function_exists('register_block_type')) {
 			return; // Gutenberg is not active.
 		}
-		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockAssets']);
-		add_filter('block_categories_all', [$this, 'blockCategories']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
@@ -103,33 +96,6 @@ class Gutenberg
 	{
 		$editor_settings['styles'] = [];
 		return $editor_settings;
-	}
-
-	public function enqueueBlockAssets()
-	{
-		if ($this->js) {
-			$script_asset_path = get_template_directory() . '/assets/gutenberg/blocks.asset.php';
-			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
-			wp_enqueue_script(
-				sht_theme()->prefix . '-gutenberg-script',
-				$this->js,
-				$script_asset['dependencies'],
-				$script_asset['version']
-			);
-			$vars = json_encode(apply_filters('sht_disabled_blocks', []));
-			wp_add_inline_script(sht_theme()->prefix . '-gutenberg-script', "var shtDisabledBlocks = {$vars};", 'before');
-			wp_set_script_translations(sht_theme()->prefix . '-gutenberg-script', 'sht', get_template_directory() . '/languages');
-		}
-	}
-
-	public function blockCategories($categories)
-	{
-		return array_merge($categories, [
-			[
-				'slug'  => 'sht-blocks',
-				'title' => __('Blocks by Say Hello', 'sha'),
-			],
-		]);
 	}
 
 	public function isContextEdit()
