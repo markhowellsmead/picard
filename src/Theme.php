@@ -106,7 +106,6 @@ class Theme
 				\SayHello\Theme\PostType\Page::class,
 				\SayHello\Theme\PostType\Feature::class,
 				\SayHello\Theme\PostType\Photo::class,
-				\SayHello\Theme\PostType\Post::class,
 
 			]
 		);
