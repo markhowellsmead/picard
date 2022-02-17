@@ -28,7 +28,6 @@ class Gutenberg
 			return; // Gutenberg is not active.
 		}
 		add_action('after_setup_theme', [$this, 'themeSupports']);
-		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
 	}
 
 	/**
@@ -82,21 +81,5 @@ class Gutenberg
 				'slug'     => 'bottom-black-shadow'
 			]
 		]);
-	}
-
-	public function isContextEdit()
-	{
-		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
-	}
-
-	public function reusableBlocksAdminMenu()
-	{
-		add_submenu_page(
-			'themes.php',
-			_x('Wiederverwendbare Blöcke', 'Admin page title', 'sht'),
-			_x('Wiederverwendbare Blöcke', 'Admin menu label', 'sht'),
-			'edit_posts',
-			'edit.php?post_type=wp_block'
-		);
 	}
 }
