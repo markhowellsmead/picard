@@ -79,8 +79,6 @@ class Theme
 		add_action('after_setup_theme', [$this, 'addNavigations']);
 		add_action('after_setup_theme', [$this, 'addThemeSupports']);
 		add_action('after_setup_theme', [$this, 'contentWidth']);
-		add_action('comment_form_before', [$this, 'enqueueReplyScript']);
-		add_action('wp_head', [$this, 'noJsScript']);
 
 		$this->cleanHead();
 	}
@@ -189,13 +187,6 @@ class Theme
 		remove_action('wp_print_styles', 'print_emoji_styles');
 	}
 
-	/**
-	 * Adds a JS script to the head that removes 'no-js' from the html class list
-	 */
-	public function noJsScript()
-	{
-		echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>" . chr(10);
-	}
 
 	public function getTemplatePart(string $file_path, ...$arguments)
 	{
@@ -232,13 +223,6 @@ class Theme
 			if (!empty($template = locate_template($parts))) {
 				require(locate_template($parts));
 			}
-		}
-	}
-
-	public function enqueueReplyScript()
-	{
-		if (is_singular() && get_option('thread_comments')) {
-			wp_enqueue_script('comment-reply');
 		}
 	}
 }
