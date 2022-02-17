@@ -7,7 +7,7 @@ class Bodyclass
 
 	public function run()
 	{
-		add_filter('body_class', [ $this, 'bodyClasses' ], 10, 1);
+		add_filter('body_class', [$this, 'bodyClasses'], 10, 1);
 	}
 
 	/**
@@ -22,6 +22,10 @@ class Bodyclass
 	{
 		if (sht_theme()->debug) {
 			$classes[] = 'theme-dev';
+		}
+
+		if (!empty(get_field('video_ref'))) {
+			$classes[] = 's-has--video';
 		}
 
 		return $classes;
