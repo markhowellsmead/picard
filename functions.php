@@ -11,6 +11,12 @@
  * Check if WordPress 4.6 and PHP 5.3 or newer and ACF is active
  */
 
+function pt_must_use_get_instance()
+{
+	return \PT\MustUse\pt_must_use_get_instance();
+}
+
+
 if (!defined('DISALLOW_FILE_EDIT')) {
 	define('DISALLOW_FILE_EDIT', true);
 }
