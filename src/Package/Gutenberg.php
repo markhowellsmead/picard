@@ -27,7 +27,6 @@ class Gutenberg
 		if (!function_exists('register_block_type')) {
 			return; // Gutenberg is not active.
 		}
-		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
 	}
@@ -83,19 +82,6 @@ class Gutenberg
 				'slug'     => 'bottom-black-shadow'
 			]
 		]);
-	}
-
-	/**
-	 * Gutenberg enqueues a few styles within an inline STYLE block in the
-	 * editor. This removes them. (The default Gutenberg implementation
-	 * currently only contains a few basic typography settings.)
-	 * @param  array $editor_settings The pre-defined settings
-	 * @return array                  The modified settings
-	 */
-	public function editorSettings($editor_settings)
-	{
-		$editor_settings['styles'] = [];
-		return $editor_settings;
 	}
 
 	public function isContextEdit()
