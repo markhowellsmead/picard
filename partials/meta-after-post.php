@@ -29,7 +29,7 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 		}
 
 		if (is_array($image_meta) && !empty($image_meta)) {
-			$gps = sht_theme()->Package->Media->calculateGPS($image_meta);
+			$gps = pt_must_use_get_instance()->Package->Media->calculateGPS($image_meta);
 			if ($gps['GPSCalculatedDecimal'] ?? false) {
 			?>
 				<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Map location', 'Post meta title', 'picard'); ?></h2>
@@ -43,7 +43,7 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 	</div>
 
 	<?php if (get_post_format() === 'image' && has_post_thumbnail()) {
-		$camera = sht_theme()->Package->Media->getCameraDescriptors($image_meta['camera'] ?? '');
+		$camera = pt_must_use_get_instance()->Package->Media->getCameraDescriptors($image_meta['camera'] ?? '');
 		if (!empty($camera) || $image_meta['aperture'] ?? null || $image_meta['created_timestamp'] ?? null || $image_meta['shutter_speed'] ?? false || $image_meta['iso'] ?? null || $image_meta['focal_length'] ?? null) {
 	?>
 			<div class="c-exifbox" data-exif>
@@ -66,7 +66,7 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 					if ($image_meta['shutter_speed'] ?? false) {
 					?>
 						<h2 class="c-article__metatitle c-article__metatitle--<?php echo get_post_type(); ?>"><?php _ex('Shutter speed', 'Post meta title', 'picard'); ?></h2>
-						<p><?php echo sht_theme()->Package->Media->convertShutterSpeed($image_meta['shutter_speed']); ?></p>
+						<p><?php echo pt_must_use_get_instance()->Package->Media->convertShutterSpeed($image_meta['shutter_speed']); ?></p>
 					<?php
 					}
 

@@ -4,7 +4,7 @@ if (post_password_required() || is_attachment() || !has_post_thumbnail() || (boo
 	return;
 }
 
-$imageAspect = sht_theme()->Package->Media->thumbnailAspect();
+$imageAspect = pt_must_use_get_instance()->Package->Media->thumbnailAspect();
 $image_size = 'gutenberg_wide';
 $block_width = 'alignwide';
 
@@ -39,7 +39,7 @@ if (is_singular()) {
 	}
 } else {
 	if (!empty(get_field('video_ref'))) {
-		if (!empty($video_image = sht_theme()->Package->Media->getVideoThumbnail(get_field('video_ref')))) {
+		if (!empty($video_image = pt_must_use_get_instance()->Package->Media->getVideoThumbnail(get_field('video_ref')))) {
 			$image = $video_image;
 		}
 	}

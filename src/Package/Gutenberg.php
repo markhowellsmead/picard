@@ -27,9 +27,7 @@ class Gutenberg
 		if (!function_exists('register_block_type')) {
 			return; // Gutenberg is not active.
 		}
-		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
-		add_action('admin_menu', [$this, 'reusableBlocksAdminMenu']);
 	}
 
 	/**
@@ -83,34 +81,5 @@ class Gutenberg
 				'slug'     => 'bottom-black-shadow'
 			]
 		]);
-	}
-
-	/**
-	 * Gutenberg enqueues a few styles within an inline STYLE block in the
-	 * editor. This removes them. (The default Gutenberg implementation
-	 * currently only contains a few basic typography settings.)
-	 * @param  array $editor_settings The pre-defined settings
-	 * @return array                  The modified settings
-	 */
-	public function editorSettings($editor_settings)
-	{
-		$editor_settings['styles'] = [];
-		return $editor_settings;
-	}
-
-	public function isContextEdit()
-	{
-		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
-	}
-
-	public function reusableBlocksAdminMenu()
-	{
-		add_submenu_page(
-			'themes.php',
-			_x('Wiederverwendbare Blöcke', 'Admin page title', 'sht'),
-			_x('Wiederverwendbare Blöcke', 'Admin menu label', 'sht'),
-			'edit_posts',
-			'edit.php?post_type=wp_block'
-		);
 	}
 }

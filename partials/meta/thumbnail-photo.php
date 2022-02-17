@@ -6,7 +6,7 @@ if (post_password_required() || is_attachment() || !has_post_thumbnail() || (boo
 	return;
 }
 
-$imageAspect = sht_theme()->Package->Media->thumbnailAspect();
+$imageAspect = pt_must_use_get_instance()->Package->Media->thumbnailAspect();
 
 $block_width = 'regular';
 

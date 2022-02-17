@@ -1,15 +1,16 @@
 <?php
+
 use SayHello\Theme\Package\Lazysizes;
 
 ?>
-<article itemscope itemtype="http://schema.org/BlogPosting" <?php post_class('c-excerpt');?>>
+<article itemscope itemtype="http://schema.org/BlogPosting" <?php post_class('c-excerpt'); ?>>
 
 	<?php
 
 	$image = '';
 
 	if (has_post_thumbnail()) {
-		$imageAspect = sht_theme()->Package->Media->thumbnailAspect();
+		$imageAspect = pt_must_use_get_instance()->Package->Media->thumbnailAspect();
 		switch ($imageAspect) {
 			case 'tall':
 				$image_size = 'list_view_tall';
@@ -26,7 +27,7 @@ use SayHello\Theme\Package\Lazysizes;
 	}
 
 	if (empty($image) && !empty(get_field('video_ref'))) {
-		if (!empty($image = sht_theme()->Package->Media->getVideoThumbnail(get_field('video_ref')))) {
+		if (!empty($image = pt_must_use_get_instance()->Package->Media->getVideoThumbnail(get_field('video_ref')))) {
 			$image = sprintf(
 				'<figure class="c-excerpt__thumbnailfigure c-excerpt__thumbnailfigure--video"><a class="c-excerpt__imagelink" href="%s"><img class="c-excerpt__thumbnailimage" alt="%s" src="%s"></a></figure>',
 				get_permalink(),
