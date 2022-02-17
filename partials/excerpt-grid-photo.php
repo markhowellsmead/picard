@@ -12,7 +12,7 @@ if (!has_post_thumbnail()) {
 
 $image = '';
 
-$image_width_height = sht_theme()->Package->Media->thumbnailSize($data['image_size']);
+$image_width_height = pt_must_use_get_instance()->Package->Media->thumbnailSize($data['image_size']);
 $flex_grow = $image_width_height['width']  * 100 / $image_width_height['height'];
 $flex_basis = $image_width_height['width']  * $data['target_height'] / $image_width_height['height'];
 $padding_bottom = ($image_width_height['height'] / $image_width_height['width']) * 100;
