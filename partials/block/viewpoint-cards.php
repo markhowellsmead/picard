@@ -23,7 +23,7 @@ if (!empty($align = $data['attributes']['align'] ?? $data['attributes']['align']
 					if (has_post_thumbnail($data_post)) {
 						$thumbnail = '<a class="c-cardgrid__figurelink wp-block-mhm-blog-cards__figurelink" href="' . get_the_permalink($data_post->ID) . '">' . Lazysizes::getLazyImage(get_post_thumbnail_id($data_post), 'card', 'c-cardgrid__figure wp-block-mhm-blog-cards__figure', 'c-cardgrid__image wp-block-mhm-blog-cards__image') . '</a>';
 					} elseif (!empty($video_url = get_field('video_ref', $data_post->ID))) {
-						$thumbnail = sht_theme()->Package->Media->getVideoThumbnail($video_url);
+						$thumbnail = pt_must_use_get_instance()->Package->Media->getVideoThumbnail($video_url);
 						if (!empty($thumbnail)) {
 							$thumbnail = sprintf(
 								'<a class="c-cardgrid__figurelink wp-block-mhm-blog-cards__figurelink" href="%s"><figure class="c-cardgrid__figure wp-block-mhm-blog-cards__figure"><img alt="%s" class="c-cardgrid__image wp-block-mhm-blog-cards__image" src="%s"></figure></a>',
