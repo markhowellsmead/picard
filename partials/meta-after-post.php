@@ -44,7 +44,7 @@ if (get_post_format() === 'image' && has_post_thumbnail()) {
 
 	<?php if (get_post_format() === 'image' && has_post_thumbnail()) {
 		$camera = pt_must_use_get_instance()->Package->Media->getCameraDescriptors($image_meta['camera'] ?? '');
-		if (!empty($camera) || $image_meta['aperture'] ?? null || $image_meta['created_timestamp'] ?? null || $image_meta['shutter_speed'] ?? false || $image_meta['iso'] ?? null || $image_meta['focal_length'] ?? null) {
+		if (!empty($camera) || empty($image_meta['aperture'] ?? null) || !empty($image_meta['created_timestamp'] ?? null) || !empty($image_meta['shutter_speed'] ?? false) || !empty($image_meta['iso'] ?? null) || !empty($image_meta['focal_length'] ?? null)) {
 	?>
 			<div class="c-exifbox" data-exif>
 				<div class="c-exifbox__content c-article__metagroup">
