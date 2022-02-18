@@ -2,7 +2,7 @@ require('@fancyapps/fancybox');
 
 (function ($) {
     $(
-        "a[href$='.jpg']:not([target]):not([download]), a[href$='.png']:not([target]):not([download]), a[href$='.gif']:not([target]):not([download]), a[href$='.svg']:not([target]):not([download])"
+        "a[href$='.jpg']:not([target]):not([download]), a[href$='.png']:not([target]):not([download]), a[href$='.gif']:not([target]):not([download]), a[href$='.svg']:not([target]):not([download]), a[href$='.webp']:not([target]):not([download])"
     ).fancybox({
         transitionIn: 'elastic',
         transitionOut: 'elastic',
