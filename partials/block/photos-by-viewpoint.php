@@ -1,7 +1,5 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
-
 if (empty($viewpoints = ((array) $data['data']['sht_viewpoint'] ?? []))) {
 	return;
 }
@@ -59,7 +57,7 @@ $unique = uniqid();
 					<a class="c-grid500__itemlink" href="<?php echo $href; ?>" title="<?php echo get_the_title($viewpoint_post); ?>" data-fancybox="image" data-caption="<?php echo get_the_title($viewpoint_post); ?>" data-srcset="<?php echo $fancybox_href; ?>">
 						<i class="c-grid500__uncollapse" style="padding-bottom:<?php echo $padding_bottom; ?>%"></i>
 						<?php
-						echo Lazysizes::getLazyImage($thumbnail_id, $source_image_size, 'c-grid500__figure', 'c-grid500__image');
+						$image = wp_get_attachment_image($thumbnail_id, $source_image_size, false, ['class' => 'c-grid500__image']);
 						if ((bool) get_field('sht_show_captions')) {
 							printf('<figcaption class="c-grid500__caption">%s</figcaption>', get_the_title($viewpoint_post));
 						}

@@ -20,7 +20,7 @@ if (empty($args['pages'])) {
 			$thumbnail = '<div class="wp-block-mhm-subpages__figure wp-block-mhm-subpages__figure--empty"></div>';
 
 			if (has_post_thumbnail($page->ID)) {
-				$thumbnail = '<a href="' . get_permalink($page->ID) . '">' . Lazysizes::getLazyImage(get_post_thumbnail_id($page->ID), 'card', 'wp-block-mhm-subpages__figure', 'wp-block-mhm-subpages__image') . '</a>';
+				$thumbnail = '<a href="' . get_permalink($page->ID) . '"><figure class="wp-block-mhm-subpages__figure">' . wp_get_attachment_image(get_post_thumbnail_id($page->ID), 'card', false, ['class' => 'wp-block-mhm-subpages__image']) . '</figure></a>';
 			}
 
 			printf(
