@@ -18,15 +18,18 @@
  * https://scotch.io/tutorials/converting-photoshop-letter-spacing-to-css
  */
 .acf-hl li:before {
-  content: '';
-  display: none; }
+  content: "";
+  display: none;
+}
 
 .editor-post-title__block .editor-post-title__input {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-heading);
-  color: var(--color-heading); }
-  @media (min-width: 1280px) {
-    .editor-post-title__block .editor-post-title__input {
-      font-size: 2.5rem; } }
-
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWRtaW4uY3NzIiwic291cmNlcyI6WyJhZG1pbi5zY3NzIiwiX19fX19fX3NldHRpbmdzL19fYWxsLnNldHRpbmdzLnNjc3MiLCJfX19fX19fc2V0dGluZ3MvX2JveHNoYWRvdy5zY3NzIiwiX19fX19fX3NldHRpbmdzL19ncmlkLnNjc3MiLCJfX19fX19fc2V0dGluZ3MvX3RyYW5zaXRpb24uc2NzcyIsIl9fX19fX19zZXR0aW5ncy9fdHlwb2dyYXBoeS5zY3NzIiwiX19fX19fdG9vbHMvX19hbGwudG9vbHMuc2NzcyIsIl9fX19fX3Rvb2xzL2Z1bmN0aW9ucy9fYnJlYWtwb2ludHMuc2NzcyIsIl9fX19fX3Rvb2xzL2Z1bmN0aW9ucy9fY29sb3Iuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fYmxvY2tzLnNjc3MiLCJfX19fX190b29scy9taXhpbnMvX2JveC1zaGFkb3cuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fYnJlYWtwb2ludHMuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fY2xlYXJmaXguc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fZWxlbWVudHMuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fZWxsaXBzaXMuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9faW1hZ2Uuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fbGF5b3V0LnNjc3MiLCJfX19fX190b29scy9taXhpbnMvX3NwaW5uZXIuc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fdHJhbnNpdGlvbi5zY3NzIiwiX19fX19fdG9vbHMvbWl4aW5zL190eXBvZ3JhcGh5LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFtQjBCQTs7Ozs7O0dBTUc7QUFlSDs7Ozs7OztHQU9HO0FBMENIOzs7R0FHRztBbkJwRkgsQUFDSSxPQURHLENBQ0gsRUFBRSxBQUFBLE9BQU8sQ0FBQztFQUNOLE9BQU8sRUFBRSxFQUFFO0VBQ1gsT0FBTyxFQUFFLElBQUksR0FDaEI7O0FBR0wsQUFDSSx5QkFEcUIsQ0FDckIseUJBQXlCLENBQUM7RUFDdEIsV0FBVyxFQUFFLDBCQUEwQjtFQUN2QyxXQUFXLEVBQUUsMEJBQTBCO0VBQ3ZDLEtBQUssRUFBRSxvQkFBb0IsR0FJOUI7RVczQkcsTUFBTSxFQUFFLFNBQVMsRUFBRSxNQUFNO0lYbUJqQyxBQUNJLHlCQURxQixDQUNyQix5QkFBeUIsQ0FBQztNQUtsQixTQUFTLEVBQUUsTUFBTSxHQUV4QiJ9 */
+  color: var(--color-heading);
+}
+@media (min-width: 1280px) {
+  .editor-post-title__block .editor-post-title__input {
+    font-size: 2.5rem;
+  }
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9fX19fX3Rvb2xzL21peGlucy9fdHlwb2dyYXBoeS5zY3NzIiwiYWRtaW4uc2NzcyIsIl9fX19fX3Rvb2xzL21peGlucy9fYnJlYWtwb2ludHMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUEwQkE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFxQkE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQWlEQTtBQUFBO0FBQUE7QUFBQTtBQ2hGSTtFQUNJO0VBQ0E7OztBQUtKO0VBQ0k7RUFDQTtFQUNBOztBQ3ZCQTtFRG9CSjtJQUtRIiwiZmlsZSI6ImFkbWluLmNzcyJ9 */
