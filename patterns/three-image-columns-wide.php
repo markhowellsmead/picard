@@ -1,3 +1,13 @@
+<?php
+
+/**
+ * Title: Three image columns (wide)
+ * Slug: sht/three-image-columns-wide
+ * Categories: sht
+ */
+
+?>
+
 <!-- wp:columns {"align":"wide"} -->
 <div class="wp-block-columns alignwide">
 	<!-- wp:column -->
