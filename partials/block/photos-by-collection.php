@@ -54,7 +54,17 @@ if (!empty($args['align'])) {
 		<div class="c-grid500__inner">
 			<?php foreach ($entries as $entry) {
 				$thumbnail_id = get_post_thumbnail_id($entry);
+
+				if (!$thumbnail_id) {
+					continue;
+				}
+
 				$metadata = wp_get_attachment_metadata($thumbnail_id);
+
+				if (empty($metadata)) {
+					continue;
+				}
+
 				$source_image_size = $metadata['sizes'][$image_size] ?? null ? $image_size : 'large';
 				$width = $metadata['sizes'][$image_size]['width'] ?? $metadata['width'];
 				$height = $metadata['sizes'][$image_size]['height'] ?? $metadata['height'];
