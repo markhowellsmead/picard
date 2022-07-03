@@ -21,7 +21,7 @@ if (!empty($align = $data['attributes']['align'] ?? $data['attributes']['align']
 			<ul class="c-cardgrid__entries wp-block-mhm-blog-cards__entries">
 				<?php foreach ($data['posts'] as $data_post) {
 					if (has_post_thumbnail($data_post)) {
-						$thumbnail = '<a class="c-cardgrid__figurelink wp-block-mhm-blog-cards__figurelink" href="' . get_permalink($data_post->ID) . '"><figure class="c-cardgrid__figure wp-block-mhm-blog-cards__figure">' . wp_get_attachment_image(get_post_thumbnail_id($data_post->ID), 'card', false, ['class' => 'wp-block-mhm-blog-cards__image']) . '</figure></a>';
+						$thumbnail = '<a class="c-cardgrid__figurelink wp-block-mhm-blog-cards__figurelink" href="' . get_permalink($data_post->ID) . '"><figure class="c-cardgrid__figure wp-block-mhm-blog-cards__figure">' . wp_get_attachment_image(get_post_thumbnail_id($data_post->ID), 'card', false, ['class' => 'c-cardgrid__image wp-block-mhm-blog-cards__image']) . '</figure></a>';
 					} elseif (!empty($video_url = get_field('video_ref', $data_post->ID))) {
 						$thumbnail = pt_must_use_get_instance()->Package->Media->getVideoThumbnail($video_url);
 						if (!empty($thumbnail)) {
