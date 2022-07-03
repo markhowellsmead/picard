@@ -1,13 +1,24 @@
 .wp-block-gallery {
+    --wp--style--gallery-gap-default: var(--wp--style--columns-gap-default);
+
     clear: both;
 
     figcaption {
         margin-top: 0;
     }
+
     img {
         pointer-events: none;
         body.logged-in & {
             pointer-events: all;
         }
+    }
+
+    &.has-nested-images {
+        gap: var(--wp--style--gallery-gap-default);
+    }
+
+    &.has-nested-images figure.wp-block-image figcaption {
+        padding: 1.5em;
     }
 }

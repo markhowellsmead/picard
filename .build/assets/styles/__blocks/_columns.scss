@@ -1,15 +1,14 @@
+body {
+    --wp--style--columns-gap-default: 2em;
+}
+
 .wp-block-column {
     @extend .h-stack;
-
-    @include for-screen-min(wordpress_medium) {
-        &:not(:first-child) {
-            margin-left: var(--unit-medium);
-        }
-    }
 }
 
 .wp-block-columns {
     @extend .h-stack;
+    gap: var(--wp--style--columns-gap-default);
 
     @include tablet {
         flex-wrap: nowrap;
@@ -23,13 +22,13 @@
         padding: 0;
     }
 
-    &.is-style-narrow-gap {
-        .wp-block-column:not(:first-child) {
-            @include for-screen-min(wordpress_medium) {
-                margin-left: var(--grid-border-width);
-            }
-        }
-    }
+    // &.is-style-narrow-gap {
+    //     .wp-block-column:not(:first-child) {
+    //         @include for-screen-min(wordpress_medium) {
+    //             margin-left: var(--grid-border-width);
+    //         }
+    //     }
+    // }
 }
 
 @include context-edit {

@@ -63,12 +63,12 @@
         padding-right: var(--grid-border-width);
     }
 
-    &:first-child {
-        margin-top: calc(var(--unit-large) * -1);
-        .wp-block-mhm-viewpoint-header__inner {
-            padding-top: 0;
-        }
-    }
+    // &:first-child {
+    //     margin-top: calc(var(--unit-large) * -1);
+    //     .wp-block-mhm-viewpoint-header__inner {
+    //         padding-top: 0;
+    //     }
+    // }
 }
 
 @include context-edit() {

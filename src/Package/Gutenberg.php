@@ -28,6 +28,7 @@ class Gutenberg
 			return; // Gutenberg is not active.
 		}
 		add_action('after_setup_theme', [$this, 'themeSupports']);
+		add_action('init', [$this, 'addBlockPatternCategory']);
 	}
 
 	/**
@@ -81,5 +82,12 @@ class Gutenberg
 				'slug'     => 'bottom-black-shadow'
 			]
 		]);
+	}
+
+	public function addBlockPatternCategory()
+	{
+		if (function_exists('register_block_pattern_category')) {
+			register_block_pattern_category('picard', ['label' => __('Permanent Tourist Picard', 'sht')]);
+		}
 	}
 }

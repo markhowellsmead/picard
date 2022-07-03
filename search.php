@@ -20,7 +20,7 @@
 			if (have_posts()) {
 				while (have_posts()) {
 					the_post();
-					get_template_part('partials/excerpt');
+					get_template_part('partials/excerpt', get_post_type());
 				}
 			}
 			?>
@@ -32,7 +32,7 @@
 		]);
 		if ('' != $paginate) {
 			echo '<div class="c-pagination">';
-			echo '<div class="c-pagination__content">' .$paginate. '</div>';
+			echo '<div class="c-pagination__content">' . $paginate . '</div>';
 			echo '</div>';
 		}
 		?>
