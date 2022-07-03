@@ -27,7 +27,7 @@
     }
 
     &__figure--empty {
-        padding-bottom: percentage(2/3);
+        padding-bottom: percentage(calc(2 / 3));
         background-color: var(--color-gray-light);
     }
 
