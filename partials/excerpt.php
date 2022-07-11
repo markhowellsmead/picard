@@ -54,7 +54,31 @@
 					<?php the_title(); ?>
 				</a>
 			</h2>
-			<time class="c-excerpt__date" datetime="<?php echo get_the_date('c'); ?>"><?php printf(_x('Published on %s', 'sht'), get_the_date()); ?></time>
+			<div class="c-excerpt__topmeta">
+				<?php
+				if (!empty($categories = get_the_category())) {
+					$out = [];
+					foreach ($categories as $category) {
+						if ((int) $category->term_id !== (int) get_option('default_category')) {
+							$out[] = sprintf(
+								'<a href="%s" class="c-categories__entry" title="%s">%s</a>',
+								get_category_link($category->term_id),
+								sprintf(_x('More posts in the category “%s”', '', 'picard'), esc_html($category->name)),
+								esc_html($category->name)
+							);
+						}
+					}
+					if (!empty($out)) {
+				?>
+						<nav class="c-excerpt__categories c-categories">
+							<div class="c-categories__entries"><?php echo implode(', ', $out); ?></div>
+						</nav>
+				<?php
+					}
+				}
+				?>
+				<time class="c-excerpt__date" datetime="<?php echo get_the_date('c'); ?>">Published <?php echo get_the_date(); ?></time>
+			</div>
 		</header>
 
 		<?php

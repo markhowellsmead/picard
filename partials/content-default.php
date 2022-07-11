@@ -33,31 +33,11 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 								<nav class="c-categories">
 									<div class="c-categories__entries"><?php echo implode(', ', $out); ?></div>
 								</nav>
-							<?php
-							}
-						}
-
-						if (!empty($place_terms = get_the_terms(get_the_ID(), 'place'))) {
-							$places = [];
-							foreach ($place_terms as $place) {
-								$places[] = sprintf(
-									'<a href="%s" class="c-categories__entry" title="%s">%s</a>',
-									get_term_link($place->term_id, 'place'),
-									sprintf(_x('More posts from %s', '', 'picard'), esc_html($place->name)),
-									esc_html($place->name)
-								);
-							}
-							if (!empty($places)) {
-							?>
-								<nav class="c-places">
-									<div class="c-places__entries"><?php echo implode(', ', $places); ?></div>
-								</nav>
 						<?php
 							}
 						}
-
 						?>
-						<time class="c-article__date" datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+						<time class="c-article__date" datetime="<?php echo get_the_date('c'); ?>">Published <?php echo get_the_date(); ?></time>
 					</div>
 				</header>
 			<?php } ?>
