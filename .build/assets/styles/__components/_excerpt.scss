@@ -13,6 +13,7 @@
         }
     }
 
+    &__categories,
     &__date {
         display: block;
         font-size: var(--font-size-small);
@@ -31,6 +32,10 @@
 
     &__link {
         display: inline-block;
+    }
+
+    &__topmeta {
+        @extend .h-stack--xsmall;
     }
 
     &__thumbnailimage {
