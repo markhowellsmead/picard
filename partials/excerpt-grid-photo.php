@@ -1,6 +1,6 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
+use PT\MustUse\Package\Lazysizes;
 
 if (!isset($data['image_size'])) {
 	$data['image_size'] = 'medium';

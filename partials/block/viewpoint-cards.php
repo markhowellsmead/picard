@@ -1,7 +1,5 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
-
 if (empty($data['posts'])) {
 	return;
 }

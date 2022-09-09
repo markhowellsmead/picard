@@ -1,6 +1,6 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
+use PT\MustUse\Package\Lazysizes;
 
 ?>
 <article itemscope itemtype="http://schema.org/BlogPosting" <?php post_class('c-excerpt'); ?>>
