@@ -48,6 +48,7 @@ $hide_title = (bool) get_post_meta(get_the_ID(), 'hide_title', true);
 				if (get_post_format() === 'gallery') {
 					get_template_part('partials/block/image-gallery', null, ['align' => 'wide']);
 				}
+
 				?>
 			</div>
 			<?php get_template_part('partials/meta-after-post'); ?>

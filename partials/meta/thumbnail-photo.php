@@ -1,6 +1,6 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
+use PT\MustUse\Package\Lazysizes;
 
 if (post_password_required() || is_attachment() || !has_post_thumbnail() || (bool) get_field('hide_thumbnail') || !empty(get_field('video_ref'))) {
 	return;

@@ -3,7 +3,7 @@ require('@fancyapps/fancybox');
 (function ($) {
     document.querySelectorAll('.wp-block-gallery').forEach(gallery => {
         const links = gallery.querySelectorAll(
-            'a[href$=".jpg"]:not([target]):not([download]), a[href$=".png"]:not([target]):not([download]), a[href$=".gif"]:not([target]):not([download]), a[href$=".svg"]:not([target]):not([download]), a[href$=".webp"]:not([target]):not([download])'
+            'a[href$=".jpg"]:not([target]):not([download]), a[href$=".jpeg"]:not([target]):not([download]), a[href$=".png"]:not([target]):not([download]), a[href$=".gif"]:not([target]):not([download]), a[href$=".svg"]:not([target]):not([download]), a[href$=".webp"]:not([target]):not([download])'
         );
 
         if (!!links.length) {
@@ -16,7 +16,7 @@ require('@fancyapps/fancybox');
     });
 
     $(
-        "a[href$='.jpg']:not([target]):not([download]), a[href$='.png']:not([target]):not([download]), a[href$='.gif']:not([target]):not([download]), a[href$='.svg']:not([target]):not([download]), a[href$='.webp']:not([target]):not([download])"
+        "a[href$='.jpg']:not([target]):not([download]), a[href$='.jpeg']:not([target]):not([download]), a[href$='.png']:not([target]):not([download]), a[href$='.gif']:not([target]):not([download]), a[href$='.svg']:not([target]):not([download]), a[href$='.webp']:not([target]):not([download])"
     ).fancybox({
         transitionIn: 'elastic',
         transitionOut: 'elastic',

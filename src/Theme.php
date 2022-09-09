@@ -69,7 +69,6 @@ class Theme
 				\SayHello\Theme\Package\Customizer::class,
 				\SayHello\Theme\Package\Gutenberg::class,
 				\SayHello\Theme\Package\Language::class,
-				\SayHello\Theme\Package\Lazysizes::class,
 				\SayHello\Theme\Package\Navigation::class,
 				\SayHello\Theme\Package\Oembed::class,
 				\SayHello\Theme\Package\ThemeOptions::class,

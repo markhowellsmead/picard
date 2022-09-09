@@ -1,7 +1,5 @@
 <?php
 
-use SayHello\Theme\Package\Lazysizes;
-
 $align = '';
 if (!empty($args['attributes']['align'])) {
 	$align = ' align' . $args['attributes']['align'];
